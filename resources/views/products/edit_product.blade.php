@@ -15,7 +15,7 @@
                             <input type="text" class="form-control @if ($errors->has('name')) is-invalid @endif"
                                 id="name" name="name" placeholder="Product Name" value="{{ $product->name }}"
                                 required>
-                            <label for="name" class="form-label">First Name</label>
+                            <label for="name" class="form-label">Product Name</label>
                             <div class="invalid-tooltip">
                                 @if ($errors->has('name'))
                                     {{ $errors->first('name') }}
