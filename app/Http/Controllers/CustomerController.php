@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Database\QueryException;
 
 class CustomerController extends Controller
 {
@@ -37,7 +38,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customers.add_new_customer');
     }
 
     /**
@@ -49,29 +50,29 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'gender' => 'required',
-            'user_id' => 'required',
-            'phone_number' => 'required',
-            'nationality' => 'required',
-            'passport_no' => 'required',
-            'bank_account_name' => 'required',
-            'bank_account_number' => 'required',
-            'bank_name' => 'required',
-            'bank_branch_number' => 'required',
-            'bank_country_name' => 'required',
-            'bank_swift_code' => 'required',
-            'sales_rep_name' => 'required',
-            'sales_rep_number' => 'required',
-            'sales_rep_country' => 'required',
-            'strorage_service' => 'required'
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'user_id' => 'required|integer|max:255',
+            'phone_number' => 'required|digits:10',
+            'nationality' => 'required|string|max:255',
+            'passport_no' => 'string|min:10|max:255',
+            'bank_account_name' => 'required|max:255',
+            'bank_account_number' => 'string|max:255',
+            'bank_name' => 'string|max:255',
+            'bank_branch_number' => 'string|max:255',
+            'bank_country_name' => 'string|max:255',
+            'bank_swift_code' => 'integer|min:4|max:255',
+            'sales_rep_name' => 'string|max:255',
+            'sales_rep_number' => 'digits:10',
+            'sales_rep_country' => 'string|max:255',
+            'strorage_service' => 'boolean'
         ]);
 
         Customer::create($request->all());
 
-        return redirect()->route('countries.index')
-            ->with('success', 'Country created successfully.');
+        return redirect()->route('customers.index')
+            ->with('success', 'Customer created successfully.');
     }
 
     /**
@@ -93,7 +94,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.customers', ['customer' => $customer]);
     }
 
     /**
@@ -105,7 +106,30 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'user_id' => 'required|integer|max:255',
+            'phone_number' => 'required|digits:10',
+            'nationality' => 'required|string|max:255',
+            'passport_no' => 'string|min:10|max:255',
+            'bank_account_name' => 'required|max:255',
+            'bank_account_number' => 'string|max:255',
+            'bank_name' => 'string|max:255',
+            'bank_branch_number' => 'string|max:255',
+            'bank_country_name' => 'string|max:255',
+            'bank_swift_code' => 'integer|min:4|max:255',
+            'sales_rep_name' => 'string|max:255',
+            'sales_rep_number' => 'digits:10',
+            'sales_rep_country' => 'string|max:255',
+            'strorage_service' => 'boolean'
+        ]);
+
+        $customer->update($request->all());
+
+        return redirect()->route('customers.index')
+            ->with('success', 'Customer updated successfully.');
     }
 
     /**
@@ -116,6 +140,10 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        try {
+            return $customer->delete();
+        } catch (QueryException $e) {
+            print_r($e->errorInfo);
+        }
     }
 }

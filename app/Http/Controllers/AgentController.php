@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use DataTables;
+use Illuminate\Database\QueryException;
 
 class AgentController extends Controller
 {
@@ -12,9 +14,21 @@ class AgentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+
+            $data = Agent::get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    return view('agents.actions', ['row' => $row]);
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('agents.agents');
     }
 
     /**
@@ -35,7 +49,14 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|integer|max:255',
+        ]);
+
+        Agent::create($request->all());
+
+        return redirect()->route('agents.index')
+            ->with('success', 'Agent created successfully.');
     }
 
     /**
@@ -57,7 +78,7 @@ class AgentController extends Controller
      */
     public function edit(Agent $agent)
     {
-        //
+        return view('agents.agents', ['agent' => $agent]);
     }
 
     /**
@@ -69,7 +90,14 @@ class AgentController extends Controller
      */
     public function update(Request $request, Agent $agent)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|integer|max:255',
+        ]);
+
+        $agent->update($request->all());
+
+        return redirect()->route('agents.index')
+            ->with('success', 'Agent updated successfully.');
     }
 
     /**
@@ -80,6 +108,10 @@ class AgentController extends Controller
      */
     public function destroy(Agent $agent)
     {
-        //
+        try {
+            return $agent->delete();
+        } catch (QueryException $e) {
+            print_r($e->errorInfo);
+        }
     }
 }

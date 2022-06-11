@@ -11,7 +11,8 @@ class Agent extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id'
+        'user_id',
+        'parent_id'
     ];
 
     protected $dates = [

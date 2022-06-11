@@ -5,11 +5,11 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Add Course</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Add Customers</h4>
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3 needs-validation" action="{{ route('course.store') }}" method="POST"
+                    <form class="row g-3 needs-validation" action="{{ route('customers.store') }}" method="POST"
                         enctype="multipart/form-data" novalidate>
                         @csrf
                         <div class="col-md-4 col-sm-12">
@@ -45,24 +45,21 @@
                         <div class="col-md-4">
                             <div class="form-label-group in-border">
                                 <select class="form-select mb-3" name="status_id" required>
-                                    @foreach ($statuses as $status)
+                                    {{-- @foreach ($statuses as $status)
                                         <option value="{{ $status->id }}"
                                             @if (old('status_id') == $status->id) {{ 'selected' }} @endif>
                                             {{ $status->name }}
                                         </option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                                 <label for="statusID" class="form-label">Status</label>
                                 <div class="invalid-tooltip">Select the status!</div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
-                            <div id="snow-editor" style="height: 300px;"></div>
-                        </div>
                         <div class="col-12 text-end">
                             <input type="hidden" name="description" id="description">
                             <button class="btn btn-primary" type="submit">Submit form</button>
-                            <a href="{{ route('course.index') }}" type="button"
+                            <a href="{{ route('customers.index') }}" type="button"
                                 class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
                         </div>
                     </form>

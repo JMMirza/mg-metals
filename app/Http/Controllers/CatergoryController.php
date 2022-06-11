@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Catergory;
 use Illuminate\Http\Request;
+use DataTables;
+use Illuminate\Database\QueryException;
 
 class CatergoryController extends Controller
 {
@@ -12,9 +14,21 @@ class CatergoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+
+            $data = Catergory::get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    return view('categories.actions', ['row' => $row]);
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('categories.categories');
     }
 
     /**
@@ -35,7 +49,15 @@ class CatergoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'abbreviation' => 'string|max:255',
+        ]);
+
+        Catergory::create($request->all());
+
+        return redirect()->route('categories.index')
+            ->with('success', 'Category created successfully.');
     }
 
     /**
@@ -57,7 +79,7 @@ class CatergoryController extends Controller
      */
     public function edit(Catergory $catergory)
     {
-        //
+        return view('categories.categories', ['catergory' => $catergory]);
     }
 
     /**
@@ -69,7 +91,15 @@ class CatergoryController extends Controller
      */
     public function update(Request $request, Catergory $catergory)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'abbreviation' => 'string|max:255',
+        ]);
+
+        $catergory->update($request->all());
+
+        return redirect()->route('catergories.index')
+            ->with('success', 'Catergory updated successfully.');
     }
 
     /**
@@ -80,6 +110,10 @@ class CatergoryController extends Controller
      */
     public function destroy(Catergory $catergory)
     {
-        //
+        try {
+            return $catergory->delete();
+        } catch (QueryException $e) {
+            print_r($e->errorInfo);
+        }
     }
 }

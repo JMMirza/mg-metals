@@ -13,6 +13,7 @@ class Catergory extends Model
     protected $fillable = [
         'name',
         'abbreviation',
+        'parent_id'
     ];
     protected $dates = [
 
