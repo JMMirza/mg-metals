@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Catergory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use DataTables;
@@ -28,8 +29,8 @@ class ProductController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-
-        return view('products.products');
+        $categories = Catergory::all();
+        return view('products.products', ['categories' => $categories]);
     }
 
     /**
@@ -52,10 +53,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'abbreviation' => 'string|max:255',
             'product_picture' => 'required|file|mimes:jpg,jpeg,png|max:2048',
             'type' => 'required|string|max:255',
-            'description' => 'text',
             'catergory_id' => 'required|integer'
         ]);
         $input = $request->all();
@@ -93,7 +92,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.products', ['product' => $product]);
+        $categories = Catergory::all();
+        return view('products.products', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -107,10 +107,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'abbreviation' => 'string|max:255',
             'product_picture' => 'required|file|mimes:jpg,jpeg,png|max:2048',
             'type' => 'required|string|max:255',
-            'description' => 'text',
             'catergory_id' => 'required|integer'
         ]);
         $input = $request->all();

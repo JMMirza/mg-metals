@@ -65,9 +65,8 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link 
-                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
-                        href="" role="
-                        button">
+                    {{ Request::is('products') ? 'active' : '' }}"
+                        href="{{ route('products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products</span>
                     </a>
                 </li>

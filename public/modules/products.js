@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var route = $("#ajaxRoute").val();
     console.log(route);
-    $("#agents-data-table").DataTable({
+    $("#products-data-table").DataTable({
         processing: true,
         serverSide: true,
         responsive: true,
@@ -21,8 +21,20 @@ $(document).ready(function () {
                 name: "id",
             },
             {
-                data: "user_id",
-                name: "user_id",
+                data: "name",
+                name: "name",
+            },
+            {
+                data: "abbreviation",
+                name: "abbreviation",
+            },
+            {
+                data: "type",
+                name: "type",
+            },
+            {
+                data: "category_id",
+                name: "category_id",
             },
             {
                 data: "created_at",

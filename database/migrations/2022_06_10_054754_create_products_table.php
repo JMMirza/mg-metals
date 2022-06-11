@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('catergory_id');
             $table->foreign('catergory_id')->references('id')->on('catergories');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
