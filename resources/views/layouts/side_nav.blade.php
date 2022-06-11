@@ -38,6 +38,42 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link 
+                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
+                        href="" role="
+                        button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link 
+                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
+                        href="" role="
+                        button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Agents</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link 
+                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
+                        href="" role="
+                        button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Categories</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link 
+                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
+                        href="" role="
+                        button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products</span>
+                    </a>
+                </li>
+
                 {{-- @permission('show-branches')
                     <li class="nav-item">
                         <a class="nav-link menu-link  @if (Request::is('branch/*') || Request::is('branch/edit/*') || Request::is('employee/*')) active @endif" href="#branchModule"
