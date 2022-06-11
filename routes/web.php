@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\CatergoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     // CRM Routes Starts Here
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::resources(['/customers' => CustomerController::class]);
+    Route::resources(['agents' => AgentController::class]);
+    Route::resources(['categories' => CatergoryController::class]);
+    Route::resources(['products' => ProductController::class]);
 });

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('price');
+            $table->float('price')->nullable();
             $table->string('product_picture');
             $table->string('type');
             $table->string('abbreviation')->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('catergory_id');
             $table->foreign('catergory_id')->references('id')->on('catergories');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -7,7 +7,7 @@
                 <h4 class="card-title mb-0 flex-grow-1">Customers</h4>
                 {{-- @permission('add-course') --}}
                 <div class="flex-shrink-0">
-                    <a href="{{ route('course.create') }}" class="btn btn-success btn-label btn-sm">
+                    <a href="{{ route('customers.create') }}" class="btn btn-success btn-label btn-sm">
                         <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Add New
                     </a>
                 </div>
@@ -19,10 +19,12 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Abbreviation</th>
-                                <th>Status</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Passport Number</th>
+                                <th>Nationality</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -32,10 +34,12 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Abbreviation</th>
-                                <th>Status</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Passport Number</th>
+                                <th>Nationality</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

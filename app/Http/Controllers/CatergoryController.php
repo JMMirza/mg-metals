@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Catergory;
 use Illuminate\Http\Request;
+use DataTables;
+use Illuminate\Database\QueryException;
 
 class CatergoryController extends Controller
 {
@@ -12,9 +14,21 @@ class CatergoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+
+            $data = Catergory::get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    return view('categories.actions', ['row' => $row]);
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('categories.categories');
     }
 
     /**
@@ -35,7 +49,14 @@ class CatergoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Catergory::create($request->all());
+
+        return redirect()->route('categories.index')
+            ->with('success', 'Category created successfully.');
     }
 
     /**
@@ -55,9 +76,9 @@ class CatergoryController extends Controller
      * @param  \App\Models\Catergory  $catergory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Catergory $catergory)
+    public function edit(Catergory $category)
     {
-        //
+        return view('categories.categories', ['category' => $category]);
     }
 
     /**
@@ -67,9 +88,16 @@ class CatergoryController extends Controller
      * @param  \App\Models\Catergory  $catergory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Catergory $catergory)
+    public function update(Request $request, Catergory $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category->update($request->all());
+
+        return redirect()->route('categories.index')
+            ->with('success', 'Catergory updated successfully.');
     }
 
     /**
@@ -78,8 +106,12 @@ class CatergoryController extends Controller
      * @param  \App\Models\Catergory  $catergory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Catergory $catergory)
+    public function destroy(Catergory $category)
     {
-        //
+        try {
+            return $category->delete();
+        } catch (QueryException $e) {
+            print_r($e->errorInfo);
+        }
     }
 }

@@ -40,26 +40,24 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link 
-                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
-                        href="" role="
-                        button">
+                    {{ Request::is('customers') ? 'active' : '' }}"
+                        href="{{ route('customers.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link 
-                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
-                        href="" role="
-                        button">
+                    {{ Request::is('agents') ? 'active' : '' }}"
+                        href="{{ route('agents.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Agents</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link 
-                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
-                        href="" role="
+                    {{ Request::is('categories') ? 'active' : '' }}"
+                        href="{{ route('categories.index') }}" role="
                         button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Categories</span>
                     </a>
@@ -67,9 +65,8 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link 
-                    {{-- {{ Request::is('dashboard') ? 'active' : '' }}" --}}
-                        href="" role="
-                        button">
+                    {{ Request::is('products') ? 'active' : '' }}"
+                        href="{{ route('products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products</span>
                     </a>
                 </li>
