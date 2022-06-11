@@ -1,12 +1,12 @@
 {{-- @permission('edit-course') --}}
-<a href="{{ route('customers.edit', $row->id) }}" class="btn btn-sm btn-success btn-icon waves-effect waves-light">
+<a href="{{ route('categories.edit', $row->id) }}" class="btn btn-sm btn-success btn-icon waves-effect waves-light">
     <i class="mdi mdi-lead-pencil"></i>
 </a>
 {{-- @endpermission --}}
 
 {{-- @permission('delete-course') --}}
-<a href="{{ route('customers.destroy', $row->id) }}" data-rowid="{{ $row->id }}"
-    data-table="customers-data-table" class="btn btn-sm btn-danger btn-icon waves-effect waves-light delete-record">
+<a href="{{ route('categories.destroy', $row->id) }}" data-table="categories-data-table"
+    class="btn btn-sm btn-danger btn-icon waves-effect waves-light delete-record">
     <i class="ri-delete-bin-5-line"></i>
 </a>
 {{-- @endpermission --}}

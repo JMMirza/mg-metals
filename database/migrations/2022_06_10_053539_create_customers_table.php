@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('sales_rep_name')->nullable();
             $table->string('sales_rep_number')->nullable();
             $table->string('sales_rep_country')->nullable();
-            $table->boolean('strorage_service')->default(false);
+            $table->string('strorage_service')->default('false');
             $table->timestamps();
             $table->softDeletes();
         });

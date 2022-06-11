@@ -51,7 +51,6 @@ class CatergoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'abbreviation' => 'string|max:255',
         ]);
 
         Catergory::create($request->all());
@@ -77,9 +76,9 @@ class CatergoryController extends Controller
      * @param  \App\Models\Catergory  $catergory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Catergory $catergory)
+    public function edit(Catergory $category)
     {
-        return view('categories.categories', ['catergory' => $catergory]);
+        return view('categories.categories', ['category' => $category]);
     }
 
     /**
@@ -89,16 +88,15 @@ class CatergoryController extends Controller
      * @param  \App\Models\Catergory  $catergory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Catergory $catergory)
+    public function update(Request $request, Catergory $category)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'abbreviation' => 'string|max:255',
         ]);
 
-        $catergory->update($request->all());
+        $category->update($request->all());
 
-        return redirect()->route('catergories.index')
+        return redirect()->route('categories.index')
             ->with('success', 'Catergory updated successfully.');
     }
 
@@ -108,10 +106,10 @@ class CatergoryController extends Controller
      * @param  \App\Models\Catergory  $catergory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Catergory $catergory)
+    public function destroy(Catergory $category)
     {
         try {
-            return $catergory->delete();
+            return $category->delete();
         } catch (QueryException $e) {
             print_r($e->errorInfo);
         }

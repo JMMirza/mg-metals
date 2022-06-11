@@ -19,10 +19,12 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Abbreviation</th>
-                                <th>Status</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Passport Number</th>
+                                <th>Nationality</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -32,10 +34,12 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Abbreviation</th>
-                                <th>Status</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Passport Number</th>
+                                <th>Nationality</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

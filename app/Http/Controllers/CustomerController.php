@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Database\QueryException;
@@ -27,8 +28,9 @@ class CustomerController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
+        $users = User::all();
 
-        return view('customers.customers');
+        return view('customers.customers', ['users' => $users]);
     }
 
     /**
@@ -38,7 +40,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customers.add_new_customer');
+        $users = User::all();
+        return view('customers.add_new_customer', ['users' => $users]);
     }
 
     /**
@@ -54,19 +57,10 @@ class CustomerController extends Controller
             'last_name' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
             'user_id' => 'required|integer|max:255',
-            'phone_number' => 'required|digits:10',
+            'phone_number' => 'required|string',
             'nationality' => 'required|string|max:255',
-            'passport_no' => 'string|min:10|max:255',
             'bank_account_name' => 'required|max:255',
-            'bank_account_number' => 'string|max:255',
-            'bank_name' => 'string|max:255',
-            'bank_branch_number' => 'string|max:255',
-            'bank_country_name' => 'string|max:255',
-            'bank_swift_code' => 'integer|min:4|max:255',
-            'sales_rep_name' => 'string|max:255',
-            'sales_rep_number' => 'digits:10',
-            'sales_rep_country' => 'string|max:255',
-            'strorage_service' => 'boolean'
+            'storage_service' => 'required'
         ]);
 
         Customer::create($request->all());
@@ -94,7 +88,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        return view('customers.customers', ['customer' => $customer]);
+        $users = User::all();
+        return view('customers.edit_customer', ['customer' => $customer, 'users' => $users]);
     }
 
     /**

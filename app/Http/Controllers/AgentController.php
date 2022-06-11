@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agent;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Database\QueryException;
@@ -22,13 +23,13 @@ class AgentController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    return view('agents.actions', ['row' => $row]);
+                    return view('agents.action', ['row' => $row]);
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-
-        return view('agents.agents');
+        $users = User::all();
+        return view('agents.agents', ['users' => $users]);
     }
 
     /**
@@ -78,7 +79,8 @@ class AgentController extends Controller
      */
     public function edit(Agent $agent)
     {
-        return view('agents.agents', ['agent' => $agent]);
+        $users  = User::all();
+        return view('agents.agents', ['agent' => $agent, 'users' => $users]);
     }
 
     /**

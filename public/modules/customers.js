@@ -17,22 +17,30 @@ $(document).ready(function () {
         ajax: route,
         columns: [
             {
-                data: "id",
-                name: "id",
-                width: "5%",
+                data: "first_name",
+                name: "first_name",
             },
             {
-                data: "name",
-                name: "name",
+                data: "last_name",
+                name: "last_name",
             },
             {
-                data: "abbreviation",
-                name: "abbreviation",
+                data: "gender",
+                name: "gender",
+            },
+            {
+                data: "phone_number",
+                name: "phone_number",
                 width: "15%",
             },
             {
-                data: "status",
-                name: "status",
+                data: "passport_no",
+                name: "passport_no",
+                width: "15%",
+            },
+            {
+                data: "nationality",
+                name: "nationality",
                 width: "15%",
             },
             {
