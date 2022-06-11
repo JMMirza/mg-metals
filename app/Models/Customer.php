@@ -39,4 +39,19 @@ class Customer extends Model
     protected $casts = [
         'created_at' => 'date:d M, Y H:i',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function agent_customers()
+    {
+        return $this->hasMany(AgentCustomer::class);
+    }
+
+    public function customer_products()
+    {
+        return $this->hasMany(CustomerProduct::class);
+    }
 }

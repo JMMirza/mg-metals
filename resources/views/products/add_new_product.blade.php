@@ -6,7 +6,8 @@
             </div>
 
             <div class="card-body">
-                <form class="row g-3 needs-validation" action="{{ route('products.store') }}" method="POST" novalidate>
+                <form class="row g-3 needs-validation" action="{{ route('products.store') }}" method="POST"
+                    enctype='multipart/form-data' novalidate>
                     @csrf
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
@@ -41,19 +42,19 @@
 
                     <div class="col-md-4">
                         <div class="form-label-group in-border">
-                            <select class="form-select mb-3" name="category_id" required>
-                                <option value="" @if (old('category_id') == '') {{ 'selected' }} @endif selected
+                            <select class="form-select mb-3" name="catergory_id" required>
+                                <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One
                                 </option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
-                                        @if (old('category_id') == $category->id) {{ 'selected' }} @endif>
+                                        @if (old('catergory_id') == $category->id) {{ 'selected' }} @endif>
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            <label for="category_id" class="form-label">Categories</label>
+                            <label for="catergory_id" class="form-label">Categories</label>
                             <div class="invalid-tooltip">Select the Category!</div>
                         </div>
                     </div>

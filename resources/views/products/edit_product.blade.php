@@ -45,18 +45,18 @@
                     <div class="col-md-4">
                         <div class="form-label-group in-border">
                             <select class="form-select mb-3" name="category_id" required>
-                                <option value="" @if (old('category_id') == '') {{ 'selected' }} @endif selected
+                                <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One
                                 </option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
-                                        @if ($product->category_id == $category->id) {{ 'selected' }} @endif>
+                                        @if ($product->catergory_id == $category->id) {{ 'selected' }} @endif>
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            <label for="category_id" class="form-label">Categories</label>
+                            <label for="catergory_id" class="form-label">Categories</label>
                             <div class="invalid-tooltip">Select the Category!</div>
                         </div>
                     </div>

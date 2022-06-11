@@ -19,7 +19,7 @@ class CustomerController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Customer::get();
+            $data = Customer::with('user')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

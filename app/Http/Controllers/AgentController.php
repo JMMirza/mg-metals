@@ -19,7 +19,7 @@ class AgentController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Agent::get();
+            $data = Agent::with('user')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Product::get();
+            $data = Product::with('category')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -60,17 +60,16 @@ class ProductController extends Controller
         $input = $request->all();
 
         $file_name = time() . '.' . $request->product_picture->extension();
-        $path = 'uploads/products/';
+        $path = 'uploads/products';
         File::ensureDirectoryExists($path);
 
         $request->product_picture->move(public_path($path), $file_name);
 
-        $input['file_name'] = $file_name;
-        $input['user_id'] = $request->user_id;
+        $input['product_picture'] = $file_name;
         Product::create($input);
 
-        return redirect()->route('categories.index')
-            ->with('success', 'Category created successfully.');
+        return redirect()->route('products.index')
+            ->with('success', 'Product created successfully.');
     }
 
     /**
@@ -114,13 +113,12 @@ class ProductController extends Controller
         $input = $request->all();
 
         $file_name = time() . '.' . $request->product_picture->extension();
-        $path = 'uploads/products/';
+        $path = 'uploads/products';
         File::ensureDirectoryExists($path);
 
         $request->product_picture->move(public_path($path), $file_name);
 
-        $input['file_name'] = $file_name;
-        $input['user_id'] = $request->user_id;
+        $input['product_picture'] = $file_name;
 
         $product->update($input);
 

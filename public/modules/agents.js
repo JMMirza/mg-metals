@@ -21,8 +21,8 @@ $(document).ready(function () {
                 name: "id",
             },
             {
-                data: "user_id",
-                name: "user_id",
+                data: "user.name",
+                name: "user.name",
             },
             {
                 data: "created_at",

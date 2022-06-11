@@ -27,4 +27,9 @@ class Product extends Model
     protected $casts = [
         'created_at' => 'date:d M, Y H:i',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Catergory::class, 'catergory_id', 'id');
+    }
 }
