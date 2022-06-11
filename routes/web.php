@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/', function () {
     }
 })->name('index');
 
+Route::get('/home', [HomeCtrl::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
 
