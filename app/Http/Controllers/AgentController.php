@@ -89,8 +89,10 @@ class AgentController extends Controller
      */
     public function edit(Agent $agent)
     {
-        $users  = User::all();
-        return view('agents.agents', ['agent' => $agent, 'users' => $users]);
+        $agents = Agent::whereNull('parent_id')->with('user')->get();
+        // dd($agents->toArray());
+        $users = User::whereDoesntHaveRole()->get();
+        return view('agents.agents', ['agent' => $agent, 'agents' => $agents, 'users' => $users]);
     }
 
     /**

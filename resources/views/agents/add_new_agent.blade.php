@@ -11,14 +11,14 @@
                 <div class="col-md-6">
                     <div class="form-label-group in-border">
                         <label for="user_id" class="form-label">Agents</label>
-                        <select class="form-select mb-3" name="agent_id" required>
-                            <option value="" @if (old('agent_id') == '') {{ 'selected' }} @endif selected
+                        <select class="form-select mb-3" name="parent_id" required>
+                            <option value="" @if (old('parent_id') == '') {{ 'selected' }} @endif selected
                                 disabled>
                                 Select One
                             </option>
                             @foreach ($agents as $user)
                                 <option value="{{ $user->id }}"
-                                    @if (old('agents') == $user->id) {{ 'selected' }} @endif>
+                                    @if (old('parent_id') == $user->id) {{ 'selected' }} @endif>
                                     {{ $user->user->name }}
                                 </option>
                             @endforeach

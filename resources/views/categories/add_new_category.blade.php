@@ -11,9 +11,9 @@
                     @csrf
                     <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
+                            <label for="name" class="form-label">First Name</label>
                             <input type="text" class="form-control @if ($errors->has('name')) is-invalid @endif"
                                 id="name" name="name" placeholder="Category name" value="{{ old('name') }}" required>
-                            <label for="name" class="form-label">First Name</label>
                             <div class="invalid-tooltip">
                                 @if ($errors->has('name'))
                                     {{ $errors->first('name') }}
@@ -26,10 +26,10 @@
 
                     <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
+                            <label for="abbreviation" class="form-label">Abbreviation</label>
                             <input type="text" class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
                                 id="abbreviation" name="abbreviation" placeholder="Abbreviation"
                                 value="{{ old('abbreviation') }}">
-                            <label for="abbreviation" class="form-label">Abbreviation</label>
                             <div class="invalid-tooltip">
                                 {{ $errors->first('abbreviation') }}
                             </div>

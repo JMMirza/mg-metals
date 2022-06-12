@@ -10,10 +10,30 @@
                     enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-label-group in-border">
+                            <label for="user_id" class="form-label">Agents</label>
+                            <select class="form-select mb-3" name="agent_id" required>
+                                <option value="" @if ($agent->parent_id == '') {{ 'selected' }} @endif selected
+                                    disabled>
+                                    Select One
+                                </option>
+                                @foreach ($agents as $user)
+                                    <option value="{{ $user->id }}"
+                                        @if ($agent->parent_id == $user->id) {{ 'selected' }} @endif>
+                                        {{ $user->user->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-tooltip">Select the Agent!</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-label-group in-border">
+                            <label for="user_id" class="form-label">Users</label>
                             <select class="form-select mb-3" name="user_id" required>
-                                <option value="" @if ($customer->user_id == '') {{ 'selected' }} @endif selected
+                                <option value="" @if ($agent->user_id == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One
                                 </option>
@@ -24,7 +44,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            <label for="user_id" class="form-label">Users</label>
+
                             <div class="invalid-tooltip">Select the User!</div>
                         </div>
                     </div>

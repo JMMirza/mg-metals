@@ -10,12 +10,12 @@
                     method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
+                            <label for="name" class="form-label">Category Name</label>
                             <input type="text" class="form-control @if ($errors->has('name')) is-invalid @endif"
                                 id="name" name="name" placeholder="Category name" value="{{ $category->name }}"
                                 required>
-                            <label for="name" class="form-label">Category Name</label>
                             <div class="invalid-tooltip">
                                 @if ($errors->has('name'))
                                     {{ $errors->first('name') }}
@@ -27,12 +27,12 @@
                     </div>
 
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
+                            <label for="abbreviation" class="form-label">Abbreviation</label>
                             <input type="text" class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
                                 id="abbreviation" name="abbreviation" placeholder="Please Enter Abbreviation"
                                 value="{{ $category->abbreviation }}">
-                            <label for="abbreviation" class="form-label">Abbreviation</label>
                             <div class="invalid-tooltip">
                                 {{ $errors->first('abbreviation') }}
                             </div>
