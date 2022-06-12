@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\CatergoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomerProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use App\Http\Controllers\ProductController;
@@ -39,4 +40,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['agents' => AgentController::class]);
     Route::resources(['categories' => CatergoryController::class]);
     Route::resources(['products' => ProductController::class]);
+    Route::resources(['customer-products' => CustomerProductController::class]);
 });

@@ -20,7 +20,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>User ID</th>
+                                <th>User</th>
+                                <th>Parent ID</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -31,7 +32,8 @@
                         <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th>User ID</th>
+                                <th>User</th>
+                                <th>Parent ID</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

@@ -22,14 +22,22 @@ class AgentController extends Controller
             $data = Agent::with('user')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('parent_id', function ($row) {
+                    if ($row->parent_id != null)
+                        return $row->parent_id;
+                    else
+                        return 'N / A';
+                })
                 ->addColumn('action', function ($row) {
                     return view('agents.action', ['row' => $row]);
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'parent_id'])
                 ->make(true);
         }
-        $users = User::all();
-        return view('agents.agents', ['users' => $users]);
+        $agents = Agent::whereNull('parent_id')->with('user')->get();
+        // dd($agents->toArray());
+        $users = User::whereDoesntHaveRole()->get();
+        return view('agents.agents', ['users' => $users, 'agents' => $agents]);
     }
 
     /**
@@ -55,6 +63,8 @@ class AgentController extends Controller
         ]);
 
         Agent::create($request->all());
+        $user = User::find($request->user_id);
+        $user->attachRole('agent');
 
         return redirect()->route('agents.index')
             ->with('success', 'Agent created successfully.');

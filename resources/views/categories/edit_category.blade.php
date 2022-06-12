@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="col-12 text-end">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
                         <a href="{{ route('customers.index') }}" type="button"
                             class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
                     </div>

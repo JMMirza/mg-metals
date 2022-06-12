@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CustomerProduct;
 use Illuminate\Http\Request;
+use DataTables;
 
 class CustomerProductController extends Controller
 {
@@ -12,9 +13,15 @@ class CustomerProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+
+            $data = CustomerProduct::with(['product', 'customer'])->get();
+            return Datatables::of($data)
+                ->make(true);
+        }
+        return view('customer_products.index');
     }
 
     /**
