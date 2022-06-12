@@ -1,38 +1,58 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
-    <head>
-        <meta charset="utf-8" />
-        <title>BIC | CRM</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @include('layouts.header_scripts')
-    	@stack('header_scripts')
-    </head>
+<head>
 
-    <body>
-        <div id="layout-wrapper">
-            @include('layouts.header')
-            @include('layouts.side_nav')
+    <meta charset="utf-8" />
+    <title>UCS | Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <div class="vertical-overlay"></div>
+    @include('layouts.header_scripts')
+    @stack('header_scripts')
 
-            <div class="main-content">
-                <div class="page-content">
-                    <div class="container-fluid">
-                        @include('layouts.breadcrum')
-                        @yield('content')
-                    </div>
+</head>
+
+<body>
+
+    <div id="layout-wrapper">
+
+        @include('layouts.header')
+
+
+        {{-- @role('customer')
+                @include('layouts.customer_side_nav')
+            @endrole
+
+            @role('staff') --}}
+        @include('layouts.side_nav')
+        {{-- @endrole --}}
+
+        <div class="vertical-overlay"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    @include('layouts.breadcrum')
+                    @yield('content')
+
                 </div>
-
-                @include('layouts.footer')
             </div>
+
+            @include('layouts.footer')
+
         </div>
+    </div>
 
-        <div id="modal-div"></div>
-        
-        @include('layouts.theme_setting')
-        @include('layouts.footer_scripts')
+    <div id="modal-div"></div>
 
-    	@stack('footer_scripts')
-    </body>
+    @include('layouts.theme_setting')
+    @include('layouts.footer_scripts')
+
+    @stack('footer_scripts')
+
+
+</body>
+
 </html>
