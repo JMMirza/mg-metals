@@ -34,6 +34,10 @@ class Product extends Model
         'created_at' => 'date:d M, Y H:i',
     ];
 
+    protected $appends = [
+        'product_picture_url',
+    ];
+
     public function category()
     {
         return $this->belongsTo(Catergory::class, 'catergory_id', 'id');
@@ -42,5 +46,16 @@ class Product extends Model
     public function customer_products()
     {
         return $this->hasMany(CustomerProduct::class);
+    }
+
+    public function getProductPictureUrlAttribute()
+    {
+        $image = asset('frontend/images/shop/shop-prev-1.jpg');
+
+        if (!empty($this->product_picture) && file_exists('uploads/products/' . $this->product_picture)) {
+            $image = asset('uploads/products/' . $this->product_picture);
+        }
+
+        return $image;
     }
 }

@@ -45,7 +45,7 @@
                     <div class="col-md-4">
                         <div class="form-label-group in-border">
                             <label for="catergory_id" class="form-label">Categories</label>
-                            <select class="form-select mb-3" name="category_id" required>
+                            <select class="form-select mb-3" name="catergory_id" required>
                                 <option value="" @if ($product->catergory_id == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One
