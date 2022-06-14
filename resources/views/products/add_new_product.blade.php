@@ -9,7 +9,7 @@
                 <form class="row g-3 needs-validation" action="{{ route('products.store') }}" method="POST"
                     enctype='multipart/form-data' novalidate>
                     @csrf
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="name" class="form-label">Product Name</label>
                             <input type="text" class="form-control @if ($errors->has('name')) is-invalid @endif"
@@ -24,7 +24,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="abbreviation" class="form-label">Abbreviation</label>
                             <input type="text" class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
@@ -40,7 +40,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-label-group in-border">
                             <label for="catergory_id" class="form-label">Categories</label>
                             <select class="form-select mb-3" name="catergory_id" required>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="type" class="form-label">Type</label>
                             <input type="text" class="form-control @if ($errors->has('type')) is-invalid @endif"
@@ -75,6 +75,23 @@
                         </div>
                     </div>
 
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="mark_up" class="form-label">Mark Up</label>
+                            <input type=number step=any
+                                class="form-control @if ($errors->has('mark_up')) is-invalid @endif" id="mark_up"
+                                name="mark_up" placeholder="Please Enter Mark Up" value="{{ old('mark_up') }}"
+                                required>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('mark_up'))
+                                    {{ $errors->first('mark_up') }}
+                                @else
+                                    Mark Up is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-8 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="product_picture" class="form-label">Product Picture</label>
@@ -82,7 +99,7 @@
                                 id="product_picture" name="product_picture" placeholder="Please Enter Account Name"
                                 value="{{ old('product_picture') }}" required>
                             <div class="invalid-tooltip">
-                                @if ($errors->has('passport_no'))
+                                @if ($errors->has('product_picture'))
                                     {{ $errors->first('product_picture') }}
                                 @else
                                     Product Picture is required!

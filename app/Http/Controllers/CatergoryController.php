@@ -16,6 +16,7 @@ class CatergoryController extends Controller
      */
     public function index(Request $request)
     {
+        $categories = Catergory::whereNull('parent_id')->get();
         if ($request->ajax()) {
 
             $data = Catergory::get();
@@ -28,7 +29,7 @@ class CatergoryController extends Controller
                 ->make(true);
         }
 
-        return view('categories.categories');
+        return view('categories.categories', ['categories' => $categories]);
     }
 
     /**
@@ -78,7 +79,8 @@ class CatergoryController extends Controller
      */
     public function edit(Catergory $category)
     {
-        return view('categories.categories', ['category' => $category]);
+        $categories = Catergory::whereNull('parent_id')->get();
+        return view('categories.categories', ['category' => $category, 'categories' => $categories]);
     }
 
     /**

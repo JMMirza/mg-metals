@@ -8,7 +8,7 @@
         <div class="card-body">
             <form class="row g-3 needs-validation" action="{{ route('agents.store') }}" method="POST" novalidate>
                 @csrf
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-label-group in-border">
                         <label for="user_id" class="form-label">Agents</label>
                         <select class="form-select mb-3" name="parent_id" required>
@@ -23,11 +23,11 @@
                                 </option>
                             @endforeach
                         </select>
-                        <div class="invalid-tooltip">Select the User!</div>
+                        <div class="invalid-tooltip">Select the Agent!</div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-label-group in-border">
                         <label for="user_id" class="form-label">Users</label>
                         <select class="form-select mb-3" name="user_id" required>
@@ -43,6 +43,28 @@
                             @endforeach
                         </select>
                         <div class="invalid-tooltip">Select the User!</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group in-border">
+                        <label for="percentage" class="form-label">Percentage</label>
+                        <select class="form-select mb-3" name="percentage" required>
+                            <option value="" @if (old('percentage') == '') {{ 'selected' }} @endif selected
+                                disabled>
+                                Select One
+                            </option>
+                            <option value="5" @if (old('percentage') == '5') {{ 'selected' }} @endif>
+                                5%
+                            </option>
+                            <option value="10" @if (old('percentage') == '10') {{ 'selected' }} @endif>
+                                10%
+                            </option>
+                            <option value="15" @if (old('percentage') == '15') {{ 'selected' }} @endif>
+                                15%
+                            </option>
+
+                        </select>
+                        <div class="invalid-tooltip">Select the Percentage!</div>
                     </div>
                 </div>
 

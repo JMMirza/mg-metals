@@ -12,7 +12,8 @@ class Agent extends Model
 
     protected $fillable = [
         'user_id',
-        'parent_id'
+        'parent_id',
+        'percentage',
     ];
 
     protected $dates = [
