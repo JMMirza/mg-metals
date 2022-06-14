@@ -9,7 +9,23 @@
                 <form class="row g-3 needs-validation" action="{{ route('products.store') }}" method="POST"
                     enctype='multipart/form-data' novalidate>
                     @csrf
-                    <div class="col-md-6 col-sm-12">
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="sku" class="form-label">SKU</label>
+                            <input type="text" class="form-control @if ($errors->has('sku')) is-invalid @endif"
+                                id="sku" name="sku" placeholder="Enter SKU" value="{{ old('sku') }}">
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('sku'))
+                                    {{ $errors->first('sku') }}
+                                @else
+                                    SKU is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="name" class="form-label">Product Name</label>
                             <input type="text" class="form-control @if ($errors->has('name')) is-invalid @endif"
@@ -24,23 +40,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-sm-12">
-                        <div class="form-label-group in-border">
-                            <label for="abbreviation" class="form-label">Abbreviation</label>
-                            <input type="text" class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
-                                id="abbreviation" name="abbreviation" placeholder="Abbreviation"
-                                value="{{ old('abbreviation') }}">
-                            <div class="invalid-tooltip">
-                                @if ($errors->has('abbreviation'))
-                                    {{ $errors->first('abbreviation') }}
-                                @else
-                                    Abbreviation is required!
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="catergory_id" class="form-label">Categories</label>
                             <select class="form-select mb-3" name="catergory_id" required>
@@ -55,21 +55,68 @@
                                     </option>
                                 @endforeach
                             </select>
-                            <div class="invalid-tooltip">Select the Category!</div>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('catergory_id'))
+                                    {{ $errors->first('catergory_id') }}
+                                @else
+                                    Select the Category!
+                                @endif
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="type" class="form-label">Type</label>
-                            <input type="text" class="form-control @if ($errors->has('type')) is-invalid @endif"
-                                id="type" name="type" placeholder="Please Enter Type" value="{{ old('type') }}"
-                                required>
+                            <label for="pricing_type" class="form-label">Pricing Type</label>
+                            <select class="form-select mb-3" name="pricing_type" required>
+                                <option value="" @if (old('pricing_type') == '') {{ 'selected' }} @endif selected
+                                    disabled>
+                                    Select One
+                                </option>
+                                <option value="use_feed" @if (old('pricing_type') == 'use_feed') {{ 'selected' }} @endif>
+                                    Use Feed
+                                </option>
+                                <option value="fix_price" @if (old('pricing_type') == 'fix_price') {{ 'selected' }} @endif>
+                                    Fix Price
+                                </option>
+                            </select>
                             <div class="invalid-tooltip">
-                                @if ($errors->has('type'))
-                                    {{ $errors->first('type') }}
+                                @if ($errors->has('pricing_type'))
+                                    {{ $errors->first('pricing_type') }}
                                 @else
-                                    Type is required!
+                                    Pricing Type is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="fixed_amount" class="form-label">Fixed Amount</label>
+                            <input type="text" class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
+                                id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
+                                value="{{ old('fixed_amount') }}" required>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('fixed_amount'))
+                                    {{ $errors->first('fixed_amount') }}
+                                @else
+                                    Fixed Amount is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="promo_amount" class="form-label">Promo Amount</label>
+                            <input type="text" class="form-control @if ($errors->has('promo_amount')) is-invalid @endif"
+                                id="promo_amount" name="promo_amount" placeholder="Please enter Promo Amount"
+                                value="{{ old('promo_amount') }}" required>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('promo_amount'))
+                                    {{ $errors->first('promo_amount') }}
+                                @else
+                                    Promo Amount is required!
                                 @endif
                             </div>
                         </div>
@@ -92,10 +139,36 @@
                         </div>
                     </div>
 
-                    <div class="col-md-8 col-sm-12">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="surcharge_at_product" class="form-label">Surcharge at Product Level</label>
+                            <select class="form-select mb-3" name="surcharge_at_product" required>
+                                <option value="" @if (old('surcharge_at_product') == '') {{ 'selected' }} @endif
+                                    selected disabled>
+                                    Select One
+                                </option>
+                                <option value="yes" @if (old('surcharge_at_product') == 'yes') {{ 'selected' }} @endif>
+                                    Yes
+                                </option>
+                                <option value="no" @if (old('surcharge_at_product') == 'no') {{ 'selected' }} @endif>
+                                    No
+                                </option>
+                            </select>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('surcharge_at_product'))
+                                    {{ $errors->first('surcharge_at_product') }}
+                                @else
+                                    Surcharge at Product Level is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="product_picture" class="form-label">Product Picture</label>
-                            <input type="file" class="form-control @if ($errors->has('product_picture')) is-invalid @endif"
+                            <input type="file"
+                                class="form-control @if ($errors->has('product_picture')) is-invalid @endif"
                                 id="product_picture" name="product_picture" placeholder="Please Enter Account Name"
                                 value="{{ old('product_picture') }}" required>
                             <div class="invalid-tooltip">

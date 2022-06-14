@@ -21,9 +21,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Abbreviation</th>
-                                <th>Type</th>
-                                <th>Category_id</th>
+                                <th>Product Type</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -35,9 +33,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Abbreviation</th>
-                                <th>Type</th>
-                                <th>Category_id</th>
+                                <th>Product Type</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

@@ -25,14 +25,6 @@ $(document).ready(function () {
                 name: "name",
             },
             {
-                data: "abbreviation",
-                name: "abbreviation",
-            },
-            {
-                data: "type",
-                name: "type",
-            },
-            {
                 data: "category.name",
                 name: "category.name",
             },

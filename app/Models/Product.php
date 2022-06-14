@@ -11,10 +11,15 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'sku',
         'name',
         'abbreviation',
         'product_picture',
-        'type',
+        'pricing_type',
+        'fixed_amount',
+        'promo_amount',
+        'buy_bank_amount',
+        'surcharge_at_product',
         'description',
         'catergory_id',
         'mark_up',

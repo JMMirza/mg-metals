@@ -52,10 +52,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'sku' => 'required|string|max:255||unique:products,sku',
             'name' => 'required|string|max:255',
             'product_picture' => 'required|file|mimes:jpg,jpeg,png|max:2048',
-            'type' => 'required|string|max:255',
-            'catergory_id' => 'required|integer'
+            'pricing_type' => 'required|string|max:255',
+            'fixed_amount' => 'required',
+            'promo_amount' => 'required',
+            'mark_up' => 'required',
+            'surcharge_at_product' => 'required',
+            'catergory_id' => 'required|integer',
+            'description' => 'required'
         ]);
         $input = $request->all();
 
@@ -104,12 +110,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        // dd($request->all());
         $request->validate([
+            'sku' => 'required|string|max:255|unique:products,sku,' . $product->id,
             'name' => 'required|string|max:255',
             'product_picture' => 'required|file|mimes:jpg,jpeg,png|max:2048',
-            'type' => 'required|string|max:255',
-            'catergory_id' => 'required|integer'
+            'pricing_type' => 'required|string|max:255',
+            'fixed_amount' => 'required',
+            'promo_amount' => 'required',
+            'mark_up' => 'required',
+            'surcharge_at_product' => 'required',
+            'catergory_id' => 'required|integer',
+            'description' => 'required'
         ]);
+
         $input = $request->all();
 
         $file_name = time() . '.' . $request->product_picture->extension();
