@@ -1,7 +1,7 @@
 <footer class="page-section bg-gray-lighter footer pb-60">
     <div class="container">
         <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.5s">
-            <a href="#top"><img src="images/logo-footer.png" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
+            <a href="#top"><img src="{{ asset('frontend/images/logo-footer.png') }}" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
         </div>
         <div class="footer-social-links mb-110 mb-xs-60">
             <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
