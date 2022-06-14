@@ -50,7 +50,7 @@
                                 @foreach ($categories as $user)
                                     <option value="{{ $user->id }}"
                                         @if ($category->parent_id == $user->id) {{ 'selected' }} @endif>
-                                        {{ $user->user->name }}
+                                        {{ $user->name }}
                                     </option>
                                 @endforeach
                             </select>

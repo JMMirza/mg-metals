@@ -46,7 +46,7 @@
                                 @foreach ($categories as $user)
                                     <option value="{{ $user->id }}"
                                         @if (old('parent_id') == $user->id) {{ 'selected' }} @endif>
-                                        {{ $user->user->name }}
+                                        {{ $user->name }}
                                     </option>
                                 @endforeach
                             </select>
