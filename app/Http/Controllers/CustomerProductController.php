@@ -16,9 +16,13 @@ class CustomerProductController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
             $data = CustomerProduct::with(['product', 'customer'])->get();
             return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('customer_name', function ($row) {
+                    return $row->customer->first_name . ' ' . $row->customer->last_name;
+                })
+                ->rawColumns(['customer_name'])
                 ->make(true);
         }
         return view('customer_products.index');
@@ -88,5 +92,24 @@ class CustomerProductController extends Controller
     public function destroy(CustomerProduct $customerProduct)
     {
         //
+    }
+
+    public function customer_products($id)
+    {
+        return view('customer_products.single_customer_product', ['customerID' => $id]);
+    }
+
+    public function customer_products_ajax($id)
+    {
+        $data = CustomerProduct::with(['product', 'customer'])->whereHas('customer', function ($query) use ($id) {
+            $query->where('id', $id);
+        })->get();
+        return Datatables::of($data)
+            ->addIndexColumn()
+            ->addColumn('customer_name', function ($row) {
+                return $row->customer->first_name . ' ' . $row->customer->last_name;
+            })
+            ->rawColumns(['customer_name'])
+            ->make(true);
     }
 }

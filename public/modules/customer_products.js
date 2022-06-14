@@ -21,8 +21,8 @@ $(document).ready(function () {
                 name: "customer_id",
             },
             {
-                data: "customer.name",
-                name: "customer.name",
+                data: "customer_name",
+                name: "customer_name",
             },
             {
                 data: "purchase_price",

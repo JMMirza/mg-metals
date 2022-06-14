@@ -41,4 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['categories' => CatergoryController::class]);
     Route::resources(['products' => ProductController::class]);
     Route::resources(['customer-products' => CustomerProductController::class]);
+    Route::get('customer-product/{id}', [CustomerProductController::class, 'customer_products'])->name('customer-product');
+    Route::get('customer-product-ajax/{id}', [CustomerProductController::class, 'customer_products_ajax'])->name('customer-product-ajax');
 });

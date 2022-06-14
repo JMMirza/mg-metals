@@ -9,6 +9,9 @@
     data-table="customers-data-table" class="btn btn-sm btn-danger btn-icon waves-effect waves-light delete-record">
     <i class="ri-delete-bin-5-line"></i>
 </a>
+<a href="{{ route('customer-product', $row->id) }}" class="btn btn-sm btn-primary btn-icon waves-effect waves-light">
+    <i class=" ri-customer-service-2-fill"></i>
+</a>
 {{-- @endpermission --}}
 
 {{-- @if (!auth()->user()->hasPermission('edit-course') &&
