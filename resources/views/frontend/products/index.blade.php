@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
    
+@section('content')
+
    @include('frontend.products.header')
 
     <section class="page-section">
@@ -47,3 +49,5 @@
             </div>
         </div>
     </section>
+    
+@endsection

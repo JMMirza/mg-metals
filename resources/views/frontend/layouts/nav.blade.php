@@ -1,4 +1,4 @@
-<nav class="main-nav transparent stick-fixed">
+<nav class="main-nav js-stick">
     <div class="full-wrapper relative clearfix">
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
