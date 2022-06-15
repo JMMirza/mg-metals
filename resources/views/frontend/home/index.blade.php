@@ -11,7 +11,7 @@
     @include('frontend.home.services')
 
     
-    <section class="page-section pt-0 pb-0 banner-section bg-dark" data-background="images/full-width-images/section-bg-2.jpg">
+    <section class="page-section pt-0 pb-0 banner-section bg-dark" data-background="{{ asset('frontend/images/full-width-images/section-bg-2.jpg') }}">
         <div class="container relative">
             
             <div class="row">

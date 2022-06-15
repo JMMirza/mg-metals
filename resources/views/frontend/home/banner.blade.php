@@ -1,4 +1,4 @@
-<section class="home-section bg-gray parallax-2" data-background="images/full-width-images/section-bg-5.jpg" id="home">
+<section class="home-section bg-gray parallax-2" data-background="{{ asset('frontend/images/full-width-images/section-bg-5.jpg') }}" id="home">
     <div class="js-height-full">
         
         <!-- Hero Content -->

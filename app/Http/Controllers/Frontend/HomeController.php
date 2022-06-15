@@ -32,4 +32,34 @@ class HomeController extends Controller
             // 'total_count' => Product::with('category')->count(),
         ]);
     }
+
+    public function about_us()
+    {   
+        return view('frontend.about_us.index');
+    }
+
+    public function services()
+    {   
+        return view('frontend.services.index');
+    }
+
+    public function contact_us()
+    {   
+        return view('frontend.contact_us.index');
+    }
+
+    public function login()
+    {   
+        return view('frontend.login.login');
+    }
+
+    public function register()
+    {   
+        return view('frontend.register.register');
+    }
+
+    public function profile()
+    {   
+        return view('frontend.profile.profile');
+    }
 }
