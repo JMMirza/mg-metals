@@ -12,9 +12,7 @@
     </div>
 
     <div class="post-prev-text align-center">
-        <del>$150.00</del>
-        &nbsp;
-        <strong>$94.75</strong>
+        <strong>{{ $product->getProductPrice(); }}</strong>
     </div>
 
     <div class="post-prev-more align-center">

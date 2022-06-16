@@ -3,7 +3,7 @@
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
             <a href="intro.html" class="logo">
-                <img src="{{ asset('frontend/images/logo-dark.png') }}" alt="" />
+                <img src="https://www.mgmetals.com.hk/skin/frontend/ma_optician/ma_optician1/images/logo.png" alt="" />
             </a>
         </div>
         <div class="mobile-nav" role="button" tabindex="0">
