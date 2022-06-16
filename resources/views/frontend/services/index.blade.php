@@ -279,10 +279,10 @@
                     </div>
                     <!-- End Tab panes -->
 
-                    <div class="align-center">
+                    {{-- <div class="align-center">
                         <a href="pages-services-1.html" class="section-more font-alt">View all services <i
                                 class="fa fa-angle-right"></i></a>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
