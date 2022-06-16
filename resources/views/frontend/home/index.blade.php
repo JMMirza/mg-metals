@@ -1,66 +1,68 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-
     @include('frontend.home.banner')
-    
+
     @include('frontend.home.about')
 
-    <hr class="mt-0 mb-0 "/>
-    
+    <hr class="mt-0 mb-0 " />
+
     @include('frontend.home.services')
 
-    
-    <section class="page-section pt-0 pb-0 banner-section bg-dark" data-background="{{ asset('frontend/images/full-width-images/section-bg-2.jpg') }}">
+
+    <section class="page-section pt-0 pb-0 banner-section bg-dark"
+        data-background="{{ asset('frontend/images/full-width-images/section-bg-2.jpg') }}">
         <div class="container relative">
-            
+
             <div class="row">
-                
+
                 <div class="col-sm-6">
-                    
+
                     <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
                         <div class="banner-content">
-                            <h3 class="banner-heading font-alt">Looking for exclusive digital services?</h3>
+                            <h3 class="banner-heading font-alt">INTERESTED IN ANY OF OUR MEMBER SERVICES?</h3>
                             <div class="banner-decription">
-                                Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. 
-                                Integer non dapibus diam, ac eleifend lectus.
+                                Sign up or log in to our member services portal to continue with services offered by MG
+                                Metals. Contact us if you need more information.
                             </div>
                             <div class="local-scroll">
-                                <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-medium btn-round">Lets talk</a>
+                                <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-medium btn-round">SignUp /
+                                    Login</a>
+                                <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-medium btn-round">CONTACT US</a>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                 <div class="col-sm-6 banner-image wow fadeInUp">
                     <img src="{{ asset('frontend') }}/images/promo-1.png" alt="" />
                 </div>
-                
+
             </div>
-            
+
         </div>
-    </section>    
-    
+    </section>
+
     <section class="page-section">
         <div class="container relative">
-            
+
             <!-- Features Grid -->
             <div class="row alt-features-grid">
-                
+
                 <!-- Text Item -->
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-descr align-left">
                             <h4 class="mt-0 font-alt">Work process</h4>
-                            Lorem ipsum dolor sit amet, c-r adipiscing elit. 
-                            In maximus ligula semper metus pellentesque mattis. 
-                            Maecenas  volutpat, diam enim.
+                            Lorem ipsum dolor sit amet, c-r adipiscing elit.
+                            In maximus ligula semper metus pellentesque mattis.
+                            Maecenas volutpat, diam enim.
                         </div>
                     </div>
                 </div>
                 <!-- End Text Item -->
-                
+
                 <!-- Features Item -->
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
@@ -71,7 +73,7 @@
                     </div>
                 </div>
                 <!-- End Features Item -->
-                
+
                 <!-- Features Item -->
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
@@ -82,7 +84,7 @@
                     </div>
                 </div>
                 <!-- End Features Item -->
-                
+
                 <!-- Features Item -->
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
@@ -93,33 +95,33 @@
                     </div>
                 </div>
                 <!-- End Features Item -->
-                
-           </div>
-           <!-- End Features Grid -->
-            
+
+            </div>
+            <!-- End Features Grid -->
+
         </div>
     </section>
-    
-    <hr class="mt-0 mb-0"/>
+
+    <hr class="mt-0 mb-0" />
     @include('frontend.home.testimonials')
     @include('frontend.home.shop')
-    <hr class="mt-0 mb-0"/>
+    <hr class="mt-0 mb-0" />
 
     @include('frontend.home.newsletter')
 
-        
+
     <section class="page-section" id="contact">
         <div class="container relative">
-            
+
             <h2 class="section-title font-alt mb-70 mb-sm-40">
                 Find Us
             </h2>
-            
+
             <div class="row">
-                
+
                 <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
                     <div class="row">
-                        
+
                         <!-- Phone -->
                         <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
                             <div class="contact-item">
@@ -135,7 +137,7 @@
                             </div>
                         </div>
                         <!-- End Phone -->
-                        
+
                         <!-- Address -->
                         <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
                             <div class="contact-item">
@@ -151,7 +153,7 @@
                             </div>
                         </div>
                         <!-- End Address -->
-                        
+
                         <!-- Email -->
                         <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
                             <div class="contact-item">
@@ -167,28 +169,27 @@
                             </div>
                         </div>
                         <!-- End Email -->
-                        
+
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
     </section>
-    
+
     <section class="small-section bg-dark">
         <div class="container relative">
-            
+
             <div class="align-center">
                 <h3 class="banner-heading font-alt">Want to discuss your new project?</h3>
                 <div>
                     <a href="#" class="btn btn-mod btn-w btn-medium btn-round">Lets tallk</a>
                 </div>
             </div>
-            
+
         </div>
     </section>
-    
 @endsection
 
 
