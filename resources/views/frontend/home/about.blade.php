@@ -4,7 +4,7 @@
         <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
             MG Group was established in 2001
 
-            <a target="_blank" href="https://mggroup.com.hk/?lang=en" class="section-more right"> More about us
+            <a target="_blank" href="{{ route('about_us') }}" class="section-more right"> More about us
                 <i class="fa fa-angle-right"></i></a>
 
         </h2>
