@@ -1,11 +1,10 @@
 $(document).ready(function () {
     var route = $("#ajaxRoute").val();
     console.log(route);
-    $("#categories-data-table").DataTable({
+    $("#manufacturers-data-table").DataTable({
         processing: true,
         serverSide: true,
         responsive: true,
-
         scrollX: true,
         language: {
             search: "",
