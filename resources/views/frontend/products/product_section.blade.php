@@ -2,9 +2,9 @@
 
     <div class="post-prev-img">
         <a href="shop-single.html"><img src="{{ $product->product_picture_url }}" alt=""></a>
-        <div class="intro-label">
+        {{-- <div class="intro-label">
             <span class="badge badge-danger bg-red">Sale</span>
-        </div>
+        </div> --}}
     </div>
 
     <div class="post-prev-title font-alt align-center">

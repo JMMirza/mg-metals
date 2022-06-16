@@ -63,9 +63,17 @@ class Product extends Model
 
     public function getProductPrice()
     {
-        $response = Http::get('http://150.242.218.15:3080/');
-        $resp = $response->object();
+        $product = $this;
 
-        return $resp->bid;
+        if($product->pricing_type == 'fix_price'){
+            return $product->fixed_amount;
+        }else{
+
+            $response = Http::get('http://150.242.218.15:3080/');
+            $resp = $response->object();
+            return $resp->ask;
+        }
+
+
     }
 }

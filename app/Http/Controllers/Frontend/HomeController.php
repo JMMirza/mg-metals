@@ -11,7 +11,12 @@ class HomeController extends Controller
 {
     public function index()
     {   
-        return view('frontend.home.index');
+        $_products = Product::with('category');
+        $products = $_products->limit(3)->latest()->get();
+
+        return view('frontend.home.index', [
+            'products' => $products,
+        ]);
     }
 
     public function shop(Request $request)

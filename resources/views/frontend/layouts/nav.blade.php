@@ -20,6 +20,9 @@
                     <a href="{{ route('home') }}" class="mn-has-sub active">Home</i></a>
                 </li>
                 <li>
+                    <a href="{{ route('shop') }}" class="mn-has-sub active">Retail Shop</i></a>
+                </li>
+                <li>
                     <a href="{{ route('about_us') }}" class="mn-has-sub active">About Us</i></a>
                 </li>
                 <li>
