@@ -22,6 +22,8 @@ class Product extends Model
         'surcharge_at_product',
         'description',
         'catergory_id',
+        'manufacturer_id',
+        'weight',
         'mark_up',
     ];
     protected $dates = [

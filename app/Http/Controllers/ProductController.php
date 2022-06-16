@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Catergory;
+use App\Models\Manufacturer;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use DataTables;
@@ -29,8 +30,9 @@ class ProductController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
+        $manufacturers = Manufacturer::all();
         $categories = Catergory::all();
-        return view('products.products', ['categories' => $categories]);
+        return view('products.products', ['categories' => $categories, 'manufacturers' => $manufacturers]);
     }
 
     /**
@@ -40,7 +42,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $manufacturers = Manufacturer::all();
+        $categories = Catergory::all();
+        return view('products.add_new_product', ['categories' => $categories, 'manufacturers' => $manufacturers]);
     }
 
     /**
@@ -61,6 +65,8 @@ class ProductController extends Controller
             'mark_up' => 'required',
             'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
+            'manufacturer_id' => 'required|integer',
+            'weight' => 'required|numeric',
             'description' => 'required'
         ]);
         $input = $request->all();
@@ -97,8 +103,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $manufacturers = Manufacturer::all();
         $categories = Catergory::all();
-        return view('products.products', ['product' => $product, 'categories' => $categories]);
+        return view('products.edit_product', ['product' => $product, 'categories' => $categories, 'manufacturers' => $manufacturers]);
     }
 
     /**
@@ -121,6 +128,8 @@ class ProductController extends Controller
             'mark_up' => 'required',
             'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
+            'manufacturer_id' => 'required|integer',
+            'weight' => 'required|numeric',
             'description' => 'required'
         ]);
 
