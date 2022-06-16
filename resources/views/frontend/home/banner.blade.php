@@ -5,13 +5,13 @@
         <div class="home-content container">
             <div class="home-text">
                 
-                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30">Unique experience with</h1>
-                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30"> Rhythm Creative Studio</h2>
+                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30">Since 2001</h1>
+                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30"> MG Metals</h2>
                 
                 <div class="local-scroll">
-                    <a href="#about" class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">See More</a>
+                    <a href="{{ route('contact_us') }}" class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">Contact Us</a>
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
-                    <a href="https://www.youtube.com/watch?v=I6jmZ5plZ3o" class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">Play Reel</a>
+                    <a href="{{ route('shop') }}" class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">Purchase</a>
                 </div>
                 
             </div>
