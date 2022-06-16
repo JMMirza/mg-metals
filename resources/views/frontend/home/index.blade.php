@@ -26,9 +26,11 @@
                                 Metals. Contact us if you need more information.
                             </div>
                             <div class="local-scroll">
-                                <a href="{{ route('login') }}" class="btn btn-mod btn-w btn-medium btn-round">SignUp /
+                                <a href="{{ route('customer_login') }}"
+                                    class="btn btn-mod btn-w btn-medium btn-round">SignUp /
                                     Login</a>
-                                <a href="{{ route('contact_us') }}" class="btn btn-mod btn-w btn-medium btn-round">CONTACT US</a>
+                                <a href="{{ route('contact_us') }}" class="btn btn-mod btn-w btn-medium btn-round">CONTACT
+                                    US</a>
                             </div>
                         </div>
                     </div>

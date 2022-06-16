@@ -9,7 +9,7 @@
                 <h2 class="hs-line-11 font-alt mb-50 mb-xs-30">MG METALS</h2>
 
                 <div class="local-scroll">
-                    <a href="{{#about}}" class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">See More</a>
+                    <a href="#about" class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">See More</a>
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
                     <a href="https://www.youtube.com/watch?v=I6jmZ5plZ3o"
                         class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">Play Reel</a>
@@ -21,7 +21,7 @@
 
         <!-- Scroll Down -->
         <div class="local-scroll">
-            <a href="{{#about}}" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
+            <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
                     class="sr-only">Scroll to the next section</span></a>
         </div>
         <!-- End Scroll Down -->
