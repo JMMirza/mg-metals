@@ -26,7 +26,7 @@
                     <a href="{{ route('services') }}" class="">Our Services</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('contact_us') }}" class="mn-has-sub">Contact Us</i></a>
+                    <a href="{{ route('contact_us') }}" class="">Contact Us</i></a>
                 </li>
                 <li>
                     <a href="{{ route('customer_login') }}" class="">Login</i></a>
