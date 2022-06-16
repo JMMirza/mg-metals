@@ -53,7 +53,7 @@ class Product extends Model
 
     public function getProductPictureUrlAttribute()
     {
-        $image = asset('frontend/images/shop/shop-prev-1.jpg');
+        $image = asset('frontend/images/shop/product-placeholder.jpg');
 
         if (!empty($this->product_picture) && file_exists('uploads/products/' . $this->product_picture)) {
             $image = asset('uploads/products/' . $this->product_picture);
@@ -68,14 +68,14 @@ class Product extends Model
         $product = $this;
 
         if($product->pricing_type == 'fix_price'){
-            return $product->fixed_amount;
+            $price = $product->fixed_amount;
         }else{
 
             $response = Http::get('http://150.242.218.15:3080/');
             $resp = $response->object();
-            return $resp->ask;
+            $price = $resp->ask;
         }
 
-
+        return number_format($price, 2).' USD';
     }
 }

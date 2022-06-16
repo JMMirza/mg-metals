@@ -2,8 +2,8 @@
     <div class="full-wrapper relative clearfix">
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
-            <a href="intro.html" class="logo">
-                <img src="https://www.mgmetals.com.hk/skin/frontend/ma_optician/ma_optician1/images/logo.png" alt="" />
+            <a href="{{ route('home') }}" class="logo">
+                <img src="{{ asset('frontend/images/mgmetals_logo.png') }}" alt="" />
             </a>
         </div>
         <div class="mobile-nav" role="button" tabindex="0">
@@ -17,22 +17,19 @@
 
                 <!-- Item With Sub -->
                 <li>
-                    <a href="{{ route('home') }}" class="mn-has-sub active">Home</i></a>
+                    <a href="{{ route('home') }}" role="button" class="">Home</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('shop') }}" class="mn-has-sub active">Retail Shop</i></a>
+                    <a href="{{ route('about_us') }}" class="">About Us</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('about_us') }}" class="mn-has-sub active">About Us</i></a>
+                    <a href="{{ route('services') }}" class="">Our Services</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('services') }}" class="mn-has-sub active">Our Services</i></a>
+                    <a href="{{ route('contact_us') }}" class="mn-has-sub">Contact Us</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('contact_us') }}" class="mn-has-sub active">Contact Us</i></a>
-                </li>
-                <li>
-                    <a href="{{ route('customer_login') }}" class="mn-has-sub active">Login</i></a>
+                    <a href="{{ route('customer_login') }}" class="">Login</i></a>
                 </li>
 
                 <!-- Divider -->

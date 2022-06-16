@@ -1,6 +1,7 @@
-<section class="home-section bg-gray parallax-2" data-background="{{ asset('frontend/images/full-width-images/section-bg-5.jpg') }}" id="home">
+<section class="home-section bg-gray parallax-2" data-background="{{ asset('frontend/images/banners/banner4.jpg') }}"
+    id="home">
     <div class="js-height-full">
-        
+
         <!-- Hero Content -->
         <div class="home-content container">
             <div class="home-text">
@@ -13,16 +14,17 @@
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
                     <a href="{{ route('shop') }}" class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">Purchase</a>
                 </div>
-                
+
             </div>
         </div>
         <!-- End Hero Content -->
-        
+
         <!-- Scroll Down -->
         <div class="local-scroll">
-            <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span class="sr-only">Scroll to the next section</span></a>
+            <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
+                    class="sr-only">Scroll to the next section</span></a>
         </div>
         <!-- End Scroll Down -->
-        
+
     </div>
 </section>
