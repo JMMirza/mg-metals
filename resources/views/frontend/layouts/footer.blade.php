@@ -10,14 +10,14 @@
             <a href="#" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i> <span class="sr-only">LinkedIn+ profile</span></a>
             {{-- <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i> <span class="sr-only">Pinterest profile</span></a> --}}
         </div>
-        <div class="footer-text">
+        {{-- <div class="footer-text">
             <div class="footer-copy font-alt">
                 <a href="https://themeforest.net/user/theme-guru/portfolio" target="_blank">© Rhythm 2022</a>.
             </div>            
             <div class="footer-made">
                 Made with love for great people.
             </div>
-        </div>        
+        </div>         --}}
      </div>     
      <div class="local-scroll">
         <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i><span class="sr-only">Scroll to top</span></a>

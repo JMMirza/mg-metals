@@ -1,9 +1,7 @@
 <section class="page-section" id="services">
     <div class="container relative">
 
-        <h2 class="section-title font-alt mb-70 mb-sm-40">
-            Services
-        </h2>
+        <h2 class="section-title font-alt mb-70 mb-sm-40">{{ __('home_page.service') }}</h2>
 
         <!-- Nav tabs -->
         <ul role="tablist" class="nav nav-tabs tpl-alt-tabs font-alt pt-30 pt-sm-0 pb-30 pb-sm-0">
@@ -15,7 +13,7 @@
                         <span class="icon-strategy"></span>
                     </div>
 
-                    GOLD DEPOSITS
+                    {{ __('home_page.GOLD DEPOSITS') }}
                 </a>
             </li>
             <li>
@@ -26,7 +24,7 @@
                         <span class="icon-desktop"></span>
                     </div>
 
-                    MINING
+                    {{ __('home_page.MINING') }}
                 </a>
             </li>
             <li>
@@ -36,7 +34,7 @@
                         <span class="icon-tools"></span>
                     </div>
 
-                    PRECIOUS METALS RECYCLING
+                    {{ __('home_page.PRECIOUS METALS RECYCLING') }}
                 </a>
             </li>
             <li>
@@ -47,7 +45,7 @@
                         <span class="icon-gears"></span>
                     </div>
 
-                    PRECIOUS METALS BOOKING
+                    {{ __('home_page.PRECIOUS METALS BOOKING') }}
                 </a>
             </li>
             <li>
@@ -58,7 +56,7 @@
                         <span class="icon-camera"></span>
                     </div>
 
-                    RETAIL SHOP
+                    {{ __('home_page.RETAIL SHOP') }}
                 </a>
             </li>
         </ul>
@@ -246,7 +244,7 @@
         <!-- End Tab panes -->
 
         <div class="align-center">
-            <a href="{{ route('services') }}" class="section-more font-alt">View all services <i
+            <a href="{{ route('services') }}" class="section-more font-alt">{{ __('home_page.VIEW ALL SERVICES') }} <i
                     class="fa fa-angle-right"></i></a>
         </div>
 
