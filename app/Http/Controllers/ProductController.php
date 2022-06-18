@@ -55,13 +55,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'sku' => 'required|string|max:255||unique:products,sku',
             'name' => 'required|string|max:255',
             'product_picture' => 'required|file|mimes:jpg,jpeg,png|max:2048',
             'pricing_type' => 'required|string|max:255',
-            'mark_up' => 'required',
-            'markup_type' => 'required',
+            // 'mark_up' => 'required',
+            // 'markup_type' => 'required',
             'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
             'manufacturer_id' => 'required|integer',
@@ -120,10 +121,9 @@ class ProductController extends Controller
         $request->validate([
             'sku' => 'required|string|max:255|unique:products,sku,' . $product->id,
             'name' => 'required|string|max:255',
-            'product_picture' => 'required|file|mimes:jpg,jpeg,png',
             'pricing_type' => 'required|string|max:255',
-            'mark_up' => 'required',
-            'markup_type' => 'required',
+            // 'mark_up' => 'required',
+            // 'markup_type' => 'required',
             'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
             'manufacturer_id' => 'required|integer',
@@ -132,15 +132,15 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
+        if ($request->product_picture) {
+            $file_name = time() . '.' . $request->product_picture->extension();
+            $path = 'uploads/products';
+            File::ensureDirectoryExists($path);
 
-        $file_name = time() . '.' . $request->product_picture->extension();
-        $path = 'uploads/products';
-        File::ensureDirectoryExists($path);
+            $request->product_picture->move(public_path($path), $file_name);
 
-        $request->product_picture->move(public_path($path), $file_name);
-
-        $input['product_picture'] = $file_name;
-
+            $input['product_picture'] = $file_name;
+        }
         $product->update($input);
 
         return redirect()->route('products.index')

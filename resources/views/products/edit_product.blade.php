@@ -128,7 +128,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12" id="promo_amount_div"
+                        {{-- <div class="col-md-4 col-sm-12" id="promo_amount_div"
                             @if ($product->pricing_type == 'use_feed') style="display: block" @else style="display: none" @endif>
                             <div class="form-label-group in-border">
                                 <label for="promo_amount" class="form-label">Promo Amount</label>
@@ -144,12 +144,13 @@
                                     @endif
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="surcharge_at_product" class="form-label">Mark up at Product Level</label>
-                                <select class="form-select mb-3" name="surcharge_at_product" required>
+                                <select id="surcharge_at_product" class="form-select mb-3" name="surcharge_at_product"
+                                    required>
                                     <option value="" @if ($product->surcharge_at_product == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -170,46 +171,51 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="mark_up_div"
+                            @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
-                                <select id="markup_type" class="form-select mb-3" name="markup_type" required>
-                                    <option value="" @if ($product->markup_type == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    <option value="flat" @if ($product->markup_type == 'flat') {{ 'selected' }} @endif>
-                                        Flat (餵價)
-                                    </option>
-                                    <option value="percentage"
-                                        @if ($product->markup_type == 'percentage') {{ 'selected' }} @endif>
-                                        Percentage (定價)
-                                    </option>
-                                </select>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('markup_type'))
-                                        {{ $errors->first('markup_type') }}
-                                    @else
-                                        Mark up Type is required!
-                                    @endif
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-label-group in-border">
+                                    <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
+                                    <select id="markup_type" class="form-select mb-3" name="markup_type" required>
+                                        <option value=""
+                                            @if ($product->markup_type == '') {{ 'selected' }} @endif selected
+                                            disabled>
+                                            Select One
+                                        </option>
+                                        <option value="flat"
+                                            @if ($product->markup_type == 'flat') {{ 'selected' }} @endif>
+                                            Flat (餵價)
+                                        </option>
+                                        <option value="percentage"
+                                            @if ($product->markup_type == 'percentage') {{ 'selected' }} @endif>
+                                            Percentage (定價)
+                                        </option>
+                                    </select>
+                                    <div class="invalid-tooltip">
+                                        @if ($errors->has('markup_type'))
+                                            {{ $errors->first('markup_type') }}
+                                        @else
+                                            Mark up Type is required!
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Mark Up Amount</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
-                                    value="{{ $product->mark_up }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
-                                    @else
-                                        Mark Up Amount is required!
-                                    @endif
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-label-group in-border">
+                                    <label for="mark_up" class="form-label">Mark Up Amount</label>
+                                    <input type=number step=any
+                                        class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                        id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
+                                        value="{{ $product->mark_up }}" required>
+                                    <div class="invalid-tooltip">
+                                        @if ($errors->has('mark_up'))
+                                            {{ $errors->first('mark_up') }}
+                                        @else
+                                            Mark Up Amount is required!
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +243,7 @@
                                 <input type="file"
                                     class="form-control @if ($errors->has('product_picture')) is-invalid @endif"
                                     id="product_picture" name="product_picture" placeholder="Please Enter Account Name"
-                                    value="{{ $product->product_picture }}" required>
+                                    value="{{ $product->product_picture }}">
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('product_picture'))
                                         {{ $errors->first('product_picture') }}
@@ -252,6 +258,57 @@
                             <div class="form-label-group in-border">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" name="description" id="description" placeholder="Enter product description here...">{{ $product->description }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Tier 1 Commission (佣金層級-1)</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="" placeholder="Please Enter Tier 1 Commission"
+                                    value="{{ old('mark_up') }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Tier 1 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Tier 2 Commission (佣金層級-2)</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="" placeholder="Please Enter Tier 2 Commission"
+                                    value="{{ old('mark_up') }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Tier 2 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Tier 3 Commission (佣金層級-3)</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="" placeholder="Please Enter Tier 3 Commission"
+                                    value="{{ old('mark_up') }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Tier 3 Commission is required!
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
@@ -278,6 +335,16 @@
                 if (selected_option == 'use_feed') {
                     document.getElementById("fixed_amount_div").style.display = "none";
                     document.getElementById("promo_amount_div").style.display = "block";
+                }
+            });
+
+            $("#surcharge_at_product").change(function() {
+                var selected_option = $('#surcharge_at_product').val();
+                if (selected_option == 'yes') {
+                    document.getElementById("mark_up_div").style.display = "block";
+                }
+                if (selected_option == 'no') {
+                    document.getElementById("mark_up_div").style.display = "none";
                 }
             });
         })
