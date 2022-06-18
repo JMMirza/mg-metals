@@ -184,8 +184,7 @@
 
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-label-group in-border">
-                                    <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
-                                    <select id="markup_type" class="form-select mb-3" name="markup_type">
+git                                     <select id="markup_type" class="form-select mb-3" name="markup_type">
                                         <option value=""
                                             @if (old('markup_type') == '') {{ 'selected' }} @endif selected
                                             disabled>
