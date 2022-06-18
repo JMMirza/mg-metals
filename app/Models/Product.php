@@ -26,6 +26,7 @@ class Product extends Model
         'manufacturer_id',
         'weight',
         'mark_up',
+        'markup_type',
     ];
     protected $dates = [
 
@@ -67,15 +68,15 @@ class Product extends Model
     {
         $product = $this;
 
-        if($product->pricing_type == 'fix_price'){
+        if ($product->pricing_type == 'fix_price') {
             $price = $product->fixed_amount;
-        }else{
+        } else {
 
             $response = Http::get('http://150.242.218.15:3080/');
             $resp = $response->object();
             $price = $resp->ask;
         }
 
-        return number_format($price, 2).' USD';
+        return number_format($price, 2) . ' USD';
     }
 }

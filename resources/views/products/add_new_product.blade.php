@@ -98,7 +98,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
-                                <select class="form-select mb-3" name="pricing_type" required>
+                                <select id="pricing_type" class="form-select mb-3" name="pricing_type" required>
                                     <option value="" @if (old('pricing_type') == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -121,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12" id="fixed_amount_div" style="display: none">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <input type="number" step="0.001"
@@ -138,7 +138,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12" id="promo_amount_div" style="display: none">
                             <div class="form-label-group in-border">
                                 <label for="promo_amount" class="form-label">Promo Amount</label>
                                 <input type="number" step="0.001"
@@ -174,24 +174,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Mark Up</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="mark_up" placeholder="Please Enter Mark Up"
-                                    value="{{ old('mark_up') }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
-                                    @else
-                                        Mark Up is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="surcharge_at_product" class="form-label">Surcharge at Product Level</label>
+                                <label for="surcharge_at_product" class="form-label">Mark up at Product Level</label>
                                 <select class="form-select mb-3" name="surcharge_at_product" required>
                                     <option value="" @if (old('surcharge_at_product') == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -208,7 +191,50 @@
                                     @if ($errors->has('surcharge_at_product'))
                                         {{ $errors->first('surcharge_at_product') }}
                                     @else
-                                        Surcharge at Product Level is required!
+                                        Mark up at Product Level is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
+                                <select id="markup_type" class="form-select mb-3" name="markup_type" required>
+                                    <option value="" @if (old('markup_type') == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    <option value="flat" @if (old('markup_type') == 'flat') {{ 'selected' }} @endif>
+                                        Flat (餵價)
+                                    </option>
+                                    <option value="percentage"
+                                        @if (old('markup_type') == 'percentage') {{ 'selected' }} @endif>
+                                        Percentage (定價)
+                                    </option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('markup_type'))
+                                        {{ $errors->first('markup_type') }}
+                                    @else
+                                        Mark up Type is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Mark Up Amount</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
+                                    value="{{ old('mark_up') }}" required>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Mark Up Amount is required!
                                     @endif
                                 </div>
                             </div>
@@ -300,3 +326,20 @@
         </div>
     </div>
 @endsection
+@push('footer_scripts')
+    <script>
+        $(document).ready(function() {
+            $("#pricing_type").change(function() {
+                var selected_option = $('#pricing_type').val();
+                if (selected_option == 'fix_price') {
+                    document.getElementById("promo_amount_div").style.display = "none";
+                    document.getElementById("fixed_amount_div").style.display = "block";
+                }
+                if (selected_option == 'use_feed') {
+                    document.getElementById("fixed_amount_div").style.display = "none";
+                    document.getElementById("promo_amount_div").style.display = "block";
+                }
+            });
+        })
+    </script>
+@endpush
