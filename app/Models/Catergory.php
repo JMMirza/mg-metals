@@ -29,4 +29,14 @@ class Catergory extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Catergory::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Catergory::class, 'parent_id');
+    }
 }

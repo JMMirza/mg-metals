@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Catergory;
+use App\Models\Manufacturer;
 use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
@@ -25,15 +26,23 @@ class HomeController extends Controller
         $_products = Product::with('category');
 
         if($request->has('category')) {
+
+            $category = Catergory::where('id', $request->category)->with(['children']);
+
+            dd($category);
+
             $_products = $_products->where(['catergory_id' => $request->category]);
         }
 
         $products = $_products->paginate(12);
-        $categories = Catergory::all();
+        $categories = Catergory::whereNull('parent_id')->with(['children'])->get();
+        $manufacturers = Manufacturer::all();
+        
 
         return view('frontend.products.index', [
             'products' => $products,
             'categories' => $categories,
+            'manufacturers' => $manufacturers
             // 'results_count' => $_products->count(),
             // 'total_count' => Product::with('category')->count(),
         ]);

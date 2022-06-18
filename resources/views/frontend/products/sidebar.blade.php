@@ -11,18 +11,33 @@
 
                 <li>
                     <a href="{{ route('shop') }}" title="">All Products</a>
-                    <small>
+                    {{-- <small>
                         - 7
-                    </small>
+                    </small> --}}
                 </li>
 
                 @forelse ($categories as $category)
                     <li>
-                        <a href="{{ route('shop', ['category' => $category->id]) }}"
-                            title="">{{ $category->name }}</a>
-                        <small>
-                            - 7
-                        </small>
+                        <strong>
+                            <a href="{{ route('shop', ['category' => $category->id]) }}"
+                                title="">{{ $category->name }}</a>
+                            {{-- <small>
+                                - 7
+                            </small> --}}
+                        </strong>
+
+                        @if($category->children->count() > 0)
+                            @foreach ($category->children as $childCategory)
+                                <li>
+                                    --- <a href="{{ route('shop', ['category' => $childCategory->id]) }}"
+                                        title="">{{ $childCategory->name }}</a>
+                                    {{-- <small>
+                                        - 7
+                                    </small> --}}
+                                </li>
+                            @endforeach
+                        @endif
+
                     </li>
                 @empty
                     <div class="alert alert-dark" role="alert"> No Category Found!</div>
@@ -73,17 +88,15 @@
         </div>
     </div>
     <div class="widget">
-        <h5 class="widget-title font-alt">Tags</h5>
+        <h5 class="widget-title font-alt">Manufacturer</h5>
         <div class="widget-body">
             <div class="tags">
-                <a href="#">Design</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Digital</a>
-                <a href="#">Branding</a>
-                <a href="#">Theme</a>
-                <a href="#">Clean</a>
-                <a href="#">UI &amp; UX</a>
-                <a href="#">Love</a>
+                @forelse ($manufacturers as $manufacturer)
+                    <a href="#">{{ $manufacturer->name }}</a>
+                @empty
+                    <div class="alert alert-dark" role="alert"> No manufacturer Found!</div>
+                @endforelse
+                
             </div>
         </div>
     </div>

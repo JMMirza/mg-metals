@@ -67,16 +67,44 @@ class Product extends Model
     public function getProductPrice()
     {
         $product = $this;
+        $final_price = 0;
 
         if ($product->pricing_type == 'fix_price') {
-            $price = $product->fixed_amount;
+
+            if($product->surcharge_at_product == 'yes'){
+
+                if($product->markup_type == 'flat'){
+                    $final_price = $product->mark_up + $product->fixed_amount;
+                }else{
+                    $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
+                }
+
+            }else{
+                $final_price = $product->fixed_amount;
+            }
+
         } else {
 
             $response = Http::get('http://150.242.218.15:3080/');
             $resp = $response->object();
-            $price = $resp->ask;
+            $gold_price = $resp->ask;
+
+            if($product->surcharge_at_product == 'yes'){
+
+                $price = ($product->weight * $gold_price);
+
+                if($product->markup_type == 'flat'){
+                    $final_price = $product->mark_up + $price;
+                }else{
+                    $final_price = $price + (($price / 100) * $product->mark_up);
+                }
+
+            }else{
+                $final_price = ($product->weight * $gold_price);
+
+            }
         }
 
-        return number_format($price, 2) . ' USD';
+        return number_format($final_price, 2) . ' USD';
     }
 }
