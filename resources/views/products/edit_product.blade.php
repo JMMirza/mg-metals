@@ -117,7 +117,7 @@
                                 <input type="text"
                                     class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                     id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
-                                    value="{{ $product->fixed_amount }}" required>
+                                    value="{{ $product->fixed_amount }}">
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('fixed_amount'))
                                         {{ $errors->first('fixed_amount') }}
@@ -177,7 +177,7 @@
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-label-group in-border">
                                     <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
-                                    <select id="markup_type" class="form-select mb-3" name="markup_type" required>
+                                    <select id="markup_type" class="form-select mb-3" name="markup_type">
                                         <option value=""
                                             @if ($product->markup_type == '') {{ 'selected' }} @endif selected
                                             disabled>
@@ -208,7 +208,7 @@
                                     <input type=number step=any
                                         class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
                                         id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
-                                        value="{{ $product->mark_up }}" required>
+                                        value="{{ $product->mark_up }}">
                                     <div class="invalid-tooltip">
                                         @if ($errors->has('mark_up'))
                                             {{ $errors->first('mark_up') }}
