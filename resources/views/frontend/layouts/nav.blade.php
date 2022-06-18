@@ -20,6 +20,9 @@
                     <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home'); }}</i></a>
                 </li>
                 <li>
+                    <a href="{{ route('shop') }}" role="button" class="">{{ __('home_page.RETAIL SHOP'); }}</i></a>
+                </li>
+                <li>
                     <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us'); }}</i></a>
                 </li>
                 <li>
@@ -39,12 +42,10 @@
                 <!-- Languages -->
                 <li>
                     <a href="#" class="mn-has-sub">{{ session()->get('locale') == 'en' ? 'English' : '中國人' }} <i class="fa fa-angle-down"></i></a>
-
                     <ul class="mn-sub">
                         <li><a href="{{ route('language', 'en') }}">English</a></li>
                         <li><a href="{{ route('language', 'ch') }}">中國人</a></li>
                     </ul>
-
                 </li>
                 <!-- End Languages -->
 
