@@ -55,14 +55,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'sku' => 'required|string|max:255||unique:products,sku',
             'name' => 'required|string|max:255',
             'product_picture' => 'required|file|mimes:jpg,jpeg,png|max:2048',
             'pricing_type' => 'required|string|max:255',
-            // 'mark_up' => 'required',
-            // 'markup_type' => 'required',
             'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
             'manufacturer_id' => 'required|integer',
