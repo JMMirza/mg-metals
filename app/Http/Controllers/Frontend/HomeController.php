@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Catergory;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -67,4 +68,20 @@ class HomeController extends Controller
     {   
         return view('frontend.profile.profile');
     }
+
+    public function switch_language($locale)
+    {   
+        echo($locale);
+        if (! in_array($locale, ['en', 'ch'])) {
+            abort(400);
+        }
+     
+        App::setLocale($locale);
+        session()->put('locale', $locale);
+
+        return redirect()->back();
+    }
+
+
+    
 }

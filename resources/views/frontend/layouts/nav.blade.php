@@ -17,7 +17,7 @@
 
                 <!-- Item With Sub -->
                 <li>
-                    <a href="{{ route('home') }}" role="button" class="">Home</i></a>
+                    <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home'); }}</i></a>
                 </li>
                 <li>
                     <a href="{{ route('about_us') }}" class="">About Us</i></a>
@@ -41,11 +41,8 @@
                     <a href="#" class="mn-has-sub">Eng <i class="fa fa-angle-down"></i></a>
 
                     <ul class="mn-sub">
-
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">France</a></li>
-                        <li><a href="#">Germany</a></li>
-
+                        <li><a href="{{ route('language', 'en') }}">English</a></li>
+                        <li><a href="{{ route('language', 'ch') }}">Chinies</a></li>
                     </ul>
 
                 </li>

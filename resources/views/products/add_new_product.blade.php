@@ -15,7 +15,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="sku" class="form-label">SKU</label>
+                                <label for="sku" class="form-label">SKU (庫存單位)</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('sku')) is-invalid @endif" id="sku"
                                     name="sku" placeholder="Enter SKU" value="{{ old('sku') }}" required>
@@ -31,7 +31,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Product Name</label>
+                                <label for="name" class="form-label">Product Name (物品名稱)</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
                                     name="name" placeholder="Product Name" value="{{ old('name') }}" required>
@@ -47,7 +47,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="catergory_id" class="form-label">Categories</label>
+                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
                                 <select class="form-select mb-3" name="catergory_id" required>
                                     <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -97,18 +97,18 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="pricing_type" class="form-label">Pricing Type</label>
+                                <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
                                 <select class="form-select mb-3" name="pricing_type" required>
                                     <option value="" @if (old('pricing_type') == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
                                     </option>
                                     <option value="use_feed" @if (old('pricing_type') == 'use_feed') {{ 'selected' }} @endif>
-                                        Use Feed
+                                        Use Feed (餵價)
                                     </option>
                                     <option value="fix_price"
                                         @if (old('pricing_type') == 'fix_price') {{ 'selected' }} @endif>
-                                        Fix Price
+                                        Fix Price (定價)
                                     </option>
                                 </select>
                                 <div class="invalid-tooltip">
@@ -123,7 +123,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="fixed_amount" class="form-label">Fixed Amount</label>
+                                <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <input type="number" step="0.001"
                                     class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                     id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
@@ -157,7 +157,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="weight" class="form-label">Weight of Product</label>
+                                <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
                                 <input type="number" step="0.001"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
                                     id="weight" name="weight" placeholder="Please enter Weight of Product"
@@ -216,7 +216,7 @@
 
                         <div class="col-md-8 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="product_picture" class="form-label">Product Picture</label>
+                                <label for="product_picture" class="form-label">Product Picture (產品圖片)</label>
                                 <input type="file"
                                     class="form-control @if ($errors->has('product_picture')) is-invalid @endif"
                                     id="product_picture" name="product_picture" placeholder="Please Enter Account Name"
@@ -233,8 +233,59 @@
 
                         <div class="col-md-12 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="description" class="form-label">Description</label>
+                                <label for="description" class="form-label">Description (物品描述)</label>
                                 <textarea class="form-control" name="description" id="description" placeholder="Enter product description here...">{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Tier 1 Commission (佣金層級-1)</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="mark_up" placeholder="Please Enter Tier 1 Commission"
+                                    value="{{ old('mark_up') }}" required>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Tier 1 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Tier 2 Commission (佣金層級-2)</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="mark_up" placeholder="Please Enter Tier 2 Commission"
+                                    value="{{ old('mark_up') }}" required>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Tier 2 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Tier 3 Commission (佣金層級-3)</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="mark_up" placeholder="Please Enter Tier 3 Commission"
+                                    value="{{ old('mark_up') }}" required>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Tier 3 Commission is required!
+                                    @endif
+                                </div>
                             </div>
                         </div>
 

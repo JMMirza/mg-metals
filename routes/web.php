@@ -47,6 +47,7 @@ Route::get('/customer-profile', [HomeCtrl::class, 'profile'])->name('customer_pr
 
 
 
+Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 
 // Route::prefix('admin')->group(function () {
 Route::group(['middleware' => ['auth']], function () {
