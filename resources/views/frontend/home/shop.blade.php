@@ -2,9 +2,9 @@
     <div class="container relative">
         
         <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
-            Bestsellers
+            {{ __('home_page.BEST SELLERS') }}
             
-            <a href="{{ route('shop') }}" class="section-more right">Retail Shop <i class="fa fa-angle-right"></i></a>
+            <a href="{{ route('shop') }}" class="section-more right">{{ __('home_page.RETAIL SHOP') }} <i class="fa fa-angle-right"></i></a>
             
         </h2>
         

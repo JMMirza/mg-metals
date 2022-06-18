@@ -20,17 +20,12 @@
 
                     <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
                         <div class="banner-content">
-                            <h3 class="banner-heading font-alt">INTERESTED IN ANY OF OUR MEMBER SERVICES?</h3>
-                            <div class="banner-decription">
-                                Sign up or log in to our member services portal to continue with services offered by MG
-                                Metals. Contact us if you need more information.
-                            </div>
+                            <h3 class="banner-heading font-alt">{{ __('home_page.INTERESTED IN ANY OF OUR MEMBER SERVICES?') }}</h3>
+                            <div class="banner-decription">{{ __('home_page.sign_up_or_login') }}</div>
                             <div class="local-scroll">
                                 <a href="{{ route('customer_login') }}"
-                                    class="btn btn-mod btn-w btn-medium btn-round">SignUp /
-                                    Login</a>
-                                <a href="{{ route('contact_us') }}" class="btn btn-mod btn-w btn-medium btn-round">CONTACT
-                                    US</a>
+                                    class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.signup_login') }}</a>
+                                <a href="{{ route('contact_us') }}" class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.contact_us') }}</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +51,7 @@
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-descr align-left">
-                            <h4 class="mt-0 font-alt">Work process</h4>
+                            <h4 class="mt-0 font-alt">{{ __('home_page.WORK PROCESS') }}</h4>
                             Lorem ipsum dolor sit amet, c-r adipiscing elit.
                             In maximus ligula semper metus pellentesque mattis.
                             Maecenas volutpat, diam enim.
@@ -71,7 +66,7 @@
                         <div class="alt-features-icon">
                             <span class="icon-chat"></span>
                         </div>
-                        <h3 class="alt-features-title font-alt">1. Discuss</h3>
+                        <h3 class="alt-features-title font-alt">1. {{ __('home_page.DISCUSS') }}</h3>
                     </div>
                 </div>
                 <!-- End Features Item -->
@@ -82,7 +77,7 @@
                         <div class="alt-features-icon">
                             <span class="icon-browser"></span>
                         </div>
-                        <h3 class="alt-features-title font-alt">2. Make</h3>
+                        <h3 class="alt-features-title font-alt">2. {{ __('home_page.MAKE') }}</h3>
                     </div>
                 </div>
                 <!-- End Features Item -->
@@ -93,7 +88,7 @@
                         <div class="alt-features-icon">
                             <span class="icon-heart"></span>
                         </div>
-                        <h3 class="alt-features-title font-alt">3. Product</h3>
+                        <h3 class="alt-features-title font-alt">3. {{ __('home_page.PRODUCT') }}</h3>
                     </div>
                 </div>
                 <!-- End Features Item -->

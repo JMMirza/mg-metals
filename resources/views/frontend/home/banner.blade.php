@@ -6,15 +6,14 @@
         <div class="home-content container">
             <div class="home-text">
 
-                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30">Since 2001</h1>
-                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30"> MG Metals</h2>
+                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30">{{ __('home_page.since_2001') }}</h1>
+                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30">{{ __('home_page.mg_metals') }}</h2>
 
                 <div class="local-scroll">
                     <a href="{{ route('contact_us') }}"
-                        class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">Contact Us</a>
+                        class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">{{ __('home_page.contact_us') }}</a>
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
-                    <a href="{{ route('shop') }}"
-                        class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">Purchase</a>
+                    <a href="{{ route('shop') }}" class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">{{ __('home_page.purchase') }}</a>
                 </div>
 
             </div>
