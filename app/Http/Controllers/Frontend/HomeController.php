@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Catergory;
 use App\Models\Manufacturer;
+use App\Models\User;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -71,6 +73,23 @@ class HomeController extends Controller
     public function register()
     {
         return view('frontend.register.register');
+    }
+
+    public function register_account(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('home')
+            ->with('success', 'Account created successfully.');
     }
 
     public function profile()

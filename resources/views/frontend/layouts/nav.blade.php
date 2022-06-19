@@ -17,23 +17,35 @@
 
                 <!-- Item With Sub -->
                 <li>
-                    <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home'); }}</i></a>
+                    <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('shop') }}" role="button" class="">{{ __('home_page.RETAIL SHOP'); }}</i></a>
+                    <a href="{{ route('shop') }}" role="button"
+                        class="">{{ __('home_page.RETAIL SHOP') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us'); }}</i></a>
+                    <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('services') }}" class="">{{ __('home_page.our_service'); }}</i></a>
+                    <a href="{{ route('services') }}" class="">{{ __('home_page.our_service') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us'); }}</i></a>
+                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
                 </li>
-                <li>
-                    <a href="{{ route('customer_login') }}" class="">{{ __('home_page.login'); }}</i></a>
-                </li>
+
+                @if (\Auth::user())
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" style="padding-top: 30px">
+                            @csrf
+                            <a href="{{ route('logout') }}" class=""
+                                onclick="event.preventDefault(); this.closest('form').submit();">{{ __('logout') }}</i></a>
+                        </form>
+                    </li>
+                @else
+                    <li>
+                        <a href="{{ route('customer_login') }}" class="">{{ __('home_page.login') }}</i></a>
+                    </li>
+                @endif
 
                 <!-- Divider -->
                 <li><a>&nbsp;</a></li>
@@ -41,7 +53,8 @@
 
                 <!-- Languages -->
                 <li>
-                    <a href="#" class="mn-has-sub">{{ session()->get('locale') == 'en' ? 'English' : '中國人' }} <i class="fa fa-angle-down"></i></a>
+                    <a href="#" class="mn-has-sub">{{ session()->get('locale') == 'en' ? 'English' : '中國人' }}
+                        <i class="fa fa-angle-down"></i></a>
                     <ul class="mn-sub">
                         <li><a href="{{ route('language', 'en') }}">English</a></li>
                         <li><a href="{{ route('language', 'ch') }}">中國人</a></li>

@@ -45,8 +45,7 @@ Route::get('/single-product/{id}', [HomeCtrl::class, 'single_product'])->name('s
 Route::get('/customer-login', [HomeCtrl::class, 'login'])->name('customer_login');
 Route::get('/customer-register', [HomeCtrl::class, 'register'])->name('customer_register');
 Route::get('/customer-profile', [HomeCtrl::class, 'profile'])->name('customer_profile');
-
-
+Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])->name('customer-register-account');
 
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 
