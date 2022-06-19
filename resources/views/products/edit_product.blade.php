@@ -16,7 +16,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="sku" class="form-label">SKU</label>
+                                <label for="sku" class="form-label">SKU (庫存單位)</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('sku')) is-invalid @endif" id="sku"
                                     name="sku" placeholder="Enter SKU" value="{{ $product->sku }}">
@@ -32,7 +32,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Product Name</label>
+                                <label for="name" class="form-label">Product Name (物品名稱)</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
                                     name="name" placeholder="Product Name" value="{{ $product->name }}" required>
@@ -48,7 +48,7 @@
 
                         <div class="col-md-4">
                             <div class="form-label-group in-border">
-                                <label for="catergory_id" class="form-label">Categories</label>
+                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
                                 <select class="form-select mb-3" name="catergory_id" required>
                                     <option value="" @if ($product->catergory_id == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -86,18 +86,18 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="pricing_type" class="form-label">Pricing Type</label>
+                                <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
                                 <select class="form-select mb-3" name="pricing_type" required>
                                     <option value="" @if ($product->pricing_type == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
                                     </option>
                                     <option value="use_feed" @if ($product->pricing_type == 'use_feed') {{ 'selected' }} @endif>
-                                        Use Feed
+                                        Use Feed (餵價)
                                     </option>
                                     <option value="fix_price"
                                         @if ($product->pricing_type == 'fix_price') {{ 'selected' }} @endif>
-                                        Fix Price
+                                        Fix Price (定價)
                                     </option>
                                 </select>
                                 <div class="invalid-tooltip">
@@ -113,7 +113,8 @@
                         <div class="col-md-4 col-sm-12" id="fixed_amount_div"
                             @if ($product->pricing_type == 'fix_price') style="display: block" @else style="display: none" @endif>
                             <div class="form-label-group in-border">
-                                <label for="fixed_amount" class="form-label">Fixed Amount</label>
+                                <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
+
                                 <input type="text"
                                     class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                     id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
@@ -222,7 +223,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="weight" class="form-label">Weight of Product</label>
+                                <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
                                 <input type="number" step="0.001"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
                                     id="weight" name="weight" placeholder="Please enter Weight of Product"
