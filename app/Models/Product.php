@@ -27,6 +27,9 @@ class Product extends Model
         'weight',
         'mark_up',
         'markup_type',
+        'tier_commission_1',
+        'tier_commission_2',
+        'tier_commission_3'
     ];
     protected $dates = [
 

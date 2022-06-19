@@ -71,6 +71,9 @@
                         <form method="post" action="#" class="form">
                             <input type="number" class="input-lg round" min="1" max="100" value="1" />
                             <a href="#" class="btn btn-mod btn-large btn-round">Buy Now</a>
+
+                            <input type="text" class="input-lg round" placeholder="Agent Code">
+
                         </form>
                     </div>
 
