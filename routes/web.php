@@ -40,6 +40,7 @@ Route::get('/shop', [HomeCtrl::class, 'shop'])->name('shop');
 Route::get('/about-us', [HomeCtrl::class, 'about_us'])->name('about_us');
 Route::get('/services', [HomeCtrl::class, 'services'])->name('services');
 Route::get('/contact-us', [HomeCtrl::class, 'contact_us'])->name('contact_us');
+Route::get('/single-product/{id}', [HomeCtrl::class, 'single_product'])->name('single-product');
 
 Route::get('/customer-login', [HomeCtrl::class, 'login'])->name('customer_login');
 Route::get('/customer-register', [HomeCtrl::class, 'register'])->name('customer_register');

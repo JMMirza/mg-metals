@@ -47,6 +47,11 @@ class Product extends Model
         return $this->belongsTo(Catergory::class, 'catergory_id', 'id');
     }
 
+    public function manufacturer()
+    {
+        return $this->belongsTo(Manufacturer::class, 'manufacturer_id', 'id');
+    }
+
     public function customer_products()
     {
         return $this->hasMany(CustomerProduct::class);
@@ -71,37 +76,33 @@ class Product extends Model
 
         if ($product->pricing_type == 'fix_price') {
 
-            if($product->surcharge_at_product == 'yes'){
+            if ($product->surcharge_at_product == 'yes') {
 
-                if($product->markup_type == 'flat'){
+                if ($product->markup_type == 'flat') {
                     $final_price = $product->mark_up + $product->fixed_amount;
-                }else{
+                } else {
                     $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
                 }
-
-            }else{
+            } else {
                 $final_price = $product->fixed_amount;
             }
-
         } else {
 
             $response = Http::get('http://150.242.218.15:3080/');
             $resp = $response->object();
             $gold_price = $resp->ask;
 
-            if($product->surcharge_at_product == 'yes'){
+            if ($product->surcharge_at_product == 'yes') {
 
                 $price = ($product->weight * $gold_price);
 
-                if($product->markup_type == 'flat'){
+                if ($product->markup_type == 'flat') {
                     $final_price = $product->mark_up + $price;
-                }else{
+                } else {
                     $final_price = $price + (($price / 100) * $product->mark_up);
                 }
-
-            }else{
+            } else {
                 $final_price = ($product->weight * $gold_price);
-
             }
         }
 

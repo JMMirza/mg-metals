@@ -23,4 +23,9 @@ class Manufacturer extends Model
     protected $casts = [
         'created_at' => 'date:d M, Y H:i',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
