@@ -184,7 +184,8 @@
 
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-label-group in-border">
-git                                     <select id="markup_type" class="form-select mb-3" name="markup_type">
+                                    <label for="markup_type" class="form-label">Mark up Type</label>
+                                    <select id="markup_type" class="form-select mb-3" name="markup_type">
                                         <option value=""
                                             @if (old('markup_type') == '') {{ 'selected' }} @endif selected
                                             disabled>
