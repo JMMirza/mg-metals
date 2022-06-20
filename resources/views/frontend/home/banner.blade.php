@@ -1,4 +1,4 @@
-<section class="home-section bg-gray parallax-2" data-background="{{ asset('frontend/images/banners/banner4.jpg') }}"
+<section class="home-section bg-gray parallax-2" data-background="{{ asset('frontend/images/banner.png') }}"
     id="home">
     <div class="js-height-full">
 
@@ -6,14 +6,15 @@
         <div class="home-content container">
             <div class="home-text">
 
-                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30">{{ __('home_page.since_2001') }}</h1>
-                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30">{{ __('home_page.mg_metals') }}</h2>
+                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30 text-white">{{ __('home_page.since_2001') }}</h1>
+                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30 text-white">{{ __('home_page.mg_metals') }}</h2>
 
                 <div class="local-scroll">
                     <a href="{{ route('contact_us') }}"
                         class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">{{ __('home_page.contact_us') }}</a>
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
-                    <a href="{{ route('shop') }}" class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">{{ __('home_page.purchase') }}</a>
+                    <a href="{{ route('shop') }}"
+                        class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">{{ __('home_page.purchase') }}</a>
                 </div>
 
             </div>

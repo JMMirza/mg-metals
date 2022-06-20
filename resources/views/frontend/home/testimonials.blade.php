@@ -28,7 +28,7 @@
     <!-- End Slide Item -->
 
     <!-- Slide Item -->
-    <div>
+    {{-- <div>
         <div class="container relative">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 align-center">
@@ -76,5 +76,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </section>

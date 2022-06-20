@@ -1,4 +1,4 @@
-<section class="small-section bg-dark-lighter">
+<section class="small-section bg-dark-lighter" data-background="{{ asset('frontend/images/banner1.png') }}">
     <div class="relative container align-left">
 
         <div class="row">

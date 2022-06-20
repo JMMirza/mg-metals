@@ -17,7 +17,7 @@ return [
     'about_col_2' => 'For financial business, MG is one of the minor companies that can provide comprehensive financial products such as gold trading, securities, futures, and derivatives trading investment, investment immigration, and credit services in Hong Kong.',
     'about_col_3' => 'The success of our company stems from its adherence to integrity, professionalism and excellence. The company strives to expand the various core business with the most outstanding products and services so the customers can seize every opportunity create a better future.',
 
-    'service' => '服務',
+    'service' => 'Services',
     'GOLD DEPOSITS' => 'GOLD DEPOSITS',
     'MINING' => 'MINING',
     'PRECIOUS METALS RECYCLING' => 'PRECIOUS METALS RECYCLING',
@@ -33,6 +33,6 @@ return [
     'MAKE' => 'MAKE',
     'PRODUCT' => 'PRODUCT',
     'WORK PROCESS' => 'WORK PROCESS',
-    'BEST SELLERS' => 'BEST SELLERS'  
-    
+    'BEST SELLERS' => 'BEST SELLERS'
+
 ];
