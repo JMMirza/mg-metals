@@ -254,7 +254,7 @@
                                 </div>
                                 <small class="text-muted form-text m-b-none text-right"><a data-bs-toggle="modal"
                                         data-bs-target="#domicile-modal" href="" title="Domicile"
-                                        data-gallery=""><i class="fa fa-plus-circle"></i> Preview Domicile
+                                        data-gallery=""><i class="ri-picture-in-picture-exit-fill"></i> Preview Domicile
                                         Picture</a></small>
                             </div>
                         </div>
