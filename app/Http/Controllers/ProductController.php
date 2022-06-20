@@ -129,7 +129,8 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
-        if ($request->product_picture) {
+        if ($request->hasFile('product_picture')) {
+            // dd($input);
             $file_name = time() . '.' . $request->product_picture->extension();
             $path = 'uploads/products';
             File::ensureDirectoryExists($path);

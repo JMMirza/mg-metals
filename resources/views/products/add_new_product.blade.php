@@ -254,14 +254,14 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Tier 1 Commission (佣金層級-1)</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="tier_1" placeholder="Please Enter Tier 1 Commission"
-                                    value="{{ old('mark_up') }}">
+                                <label for="tier_commission_1" class="form-label">Tier 1 Commission (佣金層級-1)</label>
+                                <input type=number step=any name="tier_commission_1"
+                                    class="form-control @if ($errors->has('tier_commission_1')) is-invalid @endif"
+                                    id="tier_commission_1" placeholder="Please Enter Tier 1 Commission"
+                                    value="{{ old('tier_commission_1') }}">
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
+                                    @if ($errors->has('tier_commission_1'))
+                                        {{ $errors->first('tier_commission_1') }}
                                     @else
                                         Tier 1 Commission is required!
                                     @endif
@@ -271,14 +271,14 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Tier 2 Commission (佣金層級-2)</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="tier_2" placeholder="Please Enter Tier 2 Commission"
-                                    value="{{ old('mark_up') }}">
+                                <label for="tier_commission_2" class="form-label">Tier 2 Commission (佣金層級-2)</label>
+                                <input type=number step=any name="tier_commission_2"
+                                    class="form-control @if ($errors->has('tier_commission_2')) is-invalid @endif"
+                                    id="tier_commission_2" placeholder="Please Enter Tier 2 Commission"
+                                    value="{{ old('tier_commission_2') }}">
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
+                                    @if ($errors->has('tier_commission_2'))
+                                        {{ $errors->first('tier_commission_2') }}
                                     @else
                                         Tier 2 Commission is required!
                                     @endif
@@ -288,14 +288,15 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Tier 3 Commission (佣金層級-3)</label>
+                                <label for="tier_commission_3" class="form-label">Tier 3 Commission (佣金層級-3)</label>
                                 <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="tier_3" placeholder="Please Enter Tier 3 Commission"
-                                    value="{{ old('mark_up') }}">
+                                    class="form-control @if ($errors->has('tier_commission_3')) is-invalid @endif"
+                                    id="tier_commission_3" name="tier_commission_3"
+                                    placeholder="Please Enter Tier 3 Commission"
+                                    value="{{ old('tier_commission_3') }}">
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
+                                    @if ($errors->has('tier_commission_3'))
+                                        {{ $errors->first('tier_commission_3') }}
                                     @else
                                         Tier 3 Commission is required!
                                     @endif

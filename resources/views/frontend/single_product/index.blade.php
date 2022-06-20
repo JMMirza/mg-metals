@@ -39,7 +39,7 @@
                 <!-- End Product Images -->
 
                 <!-- Product Description -->
-                <div class="col-sm-8 col-md-5 mb-xs-40">
+                <div class="col-sm-12 col-md-8 mb-xs-40">
                     <h3 class="mt-0">{{ $product->name }}</h3>
 
                     <hr class="mt-0 mb-30" />
@@ -49,14 +49,7 @@
                             {{-- <del class="section-text">$50.00</del> --}}
                             <strong>{{ $product->getProductPrice() }}</strong>
                         </div>
-                        <div class="col-6 align-right section-text">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            &nbsp;(3 reviews)
-                        </div>
+
                     </div>
 
                     <hr class="mt-0 mb-30" />
@@ -94,7 +87,7 @@
                 <!-- End Product Description -->
 
                 <!-- Features -->
-                <div class="col-sm-4 col-md-3 mb-xs-40">
+                {{-- <div class="col-sm-4 col-md-3 mb-xs-40">
                     <!-- Features Item -->
                     <div class="alt-service-wrap">
                         <div class="alt-service-item">
@@ -135,7 +128,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
             </div>
 
@@ -150,10 +143,10 @@
                     <a href="#two" aria-controls="two" class="nav-link" data-bs-toggle="tab" role="tab"
                         aria-selected="false">Parameters</a>
                 </li> --}}
-                <li>
+                {{-- <li>
                     <a href="#three" aria-controls="three" class="nav-link" data-bs-toggle="tab" role="tab"
                         aria-selected="false">Reviews (3)</a>
-                </li>
+                </li> --}}
             </ul>
 
 
