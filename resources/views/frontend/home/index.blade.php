@@ -129,7 +129,7 @@
                                     Call Us
                                 </div>
                                 <div class="ci-text">
-                                    +61 3 8376 6284
+                                    (852) 3998 4916
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                                     Address
                                 </div>
                                 <div class="ci-text">
-                                    245 Quigley Blvd, Ste K
+                                    Unit F, 18F, MG Tower, 133 Hoi Bun Road, Kwun Tong, Kowloon, Hong Kong
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                                     Email
                                 </div>
                                 <div class="ci-text">
-                                    <a href="mailto:support@bestlooker.pro">support@bestlooker.pro</a>
+                                    <a href="mailto:account@mgmetals.com.hk">account@mgmetals.com.hk</a>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
         </div>
     </section>
 
-    <section class="small-section bg-dark">
+    {{-- <section class="small-section bg-dark">
         <div class="container relative">
 
             <div class="align-center">
@@ -186,7 +186,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 @endsection
 
 

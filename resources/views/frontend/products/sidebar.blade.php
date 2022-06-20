@@ -60,16 +60,13 @@
             <ul class="clearlist widget-posts">
 
                 <!-- Preview item -->
-                @forelse ($products as $product)
+                @forelse ($best_sellers as $product)
                     <li class="clearfix">
-                        <a href="#"><img src="images/shop/previews/shop-prev-1.jpg" alt="" class="widget-posts-img"></a>
+                        <a href="{{ route('single-product', $product->id) }}"><img src="images/shop/previews/shop-prev-1.jpg" alt="" class="widget-posts-img"></a>
                         <div class="widget-posts-descr">
-                            <a href="#" title="">{{ $product->name }}</a>
+                            <a href="{{ route('single-product', $product->id) }}" title="">{{ $product->name }}</a>
                             <div>
-                                <del>
-                                    50.00
-                                </del>&nbsp;
-                                $25.99
+                                {{ $product->getProductPrice() }}
                             </div>
                             <div>
                                 <i class="fa fa-star" aria-hidden="true"></i>

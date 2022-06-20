@@ -44,7 +44,8 @@ class HomeController extends Controller
         return view('frontend.products.index', [
             'products' => $products,
             'categories' => $categories,
-            'manufacturers' => $manufacturers
+            'manufacturers' => $manufacturers,
+            'best_sellers' =>  Product::with('category')->limit(10)->latest()->get(),
             // 'results_count' => $_products->count(),
             // 'total_count' => Product::with('category')->count(),
         ]);

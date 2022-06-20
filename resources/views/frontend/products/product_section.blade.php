@@ -17,7 +17,7 @@
     </div>
 
     <div class="post-prev-more align-center">
-        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"
+        <a href="{{ route('single-product', $product->id) }}" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"
                 aria-hidden="true"></i>{{ __('home_page.purchase') }}</a>
     </div>
 
