@@ -114,11 +114,15 @@
                             @if ($product->pricing_type == 'fix_price') style="display: block" @else style="display: none" @endif>
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
-
-                                <input type="decimal" step="any"
-                                    class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
-                                    id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
-                                    value="{{ $product->fixed_amount }}">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">USD</span>
+                                    </div>
+                                    <input type="decimal" step="any"
+                                        class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
+                                        id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
+                                        value="{{ $product->fixed_amount }}">
+                                </div>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('fixed_amount'))
                                         {{ $errors->first('fixed_amount') }}
