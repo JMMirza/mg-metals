@@ -115,7 +115,7 @@
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
 
-                                <input type="decimal"
+                                <input type="decimal" step="any"
                                     class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                     id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
                                     value="{{ $product->fixed_amount }}">
@@ -172,68 +172,49 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="mark_up_div"
-                            @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif>
 
-                            <div class="col-md-4 col-sm-12">
-                                <div class="form-label-group in-border">
-                                    <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
-                                    <select id="markup_type" class="form-select mb-3" name="markup_type">
-                                        <option value=""
-                                            @if ($product->markup_type == '') {{ 'selected' }} @endif selected
-                                            disabled>
-                                            Select One
-                                        </option>
-                                        <option value="flat"
-                                            @if ($product->markup_type == 'flat') {{ 'selected' }} @endif>
-                                            Flat (餵價)
-                                        </option>
-                                        <option value="percentage"
-                                            @if ($product->markup_type == 'percentage') {{ 'selected' }} @endif>
-                                            Percentage (定價)
-                                        </option>
-                                    </select>
-                                    <div class="invalid-tooltip">
-                                        @if ($errors->has('markup_type'))
-                                            {{ $errors->first('markup_type') }}
-                                        @else
-                                            Mark up Type is required!
-                                        @endif
-                                    </div>
+
+                        <div id="mark_up_div_1" @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
+                                <select id="markup_type" class="form-select mb-3" name="markup_type">
+                                    <option value=""
+                                        @if ($product->markup_type == '') {{ 'selected' }} @endif selected
+                                        disabled>
+                                        Select One
+                                    </option>
+                                    <option value="flat"
+                                        @if ($product->markup_type == 'flat') {{ 'selected' }} @endif>
+                                        Flat (餵價)
+                                    </option>
+                                    <option value="percentage"
+                                        @if ($product->markup_type == 'percentage') {{ 'selected' }} @endif>
+                                        Percentage (定價)
+                                    </option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('markup_type'))
+                                        {{ $errors->first('markup_type') }}
+                                    @else
+                                        Mark up Type is required!
+                                    @endif
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-md-4 col-sm-12" id="fixed_amount_div" style="display: none">
-                                <div class="form-label-group in-border">
-                                    <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
-                                    <input type="number" step="0.001"
-                                        class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
-                                        id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
-                                        value="{{ $product->fixed_amount }}">
-                                    <div class="invalid-tooltip">
-                                        @if ($errors->has('fixed_amount'))
-                                            {{ $errors->first('fixed_amount') }}
-                                        @else
-                                            Fixed Amount is empty or incorrect!
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-sm-12">
-                                <div class="form-label-group in-border">
-                                    <label for="mark_up" class="form-label">Mark Up Amount</label>
-                                    <input type=number step=any
-                                        class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                        id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
-                                        value="{{ $product->mark_up }}">
-                                    <div class="invalid-tooltip">
-                                        @if ($errors->has('mark_up'))
-                                            {{ $errors->first('mark_up') }}
-                                        @else
-                                            Mark Up Amount is required!
-                                        @endif
-                                    </div>
+                        <div id="mark_up_div_2" @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="mark_up" class="form-label">Mark Up Amount</label>
+                                <input type=number step=any
+                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                    id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
+                                    value="{{ $product->mark_up }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('mark_up'))
+                                        {{ $errors->first('mark_up') }}
+                                    @else
+                                        Mark Up Amount is required!
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -398,10 +379,13 @@
             $("#surcharge_at_product").change(function() {
                 var selected_option = $('#surcharge_at_product').val();
                 if (selected_option == 'yes') {
-                    document.getElementById("mark_up_div").style.display = "block";
+                    document.getElementById("mark_up_div_1").style.display = "block";
+                    document.getElementById("mark_up_div_2").style.display = "block";
+
                 }
                 if (selected_option == 'no') {
-                    document.getElementById("mark_up_div").style.display = "none";
+                    document.getElementById("mark_up_div_1").style.display = "none";
+                    document.getElementById("mark_up_div_2").style.display = "none";
                 }
             });
         })
