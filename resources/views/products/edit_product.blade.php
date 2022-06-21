@@ -115,7 +115,7 @@
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
 
-                                <input type="text"
+                                <input type="decimal"
                                     class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                     id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
                                     value="{{ $product->fixed_amount }}">

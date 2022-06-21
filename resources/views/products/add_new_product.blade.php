@@ -128,7 +128,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">USD</span>
                                     </div>
-                                    <input type="number" step="0.001"
+                                    <input type="decimal" step="0.001"
                                         class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                         id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
                                         value="{{ old('fixed_amount') }}">
