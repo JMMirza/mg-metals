@@ -43,25 +43,45 @@
 
     <section class="page-section">
         <div class="container relative">
+            <h2 class="section-title font-alt mb-70 mb-sm-40">Why Choose Us</h2>
 
             <!-- Features Grid -->
             <div class="row alt-features-grid">
 
-                <!-- Text Item -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="alt-features-item align-center">
-                        <div class="alt-features-descr align-left">
-                            <h4 class="mt-0 font-alt">{{ __('home_page.WORK PROCESS') }}</h4>
-                            Lorem ipsum dolor sit amet, c-r adipiscing elit.
-                            In maximus ligula semper metus pellentesque mattis.
-                            Maecenas volutpat, diam enim.
+                        <div class="alt-features-descr align-center">
+                            <div class="alt-features-icon">
+                                <span class="icon-flag"></span>
+                            </div>
+                            {{ __('home_page.choose_us_1') }}
                         </div>
                     </div>
                 </div>
-                <!-- End Text Item -->
 
-                <!-- Features Item -->
-                <div class="col-md-3">
+                <div class="col-md-4">
+                    <div class="alt-features-item align-center">
+                        <div class="alt-features-descr align-center">
+                            <div class="alt-features-icon">
+                                <span class="icon-clock"></span>
+                            </div>
+                            {{ __('home_page.choose_us_2') }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="alt-features-item align-center">
+                        <div class="alt-features-descr align-center">
+                            <div class="alt-features-icon">
+                                <span class="icon-chat"></span>
+                            </div>
+                            {{ __('home_page.choose_us_3') }}
+                        </div>
+                    </div>
+                </div>
+
+                {{-- <div class="col-md-3">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-icon">
                             <span class="icon-chat"></span>
@@ -69,9 +89,6 @@
                         <h3 class="alt-features-title font-alt">1. {{ __('home_page.DISCUSS') }}</h3>
                     </div>
                 </div>
-                <!-- End Features Item -->
-
-                <!-- Features Item -->
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-icon">
@@ -80,9 +97,6 @@
                         <h3 class="alt-features-title font-alt">2. {{ __('home_page.MAKE') }}</h3>
                     </div>
                 </div>
-                <!-- End Features Item -->
-
-                <!-- Features Item -->
                 <div class="col-md-3">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-icon">
@@ -90,9 +104,7 @@
                         </div>
                         <h3 class="alt-features-title font-alt">3. {{ __('home_page.PRODUCT') }}</h3>
                     </div>
-                </div>
-                <!-- End Features Item -->
-
+                </div> --}}
             </div>
             <!-- End Features Grid -->
 

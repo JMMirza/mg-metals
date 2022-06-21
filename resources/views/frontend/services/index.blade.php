@@ -9,64 +9,61 @@
                 <div class="col-md-12">
                     <h2 class="section-title font-alt mb-70 mb-sm-40">{{ __('home_page.service') }}</h2>
 
-                    <!-- Nav tabs -->
                     <ul role="tablist" class="nav nav-tabs tpl-alt-tabs font-alt pt-30 pt-sm-0 pb-30 pb-sm-0">
                         <li>
                             <a href="#service-branding" class="nav-link active" data-bs-toggle="tab" role="tab"
                                 aria-selected="true">
-
+            
                                 <div class="alt-tabs-icon">
                                     <span class="icon-strategy"></span>
                                 </div>
-
-                                {{ __('home_page.GOLD DEPOSITS') }}
+            
+                                {{ __('home_page.service_title_1') }}
                             </a>
                         </li>
                         <li>
                             <a href="#service-web-design" class="nav-link" data-bs-toggle="tab" role="tab"
                                 aria-selected="false">
-
+            
                                 <div class="alt-tabs-icon">
                                     <span class="icon-desktop"></span>
                                 </div>
-
-                                {{ __('home_page.MINING') }}
+            
+                                {{ __('home_page.service_title_2') }}
                             </a>
                         </li>
                         <li>
-                            <a href="#service-graphic" class="nav-link" data-bs-toggle="tab" role="tab"
-                                aria-selected="false">
-
+                            <a href="#service-graphic" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">
+            
                                 <div class="alt-tabs-icon">
                                     <span class="icon-tools"></span>
                                 </div>
-
-                                {{ __('home_page.PRECIOUS METALS RECYCLING') }}
+            
+                                {{ __('home_page.service_title_3') }}
                             </a>
                         </li>
                         <li>
                             <a href="#service-development" class="nav-link" data-bs-toggle="tab" role="tab"
                                 aria-selected="false">
-
+            
                                 <div class="alt-tabs-icon">
                                     <span class="icon-gears"></span>
                                 </div>
-
-                                {{ __('home_page.PRECIOUS METALS BOOKING') }}
+            
+                                {{ __('home_page.service_title_4') }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('shop') }}" class="">
-
+            
                                 <div class="alt-tabs-icon">
                                     <span class="icon-camera"></span>
                                 </div>
-
-                                {{ __('home_page.RETAIL SHOP') }}
+            
+                                {{ __('home_page.service_title_5') }}
                             </a>
                         </li>
                     </ul>
-                    <!-- End Nav tabs -->
 
                     <!-- Tab panes -->
                     <div class="tab-content tpl-tabs-cont">

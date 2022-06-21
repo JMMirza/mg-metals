@@ -13,7 +13,7 @@
                         <span class="icon-strategy"></span>
                     </div>
 
-                    {{ __('home_page.GOLD DEPOSITS') }}
+                    {{ __('home_page.service_title_1') }}
                 </a>
             </li>
             <li>
@@ -24,7 +24,7 @@
                         <span class="icon-desktop"></span>
                     </div>
 
-                    {{ __('home_page.MINING') }}
+                    {{ __('home_page.service_title_2') }}
                 </a>
             </li>
             <li>
@@ -34,7 +34,7 @@
                         <span class="icon-tools"></span>
                     </div>
 
-                    {{ __('home_page.PRECIOUS METALS RECYCLING') }}
+                    {{ __('home_page.service_title_3') }}
                 </a>
             </li>
             <li>
@@ -45,7 +45,7 @@
                         <span class="icon-gears"></span>
                     </div>
 
-                    {{ __('home_page.PRECIOUS METALS BOOKING') }}
+                    {{ __('home_page.service_title_4') }}
                 </a>
             </li>
             <li>
@@ -55,7 +55,7 @@
                         <span class="icon-camera"></span>
                     </div>
 
-                    {{ __('home_page.RETAIL SHOP') }}
+                    {{ __('home_page.service_title_5') }}
                 </a>
             </li>
         </ul>

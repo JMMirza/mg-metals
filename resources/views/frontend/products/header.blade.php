@@ -12,8 +12,7 @@
 
             <div class="col-md-4 mt-30">
                 <div class="mod-breadcrumbs font-alt align-right">
-                    <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Pages</a>&nbsp;/&nbsp;<span>My
-                        Account</span>
+                    <a href="{{ route('home') }}">Home</a>&nbsp;/&nbsp;<span>Products</span>
                 </div>
             </div>
         </div>

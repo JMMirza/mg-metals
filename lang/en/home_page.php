@@ -24,8 +24,35 @@ return [
     'PRECIOUS METALS BOOKING' => 'PRECIOUS METALS BOOKING',
     'RETAIL SHOP' => 'RETAIL SHOP',
 
+    'choose_us_1' => 'We are an accredited precious metal dealer and gold manufacturer with the license to mint gold and silver bars of various fines and weights',
+    'choose_us_2' => 'As a major global player in precious metals, we take our responsibility to the industry seriously.  Our commitment to sustainability is key to everything we do and a major part of our ongoing investment in the industry. ',
+    'choose_us_3' => 'The world’s leading gold and silver producers trust our team as a trusted partner to deliver quality refining at a competitive and sustainable price. We take pride in returning maximum value to our members and customers.',
+
+    'service_title_1' => 'High-value physical gold sales ',
+    'service_title_2' => 'Precious Metal Recovery',
+    'service_title_3' => 'Financing in Mining and Exchange Solutions',
+    'service_title_4' => 'Technology Applications',
+    'service_title_5' => 'Retail Shop',
+
+    'service_desc_01' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
+    'service_desc_02' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
+    'service_desc_03' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
+
+    'service_desc_11' => 'We are one of few gold manufacturers with the accredited qualification. Our company has professional technical expertise and equipment to provide gold and silver recycling services for jewelry workshops, companies, recyclers, mining companies, and even retail customers. In 5 easy steps, you can instantly recycle gold and silver and cash out.',
+    'service_desc_12' => 'We are one of few gold manufacturers with the accredited qualification. Our company has professional technical expertise and equipment to provide gold and silver recycling services for jewelry workshops, companies, recyclers, mining companies, and even retail customers. In 5 easy steps, you can instantly recycle gold and silver and cash out.',
+    'service_desc_13' => 'We are one of few gold manufacturers with the accredited qualification. Our company has professional technical expertise and equipment to provide gold and silver recycling services for jewelry workshops, companies, recyclers, mining companies, and even retail customers. In 5 easy steps, you can instantly recycle gold and silver and cash out.',
+
+    'service_desc_21' => "MG Metals has been in the business of gold, stocks, futures, foreign exchange, capital, insurance, banking and loans for many years. With the group's knowledge and experience, the company is committed to provide financing solutions and foreign exchange solutions for various mining producers to help peers meet their funding needs and optimize their balance sheets.",
+    'service_desc_22' => "MG Metals has been in the business of gold, stocks, futures, foreign exchange, capital, insurance, banking and loans for many years. With the group's knowledge and experience, the company is committed to provide financing solutions and foreign exchange solutions for various mining producers to help peers meet their funding needs and optimize their balance sheets.",
+    'service_desc_23' => "MG Metals has been in the business of gold, stocks, futures, foreign exchange, capital, insurance, banking and loans for many years. With the group's knowledge and experience, the company is committed to provide financing solutions and foreign exchange solutions for various mining producers to help peers meet their funding needs and optimize their balance sheets.",
+
+    'service_desc_31' => "Gold investments are not limited to just high net-worth investors. The team at MG Group has integrated technologies and developed mobile applications allowing retail investors to invest in gold anytime, anywhere in the world. In order to make gold investing more popular, the investment threshold can be as low as tens of dollars, and door-to-door delivery can be arranged regardless of the investment amount. Ours is the first gold investment platform specially designed for the public.",
+    'service_desc_32' => "Gold investments are not limited to just high net-worth investors. The team at MG Group has integrated technologies and developed mobile applications allowing retail investors to invest in gold anytime, anywhere in the world. In order to make gold investing more popular, the investment threshold can be as low as tens of dollars, and door-to-door delivery can be arranged regardless of the investment amount. Ours is the first gold investment platform specially designed for the public.",
+    'service_desc_33' => "Gold investments are not limited to just high net-worth investors. The team at MG Group has integrated technologies and developed mobile applications allowing retail investors to invest in gold anytime, anywhere in the world. In order to make gold investing more popular, the investment threshold can be as low as tens of dollars, and door-to-door delivery can be arranged regardless of the investment amount. Ours is the first gold investment platform specially designed for the public.",
+
+
     'VIEW ALL SERVICES' => 'VIEW ALL SERVICES',
-    'INTERESTED IN ANY OF OUR MEMBER SERVICES?' => 'INTERESTED IN ANY OF OUR MEMBER SERVICES?',
+    'INTERESTED IN ANY OF OUR MEMBER SERVICES?' => 'Interested in any of our member services?',
     'sign_up_or_login' => 'Sign up or log in to our member services portal to continue with services offered by MG Metals. Contact us if you need more information.',
     'signup_login' => 'Signup / Login',
 

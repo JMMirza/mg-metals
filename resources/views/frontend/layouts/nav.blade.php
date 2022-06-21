@@ -34,12 +34,21 @@
                 </li>
 
                 @if (\Auth::user())
+
                     <li>
-                        <form method="POST" action="{{ route('logout') }}" style="padding-top: 30px">
-                            @csrf
-                            <a href="{{ route('logout') }}" class=""
-                                onclick="event.preventDefault(); this.closest('form').submit();">{{ __('logout') }}</i></a>
-                        </form>
+                        <a href="#" class="mn-has-sub">{{ \Auth::user()->name }}
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="mn-sub">
+                            <li><a href="{{ route('customer_profile') }}">Profile</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" class=""
+                                        onclick="event.preventDefault(); this.closest('form').submit();">{{ __('logout') }}</i></a>
+                                </form>
+                            </li>
+                        </ul>
                     </li>
                 @else
                     <li>
@@ -53,8 +62,9 @@
 
                 <!-- Languages -->
                 <li>
-                    <a href="#" class="mn-has-sub">{{ session()->get('locale') == 'en' ? 'English' : '中國人' }}
-                        <i class="fa fa-angle-down"></i></a>
+                    <a href="#" class="mn-has-sub">{{ session()->get('locale') == 'ch' ? '中國人' : 'English' }}
+                        <i class="fa fa-angle-down"></i>
+                    </a>
                     <ul class="mn-sub">
                         <li><a href="{{ route('language', 'en') }}">English</a></li>
                         <li><a href="{{ route('language', 'ch') }}">中國人</a></li>
