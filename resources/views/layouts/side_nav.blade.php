@@ -48,13 +48,13 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link menu-link 
                     {{ Request::is('agents') ? 'active' : '' }}"
                         href="{{ route('agents.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Agents</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link menu-link 

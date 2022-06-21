@@ -9,7 +9,7 @@ return [
     'login' => '登錄',
 
     'since_2001' => '自 2001 年以來',
-    'mg_metals' => '毫克金屬',
+    'mg_metals' => '萬兆豐',
     'purchase' => '購買',
     'MG_GROUP_WAS_ESTABLISHED_IN_2001' => 'MG集團成立於2001年',
 
@@ -36,21 +36,21 @@ return [
 
 
        
-    'service_desc_01' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
-    'service_desc_02' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
-    'service_desc_03' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
+    'service_desc_01' => '万兆丰接受大额实金实货买卖，只要在本集团开设金条买卖专用帐户，便能随时存款并预订大额实金。万兆丰拥有多个行业认证，旗下生产的金条皆有金银业贸易场认可，投资者可在开市时间内于金银业贸易场挂牌以市价出售套现，无须担心二手回收的折让问题。',
+    'service_desc_02' => '万兆丰接受大额实金实货买卖，只要在本集团开设金条买卖专用帐户，便能随时存款并预订大额实金。万兆丰拥有多个行业认证，旗下生产的金条皆有金银业贸易场认可，投资者可在开市时间内于金银业贸易场挂牌以市价出售套现，无须担心二手回收的折让问题。',
+    'service_desc_03' => '万兆丰接受大额实金实货买卖，只要在本集团开设金条买卖专用帐户，便能随时存款并预订大额实金。万兆丰拥有多个行业认证，旗下生产的金条皆有金银业贸易场认可，投资者可在开市时间内于金银业贸易场挂牌以市价出售套现，无须担心二手回收的折让问题。',
 
-    'service_desc_11' => 'We are one of few gold manufacturers with the accredited qualification. Our company has professional technical expertise and equipment to provide gold and silver recycling services for jewelry workshops, companies, recyclers, mining companies, and even retail customers. In 5 easy steps, you can instantly recycle gold and silver and cash out.',
-    'service_desc_12' => 'We are one of few gold manufacturers with the accredited qualification. Our company has professional technical expertise and equipment to provide gold and silver recycling services for jewelry workshops, companies, recyclers, mining companies, and even retail customers. In 5 easy steps, you can instantly recycle gold and silver and cash out.',
-    'service_desc_13' => 'We are one of few gold manufacturers with the accredited qualification. Our company has professional technical expertise and equipment to provide gold and silver recycling services for jewelry workshops, companies, recyclers, mining companies, and even retail customers. In 5 easy steps, you can instantly recycle gold and silver and cash out.',
+    'service_desc_11' => '贵为少数拥有认可炼铸商资格的铸金商，集团拥有专业技术仪器，为首饰工场、珠宝公司、回收商、矿业公司，甚至零售客户提供金银回收服务，只需「开户、交付、秤重、化验、付款」简单五步，便能即时回收金银变现。',
+    'service_desc_12' => '贵为少数拥有认可炼铸商资格的铸金商，集团拥有专业技术仪器，为首饰工场、珠宝公司、回收商、矿业公司，甚至零售客户提供金银回收服务，只需「开户、交付、秤重、化验、付款」简单五步，便能即时回收金银变现。',
+    'service_desc_13' => '贵为少数拥有认可炼铸商资格的铸金商，集团拥有专业技术仪器，为首饰工场、珠宝公司、回收商、矿业公司，甚至零售客户提供金银回收服务，只需「开户、交付、秤重、化验、付款」简单五步，便能即时回收金银变现。',
 
-    'service_desc_21' => "MG Metals has been in the business of gold, stocks, futures, foreign exchange, capital, insurance, banking and loans for many years. With the group's knowledge and experience, the company is committed to provide financing solutions and foreign exchange solutions for various mining producers to help peers meet their funding needs and optimize their balance sheets.",
-    'service_desc_22' => "MG Metals has been in the business of gold, stocks, futures, foreign exchange, capital, insurance, banking and loans for many years. With the group's knowledge and experience, the company is committed to provide financing solutions and foreign exchange solutions for various mining producers to help peers meet their funding needs and optimize their balance sheets.",
-    'service_desc_23' => "MG Metals has been in the business of gold, stocks, futures, foreign exchange, capital, insurance, banking and loans for many years. With the group's knowledge and experience, the company is committed to provide financing solutions and foreign exchange solutions for various mining producers to help peers meet their funding needs and optimize their balance sheets.",
+    'service_desc_21' => "万兆丰从事金、股、期、汇、资、保、银、贷各金融业务多年，凭着集团在金融的深厚知识及经验，过去集团致力为各矿业生产商提供融资方案及兑汇方案，以助同业实现解决资金需要并优化其资产负债表。.",
+    'service_desc_22' => "万兆丰从事金、股、期、汇、资、保、银、贷各金融业务多年，凭着集团在金融的深厚知识及经验，过去集团致力为各矿业生产商提供融资方案及兑汇方案，以助同业实现解决资金需要并优化其资产负债表。.",
+    'service_desc_23' => "万兆丰从事金、股、期、汇、资、保、银、贷各金融业务多年，凭着集团在金融的深厚知识及经验，过去集团致力为各矿业生产商提供融资方案及兑汇方案，以助同业实现解决资金需要并优化其资产负债表。.",
 
-    'service_desc_31' => "Gold investments are not limited to just high net-worth investors. The team at MG Group has integrated technologies and developed mobile applications allowing retail investors to invest in gold anytime, anywhere in the world. In order to make gold investing more popular, the investment threshold can be as low as tens of dollars, and door-to-door delivery can be arranged regardless of the investment amount. Ours is the first gold investment platform specially designed for the public.",
-    'service_desc_32' => "Gold investments are not limited to just high net-worth investors. The team at MG Group has integrated technologies and developed mobile applications allowing retail investors to invest in gold anytime, anywhere in the world. In order to make gold investing more popular, the investment threshold can be as low as tens of dollars, and door-to-door delivery can be arranged regardless of the investment amount. Ours is the first gold investment platform specially designed for the public.",
-    'service_desc_33' => "Gold investments are not limited to just high net-worth investors. The team at MG Group has integrated technologies and developed mobile applications allowing retail investors to invest in gold anytime, anywhere in the world. In order to make gold investing more popular, the investment threshold can be as low as tens of dollars, and door-to-door delivery can be arranged regardless of the investment amount. Ours is the first gold investment platform specially designed for the public.",
+    'service_desc_31' => "投资实金并非高端投资者的专利。万兆丰团队深度结合科技，开发手机应用程式，让零售投资者可随时随地投资实金。而为了令投资实金更为普及化，投资门槛可低至数十美元，且不论投资金额也能安排上门送货，是首个专为大众而设的实金投资平台。",
+    'service_desc_32' => "投资实金并非高端投资者的专利。万兆丰团队深度结合科技，开发手机应用程式，让零售投资者可随时随地投资实金。而为了令投资实金更为普及化，投资门槛可低至数十美元，且不论投资金额也能安排上门送货，是首个专为大众而设的实金投资平台。",
+    'service_desc_33' => "投资实金并非高端投资者的专利。万兆丰团队深度结合科技，开发手机应用程式，让零售投资者可随时随地投资实金。而为了令投资实金更为普及化，投资门槛可低至数十美元，且不论投资金额也能安排上门送货，是首个专为大众而设的实金投资平台。",
 
 
 
@@ -62,9 +62,7 @@ return [
     'DISCUSS' => '討論',
     'MAKE' => '製作',
     'PRODUCT' => '產品',
-
     'WORK PROCESS' => '工作過程',
-
     'BEST SELLERS' => '最暢銷'  
     
 ];

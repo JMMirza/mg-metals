@@ -44,8 +44,6 @@
     <section class="page-section">
         <div class="container relative">
             <h2 class="section-title font-alt mb-70 mb-sm-40">Why Choose Us</h2>
-
-            <!-- Features Grid -->
             <div class="row alt-features-grid">
 
                 <div class="col-md-4">
@@ -81,33 +79,7 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-md-3">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <span class="icon-chat"></span>
-                        </div>
-                        <h3 class="alt-features-title font-alt">1. {{ __('home_page.DISCUSS') }}</h3>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <span class="icon-browser"></span>
-                        </div>
-                        <h3 class="alt-features-title font-alt">2. {{ __('home_page.MAKE') }}</h3>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <span class="icon-heart"></span>
-                        </div>
-                        <h3 class="alt-features-title font-alt">3. {{ __('home_page.PRODUCT') }}</h3>
-                    </div>
-                </div> --}}
             </div>
-            <!-- End Features Grid -->
-
         </div>
     </section>
 

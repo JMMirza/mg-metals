@@ -39,7 +39,7 @@
                 <!-- End Product Images -->
 
                 <!-- Product Description -->
-                <div class="col-sm-8 col-md-5 mb-xs-40">
+                <div class="col-sm-12 col-md-8 mb-xs-40">
                     <h3 class="mt-0">{{ $product->name }}</h3>
 
                     <hr class="mt-0 mb-30" />
@@ -73,7 +73,7 @@
 
 
                             @if (\Auth::user())
-                                <a href="#" class="btn btn-mod btn-large btn-round">Buy Now</a>
+                                <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy Now</a>
                             @else
                                 <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy Now</a>
                             @endif
@@ -137,7 +137,7 @@
                         </div>
                     </div> --}}
 
-                </div>
+                </div> --}}
 
             </div>
 

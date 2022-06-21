@@ -87,7 +87,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
-                                <select class="form-select mb-3" name="pricing_type" required>
+                                <select class="form-select mb-3" name="pricing_type" id="pricing_type" required>
                                     <option value="" @if ($product->pricing_type == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -203,6 +203,23 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-4 col-sm-12" id="fixed_amount_div" style="display: none">
+                                <div class="form-label-group in-border">
+                                    <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
+                                    <input type="number" step="0.001"
+                                        class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
+                                        id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
+                                        value="{{ $product->fixed_amount }}">
+                                    <div class="invalid-tooltip">
+                                        @if ($errors->has('fixed_amount'))
+                                            {{ $errors->first('fixed_amount') }}
+                                        @else
+                                            Fixed Amount is empty or incorrect!
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-label-group in-border">
                                     <label for="mark_up" class="form-label">Mark Up Amount</label>
@@ -238,7 +255,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-8 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="product_picture" class="form-label">Product Picture</label>
                                 <input type="file"
@@ -252,6 +269,10 @@
                                         Product Picture is required!
                                     @endif
                                 </div>
+                                <small class="text-muted form-text m-b-none text-right"><a data-bs-toggle="modal"
+                                        data-bs-target="#domicile-modal" href="" title="Domicile"
+                                        data-gallery=""><i class="ri-picture-in-picture-exit-fill"></i> Preview Product
+                                        Picture</a></small>
                             </div>
                         </div>
 
@@ -264,14 +285,20 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Tier 1 Commission (佣金層級-1)</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="" placeholder="Please Enter Tier 1 Commission"
-                                    value="{{ old('mark_up') }}">
+                                <label for="tier_commission_1" class="form-label">Tier 1 Commission (佣金層級-1)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type="decimal" step="any"
+                                        class="form-control @if ($errors->has('tier_commission_1')) is-invalid @endif"
+                                        id="tier_commission_1" name="tier_commission_1"
+                                        placeholder="Please Enter Tier 1 Commission"
+                                        value="{{ $product->tier_commission_1 }}">
+                                </div>
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
+                                    @if ($errors->has('tier_commission_1'))
+                                        {{ $errors->first('tier_commission_1') }}
                                     @else
                                         Tier 1 Commission is required!
                                     @endif
@@ -281,14 +308,22 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Tier 2 Commission (佣金層級-2)</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="" placeholder="Please Enter Tier 2 Commission"
-                                    value="{{ old('mark_up') }}">
+                                <label for="tier_commission_2" class="form-label">Tier 2 Commission (佣金層級-2)</label>
+
+                                <div class="input-group">
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type="decimal" step="any"
+                                        class="form-control @if ($errors->has('tier_commission_2')) is-invalid @endif"
+                                        id="tier_commission_2" name="tier_commission_2"
+                                        placeholder="Please Enter Tier 2 Commission"
+                                        value="{{ $product->tier_commission_2 }}">
+                                </div>
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
+                                    @if ($errors->has('tier_commission_2'))
+                                        {{ $errors->first('tier_commission_2') }}
                                     @else
                                         Tier 2 Commission is required!
                                     @endif
@@ -298,14 +333,22 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Tier 3 Commission (佣金層級-3)</label>
-                                <input type=number step=any
-                                    class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
-                                    id="mark_up" name="" placeholder="Please Enter Tier 3 Commission"
-                                    value="{{ old('mark_up') }}">
+                                <label for="tier_commission_3" class="form-label">Tier 3 Commission (佣金層級-3)</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type="decimal" step="any"
+                                    class="form-control @if ($errors->has('tier_commission_3')) is-invalid @endif"
+                                    id="tier_commission_3" name="tier_commission_3"
+                                    placeholder="Please Enter Tier 3 Commission"
+                                    value="{{ $product->tier_commission_3 }}">                                
+                                </div>
+                                
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('mark_up'))
-                                        {{ $errors->first('mark_up') }}
+                                    @if ($errors->has('tier_commission_3'))
+                                        {{ $errors->first('tier_commission_3') }}
                                     @else
                                         Tier 3 Commission is required!
                                     @endif
@@ -323,6 +366,21 @@
             </div>
         </div>
     </div>
+
+    <div class="modal flipInUp" id="domicile-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated flipInUp">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img class="d-block w-100" src="{{ $product->product_picture_url }}" alt="domicile">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('footer_scripts')
     <script>
@@ -330,12 +388,10 @@
             $("#pricing_type").change(function() {
                 var selected_option = $('#pricing_type').val();
                 if (selected_option == 'fix_price') {
-                    document.getElementById("promo_amount_div").style.display = "none";
                     document.getElementById("fixed_amount_div").style.display = "block";
                 }
                 if (selected_option == 'use_feed') {
                     document.getElementById("fixed_amount_div").style.display = "none";
-                    document.getElementById("promo_amount_div").style.display = "block";
                 }
             });
 

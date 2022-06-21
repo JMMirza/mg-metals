@@ -66,26 +66,25 @@
 
             <!-- Service Item -->
             <div role="tabpanel" class="tab-pane fade show active" id="service-branding">
-
                 <div class="section-text">
                     <div class="row">
                         <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
-                                    {{ __('services.service_branding_1') }}
+                                    {{ __('home_page.service_desc_01') }}
                                 </p>
                             </blockquote>
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('services.service_branding_2') }}
+                            {{ __('home_page.service_desc_02') }}
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
+                            {{ __('home_page.service_desc_03') }}
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- End Service Item -->
 
-            <!-- Service Item -->
             <div role="tabpanel" class="tab-pane fade" id="service-web-design">
 
                 <div class="section-text">
@@ -93,12 +92,16 @@
                         <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
-                                    {{ __('services.service_web_design_1') }}
+                                    {{ __('home_page.service_desc_11') }}
                                 </p>
                             </blockquote>
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('services.service_web_design_2') }}
+                            {{ __('home_page.service_desc_12') }}
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
+                            {{ __('home_page.service_desc_13') }}
                         </div>
 
 
@@ -106,9 +109,7 @@
                 </div>
 
             </div>
-            <!-- End Service Item -->
 
-            <!-- Service Item -->
             <div role="tabpanel" class="tab-pane fade" id="service-graphic">
 
                 <div class="section-text">
@@ -116,23 +117,21 @@
                         <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
-                                    {{ __('services.service_graphic_1') }}
+                                    {{ __('home_page.service_desc_21') }}
                                 </p>
                             </blockquote>
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('services.service_graphic_2') }}
+                            {{ __('home_page.service_desc_22') }}
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('services.service_graphic_3') }}
+                            {{ __('home_page.service_desc_23') }}
                         </div>
                     </div>
                 </div>
 
             </div>
-            <!-- End Service Item -->
 
-            <!-- Service Item -->
             <div role="tabpanel" class="tab-pane fade" id="service-development">
 
                 <div class="section-text">
@@ -140,56 +139,20 @@
                         <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
-                                    {{ __('services.service_development_1') }}
+                                    {{ __('home_page.service_desc_31') }}
                                 </p>
                             </blockquote>
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('services.service_development_2') }}
+                            {{ __('home_page.service_desc_32') }}
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('services.service_development_3') }}
+                            {{ __('home_page.service_desc_33') }}
                         </div>
                     </div>
                 </div>
 
             </div>
-            <!-- End Service Item -->
-
-            <!-- Service Item -->
-            {{-- <div role="tabpanel" class="tab-pane fade" id="service-photography">
-
-                <div class="section-text">
-                    <div class="row">
-                        <div class="col-md-4 mb-md-40 mb-xs-30">
-                            <blockquote class="mb-0">
-                                <p>
-                                    Photography is&nbsp;the simplest thing in&nbsp;the world, but
-                                    it&nbsp;is&nbsp;incredibly
-                                    complicated to&nbsp;make it&nbsp;really work.
-                                </p>
-                                <footer>
-                                    Martin Parr
-                                </footer>
-                            </blockquote>
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            Donec vel ultricies purus. Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus.
-                            Pelenteque suscipit ante at ullamcorper pulvinar neque portor. Integer lectus.
-                            Praesent sed nisi eleifend, fermetum orci amet, iaculis libero.
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            Maecenas volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur
-                            fermentum
-                            volutpat nibh, accumsan purus. Lorem ipsum dolor sit semper amet, consectetur adipiscing
-                            elit.
-                            In maximus ligula metus pellentesque mattis.
-                        </div>
-                    </div>
-                </div>
-
-            </div> --}}
-            <!-- End Service Item -->
 
         </div>
         <!-- End Tab panes -->
