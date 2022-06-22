@@ -4,10 +4,10 @@
             <a href="#top"><img src="https://www.mgmetals.com.hk/skin/frontend/ma_optician/ma_optician1/images/logo.png" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
         </div>
         <div class="footer-social-links mb-110 mb-xs-60">
-            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
-            <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i> <span class="sr-only">Twitter profile</span></a>
-            {{-- <a href="#" title="Behance" target="_blank"><i class="fa fa-behance"></i> <span class="sr-only">Behance profile</span></a> --}}
-            <a href="#" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i> <span class="sr-only">LinkedIn+ profile</span></a>
+            <a href="{{ route('home') }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
+            <a href="{{ route('home') }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i> <span class="sr-only">Twitter profile</span></a>
+            {{-- <a href="{{ route('home') }}" title="Behance" target="_blank"><i class="fa fa-behance"></i> <span class="sr-only">Behance profile</span></a> --}}
+            <a href="{{ route('home') }}" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i> <span class="sr-only">LinkedIn+ profile</span></a>
             {{-- <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i> <span class="sr-only">Pinterest profile</span></a> --}}
         </div>
         {{-- <div class="footer-text">

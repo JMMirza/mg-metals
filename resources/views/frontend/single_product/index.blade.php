@@ -102,7 +102,7 @@
                 <!-- End Product Description -->
 
                 <!-- Features -->
-                <div class="col-sm-4 col-md-3 mb-xs-40">
+                {{-- <div class="col-sm-4 col-md-3 mb-xs-40"> --}}
 
                     {{-- <div class="alt-service-wrap">
                         <div class="alt-service-item">
@@ -137,7 +137,7 @@
                         </div>
                     </div> --}}
 
-                </div> --}}
+                {{-- </div> --}}
 
             </div>
 
