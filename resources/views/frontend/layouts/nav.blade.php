@@ -33,22 +33,20 @@
                     <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
                 </li>
 
-                @if (\Auth::user())
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}" style="padding-top: 30px">
+                <li>
+                    @if (\Auth::user())
+                        <form method="POST" action="{{ route('logout') }}" style="line-height: 75px;">
                             @csrf
-                            <a href="{{ route('logout') }}" class=""
-                                onclick="event.preventDefault(); this.closest('form').submit();">{{ __('logout') }}</i></a>
+                            <a href="" class=""
+                                onclick="event.preventDefault(); this.closest('form').submit();">{{ __('home_page.logout') }}</a>
                         </form>
-                    </li>
-                @else
-                    <li>
+                    @else
                         <a href="{{ route('customer_login') }}" class="">{{ __('home_page.login') }}</i></a>
-                    </li>
-                @endif
+                    @endif
+                </li>
 
                 <!-- Divider -->
-                <li><a>&nbsp;</a></li>
+                {{-- <li><a>&nbsp;</a></li> --}}
                 <!-- End Divider -->
 
                 <!-- Languages -->

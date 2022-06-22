@@ -9,47 +9,30 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3 needs-validation" action="{{ route('customers.store') }}" method="POST"
-                        novalidate>
+                    <form class="row g-3 needs-validation" action="{{ route('customers.store') }}" method="POST" novalidate>
                         @csrf
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="first_name" class="form-label">First Name</label>
-                                <input type="text" class="form-control @if ($errors->has('first_name')) is-invalid @endif"
-                                    id="first_name" name="first_name" placeholder="First name"
-                                    value="{{ old('first_name') }}" required>
+                                <label for="full_name" class="form-label">Full Name</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('full_name')) is-invalid @endif" id="full_name"
+                                    name="full_name" placeholder="Full name" value="{{ old('full_name') }}" required>
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('first_name'))
-                                        {{ $errors->first('first_name') }}
+                                    @if ($errors->has('full_name'))
+                                        {{ $errors->first('full_name') }}
                                     @else
-                                        First Name is required!
+                                        Full Name is required!
                                     @endif
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="last_name" class="form-label">Last Name</label>
-                                <input type="text" class="form-control @if ($errors->has('last_name')) is-invalid @endif"
-                                    id="last_name" name="last_name" placeholder="Last name" value="{{ old('last_name') }}"
-                                    required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('last_name'))
-                                        {{ $errors->first('last_name') }}
-                                    @else
-                                        Last Name is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-label-group in-border">
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select mb-3" name="gender" required>
-                                    <option value="" @if (old('gender') == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if (old('gender') == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
                                     <option value="male" @if (old('gender') == 'male') {{ 'selected' }} @endif>
@@ -70,8 +53,8 @@
                             <div class="form-label-group in-border">
                                 <label for="user_id" class="form-label">Users</label>
                                 <select class="form-select mb-3" name="user_id" required>
-                                    <option value="" @if (old('user_id') == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if (old('user_id') == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
                                     @foreach ($users as $user)
@@ -88,7 +71,8 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="phone_number" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                                <input type="text"
+                                    class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
                                     id="phone_number" name="phone_number" placeholder="Please Enter Phone number"
                                     value="{{ old('phone_number') }}" required>
                                 <div class="invalid-tooltip">
@@ -105,12 +89,11 @@
                             <div class="form-label-group in-border">
                                 <label for="nationality" class="form-label">Nationality</label>
                                 <select class="form-select mb-3" name="nationality" required>
-                                    <option value="" @if (old('nationality') == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if (old('nationality') == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
-                                    <option value="pakistan"
-                                        @if (old('nationality') == 'pakistan') {{ 'selected' }} @endif>
+                                    <option value="pakistan" @if (old('nationality') == 'pakistan') {{ 'selected' }} @endif>
                                         Pakistan
                                     </option>
                                     <option value="china" @if (old('nationality') == 'china') {{ 'selected' }} @endif>
@@ -205,7 +188,8 @@
                                 <input type="text"
                                     class="form-control @if ($errors->has('bank_country_name')) is-invalid @endif"
                                     id="bank_country_name" name="bank_country_name"
-                                    placeholder="Please Enter Bank Branch Number" value="{{ old('bank_country_name') }}">
+                                    placeholder="Please Enter Bank Branch Number"
+                                    value="{{ old('bank_country_name') }}">
                                 <div class="invalid-tooltip">
                                     {{ $errors->first('bank_country_name') }}
                                 </div>
@@ -217,8 +201,8 @@
                                 <label for="bank_swift_code" class="form-label">Bank Swift Code</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"
-                                    id="bank_swift_code" name="bank_swift_code" placeholder="Please Enter Bank Swift Code"
-                                    value="{{ old('bank_swift_code') }}">
+                                    id="bank_swift_code" name="bank_swift_code"
+                                    placeholder="Please Enter Bank Swift Code" value="{{ old('bank_swift_code') }}">
                                 <div class="invalid-tooltip">
                                     {{ $errors->first('bank_swift_code') }}
                                 </div>
@@ -257,7 +241,8 @@
                                 <input type="text"
                                     class="form-control @if ($errors->has('sales_rep_country')) is-invalid @endif"
                                     id="sales_rep_country" name="sales_rep_country"
-                                    placeholder="Please Enter Sales Rep Country" value="{{ old('sales_rep_country') }}">
+                                    placeholder="Please Enter Sales Rep Country"
+                                    value="{{ old('sales_rep_country') }}">
                                 <div class="invalid-tooltip">
                                     {{ $errors->first('sales_rep_country') }}
                                 </div>

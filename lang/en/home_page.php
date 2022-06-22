@@ -7,6 +7,8 @@ return [
     'our_service' => 'Our Services',
     'contact_us' => 'Contact Us',
     'login' => 'Login',
+    'logout' => 'Logout',
+    'register' => 'Register',
 
     'since_2001' => 'SINCE 2001',
     'mg_metals' => 'MG METALS',

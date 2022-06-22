@@ -15,31 +15,15 @@
                         @method('PUT')
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="first_name" class="form-label">First Name</label>
-                                <input type="text" class="form-control @if ($errors->has('first_name')) is-invalid @endif"
-                                    id="first_name" name="first_name" placeholder="First name"
-                                    value="{{ $customer->first_name }}" required>
+                                <label for="full_name" class="form-label">Full Name</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('full_name')) is-invalid @endif" id="full_name"
+                                    name="full_name" placeholder="Full name" value="{{ $customer->full_name }}" required>
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('first_name'))
-                                        {{ $errors->first('first_name') }}
+                                    @if ($errors->has('full_name'))
+                                        {{ $errors->first('full_name') }}
                                     @else
-                                        First Name is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="last_name" class="form-label">First Name</label>
-                                <input type="text" class="form-control @if ($errors->has('last_name')) is-invalid @endif"
-                                    id="last_name" name="last_name" placeholder="First name"
-                                    value="{{ $customer->last_name }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('last_name'))
-                                        {{ $errors->first('last_name') }}
-                                    @else
-                                        Last Name is required!
+                                        Full Name is required!
                                     @endif
                                 </div>
                             </div>
@@ -49,8 +33,8 @@
                             <div class="form-label-group in-border">
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select mb-3" name="gender" required>
-                                    <option value="" @if ($customer->gender == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if ($customer->gender == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
                                     <option value="male" @if ($customer->gender == 'male') {{ 'selected' }} @endif>
@@ -71,8 +55,8 @@
                             <div class="form-label-group in-border">
                                 <label for="user_id" class="form-label">Users</label>
                                 <select class="form-select mb-3" name="user_id" required>
-                                    <option value="" @if ($customer->user_id == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if ($customer->user_id == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
                                     @foreach ($users as $user)
@@ -89,7 +73,8 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="phone_number" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                                <input type="text"
+                                    class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
                                     id="phone_number" name="phone_number" placeholder="Please Enter Phone number"
                                     value="{{ $customer->phone_number }}" required>
                                 <div class="invalid-tooltip">
@@ -106,8 +91,8 @@
                             <div class="form-label-group in-border">
                                 <label for="nationality" class="form-label">Nationality</label>
                                 <select class="form-select mb-3" name="nationality" required>
-                                    <option value="" @if ($customer->nationality == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if ($customer->nationality == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
                                     <option value="male" @if ($customer->nationality == 'pakistan') {{ 'selected' }} @endif>
@@ -218,7 +203,8 @@
                                 <label for="bank_swift_code" class="form-label">Bank Swift Code</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"
-                                    id="bank_swift_code" name="bank_swift_code" placeholder="Please Enter Bank Swift Code"
+                                    id="bank_swift_code" name="bank_swift_code"
+                                    placeholder="Please Enter Bank Swift Code"
                                     value="{{ $customer->bank_swift_code }}">
                                 <div class="invalid-tooltip">
                                     {{ $errors->first('bank_swift_code') }}

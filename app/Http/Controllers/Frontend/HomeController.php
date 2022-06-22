@@ -83,13 +83,13 @@ class HomeController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        return redirect()->route('home')
+        auth()->login($user);
+        return redirect()->route('customer_profile')
             ->with('success', 'Account created successfully.');
     }
 

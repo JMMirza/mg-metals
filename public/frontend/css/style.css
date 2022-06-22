@@ -1648,6 +1648,10 @@ a.logo:hover {
     height: 55px !important;
     line-height: 55px !important;
 }
+.small-height .inner-nav ul li form {
+    height: 55px !important;
+    line-height: 55px !important;
+}
 .inner-nav {
     display: inline-block;
     position: relative;
@@ -1683,6 +1687,23 @@ a.logo:hover {
     -ms-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
     transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
 }
+
+.inner-nav ul li form {
+    color: #777;
+    letter-spacing: 2px;
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+
+    -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    -ms-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+}
+
 .inner-nav ul > li:first-child > a {
 }
 .inner-nav ul li a:hover,
