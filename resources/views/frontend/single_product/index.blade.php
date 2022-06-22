@@ -49,7 +49,14 @@
                             {{-- <del class="section-text">$50.00</del> --}}
                             <strong>{{ $product->getProductPrice() }}</strong>
                         </div>
-
+                        {{-- <div class="col-6 align-right section-text">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            &nbsp;(3 reviews)
+                        </div> --}}
                     </div>
 
                     <hr class="mt-0 mb-30" />
@@ -63,7 +70,15 @@
                     <div class="mb-30">
                         <form method="post" action="#" class="form">
                             <input type="number" class="input-lg round" min="1" max="100" value="1" />
-                            <a href="#" class="btn btn-mod btn-large btn-round">Buy Now</a>
+
+
+                            @if (\Auth::user())
+                                <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy Now</a>
+                            @else
+                                <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy Now</a>
+                            @endif
+
+
 
                             {{-- <input type="text" class="input-lg round" placeholder="Agent Code"> --}}
 
@@ -87,9 +102,9 @@
                 <!-- End Product Description -->
 
                 <!-- Features -->
-                {{-- <div class="col-sm-4 col-md-3 mb-xs-40">
-                    <!-- Features Item -->
-                    <div class="alt-service-wrap">
+                <div class="col-sm-4 col-md-3 mb-xs-40">
+
+                    {{-- <div class="alt-service-wrap">
                         <div class="alt-service-item">
                             <div class="alt-service-icon">
                                 <i class="fa fa-paper-plane-o"></i>
@@ -99,9 +114,6 @@
                             semper..
                         </div>
                     </div>
-                    <!-- End Features Item -->
-
-                    <!-- Features Item -->
                     <div class="alt-service-wrap">
                         <div class="alt-service-item">
                             <div class="alt-service-icon">
@@ -114,9 +126,6 @@
                             semper..
                         </div>
                     </div>
-                    <!-- End Features Item -->
-
-                    <!-- Features Item -->
                     <div class="alt-service-wrap">
                         <div class="alt-service-item">
                             <div class="alt-service-icon">
@@ -126,7 +135,7 @@
                             Vivamus neque orci, ultricies blandit ultricies vel,
                             semper..
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div> --}}
 

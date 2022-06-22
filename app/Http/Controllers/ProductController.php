@@ -121,7 +121,7 @@ class ProductController extends Controller
             'pricing_type' => 'required|string|max:255',
             // 'mark_up' => 'required',
             // 'markup_type' => 'required',
-            'surcharge_at_product' => 'required',
+            // 'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
             'manufacturer_id' => 'required|integer',
             'weight' => 'required|numeric',
@@ -129,6 +129,8 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
+        // dd($input);
+
         if ($request->hasFile('product_picture')) {
             // dd($input);
             $file_name = time() . '.' . $request->product_picture->extension();
