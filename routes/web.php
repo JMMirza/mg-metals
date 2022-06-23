@@ -44,16 +44,14 @@ Route::get('/about-us', [HomeCtrl::class, 'about_us'])->name('about_us');
 Route::get('/services', [HomeCtrl::class, 'services'])->name('services');
 Route::get('/contact-us', [HomeCtrl::class, 'contact_us'])->name('contact_us');
 Route::get('/single-product/{id}', [HomeCtrl::class, 'single_product'])->name('single-product');
-
 Route::get('/customer-login', [HomeCtrl::class, 'login'])->name('customer_login');
 Route::get('/customer-register', [HomeCtrl::class, 'register'])->name('customer_register');
 Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])->name('customer-register-account');
-
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 
-// Route::prefix('admin')->group(function () {
 Route::group(['middleware' => ['auth']], function () {
-    // CRM Routes Starts Here
+    
+
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::resources(['/customers' => CustomerController::class]);
     Route::resources(['agents' => AgentController::class]);
@@ -66,8 +64,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['customer-trading' => CustomerTrading::class]);
     Route::get('customer-product/{id}', [CustomerProductController::class, 'customer_products'])->name('customer-product');
     Route::get('customer-product-ajax/{id}', [CustomerProductController::class, 'customer_products_ajax'])->name('customer-product-ajax');
+
     Route::post('/applicant-info-individual', [HomeCtrl::class, 'applicant_information_individual'])->name('applicant-info-individual');
     Route::post('/applicant-info-corporate', [HomeCtrl::class, 'applicant_information_corporate'])->name('applicant-info-corporate');
     Route::get('/customer-profile', [HomeCtrl::class, 'profile'])->name('customer_profile');
 });
-// });
+

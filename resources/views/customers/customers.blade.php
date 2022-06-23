@@ -32,18 +32,7 @@
                         <tbody>
 
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>First name</th>
-                                <th>Last name</th>
-                                <th>Gender</th>
-                                <th>Phone Number</th>
-                                <th>Passport Number</th>
-                                <th>Nationality</th>
-                                <th>Created At</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
+                        
                     </table>
                 </div>
             </div>
