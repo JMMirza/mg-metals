@@ -14,9 +14,24 @@ class Customer extends Model
         'full_name',
         'gender',
         'user_id',
+        'occupation',
+        'address',
         'phone_number',
+        'business_name',
+        'type_of_organization',
+        'business_fax',
+        'business_email',
+        'business_address',
+        'city',
+        'country',
+        'zip_code',
+        'retails',
+        'type_of_business',
+        'business_phone_num',
         'nationality',
         'passport_no',
+        'business_reg_num',
+        'country_of_incorporation',
         'bank_account_name',
         'bank_account_number',
         'bank_name',
@@ -26,7 +41,11 @@ class Customer extends Model
         'sales_rep_name',
         'sales_rep_number',
         'sales_rep_country',
-        'strorage_service'
+        'strorage_service',
+        'years_in_business',
+        'import',
+        'countries_of_import',
+        'hear_about_mg'
     ];
 
     protected $dates = [

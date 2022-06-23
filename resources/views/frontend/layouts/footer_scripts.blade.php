@@ -1,6 +1,6 @@
 <script type="text/javascript" src="{{ asset('frontend/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/js/jquery.easing.1.3.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>        
+<script type="text/javascript" src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/js/SmoothScroll.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/js/jquery.scrollTo.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/js/jquery.localScroll.min.js') }}"></script>
@@ -20,5 +20,7 @@
 <script type="text/javascript" src="{{ asset('frontend/js/jquery.lazyload.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/js/all.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/js/contact-form.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script>        
+<script type="text/javascript" src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->

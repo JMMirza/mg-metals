@@ -39,7 +39,8 @@
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="mn-sub">
-                            <li><a href="{{ route('customer_profile') }}" class="text-center">Profile</a></li>
+                            <li><a href="{{ route('customer_profile') . '?tab=individual' }}"
+                                    class="text-center">Profile</a></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
