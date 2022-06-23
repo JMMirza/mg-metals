@@ -9,6 +9,7 @@ return [
     'login' => 'Login',
     'logout' => 'Logout',
     'register' => 'Register',
+    'profile' => 'Profile',
 
     'since_2001' => 'SINCE 2001',
     'mg_metals' => 'MG METALS',

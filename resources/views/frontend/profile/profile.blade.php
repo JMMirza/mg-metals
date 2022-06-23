@@ -11,57 +11,57 @@
                 <div class="row">
 
                     <div class="col-md-12">
+                        @if (\Auth::user()->customer_type == 'corporate')
+                            <ul class="nav nav-tabs tpl-tabs animate" role="tablist">
+                                <li class="nav-item">
+                                    <a href="#item-1" aria-controls="item-1"
+                                        class="nav-link {{ request()->query('tab') == 'individual' || request()->query('tab') == null ? 'active' : '' }}"
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="true">{{ __('individual.APPLICANT INFORMATION (INDIVIDUAL)') }}
+                                    </a>
+                                </li>
 
-                        <ul class="nav nav-tabs tpl-tabs animate" role="tablist">
 
-                            <li class="nav-item">
-                                <a href="#item-1" aria-controls="item-1"
-                                    class="nav-link {{ request()->query('tab') == 'individual' ? 'active' : '' }}"
-                                    data-bs-toggle="tab" role="tab" aria-selected="true">APPLICANT INFORMATION
-                                    (INDIVIDUAL)
-                                </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="#item-2" aria-controls="item-2"
+                                        class="nav-link {{ request()->query('tab') == 'corporate' ? 'active' : '' }}"
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="false">{{ __('corporate.APPLICANT INFORMATION (CORPORATE)') }}
+                                    </a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a href="#item-2" aria-controls="item-2"
-                                    class="nav-link {{ request()->query('tab') == 'corporate' ? 'active' : '' }}"
-                                    data-bs-toggle="tab" role="tab" aria-selected="false">APPLICANT INFORMATION
-                                    (CORPORATE)
-                                </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="#item-3" aria-controls="item-3"
+                                        class="nav-link {{ request()->query('tab') == 'shareholder' ? 'active' : '' }}"
+                                        data-bs-toggle="tab" role="tab" aria-selected="false">SHAREHOLDER/DIRECTOR
+                                        INFORMATION </a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a href="#item-3" aria-controls="item-3"
-                                    class="nav-link {{ request()->query('tab') == 'shareholder' ? 'active' : '' }}"
-                                    data-bs-toggle="tab" role="tab" aria-selected="false">SHAREHOLDER/DIRECTOR
-                                    INFORMATION </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="#item-4" aria-controls="item-4"
+                                        class="nav-link {{ request()->query('tab') == 'trading' ? 'active' : '' }}"
+                                        data-bs-toggle="tab" role="tab" aria-selected="false">AUTHORIZED TRADING
+                                        REPRESENTATIVE </a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a href="#item-4" aria-controls="item-4"
-                                    class="nav-link {{ request()->query('tab') == 'trading' ? 'active' : '' }}"
-                                    data-bs-toggle="tab" role="tab" aria-selected="false">AUTHORIZED TRADING
-                                    REPRESENTATIVE </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="#item-5" aria-controls="item-5"
+                                        class="nav-link {{ request()->query('tab') == 'other_info' ? 'active' : '' }}"
+                                        data-bs-toggle="tab" role="tab" aria-selected="false">OTHER INFORMATION </a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a href="#item-5" aria-controls="item-5"
-                                    class="nav-link {{ request()->query('tab') == 'other_info' ? 'active' : '' }}"
-                                    data-bs-toggle="tab" role="tab" aria-selected="false">OTHER INFORMATION </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#item-6" aria-controls="item-6"
-                                    class="nav-link {{ request()->query('tab') == 'bank_info' ? 'active' : '' }}"
-                                    data-bs-toggle="tab" role="tab" aria-selected="false">BANK ACCOUNT FOR RECEIVING
-                                    PAYMENTS </a>
-                            </li>
-
-                        </ul>
+                                <li class="nav-item">
+                                    <a href="#item-6" aria-controls="item-6"
+                                        class="nav-link {{ request()->query('tab') == 'bank_info' ? 'active' : '' }}"
+                                        data-bs-toggle="tab" role="tab" aria-selected="false">BANK ACCOUNT FOR RECEIVING
+                                        PAYMENTS </a>
+                                </li>
+                            </ul>
+                        @endif
                         <div class="tab-content tpl-tabs-cont section-text">
 
-                            <div class="tab-pane fade {{ request()->query('tab') == 'individual' ? 'active show' : '' }} "
-                                 role="tabpanel" id="item-1" role="tabpanel">
+                            <div class="tab-pane fade {{ request()->query('tab') == 'individual' || request()->query('tab') == null ? 'active show' : '' }} "
+                                role="tabpanel" id="item-1" role="tabpanel">
                                 @include('frontend.profile.applicant_info_individual')
                             </div>
 
@@ -91,7 +91,6 @@
                                 id="item-6" role="tabpanel">
                                 @include('frontend.profile.bank_info')
                             </div>
-
                         </div>
 
                     </div>
