@@ -16,8 +16,8 @@
                                 <li class="nav-item">
                                     <a href="#item-1" aria-controls="item-1"
                                         class="nav-link {{ request()->query('tab') == 'individual' || request()->query('tab') == null ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab" aria-selected="true">APPLICANT INFORMATION
-                                        (INDIVIDUAL)
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="true">{{ __('individual.APPLICANT INFORMATION (INDIVIDUAL)') }}
                                     </a>
                                 </li>
 
@@ -25,8 +25,8 @@
                                 <li class="nav-item">
                                     <a href="#item-2" aria-controls="item-2"
                                         class="nav-link {{ request()->query('tab') == 'corporate' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab" aria-selected="false">APPLICANT INFORMATION
-                                        (CORPORATE)
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="false">{{ __('corporate.APPLICANT INFORMATION (CORPORATE)') }}
                                     </a>
                                 </li>
 
