@@ -83,14 +83,16 @@ class HomeController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'customer_type' => ['required']
         ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'customer_type' => $request->customer_type
         ]);
         auth()->login($user);
-        return redirect()->route('customer_profile?tab=individual')
+        return redirect(route('customer_profile'))
             ->with('success', 'Account created successfully.');
     }
 
@@ -100,7 +102,7 @@ class HomeController extends Controller
         $customer = Customer::where('user_id', $user->id)->first();
 
 
-        if($customer == null){
+        if ($customer == null) {
             $customer = Customer::create([
                 'user_id' => $user->id,
                 'full_name' => $user->name,
@@ -114,7 +116,6 @@ class HomeController extends Controller
         }
 
         return view('frontend.profile.profile', compact('customer'));
-
     }
 
     public function switch_language($locale)
