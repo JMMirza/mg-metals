@@ -146,7 +146,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
-                                <input type="number" step="0.001"
+                                <input type="decimal"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
                                     id="weight" name="weight" placeholder="Please enter Weight of Product"
                                     value="{{ old('weight') }}" required>

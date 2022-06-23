@@ -63,7 +63,7 @@ class ProductController extends Controller
             'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
             'manufacturer_id' => 'required|integer',
-            'weight' => 'required|numeric',
+            'weight' => 'required',
             'description' => 'required'
         ]);
         $input = $request->all();
@@ -124,7 +124,7 @@ class ProductController extends Controller
             // 'surcharge_at_product' => 'required',
             'catergory_id' => 'required|integer',
             'manufacturer_id' => 'required|integer',
-            'weight' => 'required|numeric',
+            'weight' => 'required',
             'description' => 'required'
         ]);
 
