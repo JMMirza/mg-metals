@@ -7,6 +7,8 @@ return [
     'our_service' => '我們的服務',
     'contact_us' => '聯繫我們',
     'login' => '登錄',
+    'logout' => 'Logout',
+    'register' => 'Register',
 
     'since_2001' => '自 2001 年以來',
     'mg_metals' => '萬兆豐',

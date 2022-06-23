@@ -98,10 +98,23 @@ class HomeController extends Controller
     {
         $user = \Auth::user();
         $customer = Customer::where('user_id', $user->id)->first();
-        if ($customer)
-            return view('frontend.profile.profile', compact('customer'));
-        else
-            return view('frontend.profile.profile');
+
+
+        if($customer == null){
+            $customer = Customer::create([
+                'user_id' => $user->id,
+                'full_name' => $user->name,
+                'gender' => '',
+                'occupation' => '',
+                'passport_no' => '',
+                'phone_number' => '',
+                'nationality' => '',
+                'address' => '',
+            ]);
+        }
+
+        return view('frontend.profile.profile', compact('customer'));
+
     }
 
     public function switch_language($locale)

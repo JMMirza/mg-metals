@@ -14,7 +14,7 @@
                         class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">{{ __('home_page.contact_us') }}</a>
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
                     <a href="{{ route('shop') }}"
-                        class="btn btn-mod btn-medium btn-round lightbox mfp-iframe">{{ __('home_page.purchase') }}</a>
+                        class="btn btn-mod btn-medium btn-round">{{ __('home_page.purchase') }}</a>
                 </div>
 
             </div>

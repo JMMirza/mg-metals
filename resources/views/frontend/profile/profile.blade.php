@@ -61,7 +61,7 @@
                         <div class="tab-content tpl-tabs-cont section-text">
 
                             <div class="tab-pane fade {{ request()->query('tab') == 'individual' ? 'active show' : '' }} "
-                                id="projectSummary" role="tabpanel" id="item-1" role="tabpanel">
+                                 role="tabpanel" id="item-1" role="tabpanel">
                                 @include('frontend.profile.applicant_info_individual')
                             </div>
 
