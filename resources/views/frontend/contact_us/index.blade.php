@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-sm-12 mb-sm-50 mb-xs-30">
                         <div class="container relative">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
                                     <div class="section-text align-center mb-70 mb-xs-40">
                                         Curabitur eu adipiscing lacus, a iaculis diam. Nullam placerat blandit auctor. Nulla
@@ -23,7 +23,7 @@
                                         vehicula.
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row mb-60 mb-xs-40">
 
