@@ -77,5 +77,5 @@ return [
     'Call us' => '聯繫我們',
     'Address' => '地址',
     'Email' => '電子郵件',
-
+    'Name' => '全名',
 ];

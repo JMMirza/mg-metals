@@ -75,4 +75,5 @@ return [
     'Call us' => 'Call us',
     'Address' => 'Address',
     'Email' => 'Email',
+    'Name' => 'Name'
 ];
