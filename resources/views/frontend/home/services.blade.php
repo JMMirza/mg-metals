@@ -68,7 +68,7 @@
             <div role="tabpanel" class="tab-pane fade show active" id="service-branding">
                 <div class="section-text">
                     <div class="row">
-                        <div class="col-md-4 mb-md-40 mb-xs-30">
+                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
                                     {{ __('home_page.service_desc_01') }}
@@ -77,9 +77,9 @@
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
                             {{ __('home_page.service_desc_02') }}
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_03') }}
+                        </div> --}}
+                        <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
+                            {{ __('home_page.service_desc_01') }}
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
 
                 <div class="section-text">
                     <div class="row">
-                        <div class="col-md-4 mb-md-40 mb-xs-30">
+                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
                                     {{ __('home_page.service_desc_11') }}
@@ -98,10 +98,10 @@
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
                             {{ __('home_page.service_desc_12') }}
-                        </div>
+                        </div> --}}
 
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_13') }}
+                        <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
+                            {{ __('home_page.service_desc_11') }}
                         </div>
 
 
@@ -114,7 +114,7 @@
 
                 <div class="section-text">
                     <div class="row">
-                        <div class="col-md-4 mb-md-40 mb-xs-30">
+                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
                                     {{ __('home_page.service_desc_21') }}
@@ -123,9 +123,9 @@
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
                             {{ __('home_page.service_desc_22') }}
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_23') }}
+                        </div> --}}
+                        <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
+                            {{ __('home_page.service_desc_21') }}
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
 
                 <div class="section-text">
                     <div class="row">
-                        <div class="col-md-4 mb-md-40 mb-xs-30">
+                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
                             <blockquote class="mb-0">
                                 <p>
                                     {{ __('home_page.service_desc_31') }}
@@ -145,9 +145,9 @@
                         </div>
                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
                             {{ __('home_page.service_desc_32') }}
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_33') }}
+                        </div> --}}
+                        <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
+                            {{ __('home_page.service_desc_31') }}
                         </div>
                     </div>
                 </div>

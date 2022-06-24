@@ -20,12 +20,14 @@
 
                     <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
                         <div class="banner-content">
-                            <h3 class="banner-heading font-alt">{{ __('home_page.INTERESTED IN ANY OF OUR MEMBER SERVICES?') }}</h3>
+                            <h3 class="banner-heading font-alt">
+                                {{ __('home_page.INTERESTED IN ANY OF OUR MEMBER SERVICES?') }}</h3>
                             <div class="banner-decription">{{ __('home_page.sign_up_or_login') }}</div>
                             <div class="local-scroll">
                                 <a href="{{ route('customer_login') }}"
                                     class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.signup_login') }}</a>
-                                <a href="{{ route('contact_us') }}" class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.contact_us') }}</a>
+                                <a href="{{ route('contact_us') }}"
+                                    class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.contact_us') }}</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
 
     <section class="page-section">
         <div class="container relative">
-            <h2 class="section-title font-alt mb-70 mb-sm-40">Why Choose Us</h2>
+            <h2 class="section-title font-alt mb-70 mb-sm-40">{{ __('home_page.why_choose_us') }}</h2>
             <div class="row alt-features-grid">
 
                 <div class="col-md-4">
@@ -95,7 +97,7 @@
         <div class="container relative">
 
             <h2 class="section-title font-alt mb-70 mb-sm-40">
-                Find Us
+                {{ __('home_page.Find us') }}
             </h2>
 
             <div class="row">
@@ -110,7 +112,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="ci-title font-alt">
-                                    Call Us
+                                    {{ __('home_page. Call us') }}
                                 </div>
                                 <div class="ci-text">
                                     (852) 3998 4916
@@ -126,7 +128,7 @@
                                     <i class="fa fa-map-marker"></i>
                                 </div>
                                 <div class="ci-title font-alt">
-                                    Address
+                                    {{ __('home_page.Address') }}
                                 </div>
                                 <div class="ci-text">
                                     Unit F, 18F, MG Tower, 133 Hoi Bun Road, Kwun Tong, Kowloon, Hong Kong
@@ -142,7 +144,7 @@
                                     <i class="fa fa-envelope"></i>
                                 </div>
                                 <div class="ci-title font-alt">
-                                    Email
+                                    {{ __('home_page.Email') }}
                                 </div>
                                 <div class="ci-text">
                                     <a href="mailto:account@mgmetals.com.hk">account@mgmetals.com.hk</a>

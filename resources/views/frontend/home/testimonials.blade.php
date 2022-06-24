@@ -11,7 +11,7 @@
                         <span class="icon-quote"></span>
                     </div>
                     <!-- Section Title -->
-                    <h3 class="small-title font-alt">What people say?</h3>
+                    <h3 class="small-title font-alt">{{ __('home_page.What people say?') }}</h3>
                     <blockquote class="testimonial white">
                         <p>
                             Buying and selling gold has never been easier from this trusted brand. Excellent service
