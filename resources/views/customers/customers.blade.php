@@ -19,8 +19,7 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>First name</th>
-                                <th>Last name</th>
+                                <th>Full name</th>
                                 <th>Gender</th>
                                 <th>Phone Number</th>
                                 <th>Passport Number</th>
@@ -32,7 +31,7 @@
                         <tbody>
 
                         </tbody>
-                        
+
                     </table>
                 </div>
             </div>

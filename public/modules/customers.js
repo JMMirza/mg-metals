@@ -14,12 +14,8 @@ $(document).ready(function () {
         ajax: route,
         columns: [
             {
-                data: "first_name",
-                name: "first_name",
-            },
-            {
-                data: "last_name",
-                name: "last_name",
+                data: "full_name",
+                name: "full_name",
             },
             {
                 data: "gender",
