@@ -8,9 +8,17 @@
         </h2>
         <div class="section-text">
             <div class="row">
-                <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">{{ __('home_page.about_col_1') }}</div>
+                <div class="col-md-12 col-sm-12">
+                    <p>
+                        {{ __('about_us.para_1') }}
+                    </p>
+                    <p>
+                        {{ __('about_us.para_2') }}
+                    </p>
+                </div>
+                {{-- <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">{{ __('home_page.about_col_1') }}</div>
                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">{{ __('home_page.about_col_2') }}</div>
-                <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">{{ __('home_page.about_col_3') }}</div>
+                <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">{{ __('home_page.about_col_3') }}</div> --}}
             </div>
         </div>
     </div>

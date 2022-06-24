@@ -3,7 +3,7 @@
 @section('content')
     @include('frontend.home.banner')
 
-    {{-- @include('frontend.home.about') --}}
+    @include('frontend.home.about')
 
     <hr class="mt-0 mb-0 " />
 
