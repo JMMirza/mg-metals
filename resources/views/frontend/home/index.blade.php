@@ -112,7 +112,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="ci-title font-alt">
-                                    {{ __('home_page.call us') }}
+                                    {{ __('home_page.call_us') }}
                                 </div>
                                 <div class="ci-text">
                                     (852) 3998 4916

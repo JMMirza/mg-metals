@@ -74,7 +74,7 @@ return [
     'Subscribe' => '訂閱',
     'Please trust us, we will never send you spam' => '請相信我們，我們絕不會向您發送垃圾郵件',
     'Find us' => '聯繫我們',
-    'Call us' => '聯繫我們',
+    'call_us' => '聯繫我們',
     'Address' => '地址',
     'Email' => '電子郵件',
     'Name' => '全名',
