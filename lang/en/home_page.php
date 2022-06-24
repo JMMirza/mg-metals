@@ -72,7 +72,7 @@ return [
     'Subscribe' => 'Subscribe',
     'Please trust us, we will never send you spam' => 'Please trust us, we will never send you spam',
     'Find us' => 'Find us',
-    'Call us' => 'Call us',
+    'call us' => 'Call us',
     'Address' => 'Address',
     'Email' => 'Email',
     'Name' => 'Name'
