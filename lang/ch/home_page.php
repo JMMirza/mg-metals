@@ -79,4 +79,9 @@ return [
     'Address' => '地址',
     'Email' => '電子郵件',
     'Name' => '全名',
+
+    'next' => '下一頁',
+    'previous' => '上一頁',
+    'cancel' => 'Cancel',
+    'save' => 'Save',
 ];

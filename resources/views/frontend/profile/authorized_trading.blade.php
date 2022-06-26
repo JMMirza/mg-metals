@@ -46,13 +46,13 @@
             </div>
             <div class="footer">
                 <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=shareholder' }}"
-                    class="btn btn-custom">Previous</a>
+                    class="btn btn-custom">{{ __('home_page.previous') }}</a>
                 <div class="ml-auto">
-                    <button class="btn btn-default" type="reset">Cancel</button>
-                    <button class="btn btn-custom" type="submit">Save</button>
+                    <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
+                    <button class="btn btn-custom" type="submit">{{ __('home_page.save') }}</button>
 
                     <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=other_info' }}"
-                        class="btn btn-primary">Next </a>
+                        class="btn btn-primary">{{ __('home_page.next') }} </a>
                 </div>
             </div>
         </form>
