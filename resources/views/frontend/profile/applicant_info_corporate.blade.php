@@ -121,7 +121,7 @@
                      <label class="radio-inline ">
                          <input type="radio" name="type_of_business" value="Jewellery Repair"
                              @if ($customer->type_of_business == 'Jewellery Repair') checked @endif>
-                         <span></span>{{ __('corporateJEWELLERY REPAIR') }}
+                         <span></span>{{ __('corporate.JEWELLERY REPAIR') }}
                      </label>
                      <label class="radio-inline ">
                          <input type="radio" name="type_of_business" value="Jewellery Manufacturer"
