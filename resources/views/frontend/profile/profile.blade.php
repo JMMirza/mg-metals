@@ -33,28 +33,32 @@
                                 <li class="nav-item">
                                     <a href="#item-3" aria-controls="item-3"
                                         class="nav-link {{ request()->query('tab') == 'shareholder' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab" aria-selected="false">SHAREHOLDER/DIRECTOR
-                                        INFORMATION </a>
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="false">{{ __('shareholder.SHAREHOLDER/DIRECTOR INFORMATION') }}
+                                    </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="#item-4" aria-controls="item-4"
                                         class="nav-link {{ request()->query('tab') == 'trading' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab" aria-selected="false">AUTHORIZED TRADING
-                                        REPRESENTATIVE </a>
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="false">{{ __('trading.AUTHORIZED TRADING REPRESENTATIVE') }}
+                                    </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="#item-5" aria-controls="item-5"
                                         class="nav-link {{ request()->query('tab') == 'other_info' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab" aria-selected="false">OTHER INFORMATION </a>
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="false">{{ __('other_info.OTHER INFORMATION') }} </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="#item-6" aria-controls="item-6"
                                         class="nav-link {{ request()->query('tab') == 'bank_info' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab" aria-selected="false">BANK ACCOUNT FOR RECEIVING
-                                        PAYMENTS </a>
+                                        data-bs-toggle="tab" role="tab"
+                                        aria-selected="false">{{ __('bank_info.BANK ACCOUNT FOR RECEIVING PAYMENTS') }}
+                                    </a>
                                 </li>
                             </ul>
                         @endif

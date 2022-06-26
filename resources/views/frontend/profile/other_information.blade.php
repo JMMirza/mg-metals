@@ -1,6 +1,6 @@
 <div class="card card-default form-card">
     <div class="card-header">
-        SECTION 3 (第3項 )<span>OTHER INFORMATION (其他資料) </span>
+        {{ __('other_info.SECTION 3') }}<span>{{ __('other_info.OTHER INFORMATION') }} </span>
     </div>
     <div class="card-body">
         <form class="row g-3 needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
@@ -10,27 +10,27 @@
 
             <input type="text" name="form_info" value="other_info" hidden>
             <div class="col-12 col-md-12">
-                <label class="form-label">HOW DID YOU HEAR ABOUT MG? (您從何處得悉MG?) </label>
+                <label class="form-label">{{ __('other_info.hear_about_mg') }} </label>
                 <div class="form-group ">
                     <label class="radio-inline ">
                         <input type="radio" name="hear_about_mg" value="REFERRAL"
                             @if ($customer->hear_about_mg == 'REFERRAL') checked @endif>
-                        <span></span> REFERRAL (轉介)
+                        <span></span> {{ __('other_info.referral') }}
                     </label>
                     <label class="radio-inline ">
                         <input type="radio" name="hear_about_mg" value="SALES REPRESENTATIVE"
                             @if ($customer->hear_about_mg == 'SALES REPRESENTATIVE') checked @endif>
-                        <span></span>SALES REPRESENTATIVE (營業代表)
+                        <span></span>{{ __('other_info.sales.rep') }}
                     </label>
                     <label class="radio-inline ">
                         <input type="radio" name="hear_about_mg" value="INTERNET"
                             @if ($customer->hear_about_mg == 'INTERNET') checked @endif>
-                        <span></span> INTERNET (互聯網)
+                        <span></span> {{ __('other_info.internet') }}
                     </label>
                     <label class="radio-inline ">
                         <input type="radio" name="hear_about_mg" value="ADVERTISEMENT"
                             @if ($customer->hear_about_mg == 'ADVERTISEMENT') checked @endif>
-                        <span></span>ADVERTISEMENT (廣告)
+                        <span></span>{{ __('other_info.add') }}
                     </label>
 
                 </div>
@@ -39,14 +39,14 @@
                 <div class="form-group">
                     <input type="text" name="sales_rep_name" value="{{ $customer->sales_rep_name }}"
                         class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
-                        placeholder="NAME OF SALES REPRESENTATIVE (營業代表名稱) ">
+                        placeholder="{{ __('other_info.name_of_sale_rep') }}">
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" name="sales_rep_number" value="{{ $customer->sales_rep_number }}"
                         class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
-                        placeholder="SALES REPRESENTATIVE CODE (營業代表編號)">
+                        placeholder="{{ __('other_info.code') }}">
                 </div>
             </div>
 

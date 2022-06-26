@@ -1,9 +1,9 @@
 <div class="card card-default form-card">
     <div class="card-header">
-        SECTION 2B (第2B項) <span>SHAREHOLDER/DIRECTOR INFORMATION (股東/ 董事資料)</span>
+        {{ __('shareholder.SECTION 2B') }} <span>{{ __('shareholder.SHAREHOLDER/DIRECTOR INFORMATION') }}</span>
     </div>
     <div class="card-body">
-        <h3>SHAREHOLDER/DIRECTOR (股東/董事)</h3>
+        <h3>{{ __('shareholder.SHAREHOLDER/DIRECTOR') }}</h3>
         <form class="row g-3 needs-validation" action="{{ route('customer-shareholders.store', $customer->id) }}"
             method="POST" novalidate>
             @csrf
@@ -13,21 +13,21 @@
                 <div class="form-group">
                     <input type="text" name="name" value="{{ old('name') }}"
                         class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                        placeholder="FULL NAME (全名) " required>
+                        placeholder="{{ __('shareholder.full_name') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" name="title" value="{{ old('title') }}"
                         class="form-control @if ($errors->has('title')) is-invalid @endif"
-                        placeholder="TITLE (職銜) " required>
+                        placeholder="{{ __('shareholder.title') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" value="{{ old('email') }}" name="email"
                         class="form-control @if ($errors->has('email')) is-invalid @endif"
-                        placeholder="EMAIL (電郵)" required>
+                        placeholder="{{ __('shareholder.email') }}" required>
                 </div>
             </div>
 
@@ -35,28 +35,28 @@
                 <div class="form-group">
                     <input type="text" name="phone_number" value="{{ old('phone_number') }}"
                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                        placeholder="PHONE NUMBER (電話號碼) " required>
+                        placeholder="{{ __('shareholder.phone_number') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" name="passport_no" value="{{ old('passort_no') }}"
                         class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                        placeholder="HKID NO. / PASSPORT NO  (香港身份證號碼 / 護照號碼) " required>
+                        placeholder="{{ __('shareholder.passport_no') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" name="nationality" value="{{ old('nationality') }}"
                         class="form-control @if ($errors->has('nationality')) is-invalid @endif"
-                        placeholder="NATIONALITY (國籍)" required>
+                        placeholder="{{ __('shareholder.nationality') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-12">
                 <div class="form-group">
                     <input type="text" name="address" value="{{ old('address') }}"
                         class="form-control @if ($errors->has('address')) is-invalid @endif"
-                        placeholder="ADDRESS (地址)" required>
+                        placeholder="{{ __('shareholder.address') }}" required>
                 </div>
             </div>
 
@@ -76,28 +76,17 @@
             <thead>
                 <tr>
                     {{-- <th>ID</th> --}}
-                    <th>Name</th>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Passport Number</th>
-                    <th>Nationality</th>
+                    <th>{{ __('shareholder.full_name') }}</th>
+                    <th>{{ __('shareholder.title') }}</th>
+                    <th>{{ __('shareholder.email') }}</th>
+                    <th>{{ __('shareholder.phone_number') }}</th>
+                    <th>{{ __('shareholder.passport_no') }}</th>
+                    <th>{{ __('shareholder.nationality') }}</th>
                 </tr>
             </thead>
             <tbody>
 
             </tbody>
-            <tfoot>
-                <tr>
-                    {{-- <th>ID</th> --}}
-                    <th>Name</th>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Passport Number</th>
-                    <th>Nationality</th>
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>
