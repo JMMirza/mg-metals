@@ -77,6 +77,8 @@ class Product extends Model
         $product = $this;
         $final_price = 0;
 
+        return 'N/A';
+
         if ($product->pricing_type == 'fix_price') {
 
             if ($product->surcharge_at_product == 'yes') {

@@ -242,7 +242,7 @@
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                        
+
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">City</label>
@@ -376,7 +376,7 @@
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                            
+
                                             <div class="col-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="passport_no"
