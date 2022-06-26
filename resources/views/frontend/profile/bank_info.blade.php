@@ -48,10 +48,10 @@
 
              <div class="footer">
                  <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=other_info' }}"
-                     class="btn btn-custom">Previous</a>
+                     class="btn btn-custom">{{ __('home_page.previous') }}</a>
                  <div class="ml-auto">
-                     <button class="btn btn-default" type="reset">Cancel</button>
-                     <button class="btn btn-custom" type="submit">Next</button>
+                     <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
+                     <button class="btn btn-custom" type="submit">{{ __('home_page.next') }}</button>
                  </div>
              </div>
          </form>

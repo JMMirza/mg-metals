@@ -16,28 +16,17 @@ class CustomerShareholder extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            // dd($request->all());
-            $data = ModelsCustomerShareholder::with('customer')->where('customer_id', $request->customer_id)->get();
-            // dd($data);
-            return Datatables::of($data)
-                ->addIndexColumn()
-                // ->addColumn('parent_id', function ($row) {
-                //     if ($row->parent_id != null)
-                //         return $row->parent_id;
-                //     else
-                //         return 'N / A';
-                // })
-                // ->addColumn('action', function ($row) {
-                //     return view('agents.action', ['row' => $row]);
-                // })
-                // ->rawColumns(
-                //     // ['action', 'parent_id']
-                // )
-                ->make(true);
-        }
+        // if ($request->ajax()) {
+        //     $data = ModelsCustomerShareholder::with('customer')->where('customer_id', $request->customer_id)->get();
+        //     return Datatables::of($data)
+        //         ->addIndexColumn()
+        //         ->make(true);
+        // }
+
         $customer = Customer::find($request->customer_id);
-        return view('frontend.profile.profile', compact('customer'));
+        $shareholders = ModelsCustomerShareholder::with('customer')->where('customer_id', $request->customer_id)->get();
+
+        return view('frontend.profile.profile', ['customer' => $customer, 'shareholders' => $shareholders]);
     }
 
     /**

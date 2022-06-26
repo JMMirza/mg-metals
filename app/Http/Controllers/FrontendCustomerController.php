@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\CustomerShareholder;
+use App\Models\AuthorizedTradingRepresentative;
 use Illuminate\Http\Request;
 
 class FrontendCustomerController extends Controller
@@ -48,6 +50,7 @@ class FrontendCustomerController extends Controller
         ]);
 
         $customer = Customer::create($request->all());
+
         return redirect(route('customer-profile-data.edit', $customer->id) . '?tab=corporate')
             ->with('success', 'Account created successfully.');
     }
@@ -72,7 +75,10 @@ class FrontendCustomerController extends Controller
     public function edit($id)
     {
         $customer = Customer::find($id);
-        return view('frontend.profile.profile', compact('customer'));
+        $shareholders = CustomerShareholder::with('customer')->where('customer_id', $customer->id)->latest()->get();
+        $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $customer->id)->latest()->get();
+        return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer]);
+
     }
 
     /**

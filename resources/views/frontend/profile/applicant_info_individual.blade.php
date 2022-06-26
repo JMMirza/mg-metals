@@ -92,17 +92,17 @@
             </div>
             @if (\Auth::user()->customer_type == 'corporate')
                 <div class="footer">
-                    <button class="btn btn-custom" disabled="true">Previous</button>
+                    <button class="btn btn-custom" disabled="true">{{ __('home_page.previous') }}</button>
                     <div class="ml-auto">
-                        <button class="btn btn-default" type="reset">Cancel</button>
-                        <button class="btn btn-custom" type="submit" id="next">Next</button>
+                        <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
+                        <button class="btn btn-custom" type="submit" id="next">{{ __('home_page.next') }}</button>
                     </div>
                 </div>
             @else
                 {{-- <button class="btn btn-default" type="reset"></button> --}}
                 <div class="footer text-end" style="display: block;">
-                    <button class="btn btn-default" type="reset">Cancel</button>
-                    <button class="btn btn-custom" type="submit" id="next">Save</button>
+                    <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
+                    <button class="btn btn-custom" type="submit" id="next">{{ __('home_page.save') }}</button>
                 </div>
             @endif
         </form>
