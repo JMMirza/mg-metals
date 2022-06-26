@@ -91,21 +91,26 @@ class Product extends Model
             }
         } else {
 
-            $response = Http::get('http://150.242.218.15:3080/');
-            $resp = $response->object();
-            $gold_price = $resp->ask;
+            try {
+                $response = Http::get('http://150.242.218.15:3080/');
+                $resp = $response->object();
+                $gold_price = $resp->ask;
 
-            if ($product->surcharge_at_product == 'yes') {
+                if ($product->surcharge_at_product == 'yes') {
 
-                $price = ($product->weight * $gold_price);
+                    $price = ($product->weight * $gold_price);
 
-                if ($product->markup_type == 'flat') {
-                    $final_price = $product->mark_up + $price;
+                    if ($product->markup_type == 'flat') {
+                        $final_price = $product->mark_up + $price;
+                    } else {
+                        $final_price = $price + (($price / 100) * $product->mark_up);
+                    }
                 } else {
-                    $final_price = $price + (($price / 100) * $product->mark_up);
-                }
-            } else {
-                $final_price = ($product->weight * $gold_price);
+                    $final_price = ($product->weight * $gold_price);
+            }
+            } catch (\Throwable $th) {
+                //throw $th;
+                return 'N/A';
             }
         }
 

@@ -3,6 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
+
+            
+
             <div class="card">
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">Update Customer</h4>
@@ -13,45 +16,359 @@
                         method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         @method('PUT')
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="full_name" class="form-label">Full Name</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('full_name')) is-invalid @endif" id="full_name"
-                                    name="full_name" placeholder="Full name" value="{{ $customer->full_name }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('full_name'))
-                                        {{ $errors->first('full_name') }}
-                                    @else
-                                        Full Name is required!
-                                    @endif
+                        <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-primary" id="accordionBordered">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="accordionborderedExample1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true" aria-controls="accor_borderedExamplecollapse1">
+                                        Sec#1 Applicant Info
+                                    </button>
+                                </h2>
+                                <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show" aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-label-group in-border">
+                                                    <label for="full_name" class="form-label">Full Name</label>
+                                                    <input type="text"
+                                                        class="form-control @if ($errors->has('full_name')) is-invalid @endif" id="full_name"
+                                                        name="full_name" placeholder="Full name" value="{{ $customer->full_name }}" required>
+                                                    <div class="invalid-tooltip">
+                                                        @if ($errors->has('full_name'))
+                                                            {{ $errors->first('full_name') }}
+                                                        @else
+                                                            Full Name is required!
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <div class="col-md-4">
+                                                <div class="form-label-group in-border">
+                                                    <label for="gender" class="form-label">Gender</label>
+                                                    <select class="form-select mb-3" name="gender" required>
+                                                        <option value="" @if ($customer->gender == '') {{ 'selected' }} @endif
+                                                            selected disabled>
+                                                            Select One
+                                                        </option>
+                                                        <option value="male" @if ($customer->gender == 'male') {{ 'selected' }} @endif>
+                                                            Male
+                                                        </option>
+                                                        <option value="female" @if ($customer->gender == 'female') {{ 'selected' }} @endif>
+                                                            Female
+                                                        </option>
+                                                        <option value="other" @if ($customer->gender == 'other') {{ 'selected' }} @endif>
+                                                            Other
+                                                        </option>
+                                                    </select>
+                                                    <div class="invalid-tooltip">Select the gender!</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-label-group in-border">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <input type="text"
+                                                        class="form-control @if ($errors->has('email')) is-invalid @endif" id="email"
+                                                        name="email" placeholder="Email Address" value="{{ $customer->email }}" required>
+                                                    <div class="invalid-tooltip">
+                                                        @if ($errors->has('email'))
+                                                            {{ $errors->first('email') }}
+                                                        @else
+                                                            Full Name is required!
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-label-group in-border">
+                                                    <label for="occupation" class="form-label">Occupation and business background</label>
+                                                    <input type="text"
+                                                        class="form-control @if ($errors->has('occupation')) is-invalid @endif" id="occupation"
+                                                        name="occupation" placeholder="Occupation and business background" value="{{ $customer->occupation }}">
+                                                    <div class="invalid-tooltip">
+                                                        @if ($errors->has('occupation'))
+                                                            {{ $errors->first('occupation') }}
+                                                        @else
+                                                            Occupation and business background is required!
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text"
+                                                        class="form-control @if ($errors->has('passport_no')) is-invalid @endif" id="passport_no"
+                                                        name="passport_no" placeholder="HKID NO. / Passport No." value="{{ $customer->passport_no }}" >
+                                                    <div class="invalid-tooltip">
+                                                        @if ($errors->has('passport_no'))
+                                                            {{ $errors->first('passport_no') }}
+                                                        @else
+                                                            HKID NO. / Passport No. is required!
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">Phone No.</label>
+                                                    <input type="text"
+                                                        class="form-control @if ($errors->has('passport_no')) is-invalid @endif" id="passport_no"
+                                                        name="passport_no" placeholder="Phone No." value="{{ $customer->passport_no }}" >
+                                                    <div class="invalid-tooltip">
+                                                        @if ($errors->has('passport_no'))
+                                                            {{ $errors->first('passport_no') }}
+                                                        @else
+                                                            Phone No. is required!
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mt-2">
+                                <h2 class="accordion-header" id="accordionborderedExample2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false" aria-controls="accor_borderedExamplecollapse2">
+                                        Sec#2A Applicant Info
+                                    </button>
+                                </h2>
+                                <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse" aria-labelledby="accordionborderedExample2" data-bs-parent="#accordionBordered">
+                                    <div class="accordion-body">
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Full Legal Name of Business">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Business Phone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-12">
+                                                <label class="form-label">Type of Organization</label>
+                                                <div class="form-group ">
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-org" value="Corporation">
+                                                        <span></span>Corporation
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-org" value="Partnership">
+                                                        <span></span>Partnership
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-org" value="Limited Company">
+                                                        <span></span>Limited Company
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-org" value="Sole Proprietor">
+                                                        <span></span>Sole Proprietor
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                        
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Business Fax">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Business Email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row  mt-3">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Business Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row  mt-3">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Country">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Zip Code">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+
+                                            <div class="col-12 col-md-12">
+                                                <label class="form-label">Type of Business</label>
+                                                <div class="form-label-group in-border">
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-business" value="Coin Dealer">
+                                                        <span></span>Coin Dealer
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-business" value="Jewellery Repair">
+                                                        <span></span>Jewellery Repair
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="type-of-business" value="Jewellery Manufacturer">
+                                                        <span></span>Jewellery Manufacturer
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-12">
+                                                <label class="form-label">Jewellery Retails</label>
+                                                <div class="form-group ">
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="Retails" value="Goldy/Precious Metal Trading">
+                                                        <span></span>Goldy / Precious Metal Trading
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="Retails" value="Others">
+                                                        <span></span>Others
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Company Incorporation / Business Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Country / Incorporation">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-label-group in-border">
+                                                    <label for="passport_no" class="form-label">HKID NO. / Passport No.</label>
+                                                    <input type="text" class="form-control" placeholder="Year in Business">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-6">
+                                                <label class="form-label">Do you Import / Export precious metals</label>
+                                                <div class="form-group ">
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="agree" value="Yes">
+                                                        <span></span>Yes
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="agree" value="No">
+                                                        <span></span>No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-12">
+                                                <div class="form-label-group in-border">
+                                                    <input type="text" class="form-control" placeholder="If yes, What are the country you are trading with">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mt-2">
+                                <h2 class="accordion-header" id="accordionborderedExample3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse3" aria-expanded="false" aria-controls="accor_borderedExamplecollapse3">
+                                        Sec#2B Shareholders/Directors Info
+                                    </button>
+                                </h2>
+                                <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse" aria-labelledby="accordionborderedExample3" data-bs-parent="#accordionBordered">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Full Name Shareholder / Director">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Phone No.">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="HKID No. / Passport No.">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Nationality">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </form>
+                    <form class="row g-3 d-none needs-validation" action="{{ route('customers.update', $customer->id) }}"
+                        method="POST" enctype="multipart/form-data" novalidate>
+                        @csrf
+                        @method('PUT')
+                        
 
-                        <div class="col-md-4">
-                            <div class="form-label-group in-border">
-                                <label for="gender" class="form-label">Gender</label>
-                                <select class="form-select mb-3" name="gender" required>
-                                    <option value="" @if ($customer->gender == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    <option value="male" @if ($customer->gender == 'male') {{ 'selected' }} @endif>
-                                        Male
-                                    </option>
-                                    <option value="female" @if ($customer->gender == 'female') {{ 'selected' }} @endif>
-                                        Female
-                                    </option>
-                                    <option value="other" @if ($customer->gender == 'other') {{ 'selected' }} @endif>
-                                        Other
-                                    </option>
-                                </select>
-                                <div class="invalid-tooltip">Select the gender!</div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="form-label-group in-border">
                                 <label for="user_id" class="form-label">Users</label>
                                 <select class="form-select mb-3" name="user_id" required>
@@ -68,7 +385,7 @@
                                 </select>
                                 <div class="invalid-tooltip">Select the User!</div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
