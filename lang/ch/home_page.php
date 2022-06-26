@@ -79,4 +79,5 @@ return [
     'Address' => '地址',
     'Email' => '電子郵件',
     'Name' => '全名',
+    'profile' => '帳戶'
 ];

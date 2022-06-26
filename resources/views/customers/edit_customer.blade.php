@@ -258,886 +258,594 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <<<<<<< HEAD <div class="row mt-3">
-                                                =======
-                                        </div>
-                                        <div class="row mt-3">
+                                            <div class="row mt-3">
+                                            </div>
+                                            <div class="row mt-3">
 
-                                            <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">City</label>
-                                                    <input type="text" id="city" name="city"
-                                                        class="form-control @if ($errors->has('city')) is-invalid @endif"
-                                                        value="{{ $customer->city }}"
-                                                        placeholder="{{ __('corporate.CITY') }}" required>
-                                                    >>>>>>> 24835ae2b5c8f58e1ef88e6221f14fc5ec4c527c
-
-                                                    <div class="col-12 col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="passport_no" class="form-label">City</label>
-                                                            <input type="text" id="city" name="city"
-                                                                class="form-control @if ($errors->has('city')) is-invalid @endif"
-                                                                value="{{ $customer->city }}"
-                                                                placeholder="{{ __('corporate.CITY') }}" required>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="passport_no" class="form-label">Country</label>
-                                                            <input type="text" id="country" name="country"
-                                                                value="{{ $customer->country }}"
-                                                                class="form-control orm-control @if ($errors->has('country')) is-invalid @endif"
-                                                                placeholder="{{ __('corporate.COUNTRY') }}">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="passport_no" class="form-label">Zip Code</label>
-                                                            <input id="zip_code" name="zip_code" type="text"
-                                                                value="{{ $customer->zip_code }}"
-                                                                class="form-control @if ($errors->has('zip_code')) is-invalid @endif"
-                                                                placeholder="{{ __('corporate.ZIP CODE') }}">
-
-                                                        </div>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">City</label>
+                                                        <input type="text" id="city" name="city"
+                                                            class="form-control @if ($errors->has('city')) is-invalid @endif"
+                                                            value="{{ $customer->city }}"
+                                                            placeholder="{{ __('corporate.CITY') }}" required>
                                                     </div>
                                                 </div>
-                                                <div class="row mt-3">
-                                                    <div class="col-12 col-md-12">
-                                                        <label
-                                                            class="form-label">{{ __('corporate.TYPE OF BUSINESS') }}</label>
-                                                        <div class="form-group">
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="type_of_business"
-                                                                    value="Coin Dealer"
-                                                                    @if ($customer->type_of_business == 'Coin Dealer') checked @endif>
-                                                                <span></span> {{ __('corporate.COIN DEALER') }}
-                                                            </label>
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="type_of_business"
-                                                                    value="Jewellery Repair"
-                                                                    @if ($customer->type_of_business == 'Jewellery Repair') checked @endif>
-                                                                <span></span>{{ __('corporateJEWELLERY REPAIR') }}
-                                                            </label>
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="type_of_business"
-                                                                    value="Jewellery Manufacturer"
-                                                                    @if ($customer->type_of_business == 'Jewellery Manufacturer') checked @endif>
-                                                                <span></span>{{ __('corporate.JEWELLERY MANUFACTURER') }}
-                                                            </label>
-                                                        </div>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Country</label>
+                                                        <input type="text" id="country" name="country"
+                                                            value="{{ $customer->country }}"
+                                                            class="form-control orm-control @if ($errors->has('country')) is-invalid @endif"
+                                                            placeholder="{{ __('corporate.COUNTRY') }}">
+
                                                     </div>
                                                 </div>
-                                                <div class="row mt-3">
-                                                    <div class="col-12 col-md-12">
-                                                        <label
-                                                            class="form-label">{{ __('corporate.JEWELLERY RETAIL') }}</label>
-                                                        <div class="form-group ">
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="retails"
-                                                                    value="Goldy/Precious Metal Trading"
-                                                                    @if ($customer->retails == 'Goldy/Precious Metal Trading') checked @endif>
-                                                                <span></span>{{ __('corporate.GOLD/PRECIOUS METAL TRADING') }}
-                                                            </label>
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="retails" value="Others"
-                                                                    @if ($customer->retails == 'Others') checked @endif>
-                                                                <span></span>{{ __('corporate.OTHER') }} :
-                                                            </label>
-                                                        </div>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Zip
+                                                            Code</label>
+                                                        <input id="zip_code" name="zip_code" type="text"
+                                                            value="{{ $customer->zip_code }}"
+                                                            class="form-control @if ($errors->has('zip_code')) is-invalid @endif"
+                                                            placeholder="{{ __('corporate.ZIP CODE') }}">
+
                                                     </div>
                                                 </div>
-                                                <div class="row mt-3">
-
-                                                    <div class="col-12 col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="passport_no" class="form-label">Business
-                                                                Registration
-                                                                Number</label>
-                                                            <input type="text" id="business_reg_num"
-                                                                name="business_reg_num"
-                                                                value="{{ $customer->business_reg_num }}"
-                                                                class="form-control @if ($errors->has('business_reg_num')) is-invalid @endif"
-                                                                placeholder="{{ __('corporate.COMPANY INCORPORATION NUMBER / BUSINESS REGISTRATION CERTIFICATE NUMBER') }}">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mt-3">
-
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="passport_no" class="form-label">Country of
-                                                                Incorporation</label>
-                                                            <input type="text"
-                                                                class="form-control @if ($errors->has('country_of_incorporation')) is-invalid @endif"
-                                                                id="country_of_incorporation"
-                                                                name="country_of_incorporation"
-                                                                value="{{ $customer->country_of_incorporation }}"
-                                                                placeholder="{{ __('corporate.COUNTRY OF INCORPORATION') }}">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="passport_no" class="form-label">Years In
-                                                                Business</label>
-                                                            <input type="text"
-                                                                value="{{ $customer->years_in_business }}"
-                                                                class="form-control @if ($errors->has('years_in_business')) is-invalid @endif"
-                                                                name="years_in_business" id="years_in_business"
-                                                                placeholder="{{ __('corporate.YEARS IN BUSINESS') }}">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mt-3">
-
-                                                    <div class="col-12 col-md-4">
-                                                        <label
-                                                            class="form-label">{{ __('corporate.DO YOU IMPORT / EXPORT PRECIOUS METAL?') }}
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-12">
+                                                    <label
+                                                        class="form-label">{{ __('corporate.TYPE OF BUSINESS') }}</label>
+                                                    <div class="form-group">
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="type_of_business"
+                                                                value="Coin Dealer"
+                                                                @if ($customer->type_of_business == 'Coin Dealer') checked @endif>
+                                                            <span></span> {{ __('corporate.COIN DEALER') }}
                                                         </label>
-                                                        <div class="form-group ">
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="import" value="Yes"
-                                                                    @if ($customer->import == 'Yes') checked @endif>
-                                                                <span></span>{{ __('corporate.YES') }}
-                                                            </label>
-                                                            <label class="radio-inline ">
-                                                                <input type="radio" name="import" value="No"
-                                                                    @if ($customer->import == 'No') checked @endif>
-                                                                <span></span> {{ __('corporate.NO') }}
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <<<<<<< HEAD <div class="row mt-3">
-
-                                                    <div class="col-12 col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="passport_no"
-                                                                class="form-label">{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}</label>
-                                                            <input type="text"
-                                                                class="form-control @if ($errors->has('countries_of_import')) is-invalid @endif"
-                                                                id="countries_of_import" name="countries_of_import"
-                                                                value="{{ $customer->countries_of_import }}"
-                                                                placeholder="{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}">
-                                                        </div>
-                                                        =======
-                                                    </div>
-                                                    <div class="row mt-3">
-
-                                                        <div class="col-12 col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="passport_no"
-                                                                    class="form-label">{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}</label>
-                                                                <input type="text"
-                                                                    class="form-control @if ($errors->has('countries_of_import')) is-invalid @endif"
-                                                                    id="countries_of_import" name="countries_of_import"
-                                                                    value="{{ $customer->countries_of_import }}"
-                                                                    placeholder="{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}">
-                                                                >>>>>>> 24835ae2b5c8f58e1ef88e6221f14fc5ec4c527c
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item mt-2">
-                                            <h2 class="accordion-header" id="accordionborderedExample3">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#accor_borderedExamplecollapse3" aria-expanded="false"
-                                                    aria-controls="accor_borderedExamplecollapse3">
-                                                    Sec#2B Shareholders/Directors Info
-                                                </button>
-                                            </h2>
-                                            <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse"
-                                                aria-labelledby="accordionborderedExample3"
-                                                data-bs-parent="#accordionBordered">
-                                                <div class="accordion-body">
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="passport_no" class="form-label">Full
-                                                                    Name</label>
-                                                                <input type="text" name="name"
-                                                                    value="{{ old('name') }}"
-                                                                    class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.full_name') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="passport_no" class="form-label">Title</label>
-                                                                <input type="text" name="title"
-                                                                    value="{{ old('title') }}"
-                                                                    class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.title') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="passport_no" class="form-label">Email</label>
-                                                                <input type="text" value="{{ old('email') }}"
-                                                                    name="email"
-                                                                    class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.email') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="passport_no" class="form-label">Phone
-                                                                    Number</label>
-                                                                <input type="text" name="phone_number"
-                                                                    value="{{ old('phone_number') }}"
-                                                                    class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.phone_number') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="passport_no" class="form-label">HKID NO. /
-                                                                    PASSPORT
-                                                                    NUMBER</label>
-                                                                <input type="text" name="passport_no"
-                                                                    value="{{ old('passort_no') }}"
-                                                                    class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.passport_no') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="passport_no"
-                                                                    class="form-label">Nationality</label>
-                                                                <input type="text" name="nationality"
-                                                                    value="{{ old('nationality') }}"
-                                                                    class="form-control @if ($errors->has('nationality')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.nationality') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="passport_no"
-                                                                    class="form-label">Address</label>
-                                                                <input type="text" name="address"
-                                                                    value="{{ old('address') }}"
-                                                                    class="form-control @if ($errors->has('address')) is-invalid @endif"
-                                                                    placeholder="{{ __('shareholder.address') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="type_of_business"
+                                                                value="Jewellery Repair"
+                                                                @if ($customer->type_of_business == 'Jewellery Repair') checked @endif>
+                                                            <span></span>{{ __('corporateJEWELLERY REPAIR') }}
+                                                        </label>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="type_of_business"
+                                                                value="Jewellery Manufacturer"
+                                                                @if ($customer->type_of_business == 'Jewellery Manufacturer') checked @endif>
+                                                            <span></span>{{ __('corporate.JEWELLERY MANUFACTURER') }}
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="accordion-item mt-2">
-                                            <h2 class="accordion-header" id="accordionborderedExample4">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#accor_borderedExamplecollapse4" aria-expanded="false"
-                                                    aria-controls="accor_borderedExamplecollapse4">
-                                                    Sec#2C AUTHORIZED TRADING REPRESENTATIVE
-                                                </button>
-                                            </h2>
-                                            <div id="accor_borderedExamplecollapse4" class="accordion-collapse collapse"
-                                                aria-labelledby="accordionborderedExample4"
-                                                data-bs-parent="#accordionBordered">
-                                                <div class="accordion-body">
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Full
-                                                                    Name</label>
-                                                                <input type="text" name="name"
-                                                                    value="{{ old('name') }}"
-                                                                    class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                                                                    placeholder="{{ __('trading.full_name') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Title</label>
-                                                                <input type="text" name="title"
-                                                                    value="{{ old('title') }}"
-                                                                    class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                                    placeholder="{{ __('trading.title') }}" required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Email</label>
-                                                                <input type="text" value="{{ old('email') }}"
-                                                                    name="email"
-                                                                    class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                                    placeholder="{{ __('trading.email') }}" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Phone
-                                                                    Number</label>
-                                                                <input type="text" name="phone_number"
-                                                                    value="{{ old('phone_number') }}"
-                                                                    class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                                                    placeholder="{{ __('trading.phone_number') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="full_name"
-                                                                    class="form-label">Signature</label>
-                                                                <input type="text" name="signature"
-                                                                    value="{{ old('signature') }}"
-                                                                    class="form-control @if ($errors->has('signature')) is-invalid @endif"
-                                                                    placeholder="{{ __('trading.signature') }}"
-                                                                    required>
-                                                            </div>
-                                                        </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-12">
+                                                    <label
+                                                        class="form-label">{{ __('corporate.JEWELLERY RETAIL') }}</label>
+                                                    <div class="form-group ">
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="retails"
+                                                                value="Goldy/Precious Metal Trading"
+                                                                @if ($customer->retails == 'Goldy/Precious Metal Trading') checked @endif>
+                                                            <span></span>{{ __('corporate.GOLD/PRECIOUS METAL TRADING') }}
+                                                        </label>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="retails" value="Others"
+                                                                @if ($customer->retails == 'Others') checked @endif>
+                                                            <span></span>{{ __('corporate.OTHER') }} :
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="accordion-item mt-2">
-                                            <h2 class="accordion-header" id="accordionborderedExample5">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#accor_borderedExamplecollapse5" aria-expanded="false"
-                                                    aria-controls="accor_borderedExamplecollapse5">
-                                                    Sec#3 OTHER INFORMATION
-                                                </button>
-                                            </h2>
-                                            <div id="accor_borderedExamplecollapse5" class="accordion-collapse collapse"
-                                                aria-labelledby="accordionborderedExample5"
-                                                data-bs-parent="#accordionBordered">
-                                                <div class="accordion-body">
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-12">
-                                                            <label
-                                                                class="form-label">{{ __('other_info.hear_about_mg') }}
-                                                            </label>
-                                                            <div class="form-group ">
-                                                                <label class="radio-inline ">
-                                                                    <input type="radio" name="hear_about_mg"
-                                                                        value="REFERRAL"
-                                                                        @if ($customer->hear_about_mg == 'REFERRAL') checked @endif>
-                                                                    <span></span> {{ __('other_info.referral') }}
-                                                                </label>
-                                                                <label class="radio-inline ">
-                                                                    <input type="radio" name="hear_about_mg"
-                                                                        value="SALES REPRESENTATIVE"
-                                                                        @if ($customer->hear_about_mg == 'SALES REPRESENTATIVE') checked @endif>
-                                                                    <span></span>{{ __('other_info.sales.rep') }}
-                                                                </label>
-                                                                <label class="radio-inline ">
-                                                                    <input type="radio" name="hear_about_mg"
-                                                                        value="INTERNET"
-                                                                        @if ($customer->hear_about_mg == 'INTERNET') checked @endif>
-                                                                    <span></span> {{ __('other_info.internet') }}
-                                                                </label>
-                                                                <label class="radio-inline ">
-                                                                    <input type="radio" name="hear_about_mg"
-                                                                        value="ADVERTISEMENT"
-                                                                        @if ($customer->hear_about_mg == 'ADVERTISEMENT') checked @endif>
-                                                                    <span></span>{{ __('other_info.add') }}
-                                                                </label>
+                                            <div class="row mt-3">
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Sales
-                                                                    Representative
-                                                                    Name</label>
-                                                                <input type="text" name="sales_rep_name"
-                                                                    value="{{ $customer->sales_rep_name }}"
-                                                                    class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
-                                                                    placeholder="{{ __('other_info.name_of_sale_rep') }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Sales
-                                                                    Representative
-                                                                    Number</label>
-                                                                <input type="text" name="sales_rep_number"
-                                                                    value="{{ $customer->sales_rep_number }}"
-                                                                    class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
-                                                                    placeholder="{{ __('other_info.code') }}">
-                                                            </div>
-                                                        </div>
+                                                <div class="col-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Business
+                                                            Registration
+                                                            Number</label>
+                                                        <input type="text" id="business_reg_num"
+                                                            name="business_reg_num"
+                                                            value="{{ $customer->business_reg_num }}"
+                                                            class="form-control @if ($errors->has('business_reg_num')) is-invalid @endif"
+                                                            placeholder="{{ __('corporate.COMPANY INCORPORATION NUMBER / BUSINESS REGISTRATION CERTIFICATE NUMBER') }}">
+
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row mt-3">
+
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Country of
+                                                            Incorporation</label>
+                                                        <input type="text"
+                                                            class="form-control @if ($errors->has('country_of_incorporation')) is-invalid @endif"
+                                                            id="country_of_incorporation" name="country_of_incorporation"
+                                                            value="{{ $customer->country_of_incorporation }}"
+                                                            placeholder="{{ __('corporate.COUNTRY OF INCORPORATION') }}">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Years In
+                                                            Business</label>
+                                                        <input type="text"
+                                                            value="{{ $customer->years_in_business }}"
+                                                            class="form-control @if ($errors->has('years_in_business')) is-invalid @endif"
+                                                            name="years_in_business" id="years_in_business"
+                                                            placeholder="{{ __('corporate.YEARS IN BUSINESS') }}">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+
+                                                <div class="col-12 col-md-4">
+                                                    <label
+                                                        class="form-label">{{ __('corporate.DO YOU IMPORT / EXPORT PRECIOUS METAL?') }}
+                                                    </label>
+                                                    <div class="form-group ">
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="import" value="Yes"
+                                                                @if ($customer->import == 'Yes') checked @endif>
+                                                            <span></span>{{ __('corporate.YES') }}
+                                                        </label>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="import" value="No"
+                                                                @if ($customer->import == 'No') checked @endif>
+                                                            <span></span> {{ __('corporate.NO') }}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="accordion-item mt-2">
-                                            <h2 class="accordion-header" id="accordionborderedExample6">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#accor_borderedExamplecollapse6" aria-expanded="false"
-                                                    aria-controls="accor_borderedExamplecollapse6">
-                                                    Sec#4 BANK ACCOUNT FOR RECEIVING PAYMENTS
-                                                </button>
-                                            </h2>
-                                            <div id="accor_borderedExamplecollapse6" class="accordion-collapse collapse"
-                                                aria-labelledby="accordionborderedExample6"
-                                                data-bs-parent="#accordionBordered">
-                                                <div class="accordion-body">
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Bank
-                                                                    Name</label>
-                                                                <input type="text" name="bank_name"
-                                                                    value="{{ $customer->bank_name }}"
-                                                                    class="form-control @if ($errors->has('bank_name')) is-invalid @endif"
-                                                                    placeholder="{{ __('bank_info.bank_name') }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Bank Country
-                                                                    Name</label>
-                                                                <input type="text" name="bank_country_name"
-                                                                    value="{{ $customer->bank_country_name }}"
-                                                                    class="form-control @if ($errors->has('bank_country_name')) is-invalid @endif"
-                                                                    placeholder="{{ __('bank_info.country') }}">
+                                    </div>
 
-                                                            </div>
-                                                        </div>
+                                </div>
+                                <div class="accordion-item mt-2">
+                                    <h2 class="accordion-header" id="accordionborderedExample3">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse3"
+                                            aria-expanded="false" aria-controls="accor_borderedExamplecollapse3">
+                                            Sec#2B Shareholders/Directors Info
+                                        </button>
+                                    </h2>
+                                    <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse"
+                                        aria-labelledby="accordionborderedExample3" data-bs-parent="#accordionBordered">
+                                        <div class="accordion-body">
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Full
+                                                            Name</label>
+                                                        <input type="text" name="name" value="{{ old('name') }}"
+                                                            class="form-control  @if ($errors->has('name')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.full_name') }}" required>
                                                     </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Bank Account
-                                                                    Name</label>
-                                                                <input type="text" name="bank_account_name"
-                                                                    value="{{ $customer->bank_account_name }}"
-                                                                    class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
-                                                                    placeholder="{{ __('bank_info.account_num') }}">
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Title</label>
+                                                        <input type="text" name="title"
+                                                            value="{{ old('title') }}"
+                                                            class="form-control @if ($errors->has('title')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.title') }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Email</label>
+                                                        <input type="text" value="{{ old('email') }}"
+                                                            name="email"
+                                                            class="form-control @if ($errors->has('email')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.email') }}" required>
+                                                    </div>
+                                                </div>
 
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Bank Branch
-                                                                    Number</label>
-                                                                <input type="text" name="bank_branch_number"
-                                                                    value="{{ $customer->bank_branch_number }}"
-                                                                    class="form-control @if ($errors->has('bank_branch_number')) is-invalid @endif"
-                                                                    placeholder="{{ __('bank_info.branch_num') }}">
-                                                            </div>
-                                                        </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Phone
+                                                            Number</label>
+                                                        <input type="text" name="phone_number"
+                                                            value="{{ old('phone_number') }}"
+                                                            class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.phone_number') }}" required>
                                                     </div>
-                                                    <div class="row mt-3">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Bank Account
-                                                                    Number</label>
-                                                                <input type="text" name="bank_account_number"
-                                                                    value="{{ $customer->bank_account_number }}"
-                                                                    class="form-control @if ($errors->has('bank_account_number')) is-invalid @endif"
-                                                                    placeholder="{{ __('bank_info.account_num') }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="full_name" class="form-label">Bank Swift
-                                                                    Code</label>
-                                                                <input type="text" name="bank_swift_code"
-                                                                    value="{{ $customer->bank_swift_code }}"
-                                                                    class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"
-                                                                    placeholder="{{ __('bank_info.swift_code') }}">
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">HKID
+                                                            NO. /
+                                                            PASSPORT
+                                                            NUMBER</label>
+                                                        <input type="text" name="passport_no"
+                                                            value="{{ old('passort_no') }}"
+                                                            class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.passport_no') }}" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Nationality</label>
+                                                        <input type="text" name="nationality"
+                                                            value="{{ old('nationality') }}"
+                                                            class="form-control @if ($errors->has('nationality')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.nationality') }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="passport_no" class="form-label">Address</label>
+                                                        <input type="text" name="address"
+                                                            value="{{ old('address') }}"
+                                                            class="form-control @if ($errors->has('address')) is-invalid @endif"
+                                                            placeholder="{{ __('shareholder.address') }}" required>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @else
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-label-group in-border">
-                                                <label for="full_name" class="form-label">Full Name</label>
-                                                <input type="text"
-                                                    class="form-control @if ($errors->has('full_name')) is-invalid @endif"
-                                                    id="full_name" name="full_name" placeholder="Full name"
-                                                    value="{{ $customer->full_name }}" required>
-                                                <div class="invalid-tooltip">
-                                                    @if ($errors->has('full_name'))
-                                                        {{ $errors->first('full_name') }}
-                                                    @else
-                                                        Full Name is required!
-                                                    @endif
+                                </div>
+                                <div class="accordion-item mt-2">
+                                    <h2 class="accordion-header" id="accordionborderedExample4">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse4"
+                                            aria-expanded="false" aria-controls="accor_borderedExamplecollapse4">
+                                            Sec#2C AUTHORIZED TRADING REPRESENTATIVE
+                                        </button>
+                                    </h2>
+                                    <div id="accor_borderedExamplecollapse4" class="accordion-collapse collapse"
+                                        aria-labelledby="accordionborderedExample4" data-bs-parent="#accordionBordered">
+                                        <div class="accordion-body">
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Full
+                                                            Name</label>
+                                                        <input type="text" name="name" value="{{ old('name') }}"
+                                                            class="form-control  @if ($errors->has('name')) is-invalid @endif"
+                                                            placeholder="{{ __('trading.full_name') }}" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Title</label>
+                                                        <input type="text" name="title"
+                                                            value="{{ old('title') }}"
+                                                            class="form-control @if ($errors->has('title')) is-invalid @endif"
+                                                            placeholder="{{ __('trading.title') }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Email</label>
+                                                        <input type="text" value="{{ old('email') }}"
+                                                            name="email"
+                                                            class="form-control @if ($errors->has('email')) is-invalid @endif"
+                                                            placeholder="{{ __('trading.email') }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Phone
+                                                            Number</label>
+                                                        <input type="text" name="phone_number"
+                                                            value="{{ old('phone_number') }}"
+                                                            class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                                                            placeholder="{{ __('trading.phone_number') }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Signature</label>
+                                                        <input type="text" name="signature"
+                                                            value="{{ old('signature') }}"
+                                                            class="form-control @if ($errors->has('signature')) is-invalid @endif"
+                                                            placeholder="{{ __('trading.signature') }}" required>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-label-group in-border">
-                                                <label for="gender" class="form-label">Gender</label>
-                                                <select class="form-select mb-3" name="gender" required>
-                                                    <option value=""
-                                                        @if ($customer->gender == '') {{ 'selected' }} @endif
-                                                        selected disabled>
-                                                        Select One
-                                                    </option>
-                                                    <option value="male"
-                                                        @if ($customer->gender == 'male') {{ 'selected' }} @endif>
-                                                        Male
-                                                    </option>
-                                                    <option value="female"
-                                                        @if ($customer->gender == 'female') {{ 'selected' }} @endif>
-                                                        Female
-                                                    </option>
-                                                    <option value="other"
-                                                        @if ($customer->gender == 'other') {{ 'selected' }} @endif>
-                                                        Other
-                                                    </option>
-                                                </select>
-                                                <div class="invalid-tooltip">Select the gender!</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-label-group in-border">
-                                                <label for="email" class="form-label">Email</label>
-                                                <input type="text"
-                                                    class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                    id="email" name="email" placeholder="Email Address"
-                                                    value="{{ $customer->email }}" required>
-                                                <div class="invalid-tooltip">
-                                                    @if ($errors->has('email'))
-                                                        {{ $errors->first('email') }}
-                                                    @else
-                                                        Full Name is required!
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-label-group in-border">
-                                                <label for="occupation" class="form-label">Occupation and business
-                                                    background</label>
-                                                <input type="text"
-                                                    class="form-control @if ($errors->has('occupation')) is-invalid @endif"
-                                                    id="occupation" name="occupation"
-                                                    placeholder="Occupation and business background"
-                                                    value="{{ $customer->occupation }}">
-                                                <div class="invalid-tooltip">
-                                                    @if ($errors->has('occupation'))
-                                                        {{ $errors->first('occupation') }}
-                                                    @else
-                                                        Occupation and business background is required!
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-label-group in-border">
-                                                <label for="passport_no" class="form-label">HKID NO. / Passport
-                                                    No.</label>
-                                                <input type="text"
-                                                    class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                                    id="passport_no" name="passport_no"
-                                                    placeholder="HKID NO. / Passport No."
-                                                    value="{{ $customer->passport_no }}">
-                                                <div class="invalid-tooltip">
-                                                    @if ($errors->has('passport_no'))
-                                                        {{ $errors->first('passport_no') }}
-                                                    @else
-                                                        HKID NO. / Passport No. is required!
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-label-group in-border">
-                                                <label for="passport_no" class="form-label">Phone No.</label>
-                                                <input type="text"
-                                                    class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                                    id="passport_no" name="passport_no" placeholder="Phone No."
-                                                    value="{{ $customer->passport_no }}">
-                                                <div class="invalid-tooltip">
-                                                    @if ($errors->has('passport_no'))
-                                                        {{ $errors->first('passport_no') }}
-                                                    @else
-                                                        Phone No. is required!
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-
-
                                     </div>
+                                </div>
+                                <div class="accordion-item mt-2">
+                                    <h2 class="accordion-header" id="accordionborderedExample5">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse5"
+                                            aria-expanded="false" aria-controls="accor_borderedExamplecollapse5">
+                                            Sec#3 OTHER INFORMATION
+                                        </button>
+                                    </h2>
+                                    <div id="accor_borderedExamplecollapse5" class="accordion-collapse collapse"
+                                        aria-labelledby="accordionborderedExample5" data-bs-parent="#accordionBordered">
+                                        <div class="accordion-body">
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-12">
+                                                    <label class="form-label">{{ __('other_info.hear_about_mg') }}
+                                                    </label>
+                                                    <div class="form-group ">
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="hear_about_mg" value="REFERRAL"
+                                                                @if ($customer->hear_about_mg == 'REFERRAL') checked @endif>
+                                                            <span></span> {{ __('other_info.referral') }}
+                                                        </label>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="hear_about_mg"
+                                                                value="SALES REPRESENTATIVE"
+                                                                @if ($customer->hear_about_mg == 'SALES REPRESENTATIVE') checked @endif>
+                                                            <span></span>{{ __('other_info.sales.rep') }}
+                                                        </label>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="hear_about_mg" value="INTERNET"
+                                                                @if ($customer->hear_about_mg == 'INTERNET') checked @endif>
+                                                            <span></span> {{ __('other_info.internet') }}
+                                                        </label>
+                                                        <label class="radio-inline ">
+                                                            <input type="radio" name="hear_about_mg"
+                                                                value="ADVERTISEMENT"
+                                                                @if ($customer->hear_about_mg == 'ADVERTISEMENT') checked @endif>
+                                                            <span></span>{{ __('other_info.add') }}
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Sales
+                                                            Representative
+                                                            Name</label>
+                                                        <input type="text" name="sales_rep_name"
+                                                            value="{{ $customer->sales_rep_name }}"
+                                                            class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
+                                                            placeholder="{{ __('other_info.name_of_sale_rep') }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Sales
+                                                            Representative
+                                                            Number</label>
+                                                        <input type="text" name="sales_rep_number"
+                                                            value="{{ $customer->sales_rep_number }}"
+                                                            class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
+                                                            placeholder="{{ __('other_info.code') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mt-2">
+                                    <h2 class="accordion-header" id="accordionborderedExample6">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse6"
+                                            aria-expanded="false" aria-controls="accor_borderedExamplecollapse6">
+                                            Sec#4 BANK ACCOUNT FOR RECEIVING PAYMENTS
+                                        </button>
+                                    </h2>
+                                    <div id="accor_borderedExamplecollapse6" class="accordion-collapse collapse"
+                                        aria-labelledby="accordionborderedExample6" data-bs-parent="#accordionBordered">
+                                        <div class="accordion-body">
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Bank
+                                                            Name</label>
+                                                        <input type="text" name="bank_name"
+                                                            value="{{ $customer->bank_name }}"
+                                                            class="form-control @if ($errors->has('bank_name')) is-invalid @endif"
+                                                            placeholder="{{ __('bank_info.bank_name') }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Bank
+                                                            Country
+                                                            Name</label>
+                                                        <input type="text" name="bank_country_name"
+                                                            value="{{ $customer->bank_country_name }}"
+                                                            class="form-control @if ($errors->has('bank_country_name')) is-invalid @endif"
+                                                            placeholder="{{ __('bank_info.country') }}">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Bank
+                                                            Account
+                                                            Name</label>
+                                                        <input type="text" name="bank_account_name"
+                                                            value="{{ $customer->bank_account_name }}"
+                                                            class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
+                                                            placeholder="{{ __('bank_info.account_num') }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Bank
+                                                            Branch
+                                                            Number</label>
+                                                        <input type="text" name="bank_branch_number"
+                                                            value="{{ $customer->bank_branch_number }}"
+                                                            class="form-control @if ($errors->has('bank_branch_number')) is-invalid @endif"
+                                                            placeholder="{{ __('bank_info.branch_num') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Bank
+                                                            Account
+                                                            Number</label>
+                                                        <input type="text" name="bank_account_number"
+                                                            value="{{ $customer->bank_account_number }}"
+                                                            class="form-control @if ($errors->has('bank_account_number')) is-invalid @endif"
+                                                            placeholder="{{ __('bank_info.account_num') }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name" class="form-label">Bank
+                                                            Swift
+                                                            Code</label>
+                                                        <input type="text" name="bank_swift_code"
+                                                            value="{{ $customer->bank_swift_code }}"
+                                                            class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"
+                                                            placeholder="{{ __('bank_info.swift_code') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-label-group in-border">
+                                        <label for="full_name" class="form-label">Full Name</label>
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('full_name')) is-invalid @endif"
+                                            id="full_name" name="full_name" placeholder="Full name"
+                                            value="{{ $customer->full_name }}" required>
+                                        <div class="invalid-tooltip">
+                                            @if ($errors->has('full_name'))
+                                                {{ $errors->first('full_name') }}
+                                            @else
+                                                Full Name is required!
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-label-group in-border">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select class="form-select mb-3" name="gender" required>
+                                            <option value=""
+                                                @if ($customer->gender == '') {{ 'selected' }} @endif selected
+                                                disabled>
+                                                Select One
+                                            </option>
+                                            <option value="male"
+                                                @if ($customer->gender == 'male') {{ 'selected' }} @endif>
+                                                Male
+                                            </option>
+                                            <option value="female"
+                                                @if ($customer->gender == 'female') {{ 'selected' }} @endif>
+                                                Female
+                                            </option>
+                                            <option value="other"
+                                                @if ($customer->gender == 'other') {{ 'selected' }} @endif>
+                                                Other
+                                            </option>
+                                        </select>
+                                        <div class="invalid-tooltip">Select the gender!</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-label-group in-border">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('email')) is-invalid @endif"
+                                            id="email" name="email" placeholder="Email Address"
+                                            value="{{ $customer->email }}" required>
+                                        <div class="invalid-tooltip">
+                                            @if ($errors->has('email'))
+                                                {{ $errors->first('email') }}
+                                            @else
+                                                Full Name is required!
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-label-group in-border">
+                                        <label for="occupation" class="form-label">Occupation and business
+                                            background</label>
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('occupation')) is-invalid @endif"
+                                            id="occupation" name="occupation"
+                                            placeholder="Occupation and business background"
+                                            value="{{ $customer->occupation }}">
+                                        <div class="invalid-tooltip">
+                                            @if ($errors->has('occupation'))
+                                                {{ $errors->first('occupation') }}
+                                            @else
+                                                Occupation and business background is required!
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-label-group in-border">
+                                        <label for="passport_no" class="form-label">HKID NO. / Passport
+                                            No.</label>
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
+                                            id="passport_no" name="passport_no" placeholder="HKID NO. / Passport No."
+                                            value="{{ $customer->passport_no }}">
+                                        <div class="invalid-tooltip">
+                                            @if ($errors->has('passport_no'))
+                                                {{ $errors->first('passport_no') }}
+                                            @else
+                                                HKID NO. / Passport No. is required!
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-label-group in-border">
+                                        <label for="passport_no" class="form-label">Phone No.</label>
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
+                                            id="passport_no" name="passport_no" placeholder="Phone No."
+                                            value="{{ $customer->passport_no }}">
+                                        <div class="invalid-tooltip">
+                                            @if ($errors->has('passport_no'))
+                                                {{ $errors->first('passport_no') }}
+                                            @else
+                                                Phone No. is required!
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
                         @endif
-                    </form>
-                    <form class="row g-3 d-none needs-validation"
-                        action="{{ route('customers.update', $customer->id) }}" method="POST"
-                        enctype="multipart/form-data" novalidate>
-                        @csrf
-                        @method('PUT')
-
-
-                        {{-- <div class="col-md-4">
-                            <div class="form-label-group in-border">
-                                <label for="user_id" class="form-label">Users</label>
-                                <select class="form-select mb-3" name="user_id" required>
-                                    <option value="" @if ($customer->user_id == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}"
-                                            @if ($customer->user_id == $user->id) {{ 'selected' }} @endif>
-                                            {{ $user->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-tooltip">Select the User!</div>
-                            </div>
-                        </div> --}}
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="phone_number" class="form-label">Phone Number</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                    id="phone_number" name="phone_number" placeholder="Please Enter Phone number"
-                                    value="{{ $customer->phone_number }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('phone_number'))
-                                        {{ $errors->first('phone_number') }}
-                                    @else
-                                        Phone Number is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-label-group in-border">
-                                <label for="nationality" class="form-label">Nationality</label>
-                                <select class="form-select mb-3" name="nationality" required>
-                                    <option value="" @if ($customer->nationality == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    <option value="male"
-                                        @if ($customer->nationality == 'pakistan') {{ 'selected' }} @endif>
-                                        Pakistan
-                                    </option>
-                                    <option value="female"
-                                        @if ($customer->nationality == 'china') {{ 'selected' }} @endif>
-                                        China
-                                    </option>
-                                    <option value="other"
-                                        @if ($customer->nationality == 'other') {{ 'selected' }} @endif>
-                                        Other
-                                    </option>
-                                </select>
-                                <div class="invalid-tooltip">Select the nationality!</div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="passport_no" class="form-label">Passport Number</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                    id="passport_no" name="passport_no" placeholder="Please Enter Passport number"
-                                    value="{{ $customer->passport_no }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('passport_no'))
-                                        {{ $errors->first('passport_no') }}
-                                    @else
-                                        Passport Number is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="bank_account_name" class="form-label">Bank Account Name</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
-                                    id="bank_account_name" name="bank_account_name"
-                                    placeholder="Please Enter Account Name" value="{{ $customer->bank_account_name }}"
-                                    required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('passport_no'))
-                                        {{ $errors->first('bank_account_name') }}
-                                    @else
-                                        Bank Account Name is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="bank_account_number" class="form-label">Bank Account Number</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('bank_account_number')) is-invalid @endif"
-                                    id="bank_account_number" name="bank_account_number"
-                                    placeholder="Please Enter Bank Account Number"
-                                    value="{{ $customer->bank_account_number }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('bank_account_number') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="bank_name" class="form-label">Bank Name</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('bank_name')) is-invalid @endif"
-                                    id="bank_name" name="bank_name" placeholder="Please Enter Bank Name"
-                                    value="{{ $customer->bank_name }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('bank_name') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="bank_branch_number" class="form-label">Bank Branch Number</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('bank_branch_number')) is-invalid @endif"
-                                    id="bank_branch_number" name="bank_branch_number"
-                                    placeholder="Please Enter Bank Branch Number"
-                                    value="{{ $customer->bank_branch_number }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('bank_branch_number') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="bank_country_name" class="form-label">Bank Country Name</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('bank_country_name')) is-invalid @endif"
-                                    id="bank_country_name" name="bank_country_name"
-                                    placeholder="Please Enter Bank Branch Number"
-                                    value="{{ $customer->bank_country_name }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('bank_country_name') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="bank_swift_code" class="form-label">Bank Swift Code</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"
-                                    id="bank_swift_code" name="bank_swift_code"
-                                    placeholder="Please Enter Bank Swift Code"
-                                    value="{{ $customer->bank_swift_code }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('bank_swift_code') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="sales_rep_name" class="form-label">Sales Rep Name</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
-                                    id="sales_rep_name" name="sales_rep_name" placeholder="Please Enter Sales Rep Name"
-                                    value="{{ $customer->sales_rep_name }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('sales_rep_name') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="sales_rep_number" class="form-label">Sales Rep Number</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
-                                    id="sales_rep_number" name="sales_rep_number"
-                                    placeholder="Please Enter Sales Rep Number"
-                                    value="{{ $customer->sales_rep_number }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('sales_rep_number') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="sales_rep_country" class="form-label">Sales Rep Country</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('sales_rep_country')) is-invalid @endif"
-                                    id="sales_rep_country" name="sales_rep_country"
-                                    placeholder="Please Enter Sales Rep Country"
-                                    value="{{ $customer->sales_rep_country }}">
-                                <div class="invalid-tooltip">
-                                    {{ $errors->first('sales_rep_country') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="storage_service" class="form-label">Storage Service</label>
-                                <select class="form-select mb-3" name="storage_service" required>
-                                    <option value="" @if ($customer->storage_service == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    <option value='true'
-                                        @if ($customer->storage_service == 'true') {{ 'selected' }} @endif>
-                                        Yes
-                                    </option>
-                                    <option value='false'
-                                        @if ($customer->storage_service == 'false') {{ 'selected' }} @endif>
-                                        No
-                                    </option>
-                                </select>
-                                <div class="invalid-tooltip">Select the storage service!</div>
-                            </div>
-                        </div>
-
                         <div class="col-12 text-end">
                             <button class="btn btn-primary" type="submit">Save Changes</button>
                             <a href="{{ route('customers.index') }}" type="button"
                                 class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

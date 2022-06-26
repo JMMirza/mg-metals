@@ -40,7 +40,7 @@
                         </a>
                         <ul class="mn-sub">
                             <li><a href="{{ route('customer_profile') . '?tab=individual' }}"
-                                    class="text-center">Profile</a></li>
+                                    class="text-center">{{ __('home_page.profile') }}</a></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

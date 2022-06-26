@@ -479,7 +479,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="accordion-item mt-2">
+                            <div class="accordion-item mt-2">
                                 <h2 class="accordion-header" id="accordionborderedExample3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#accor_borderedExamplecollapse3" aria-expanded="false"
@@ -494,7 +494,8 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Full Name</label>
-                                                    <input type="text" name="name" value="{{ old('name') }}"
+                                                    <input type="text" value="{{ old('name') }}"
+                                                        id="shareholder_full_name"
                                                         class="form-control  @if ($errors->has('name')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.full_name') }}" required>
                                                 </div>
@@ -502,7 +503,8 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Title</label>
-                                                    <input type="text" name="title" value="{{ old('title') }}"
+                                                    <input type="text" id="shareholder_title"
+                                                        value="{{ old('title') }}"
                                                         class="form-control @if ($errors->has('title')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.title') }}" required>
                                                 </div>
@@ -512,7 +514,8 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Email</label>
-                                                    <input type="text" value="{{ old('email') }}" name="email"
+                                                    <input type="text" value="{{ old('email') }}"
+                                                        id="shareholder_email"
                                                         class="form-control @if ($errors->has('email')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.email') }}" required>
                                                 </div>
@@ -521,7 +524,7 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Phone Number</label>
-                                                    <input type="text" name="phone_number"
+                                                    <input type="text" id="shareholder_phone_number"
                                                         value="{{ old('phone_number') }}"
                                                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.phone_number') }}" required>
@@ -533,7 +536,7 @@
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">HKID NO. / PASSPORT
                                                         NUMBER</label>
-                                                    <input type="text" name="passport_no"
+                                                    <input type="text" id="shareholder_passport_no"
                                                         value="{{ old('passort_no') }}"
                                                         class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.passport_no') }}" required>
@@ -542,7 +545,7 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Nationality</label>
-                                                    <input type="text" name="nationality"
+                                                    <input type="text" id="shareholder_nationality"
                                                         value="{{ old('nationality') }}"
                                                         class="form-control @if ($errors->has('nationality')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.nationality') }}" required>
@@ -553,11 +556,38 @@
                                             <div class="col-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Address</label>
-                                                    <input type="text" name="address" value="{{ old('address') }}"
+                                                    <input type="text" id="shareholder_address"
+                                                        value="{{ old('address') }}"
                                                         class="form-control @if ($errors->has('address')) is-invalid @endif"
                                                         placeholder="{{ __('shareholder.address') }}" required>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                        <div class="row mt-3 ">
+                                            <div class="col-md-12 text-end">
+                                                <button id="addShareholder" class="btn btn-success">
+                                                    Add Shareholder
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <table id="shareholders" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Full Name</th>
+                                                        <th>Title</th>
+                                                        <th>Email</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Passport Number</th>
+                                                        <th>Nationality</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -624,7 +654,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="accordion-item mt-2">
                                 <h2 class="accordion-header" id="accordionborderedExample5">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -784,3 +814,61 @@
         </div>
     </div>
 @endsection
+
+@push('footer_scripts')
+    <script>
+        $(document).ready(function() {
+            var ary = [];
+            var prefrencesArr = [];
+            var count = 1;
+            $(document).on('click', '#addShareholder', function(e) {
+                e.preventDefault();
+                // alert("hello")
+                var full_name = $('#shareholder_full_name').val();
+                var title = $('#shareholder_title').val();
+                var email = $('#shareholder_email').val();
+                var phone_number = $('#shareholder_phone_number').val();
+                var passport_no = $('#shareholder_passport_no').val();
+                var nationality = $('#shareholder_nationality').val();
+                var address = $('#shareholder_address').val();
+                console.log(full_name, title, email, phone_number, passport_no, nationality, address)
+                if (full_name != '' && title != '' && email != '' &&
+                    phone_number != '' && passport_no != '' && nationality != '' && address != '') {
+                    if (prefrencesArr.length < 3) {
+                        prefrencesArr.push({
+                            'full_name': full_name,
+                            'title': title,
+                            'email': email,
+                            'phone_number': phone_number,
+                            'passport_no': passport_no,
+                            'nationality': nationality,
+                            'address': address,
+                        });
+                    }
+                    console.log('increment count: ', count)
+                    if (count < 4) {
+                        $('#shareholders > tbody').append(
+                            `<tr>
+                                <td>${count}</td>
+                                <td class ='full_name'>${full_name}</td>
+                                <td class ='title'>${title}</td>
+                                <td class ='email'>${email}</td>
+                                <td class='phone_number'>${phone_number}</td>
+                                <td class='passport_no'>${passport_no}</td>
+                                <td class='nationality'>${nationality}</td>
+                                `
+                        );
+                        count++;
+                        $('#shareholder_full_name').val(null);
+                        $('#shareholder_title').val(null);
+                        $('#shareholder_email').val(null);
+                        $('#shareholder_phone_number').val(null);
+                        $('#shareholder_passport_no').val(null);
+                        $('#shareholder_nationality').val(null);
+                        $('#shareholder_address').val(null);
+                    }
+                }
+            });
+        });
+    </script>
+@endpush
