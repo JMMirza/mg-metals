@@ -1,6 +1,6 @@
 <div class="card card-default form-card">
     <div class="card-header">
-        SECTION 2C (第2C項 ) <span>AUTHORIZED TRADING REPRESENTATIVE (授權交易代表)</span>
+        {{ __('trading.SECTION 2C') }}<span>{{ __('trading.AUTHORIZED TRADING REPRESENTATIVE') }}</span>
     </div>
     <div class="card-body">
         <form class="row g-3 needs-validation" action="{{ route('customer-trading.store', $customer->id) }}"
@@ -12,21 +12,21 @@
                 <div class="form-group">
                     <input type="text" name="name" value="{{ old('name') }}"
                         class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                        placeholder="FULL NAME (全名) " required>
+                        placeholder="{{ __('trading.full_name') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" name="title" value="{{ old('title') }}"
                         class="form-control @if ($errors->has('title')) is-invalid @endif"
-                        placeholder="TITLE (職銜) " required>
+                        placeholder="{{ __('trading.title') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <input type="text" value="{{ old('email') }}" name="email"
                         class="form-control @if ($errors->has('email')) is-invalid @endif"
-                        placeholder="EMAIL (電郵)" required>
+                        placeholder="{{ __('trading.email') }}" required>
                 </div>
             </div>
 
@@ -34,14 +34,14 @@
                 <div class="form-group">
                     <input type="text" name="phone_number" value="{{ old('phone_number') }}"
                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                        placeholder="PHONE NUMBER (電話號碼) " required>
+                        placeholder="{{ __('trading.phone_number') }}" required>
                 </div>
             </div>
             <div class="col-12 col-md-12">
                 <div class="form-group">
                     <input type="text" name="signature" value="{{ old('signature') }}"
                         class="form-control @if ($errors->has('signature')) is-invalid @endif"
-                        placeholder="SIGNATURE (簽署)" required>
+                        placeholder="{{ __('trading.signature') }}" required>
                 </div>
             </div>
             <div class="footer">
@@ -60,24 +60,15 @@
             <thead>
                 <tr>
                     {{-- <th>ID</th> --}}
-                    <th>Name</th>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
+                    <th>{{ __('trading.full_name') }}</th>
+                    <th>{{ __('trading.title') }}</th>
+                    <th>{{ __('trading.email') }}</th>
+                    <th>{{ __('trading.phone_number') }}</th>
                 </tr>
             </thead>
             <tbody>
 
             </tbody>
-            <tfoot>
-                <tr>
-                    {{-- <th>ID</th> --}}
-                    <th>Name</th>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>
