@@ -16,28 +16,16 @@ class CustomerTrading extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            // dd($request->all());
-            $data = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $request->customer_id)->get();
-            // dd($data);
-            return Datatables::of($data)
-                ->addIndexColumn()
-                // ->addColumn('parent_id', function ($row) {
-                //     if ($row->parent_id != null)
-                //         return $row->parent_id;
-                //     else
-                //         return 'N / A';
-                // })
-                // ->addColumn('action', function ($row) {
-                //     return view('agents.action', ['row' => $row]);
-                // })
-                // ->rawColumns(
-                //     // ['action', 'parent_id']
-                // )
-                ->make(true);
-        }
+        // if ($request->ajax()) {
+        //     $data = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $request->customer_id)->get();
+        //     return Datatables::of($data)
+        //         ->addIndexColumn()
+        //         ->make(true);
+        // }
+
+        $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $request->customer_id)->latest()->get();
         $customer = Customer::find($request->customer_id);
-        return view('frontend.profile.profile', compact('customer'));
+        return view('frontend.profile.profile', ['representatives' => $representatives, 'customer' => $customer]);
     }
 
     /**

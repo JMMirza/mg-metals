@@ -50,22 +50,38 @@
                 <div class="ml-auto">
                     <button class="btn btn-default" type="reset">Cancel</button>
                     <button class="btn btn-custom" type="submit">Save</button>
+
                     <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=other_info' }}"
                         class="btn btn-primary">Next </a>
                 </div>
             </div>
         </form>
-        <table id="trading-data-table" class="table table-bordered table-striped align-middle table-nowrap mb-0"
+
+        <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5"
             style="width:100%">
             <thead>
                 <tr>
                     {{-- <th>ID</th> --}}
                     <th>{{ __('trading.full_name') }}</th>
-                    <th>{{ __('trading.title') }}</th>
-                    <th>{{ __('trading.email') }}</th>
-                    <th>{{ __('trading.phone_number') }}</th>
+                    <th style="width:25%">{{ __('trading.title') }}</th>
+                    <th style="width:25%">{{ __('trading.email') }}</th>
+                    <th style="width:20%">{{ __('trading.phone_number') }}</th>
                 </tr>
             </thead>
+            <tbody>
+                @forelse ($representatives as $representative)
+                    <tr>
+                        <td>{{ $representative->name }}</td>
+                        <td>{{ $representative->title }}</td>
+                        <td>{{ $representative->email }}</td>
+                        <td>{{ $representative->phone_number }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3">No Record Found!</td>
+                    </tr>
+                @endforelse
+            </tbody>
             <tbody>
 
             </tbody>
@@ -74,46 +90,46 @@
 </div>
 @push('frontend.layouts.footer_scripts')
     <script>
-        $(document).ready(function() {
-            var customer_id = $("#customer_id").val();
-            console.log(customer_id);
+        // $(document).ready(function() {
+        //     var customer_id = $("#customer_id").val();
+        //     console.log(customer_id);
 
-            $("#trading-data-table").DataTable({
-                processing: true,
-                serverSide: true,
-                responsive: true,
+        //     $("#trading-data-table").DataTable({
+        //         processing: true,
+        //         serverSide: true,
+        //         responsive: true,
 
-                scrollX: true,
-                language: {
-                    search: "",
-                    searchPlaceholder: "Search...",
-                },
-                ajax: {
-                    url: "{{ route('customer-trading.index') }}",
-                    data: function(d) {
-                        d.customer_id = customer_id;
-                    },
-                },
-                columns: [{
-                        data: "name",
-                        name: "name",
-                    },
-                    {
-                        data: "title",
-                        name: "title",
-                    },
-                    {
-                        data: "email",
-                        name: "email",
-                        width: "15%",
-                    },
-                    {
-                        data: "phone_number",
-                        name: "phone_number",
-                        width: "15%",
-                    },
-                ],
-            });
-        });
+        //         scrollX: true,
+        //         language: {
+        //             search: "",
+        //             searchPlaceholder: "Search...",
+        //         },
+        //         ajax: {
+        //             url: "{{ route('customer-trading.index') }}",
+        //             data: function(d) {
+        //                 d.customer_id = customer_id;
+        //             },
+        //         },
+        //         columns: [{
+        //                 data: "name",
+        //                 name: "name",
+        //             },
+        //             {
+        //                 data: "title",
+        //                 name: "title",
+        //             },
+        //             {
+        //                 data: "email",
+        //                 name: "email",
+        //                 width: "15%",
+        //             },
+        //             {
+        //                 data: "phone_number",
+        //                 name: "phone_number",
+        //                 width: "15%",
+        //             },
+        //         ],
+        //     });
+        // });
     </script>
 @endpush

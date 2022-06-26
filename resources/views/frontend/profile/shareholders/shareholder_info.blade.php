@@ -71,19 +71,34 @@
                 </div>
             </div>
         </form>
-        <table id="shareholders-data-table" class="table table-bordered table-striped align-middle table-nowrap mb-0"
+        <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5"
             style="width:100%">
             <thead>
                 <tr>
-                    {{-- <th>ID</th> --}}
                     <th>{{ __('shareholder.full_name') }}</th>
                     <th>{{ __('shareholder.title') }}</th>
-                    <th>{{ __('shareholder.email') }}</th>
-                    <th>{{ __('shareholder.phone_number') }}</th>
-                    <th>{{ __('shareholder.passport_no') }}</th>
-                    <th>{{ __('shareholder.nationality') }}</th>
+                    <th style="width:12%">{{ __('shareholder.email') }}</th>
+                    <th style="width:12%">{{ __('shareholder.phone_number') }}</th>
+                    <th style="width:20%">{{ __('shareholder.passport_no') }}</th>
+                    <th style="width:12%">{{ __('shareholder.nationality') }}</th>
                 </tr>
             </thead>
+            <tbody>
+                @forelse ($shareholders as $shareholder)
+                    <tr>
+                        <td>{{ $shareholder->name }}</td>
+                        <td>{{ $shareholder->title }}</td>
+                        <td>{{ $shareholder->email }}</td>
+                        <td>{{ $shareholder->phone_number }}</td>
+                        <td>{{ $shareholder->passport_no }}</td>
+                        <td>{{ $shareholder->nationality }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5">No Record Found!</td>
+                    </tr>
+                @endforelse
+            </tbody>
             <tbody>
 
             </tbody>
@@ -92,57 +107,57 @@
 </div>
 @push('frontend.layouts.footer_scripts')
     <script>
-        $(document).ready(function() {
-            var customer_id = $("#customer_id").val();
-            console.log(customer_id);
-            $("#shareholders-data-table").DataTable({
-                processing: true,
-                serverSide: true,
-                responsive: true,
+        // $(document).ready(function() {
+        //     var customer_id = $("#customer_id").val();
+        //     console.log(customer_id);
+        //     $("#shareholders-data-table").DataTable({
+        //         processing: true,
+        //         serverSide: true,
+        //         responsive: true,
 
-                scrollX: true,
-                language: {
-                    search: "",
-                    searchPlaceholder: "Search...",
-                },
-                ajax: {
-                    url: "{{ route('customer-shareholders.index') }}",
-                    data: function(d) {
-                        d.customer_id = customer_id;
-                    },
-                },
-                columns: [{
-                        data: "name",
-                        name: "name",
-                    },
-                    {
-                        data: "title",
-                        name: "title",
-                    },
-                    {
-                        data: "email",
-                        name: "email",
-                        width: "15%",
-                    },
-                    {
-                        data: "phone_number",
-                        name: "phone_number",
-                        width: "15%",
-                    },
-                    {
-                        data: "passport_no",
-                        name: "passport_no",
-                        width: "15%",
-                    },
-                    {
-                        data: "nationality",
-                        name: "nationality",
-                        width: "15%",
-                    },
+        //         scrollX: true,
+        //         language: {
+        //             search: "",
+        //             searchPlaceholder: "Search...",
+        //         },
+        //         ajax: {
+        //             url: "{{ route('customer-shareholders.index') }}",
+        //             data: function(d) {
+        //                 d.customer_id = customer_id;
+        //             },
+        //         },
+        //         columns: [{
+        //                 data: "name",
+        //                 name: "name",
+        //             },
+        //             {
+        //                 data: "title",
+        //                 name: "title",
+        //             },
+        //             {
+        //                 data: "email",
+        //                 name: "email",
+        //                 width: "15%",
+        //             },
+        //             {
+        //                 data: "phone_number",
+        //                 name: "phone_number",
+        //                 width: "15%",
+        //             },
+        //             {
+        //                 data: "passport_no",
+        //                 name: "passport_no",
+        //                 width: "15%",
+        //             },
+        //             {
+        //                 data: "nationality",
+        //                 name: "nationality",
+        //                 width: "15%",
+        //             },
 
-                ],
-            });
+        //         ],
+        //     });
 
-        });
+        // });
     </script>
 @endpush

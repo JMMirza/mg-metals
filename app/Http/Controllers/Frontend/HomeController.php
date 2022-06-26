@@ -9,8 +9,11 @@ use App\Models\Catergory;
 use App\Models\Customer;
 use App\Models\Manufacturer;
 use App\Models\User;
+use App\Models\CustomerShareholder;
+use App\Models\AuthorizedTradingRepresentative;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+
 
 class HomeController extends Controller
 {
@@ -115,7 +118,10 @@ class HomeController extends Controller
             ]);
         }
 
-        return view('frontend.profile.profile', compact('customer'));
+        $shareholders = CustomerShareholder::with('customer')->where('customer_id', $customer->id)->latest()->get();
+        $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $customer->id)->latest()->get();
+
+        return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer]);
     }
 
     public function switch_language($locale)
