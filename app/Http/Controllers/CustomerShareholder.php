@@ -108,4 +108,11 @@ class CustomerShareholder extends Controller
     {
         //
     }
+
+    public function load_shareholders(Request $request)
+    {
+        $customer_id = $request->customer_id;
+        $shareholders = ModelsCustomerShareholder::with('customer')->where('customer_id', $request->customer_id)->latest()->get();
+        return view('customers.shareholders_modal', ['customer_id' => $customer_id, 'shareholders' => $shareholders]);
+    }
 }

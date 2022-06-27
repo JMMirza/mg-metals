@@ -56,7 +56,6 @@ class CustomerTrading extends Controller
         ]);
         // dd($request->all());
         AuthorizedTradingRepresentative::create($request->all());
-
         return redirect(route('customer-profile-data.edit', $request->customer_id) . '?tab=trading')
             ->with('success', 'Account created successfully.');
     }
@@ -104,5 +103,12 @@ class CustomerTrading extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function load_trading(Request $request)
+    {
+        $customer_id = $request->customer_id;
+        $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $request->customer_id)->latest()->get();
+        return view('customers.trading_modal', ['customer_id' => $customer_id, 'representatives' => $representatives]);
     }
 }

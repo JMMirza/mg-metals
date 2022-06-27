@@ -50,7 +50,7 @@ Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 
 Route::group(['middleware' => ['auth']], function () {
-    
+
 
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::resources(['/customers' => CustomerController::class]);
@@ -64,9 +64,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['customer-trading' => CustomerTrading::class]);
     Route::get('customer-product/{id}', [CustomerProductController::class, 'customer_products'])->name('customer-product');
     Route::get('customer-product-ajax/{id}', [CustomerProductController::class, 'customer_products_ajax'])->name('customer-product-ajax');
+    Route::get('load-shareholders', [CustomerShareholder::class, 'load_shareholders'])->name('load-shareholders');
+    Route::get('load-trading', [CustomerTrading::class, 'load_trading'])->name('load-trading');
 
     Route::post('/applicant-info-individual', [HomeCtrl::class, 'applicant_information_individual'])->name('applicant-info-individual');
     Route::post('/applicant-info-corporate', [HomeCtrl::class, 'applicant_information_corporate'])->name('applicant-info-corporate');
     Route::get('/customer-profile', [HomeCtrl::class, 'profile'])->name('customer_profile');
 });
-

@@ -77,7 +77,7 @@
                                                         <input type="text"
                                                             class="form-control @if ($errors->has('email')) is-invalid @endif"
                                                             id="email" name="email" placeholder="Email Address"
-                                                            value="{{ $customer->email }}" required>
+                                                            value="{{ $customer->user->email }}" disabled>
                                                         <div class="invalid-tooltip">
                                                             @if ($errors->has('email'))
                                                                 {{ $errors->first('email') }}
@@ -771,7 +771,7 @@
                                         <input type="text"
                                             class="form-control @if ($errors->has('email')) is-invalid @endif"
                                             id="email" name="email" placeholder="Email Address"
-                                            value="{{ $customer->email }}" required>
+                                            value="{{ $customer->user->email }}" disabled>
                                         <div class="invalid-tooltip">
                                             @if ($errors->has('email'))
                                                 {{ $errors->first('email') }}

@@ -59,45 +59,57 @@ class CustomerController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'customer_type' => ['required']
         ]);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'customer_type' => $request->customer_type
         ]);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'gender' => 'required|string|max:255',
-            'occupation' => 'required|string|max:255',
-            'passport_no' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:255',
-            'nationality' => 'required|string|max:255',
-            'address' => 'required',
-            'business_name' => 'required|string|max:255',
-            'type_of_organization' => 'required|string|max:255',
-            'business_phone_num' => 'required|string|max:255',
-            'business_fax' => 'required|string|max:255',
-            'business_email' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'country' => 'required|string|max:255',
-            'zip_code' => 'required|string|max:255',
-            'type_of_business' => 'required|string|max:255',
-            'business_reg_num' => 'required|string|max:255',
-            'country_of_incorporation' => 'required|string|max:255',
-            'years_in_business' => 'required|string|max:255',
-            'import' => 'required',
-            // 'countries_of_import' => 'required',
-            'business_address' => 'required',
-            'hear_about_mg' => 'required|string|max:255',
-            'sales_rep_name' => 'required|string|max:255',
-            'sales_rep_number' => 'required|string|max:255',
-            'bank_name' => 'required|string|max:255',
-            'bank_country_name' => 'required|string|max:255',
-            'bank_account_name' => 'required|string|max:255',
-            'bank_account_number' => 'required|string|max:255',
-            'bank_branch_number' => 'required|string|max:255',
-            'bank_swift_code' => 'required|string|max:255',
-        ]);
+
+        if ($request->customer_type == 'individual') {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'gender' => 'required|string|max:255',
+                'occupation' => 'required|string|max:255',
+                'passport_no' => 'required|string|max:255',
+                'phone_number' => 'required|string|max:255',
+            ]);
+        } else {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'gender' => 'required|string|max:255',
+                'occupation' => 'required|string|max:255',
+                'passport_no' => 'required|string|max:255',
+                'phone_number' => 'required|string|max:255',
+                'nationality' => 'required|string|max:255',
+                'address' => 'required',
+                'business_name' => 'required|string|max:255',
+                'type_of_organization' => 'required|string|max:255',
+                'business_phone_num' => 'required|string|max:255',
+                'business_fax' => 'required|string|max:255',
+                'business_email' => 'required|string|max:255',
+                'city' => 'required|string|max:255',
+                'country' => 'required|string|max:255',
+                'zip_code' => 'required|string|max:255',
+                'type_of_business' => 'required|string|max:255',
+                'business_reg_num' => 'required|string|max:255',
+                'country_of_incorporation' => 'required|string|max:255',
+                'years_in_business' => 'required|string|max:255',
+                'import' => 'required',
+                // 'countries_of_import' => 'required',
+                'business_address' => 'required',
+                'hear_about_mg' => 'required|string|max:255',
+                'sales_rep_name' => 'required|string|max:255',
+                'sales_rep_number' => 'required|string|max:255',
+                'bank_name' => 'required|string|max:255',
+                'bank_country_name' => 'required|string|max:255',
+                'bank_account_name' => 'required|string|max:255',
+                'bank_account_number' => 'required|string|max:255',
+                'bank_branch_number' => 'required|string|max:255',
+                'bank_swift_code' => 'required|string|max:255',
+            ]);
+        }
 
         $input = $request->all();
         $input['user_id'] = $user->id;
@@ -140,25 +152,49 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        $request->validate([
-            'full_name' => 'required|string|max:255',
-            'gender' => 'required|string|max:255',
-            'user_id' => 'required|integer|max:255',
-            'phone_number' => 'required|digits:10',
-            'nationality' => 'required|string|max:255',
-            'passport_no' => 'string|min:10|max:255',
-            'bank_account_name' => 'required|max:255',
-            'bank_account_number' => 'string|max:255',
-            'bank_name' => 'string|max:255',
-            'bank_branch_number' => 'string|max:255',
-            'bank_country_name' => 'string|max:255',
-            'bank_swift_code' => 'integer|min:4|max:255',
-            'sales_rep_name' => 'string|max:255',
-            'sales_rep_number' => 'digits:10',
-            'sales_rep_country' => 'string|max:255',
-            'strorage_service' => 'boolean'
-        ]);
-
+        if ($request->customer_type == 'individual') {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'gender' => 'required|string|max:255',
+                'occupation' => 'required|string|max:255',
+                'passport_no' => 'required|string|max:255',
+                'phone_number' => 'required|string|max:255',
+            ]);
+        } else {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'gender' => 'required|string|max:255',
+                'occupation' => 'required|string|max:255',
+                'passport_no' => 'required|string|max:255',
+                'phone_number' => 'required|string|max:255',
+                'nationality' => 'required|string|max:255',
+                'address' => 'required',
+                'business_name' => 'required|string|max:255',
+                'type_of_organization' => 'required|string|max:255',
+                'business_phone_num' => 'required|string|max:255',
+                'business_fax' => 'required|string|max:255',
+                'business_email' => 'required|string|max:255',
+                'city' => 'required|string|max:255',
+                'country' => 'required|string|max:255',
+                'zip_code' => 'required|string|max:255',
+                'type_of_business' => 'required|string|max:255',
+                'business_reg_num' => 'required|string|max:255',
+                'country_of_incorporation' => 'required|string|max:255',
+                'years_in_business' => 'required|string|max:255',
+                'import' => 'required',
+                // 'countries_of_import' => 'required',
+                'business_address' => 'required',
+                'hear_about_mg' => 'required|string|max:255',
+                'sales_rep_name' => 'required|string|max:255',
+                'sales_rep_number' => 'required|string|max:255',
+                'bank_name' => 'required|string|max:255',
+                'bank_country_name' => 'required|string|max:255',
+                'bank_account_name' => 'required|string|max:255',
+                'bank_account_number' => 'required|string|max:255',
+                'bank_branch_number' => 'required|string|max:255',
+                'bank_swift_code' => 'required|string|max:255',
+            ]);
+        }
         $customer->update($request->all());
 
         return redirect()->route('customers.index')

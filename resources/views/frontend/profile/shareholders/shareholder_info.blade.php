@@ -71,8 +71,7 @@
                 </div>
             </div>
         </form>
-        <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5"
-            style="width:100%">
+        <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
             <thead>
                 <tr>
                     <th>{{ __('shareholder.full_name') }}</th>
@@ -105,59 +104,3 @@
         </table>
     </div>
 </div>
-@push('frontend.layouts.footer_scripts')
-    <script>
-        // $(document).ready(function() {
-        //     var customer_id = $("#customer_id").val();
-        //     console.log(customer_id);
-        //     $("#shareholders-data-table").DataTable({
-        //         processing: true,
-        //         serverSide: true,
-        //         responsive: true,
-
-        //         scrollX: true,
-        //         language: {
-        //             search: "",
-        //             searchPlaceholder: "Search...",
-        //         },
-        //         ajax: {
-        //             url: "{{ route('customer-shareholders.index') }}",
-        //             data: function(d) {
-        //                 d.customer_id = customer_id;
-        //             },
-        //         },
-        //         columns: [{
-        //                 data: "name",
-        //                 name: "name",
-        //             },
-        //             {
-        //                 data: "title",
-        //                 name: "title",
-        //             },
-        //             {
-        //                 data: "email",
-        //                 name: "email",
-        //                 width: "15%",
-        //             },
-        //             {
-        //                 data: "phone_number",
-        //                 name: "phone_number",
-        //                 width: "15%",
-        //             },
-        //             {
-        //                 data: "passport_no",
-        //                 name: "passport_no",
-        //                 width: "15%",
-        //             },
-        //             {
-        //                 data: "nationality",
-        //                 name: "nationality",
-        //                 width: "15%",
-        //             },
-
-        //         ],
-        //     });
-
-        // });
-    </script>
-@endpush

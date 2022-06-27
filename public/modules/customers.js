@@ -51,4 +51,132 @@ $(document).ready(function () {
             },
         ],
     });
+
+    $(document).on("click", "#shareholders", function (e) {
+        const customer_id = $(this).val();
+        var target = $(this).data("target");
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                customer_id: customer_id,
+            },
+            cache: false,
+            success: function (data) {
+                $("#modal-div").html(data);
+                $(target).modal("show");
+            },
+            error: function () {},
+        });
+    });
+
+    $(document).on("click", "#trading", function (e) {
+        const customer_id = $(this).val();
+        var target = $(this).data("target");
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                customer_id: customer_id,
+            },
+            cache: false,
+            success: function (data) {
+                $("#modal-div").html(data);
+                $(target).modal("show");
+            },
+            error: function () {},
+        });
+    });
+
+    $(document).on("click", "#save_changes_shareholder", function (e) {
+        e.preventDefault();
+        var url = $("#shareholderForm").attr("action");
+        var data = $("#shareholderForm").serializeArray();
+        var customer_id = $("#customer_id").val();
+        var target = $(this).data("target");
+        var url_again = $(this).data("url");
+        console.log(url, data, customer_id);
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "POST",
+            data: data,
+            cache: false,
+            success: function (data) {
+                // alert(data);
+                if (data) {
+                    $.ajax({
+                        url: url_again,
+                        headers: {
+                            "X-CSRF-Token": "{{ csrf_token() }}",
+                        },
+                        type: "GET",
+                        data: {
+                            customer_id: customer_id,
+                        },
+                        cache: false,
+                        success: function (data) {
+                            $(target).modal("hide");
+                            $("#modal-div").html(data);
+                            $(target).modal("show");
+                        },
+                        error: function () {},
+                    });
+                }
+            },
+            error: function () {},
+        });
+    });
+
+    $(document).on("click", "#save_changes_trading", function (e) {
+        e.preventDefault();
+        var url = $("#tradingForm").attr("action");
+        var data = $("#tradingForm").serializeArray();
+        var customer_id = $("#customer_id").val();
+        var target = $(this).data("target");
+        var url_again = $(this).data("url");
+        console.log(url, data, customer_id);
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "POST",
+            data: data,
+            cache: false,
+            success: function (data) {
+                // alert(data);
+                if (data) {
+                    $.ajax({
+                        url: url_again,
+                        headers: {
+                            "X-CSRF-Token": "{{ csrf_token() }}",
+                        },
+                        type: "GET",
+                        data: {
+                            customer_id: customer_id,
+                        },
+                        cache: false,
+                        success: function (data) {
+                            $(target).modal("hide");
+                            $("#modal-div").html(data);
+                            $(target).modal("show");
+                        },
+                        error: function () {},
+                    });
+                }
+            },
+            error: function () {},
+        });
+    });
 });
