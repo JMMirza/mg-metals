@@ -77,7 +77,7 @@ class Product extends Model
         $product = $this;
         $final_price = 0;
 
-        return 'N/A';
+        // return 'N/A';
 
         if ($product->pricing_type == 'fix_price') {
 
