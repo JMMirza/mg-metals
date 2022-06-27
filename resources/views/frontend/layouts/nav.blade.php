@@ -62,12 +62,14 @@
 
                 <!-- Languages -->
                 <li>
-                    <a href="#" class="mn-has-sub">{{ session()->get('locale') == 'ch' ? '繁體中文' : 'English' }}
+                    <a href="#"
+                        class="mn-has-sub">{{ (session()->get('locale') == 'ch' ? '繁體中文' : session()->get('locale') == 'ch_simple') ? '簡體中文' : 'English' }}
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="mn-sub">
                         <li><a href="{{ route('language', 'en') }}">English</a></li>
                         <li><a href="{{ route('language', 'ch') }}">繁體中文</a></li>
+                        <li><a href="{{ route('language', 'ch_simple') }}">簡體中文</a></li>
                     </ul>
                 </li>
                 <!-- End Languages -->

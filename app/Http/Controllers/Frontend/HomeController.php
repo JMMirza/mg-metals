@@ -127,7 +127,7 @@ class HomeController extends Controller
     public function switch_language($locale)
     {
         // echo($locale);
-        if (!in_array($locale, ['en', 'ch'])) {
+        if (!in_array($locale, ['en', 'ch', 'ch_simple'])) {
             abort(400);
         }
 
