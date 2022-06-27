@@ -28,9 +28,9 @@ return [
     'PRECIOUS METALS BOOKING' => 'PRECIOUS METALS BOOKING',
     'RETAIL SHOP' => '零售商店',
 
-    'choose_us_1' => 'We are an accredited precious metal dealer and gold manufacturer with the license to mint gold and silver bars of various fines and weights',
-    'choose_us_2' => 'As a major global player in precious metals, we take our responsibility to the industry seriously.  Our commitment to sustainability is key to everything we do and a major part of our ongoing investment in the industry. ',
-    'choose_us_3' => 'The world’s leading gold and silver producers trust our team as a trusted partner to deliver quality refining at a competitive and sustainable price. We take pride in returning maximum value to our members and customers.',
+    'choose_us_1' => '我们是香港金银业贸易场行员，是经过认可的贵金属交易商以及黄金炼铸商认证的黄金制造商，拥有铸造各种细度和重量的金银条的许可证',
+    'choose_us_2' => '作为全球贵金属的主要参与者，我们有责任认真对待我们的业务。对可持续发展的承诺是我们对业务运营的重要信念，也是我们对该行业持续投资的关键。',
+    'choose_us_3' => '我们的团队是世界领先的黄金和白银生产商所信赖的合作伙伴。我们具有优质精炼的优势，能够提供有竞争力和可持续的价格。 我们自信能带给会员和客户们最大的回报跟服务价值。',
 
     'service_title_1' => '大额实货买卖',
     'service_title_2' => '贵金属回收',
