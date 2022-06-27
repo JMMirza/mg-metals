@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -40,8 +41,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('customers.add_new_customer', ['users' => $users]);
+        return view('customers.add_new_customer');
     }
 
     /**
@@ -52,17 +52,57 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'full_name' => 'required|string|max:255',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'customer_type' => ['required']
+        ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'customer_type' => $request->customer_type
+        ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
-            'user_id' => 'required|integer|max:255',
-            'phone_number' => 'required|string',
+            'occupation' => 'required|string|max:255',
+            'passport_no' => 'required|string|max:255',
+            'phone_number' => 'required|string|max:255',
             'nationality' => 'required|string|max:255',
-            'bank_account_name' => 'required|max:255',
-            'storage_service' => 'required'
+            'address' => 'required',
+            'business_name' => 'required|string|max:255',
+            'type_of_organization' => 'required|string|max:255',
+            'business_phone_num' => 'required|string|max:255',
+            'business_fax' => 'required|string|max:255',
+            'business_email' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+            'zip_code' => 'required|string|max:255',
+            'type_of_business' => 'required|string|max:255',
+            'business_reg_num' => 'required|string|max:255',
+            'country_of_incorporation' => 'required|string|max:255',
+            'years_in_business' => 'required|string|max:255',
+            'import' => 'required',
+            // 'countries_of_import' => 'required',
+            'business_address' => 'required',
+            'hear_about_mg' => 'required|string|max:255',
+            'sales_rep_name' => 'required|string|max:255',
+            'sales_rep_number' => 'required|string|max:255',
+            'bank_name' => 'required|string|max:255',
+            'bank_country_name' => 'required|string|max:255',
+            'bank_account_name' => 'required|string|max:255',
+            'bank_account_number' => 'required|string|max:255',
+            'bank_branch_number' => 'required|string|max:255',
+            'bank_swift_code' => 'required|string|max:255',
         ]);
 
-        Customer::create($request->all());
+        $input = $request->all();
+        $input['user_id'] = $user->id;
+        $input['full_name'] = $request->name;
+        Customer::create($input);
 
         return redirect()->route('customers.index')
             ->with('success', 'Customer created successfully.');
@@ -87,8 +127,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        $users = User::all();
-        return view('customers.edit_customer', ['customer' => $customer, 'users' => $users]);
+        $user = User::find($customer->user_id);
+        return view('customers.edit_customer', ['customer' => $customer, 'user' => $user]);
     }
 
     /**

@@ -23,13 +23,6 @@
 
                  </div>
              </div>
-             <div class="col-12 col-md-6">
-                 <div class="form-group">
-                     <input type="text" name="bank_account_name" value="{{ $customer->bank_account_name }}"
-                         class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
-                         placeholder="{{ __('bank_info.account_num') }}">
-                 </div>
-             </div>
 
              <div class="col-12 col-md-6">
                  <div class="form-group">

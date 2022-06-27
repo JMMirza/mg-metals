@@ -20,7 +20,7 @@
                     <label class="radio-inline ">
                         <input type="radio" name="hear_about_mg" value="SALES REPRESENTATIVE"
                             @if ($customer->hear_about_mg == 'SALES REPRESENTATIVE') checked @endif>
-                        <span></span>{{ __('other_info.sales.rep') }}
+                        <span></span>{{ __('other_info.sale_rep') }}
                     </label>
                     <label class="radio-inline ">
                         <input type="radio" name="hear_about_mg" value="INTERNET"
