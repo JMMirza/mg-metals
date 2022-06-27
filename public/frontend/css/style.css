@@ -5,7 +5,7 @@
 Project: Rhythm
 Version: 3.6.1
 Last change: 8 March 2022
-Primary use: MultiPurpose Template  
+Primary use: MultiPurpose Template
 -------------------------------------------------------------------*/
 
 @import "font-awesome.min.css";
@@ -1289,7 +1289,7 @@ a.bg-video-button-muted {
     z-index: 1000;
 }
 
-/* 
+/*
  * Headings styles
  */
 
@@ -2090,8 +2090,8 @@ a.logo:hover {
     transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
 }
 
-/* 
- * Centered menu 
+/*
+ * Centered menu
  */
 
 .mn-centered {
@@ -2115,8 +2115,8 @@ a.logo:hover {
     margin-right: auto;
 }
 
-/* 
- * Aligned left menu 
+/*
+ * Aligned left menu
  */
 
 .mn-align-left {
@@ -3461,7 +3461,7 @@ a.logo:hover {
 }
 
 /*
- * Works grid 
+ * Works grid
  */
 
 .works-grid {
@@ -4098,7 +4098,7 @@ a.logo:hover {
 }
 
 /* ==============================
-   Google maps 
+   Google maps
    ============================== */
 
 .google-map {
@@ -6772,3 +6772,16 @@ section:hover .small-item-carousel .owl-next {
     margin-right: 15px;
 }
 /*****  form-card *******/
+
+.mobile-banner {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-banner {
+        display: block;
+    }
+    .web-banner {
+        display: none;
+    }
+}
