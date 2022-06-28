@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\CustomerProduct;
 use Illuminate\Http\Request;
 use DataTables;
@@ -46,7 +47,19 @@ class CustomerProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'user_id' => ['required'],
+            'product_id' => ['required'],
+            'purchase_price' => ['required'],
+            'referral_code' => ['required', 'string', 'min:6', 'max:6'],
+        ]);
+        $customer = Customer::where('user_id', $request->user_id)->first();
+        // dd($customer);
+        $input = $request->all();
+        $input['customer_id'] = $customer->id;
+        CustomerProduct::create($input);
+        return back();
     }
 
     /**

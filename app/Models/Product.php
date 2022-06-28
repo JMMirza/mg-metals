@@ -72,7 +72,7 @@ class Product extends Model
     }
 
 
-    public function getProductPrice()
+    public function getProductPrice($type = 'str')
     {
         $product = $this;
         $final_price = 0;
@@ -109,13 +109,17 @@ class Product extends Model
                     }
                 } else {
                     $final_price = ($product->weight * $gold_price);
-            }
+                }
             } catch (\Throwable $th) {
                 //throw $th;
                 return 'N/A';
             }
         }
 
-        return number_format($final_price, 2) . ' USD';
+        if ($type == 'str') {
+            return number_format($final_price, 2) . ' USD';
+        }
+
+        return $final_price;
     }
 }

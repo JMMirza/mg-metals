@@ -8,4 +8,5 @@ return [
     'Confirm Password' => 'Confirm Password',
     'individual' => 'Individual',
     'corporate' => 'Corporate',
+    'referred_by' => 'Referred By'
 ];

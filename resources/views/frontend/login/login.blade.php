@@ -170,19 +170,33 @@
                                                     name="password_confirmation" required autocomplete="new-password">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group ht-70">
-                                            <label class="radio-inline mr-3">
-                                                <input type="radio" name="customer_type" value="individual"
-                                                    @if (old('customer_type') == 'individual') checked @endif>
-                                                <span></span>{{ __('login.individual') }}
-                                            </label>
-                                            <label class="radio-inline mr-3">
-                                                <input type="radio" name="customer_type" value="corporate"
-                                                    @if (old('customer_type') == 'corporate') checked @endif>
-                                                <span></span>{{ __('login.corporate') }}
-                                            </label>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <input id="name" type="text"
+                                                    class="form-control @error('referred_by') is-invalid @enderror"
+                                                    name="referred_by" value="{{ old('referred_by') }}"
+                                                    autocomplete="referred_by" autofocus
+                                                    placeholder="{{ __('login.referred_by') }}">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group ht-70">
+                                                <label class="radio-inline mr-3">
+                                                    <input type="radio" name="customer_type" value="individual"
+                                                        @if (old('customer_type') == 'individual') checked @endif>
+                                                    <span></span>{{ __('login.individual') }}
+                                                </label>
+                                                <label class="radio-inline mr-3">
+                                                    <input type="radio" name="customer_type" value="corporate"
+                                                        @if (old('customer_type') == 'corporate') checked @endif>
+                                                    <span></span>{{ __('login.corporate') }}
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="footer">
