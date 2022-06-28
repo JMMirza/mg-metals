@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    @include('layouts.flash_message')
     <div class="row">
         @if (isset($manufacturer))
             @include('manufacturers.edit_manufacturer')

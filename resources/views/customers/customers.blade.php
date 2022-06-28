@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    @include('layouts.flash_message')
     <div class="row">
         <div class="col-lg-12">
             <div class="card-header align-items-center d-flex">

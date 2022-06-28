@@ -700,7 +700,7 @@
                                             <div class="col-12 col-md-12">
                                                 <label class="form-label">{{ __('other_info.hear_about_mg') }}
                                                 </label>
-                                                <div class="form-group ">
+                                                <div class="form-group">
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="hear_about_mg" value="REFERRAL"
                                                             @if (old('hear_about_mg') == 'REFERRAL') checked @endif>
@@ -710,7 +710,7 @@
                                                         <input type="radio" name="hear_about_mg"
                                                             value="SALES REPRESENTATIVE"
                                                             @if (old('hear_about_mg') == 'SALES REPRESENTATIVE') checked @endif>
-                                                        <span></span>{{ __('other_info.sales.rep') }}
+                                                        <span></span>{{ __('other_info.sale_rep') }}
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="hear_about_mg" value="INTERNET"
