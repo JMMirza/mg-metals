@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\CustomerProduct;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -54,8 +55,11 @@ class CustomerProductController extends Controller
             'purchase_price' => ['required'],
             'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
+        $user = User::find($request->user_id);
+        $tier_3 = User::where('referral_code', $user->referred_by)->first();
+        $tier_2 = User::where('referral_code', $tier_3->referred_by)->first();
+        $tier_1 = User::where('referral_code', $tier_2->referred_by)->first();
         $customer = Customer::where('user_id', $request->user_id)->first();
-        // dd($customer);
         $input = $request->all();
         $input['customer_id'] = $customer->id;
         CustomerProduct::create($input);
