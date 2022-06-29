@@ -52,28 +52,18 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'customer_type' => ['required']
-        ]);
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'customer_type' => $request->customer_type
-        ]);
-
         if ($request->customer_type == 'individual') {
             $request->validate([
                 'name' => 'required|string|max:255',
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'customer_type' => ['required'],
                 'gender' => 'required|string|max:255',
                 'occupation' => 'required|string|max:255',
                 'passport_no' => 'required|string|max:255',
                 'phone_number' => 'required|string|max:255',
+                'nationality' => 'required|string|max:255',
+                'address' => 'required',
             ]);
         } else {
             $request->validate([
@@ -111,6 +101,12 @@ class CustomerController extends Controller
             ]);
         }
 
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'customer_type' => $request->customer_type
+        ]);
         $input = $request->all();
         $input['user_id'] = $user->id;
         $input['full_name'] = $request->name;
@@ -152,17 +148,20 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
+        // dd($request->all());
         if ($request->customer_type == 'individual') {
             $request->validate([
-                'name' => 'required|string|max:255',
+                'full_name' => 'required|string|max:255',
                 'gender' => 'required|string|max:255',
                 'occupation' => 'required|string|max:255',
                 'passport_no' => 'required|string|max:255',
                 'phone_number' => 'required|string|max:255',
+                'nationality' => 'required|string|max:255',
+                'address' => 'required',
             ]);
         } else {
             $request->validate([
-                'name' => 'required|string|max:255',
+                'full_name' => 'required|string|max:255',
                 'gender' => 'required|string|max:255',
                 'occupation' => 'required|string|max:255',
                 'passport_no' => 'required|string|max:255',

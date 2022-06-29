@@ -50,8 +50,6 @@ Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 
 Route::group(['middleware' => ['auth']], function () {
-
-
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::resources(['/customers' => CustomerController::class]);
     Route::resources(['agents' => AgentController::class]);

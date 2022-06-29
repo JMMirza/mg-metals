@@ -26,6 +26,14 @@
 
              <div class="col-12 col-md-6">
                  <div class="form-group">
+                     <input type="text" name="bank_account_name" value="{{ $customer->bank_account_name }}"
+                         class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
+                         placeholder="{{ __('bank_info.account_name') }}">
+                 </div>
+             </div>
+
+             <div class="col-12 col-md-6">
+                 <div class="form-group">
                      <input type="text" name="bank_branch_number" value="{{ $customer->bank_branch_number }}"
                          class="form-control @if ($errors->has('bank_branch_number')) is-invalid @endif"
                          placeholder="{{ __('bank_info.branch_num') }}">

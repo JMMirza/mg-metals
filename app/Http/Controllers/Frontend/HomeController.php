@@ -13,6 +13,7 @@ use App\Models\CustomerShareholder;
 use App\Models\AuthorizedTradingRepresentative;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 
 class HomeController extends Controller
@@ -86,17 +87,28 @@ class HomeController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'referred_by' => ['required', 'string', 'min:6', 'max:6'],
             'customer_type' => ['required']
         ]);
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'customer_type' => $request->customer_type
-        ]);
-        auth()->login($user);
-        return redirect(route('customer_profile'))
-            ->with('success', 'Account created successfully.');
+
+        $agent = User::where('referral_code', $request->referred_by)->first();
+
+        if ($agent) {
+            $referral_code = strtoupper(Str::random(6));
+            $input = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'customer_type' => $request->customer_type,
+                'referred_by' => $request->referred_by,
+                'referral_code' => $referral_code
+            ];
+            $user = User::create($input);
+            auth()->login($user);
+            return redirect(route('customer_profile'))
+                ->with('success', 'Account created successfully.');
+        }
+        return back()->withErrors('Referral code not found');
     }
 
     public function profile()
@@ -127,7 +139,7 @@ class HomeController extends Controller
     public function switch_language($locale)
     {
         // echo($locale);
-        if (!in_array($locale, ['en', 'ch'])) {
+        if (!in_array($locale, ['en', 'ch', 'ch_simple'])) {
             abort(400);
         }
 

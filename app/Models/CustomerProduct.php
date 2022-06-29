@@ -14,6 +14,7 @@ class CustomerProduct extends Model
         'customer_id',
         'purchase_price',
         'product_id',
+        'referral_code'
     ];
 
     protected $dates = [

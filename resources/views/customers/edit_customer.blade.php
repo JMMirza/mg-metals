@@ -143,17 +143,66 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="col-12 col-md-6 mt-3">
+                                                    <label for="">Nationality</label>
+                                                    <div class="form-group">
+                                                        <select class="form-select" name="nationality" required>
+                                                            <option value=""
+                                                                @if ($customer->nationality == '') {{ 'selected' }} @endif
+                                                                disabled>
+                                                                {{ __('individual.Nationality') }}
+                                                            </option>
+                                                            <option value="pakistan"
+                                                                @if ($customer->nationality == 'pakistan') {{ 'selected' }} @endif>
+                                                                Pakistan
+                                                            </option>
+                                                            <option value="china"
+                                                                @if ($customer->nationality == 'china') {{ 'selected' }} @endif>
+                                                                China
+                                                            </option>
+                                                            <option value="other"
+                                                                @if ($customer->nationality == 'other') {{ 'selected' }} @endif>
+                                                                Other
+                                                            </option>
+                                                        </select>
 
+                                                    </div>
+                                                </div>
+
+                                                {{-- <div class="col-12 col-md-6 mt-3">
+                                                    <label for="">Customer Type</label>
+                                                    <div class="form-group">
+                                                        <label class="radio-inline mr-3">
+                                                            <input type="radio" name="customer_type" value="individual"
+                                                                @if ($customer->user->customer_type == 'individual') checked @endif>
+                                                            <span></span>{{ __('login.individual') }}
+                                                        </label>
+                                                        <label class="radio-inline mr-3">
+                                                            <input type="radio" name="customer_type" value="corporate"
+                                                                @if ($customer->user->customer_type == 'corporate') checked @endif>
+                                                            <span></span>{{ __('login.corporate') }}
+                                                        </label>
+                                                    </div>
+                                                </div> --}}
+
+                                                <div class="col-12 col-md-12 mt-3">
+                                                    <div class="form-group">
+                                                        <label for="">Address</label>
+                                                        <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
+                                                            placeholder="{{ __('individual.ADDRESS') }}">{{ $customer->address }}</textarea>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item mt-2">
                                     <h2 class="accordion-header" id="accordionborderedExample2">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
-                                            aria-controls="accor_borderedExamplecollapse2">
-                                            Sec#2A Applicant Info
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse2"
+                                            aria-expanded="false" aria-controls="accor_borderedExamplecollapse2">
+                                            Sec#2A APPLICANT INFORMATION (CORPORATE)
                                         </button>
                                     </h2>
                                     <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"
@@ -401,12 +450,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row mt-3">
 
+                                                <div class="col-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="passport_no"
+                                                            class="form-label">{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}</label>
+                                                        <input type="text"
+                                                            class="form-control @if ($errors->has('countries_of_import')) is-invalid @endif"
+                                                            id="countries_of_import" name="countries_of_import"
+                                                            value="{{ $customer->countries_of_import }}"
+                                                            placeholder="{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                 </div>
-                                <div class="accordion-item mt-2">
+                                {{-- <div class="accordion-item mt-2">
                                     <h2 class="accordion-header" id="accordionborderedExample3">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse3"
@@ -496,7 +558,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item mt-2">
+                                 <div class="accordion-item mt-2">
                                     <h2 class="accordion-header" id="accordionborderedExample4">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#accor_borderedExamplecollapse4"
@@ -562,7 +624,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="accordion-item mt-2">
                                     <h2 class="accordion-header" id="accordionborderedExample5">
                                         <button class="accordion-button collapsed" type="button"
@@ -588,7 +650,7 @@
                                                             <input type="radio" name="hear_about_mg"
                                                                 value="SALES REPRESENTATIVE"
                                                                 @if ($customer->hear_about_mg == 'SALES REPRESENTATIVE') checked @endif>
-                                                            <span></span>{{ __('other_info.sales.rep') }}
+                                                            <span></span>{{ __('other_info.sale_rep') }}
                                                         </label>
                                                         <label class="radio-inline ">
                                                             <input type="radio" name="hear_about_mg" value="INTERNET"
@@ -836,7 +898,55 @@
                                     </div>
                                 </div>
 
+                                <div class="col-12 col-md-6 mt-3">
+                                    <label for="">Nationality</label>
+                                    <div class="form-group">
+                                        <select class="form-select" name="nationality" required>
+                                            <option value=""
+                                                @if ($customer->nationality == '') {{ 'selected' }} @endif disabled>
+                                                {{ __('individual.Nationality') }}
+                                            </option>
+                                            <option value="pakistan"
+                                                @if ($customer->nationality == 'pakistan') {{ 'selected' }} @endif>
+                                                Pakistan
+                                            </option>
+                                            <option value="china"
+                                                @if ($customer->nationality == 'china') {{ 'selected' }} @endif>
+                                                China
+                                            </option>
+                                            <option value="other"
+                                                @if ($customer->nationality == 'other') {{ 'selected' }} @endif>
+                                                Other
+                                            </option>
+                                        </select>
 
+                                    </div>
+                                </div>
+
+                                {{-- <div class="col-12 col-md-6 mt-3">
+                                                    <label for="">Customer Type</label>
+                                                    <div class="form-group">
+                                                        <label class="radio-inline mr-3">
+                                                            <input type="radio" name="customer_type" value="individual"
+                                                                @if ($customer->user->customer_type == 'individual') checked @endif>
+                                                            <span></span>{{ __('login.individual') }}
+                                                        </label>
+                                                        <label class="radio-inline mr-3">
+                                                            <input type="radio" name="customer_type" value="corporate"
+                                                                @if ($customer->user->customer_type == 'corporate') checked @endif>
+                                                            <span></span>{{ __('login.corporate') }}
+                                                        </label>
+                                                    </div>
+                                                </div> --}}
+
+                                <div class="col-12 col-md-12 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Address</label>
+                                        <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
+                                            placeholder="{{ __('individual.ADDRESS') }}">{{ $customer->address }}</textarea>
+
+                                    </div>
+                                </div>
                             </div>
                         @endif
                         <div class="col-12 text-end">
