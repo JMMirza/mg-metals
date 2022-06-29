@@ -4,7 +4,7 @@
         </span>
     </div>
     <div class="card-body">
-        <form class="row g-3 needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
+        <form class="row  needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
             method="POST" novalidate>
             @csrf
             @method('PUT')
@@ -66,7 +66,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <select class="form-select" name="nationality" required>
+                    <select class="form-select form-control " name="nationality" required>
                         <option value="" @if ($customer->nationality == '') {{ 'selected' }} @endif disabled>
                             {{ __('individual.Nationality') }}
                         </option>

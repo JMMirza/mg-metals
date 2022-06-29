@@ -12,7 +12,7 @@
                     <div id="warningDivShow" class="alert alert-danger" style="display: none">
                         You have to add 3 Preferences.
                     </div>
-                    <form class="row g-3 needs-validation" id="myForm" action="{{ route('customers.store') }}"
+                    <form class="row  needs-validation" id="myForm" action="{{ route('customers.store') }}"
                         method="POST" novalidate>
                         @csrf
                         <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-primary"
@@ -64,7 +64,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-label-group in-border">
                                                     <label for="gender" class="form-label">Gender</label>
-                                                    <select class="form-select mb-3" name="gender" required>
+                                                    <select class="form-select form-control mb-3" name="gender" required>
                                                         <option value=""
                                                             @if (old('gender') == '') {{ 'selected' }} @endif
                                                             selected disabled>
@@ -145,7 +145,7 @@
                                             <div class="col-12 col-md-6 mt-3">
                                                 <label for="">Nationality</label>
                                                 <div class="form-group">
-                                                    <select class="form-select" name="nationality" required>
+                                                    <select class="form-select form-control " name="nationality" required>
                                                         <option value=""
                                                             @if (old('nationality') == '') {{ 'selected' }} @endif
                                                             disabled>

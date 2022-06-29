@@ -3,7 +3,7 @@
         {{ __('other_info.SECTION 3') }}<span>{{ __('other_info.OTHER INFORMATION') }} </span>
     </div>
     <div class="card-body">
-        <form class="row g-3 needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
+        <form class="row  needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
             method="POST" novalidate>
             @csrf
             @method('PUT')

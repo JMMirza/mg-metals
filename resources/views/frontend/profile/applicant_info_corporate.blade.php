@@ -4,7 +4,7 @@
          </span>
      </div>
      <div class="card-body">
-         <form class="row g-3 needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
+         <form class="row  needs-validation" action="{{ route('customer-profile-data.update', $customer->id) }}"
              method="POST" novalidate>
              @csrf
              @method('PUT')
@@ -110,7 +110,7 @@
                  </div>
              </div>
 
-             <div class="col-12 col-md-6">
+             <div class="col-12 col-md-12">
                  <label class="form-label">{{ __('corporate.TYPE OF BUSINESS') }}</label>
                  <div class="form-group">
                      <label class="radio-inline ">
@@ -130,7 +130,7 @@
                      </label>
                  </div>
              </div>
-             <div class="col-12 col-md-6">
+             <div class="col-12 col-md-12">
                  <label class="form-label">{{ __('corporate.JEWELLERY RETAIL') }}</label>
                  <div class="form-group ">
                      <label class="radio-inline ">
@@ -172,7 +172,7 @@
 
                  </div>
              </div>
-             <div class="col-12 col-md-4">
+             <div class="col-12 col-md-12">
                  <label class="form-label">{{ __('corporate.DO YOU IMPORT / EXPORT PRECIOUS METAL?') }}
                  </label>
                  <div class="form-group ">
@@ -188,7 +188,7 @@
                      </label>
                  </div>
              </div>
-             <div class="col-12 col-md-8">
+             <div class="col-12 col-md-12">
                  <div class="form-group">
                      <input type="text" class="form-control @if ($errors->has('countries_of_import')) is-invalid @endif"
                          id="countries_of_import" name="countries_of_import"

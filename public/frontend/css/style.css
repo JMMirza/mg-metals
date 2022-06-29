@@ -6672,7 +6672,8 @@ section:hover .small-item-carousel .owl-next {
 .form-card {
     background: #f3f3f3;
     border: none;
-    border-radius: 0px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 .form-card .card-header {
     background: #495057;
@@ -6687,11 +6688,11 @@ section:hover .small-item-carousel .owl-next {
 }
 .form-card .card-body {
     background: #f3f3f3;
-    padding: 50px 30px !important;
+    padding: 30px 30px !important;
     border-radius: 0;
 }
 .form-card .card-body .form-group {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
 }
@@ -6705,9 +6706,13 @@ section:hover .small-item-carousel .owl-next {
     color: #000;
 }
 .form-card .card-body .form-label {
-    font-size: 18px;
-    color: #6a6a6a;
+    font-size: 14px;
+    color: #444;
+    font-weight: bold !important;
     margin-bottom: 15px;
+}
+.form-card .card-body .form-group a{
+    font-size: 12px !important
 }
 .form-card .card-body .form-group .radio-inline {
     font-size: 12px;
@@ -6735,7 +6740,7 @@ section:hover .small-item-carousel .owl-next {
     width: 22px;
     background: #fff;
     border: 1px solid #dedede;
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
 }
 .form-card .card-body .form-group .radio-inline input:checked + span::after {
@@ -6744,13 +6749,53 @@ section:hover .small-item-carousel .owl-next {
     z-index: 99;
     height: 12px;
     width: 12px;
-    border-radius: 4px;
+    border-radius:50px;
     background: #bf8a00;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.form-card .card-body .form-group .checkbox-inline {
+    font-size: 12px;
+    color: #6a6a6a;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.form-card .card-body .form-group .checkbox-inline.align-top {
+    align-items: flex-start;
+}
 
+.form-card .card-body .form-group .checkbox-inline input {
+    display: none;
+}
+.form-card .card-body .form-group .checkbox-inline span {
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+    height: 22px;
+    width: 22px;
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius:2px;
+    cursor: pointer;
+}
+.form-card .card-body .form-group .checkbox-inline input:checked + span::after {
+    position: absolute;
+    content: "";
+    z-index: 99;
+    height: 12px;
+    width: 12px;
+    border-radius: 2px;
+    background: #bf8a00;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form-card .card-body table tr th,
+.form-card .card-body table tr td{
+    font-size: 12px ;
+}
 .form-card .card-body .footer {
     display: flex;
     justify-content: space-between;
@@ -6759,6 +6804,10 @@ section:hover .small-item-carousel .owl-next {
     padding: 10px 20px;
     font-size: 14px;
     color: #fff;
+    margin-right: 15px;
+}
+.form-card .card-body .footer .btn:last-child {
+    margin-right: 0px;
 }
 .form-card .card-body .footer .btn[disabled="true"] {
     background: #aaaaaa !important;
@@ -6769,7 +6818,7 @@ section:hover .small-item-carousel .owl-next {
 }
 .form-card .card-body .footer .btn-default {
     background: #444444;
-    margin-right: 15px;
+    
 }
 /*****  form-card *******/
 
@@ -6784,4 +6833,63 @@ section:hover .small-item-carousel .owl-next {
     .web-banner {
         display: none;
     }
+}
+
+.left-nav-pills .nav-tabs{
+    border-color:transparent !important;
+}
+.left-nav-pills .nav-tabs .nav-item{
+    width: 100% !important;
+}
+.left-nav-pills .nav-tabs .nav-item .nav-link{
+    height: 50px !important;
+    display: flex;
+    align-items: center;
+    padding:5px 10px ;
+   
+    width: 100%;
+    border-bottom: 1px solid #dedede !important;
+}
+.left-nav-pills .nav-tabs .nav-item:last-child .nav-link{
+    border-bottom: none !important;
+}
+.left-nav-pills .nav-tabs .nav-item .nav-link:hover{
+    background: #dedede !important;
+    cursor: pointer;
+}
+.left-nav-pills .nav-tabs .nav-item .nav-link.active,
+.left-nav-pills .nav-tabs .nav-item .nav-link.active:hover{
+   background: #495057 !important;
+    font-weight: 500 !important;
+    color:#fff !important;
+    border-radius: 4px !important;
+}
+.login-tabs .nav-item .nav-link.active,
+.login-tabs .nav-item .nav-link.active:hover{
+    color: #fff;
+    font-weight: bold;
+    background-color: #495057;
+    border-color: #495057;
+    border-radius: 4px 4px 0px 0px !important;
+}
+.login-tabs .nav-item .nav-link:hover{
+    color: #495057;
+    background-color: #efefef;
+    border-color: #efefef;
+    border-radius: 4px 4px 0px 0px !important;
+}
+.login-tab-content{
+    width:450px !important
+}
+.login-tab-content  .form-card{
+    border-radius: 0px 0px 4px 4px !important;
+}
+.login-tab-content  .form-card .card-header span{
+    margin:0px !important
+}
+.tab-content{
+    padding-top: 0px !important;
+}
+.row>* {
+    margin-top: 0px !important;
 }

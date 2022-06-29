@@ -6,14 +6,14 @@
             </div>
 
             <div class="card-body">
-                <form class="row g-3 needs-validation" action="{{ route('agents.update', $agent->id) }}" method="POST"
+                <form class="row  needs-validation" action="{{ route('agents.update', $agent->id) }}" method="POST"
                     enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="col-md-4">
                         <div class="form-label-group in-border">
                             <label for="user_id" class="form-label">Agents</label>
-                            <select class="form-select mb-3" name="parent_id" required>
+                            <select class="form-select form-control mb-3" name="parent_id" required>
                                 <option value="" @if ($agent->parent_id == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One
@@ -32,7 +32,7 @@
                     <div class="col-md-4">
                         <div class="form-label-group in-border">
                             <label for="user_id" class="form-label">Users</label>
-                            <select class="form-select mb-3" name="user_id" required>
+                            <select class="form-select form-control mb-3" name="user_id" required>
                                 <option value="" @if ($agent->user_id == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One
@@ -52,7 +52,7 @@
                     <div class="col-md-4">
                         <div class="form-label-group in-border">
                             <label for="percentage" class="form-label">Percentage</label>
-                            <select class="form-select mb-3" name="percentage" required>
+                            <select class="form-select form-control mb-3" name="percentage" required>
                                 <option value="" @if ($agent->percentage == '') {{ 'selected' }} @endif selected
                                     disabled>
                                     Select One

@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
             </div>
             <div class="modal-body">
-                <form class="row g-3 needs-validation" id="tradingForm"
+                <form class="row  needs-validation" id="tradingForm"
                     action="{{ route('customer-trading.store', $customer_id) }}" method="POST" novalidate>
                     @csrf
                     <input type="text" name="form_info" value="trading_modal" hidden>
