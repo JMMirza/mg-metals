@@ -19,12 +19,12 @@ return new class extends Migration
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('tier_1_id');
-            $table->unsignedBigInteger('tier_2_id');
-            $table->unsignedBigInteger('tier_3_id');
-            $table->float('tier_1_price');
-            $table->float('tier_2_price');
-            $table->float('tier_3_price');
+            $table->unsignedBigInteger('tier_1_id')->nullable();
+            $table->unsignedBigInteger('tier_2_id')->nullable();
+            $table->unsignedBigInteger('tier_3_id')->nullable();
+            $table->float('tier_1_price')->nullable();
+            $table->float('tier_2_price')->nullable();
+            $table->float('tier_3_price')->nullable();
             $table->timestamps();
         });
     }
