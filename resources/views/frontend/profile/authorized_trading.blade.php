@@ -3,7 +3,7 @@
         {{ __('trading.SECTION 2C') }}<span>{{ __('trading.AUTHORIZED TRADING REPRESENTATIVE') }}</span>
     </div>
     <div class="card-body">
-        <form class="row g-3 needs-validation" action="{{ route('customer-trading.store', $customer->id) }}"
+        <form class="row  needs-validation" action="{{ route('customer-trading.store', $customer->id) }}"
             method="POST" novalidate>
             @csrf
             <input type="text" name="form_info" value="trading" hidden>
@@ -52,7 +52,7 @@
                     <button class="btn btn-custom" type="submit">{{ __('home_page.save') }}</button>
 
                     <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=other_info' }}"
-                        class="btn btn-primary">{{ __('home_page.next') }} </a>
+                        class="btn btn-custom">{{ __('home_page.next') }} </a>
                 </div>
             </div>
         </form>

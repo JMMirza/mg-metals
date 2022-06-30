@@ -3,8 +3,12 @@
         {{ __('shareholder.SECTION 2B') }} <span>{{ __('shareholder.SHAREHOLDER/DIRECTOR INFORMATION') }}</span>
     </div>
     <div class="card-body">
-        <h3>{{ __('shareholder.SHAREHOLDER/DIRECTOR') }}</h3>
-        <form class="row g-3 needs-validation" action="{{ route('customer-shareholders.store', $customer->id) }}"
+        <div class="row">
+            <div class="col-12 col-md-12">
+             <label class="form-label">{{ __('shareholder.SHAREHOLDER/DIRECTOR') }}</label>
+            </div>
+        </div>
+        <form class="row  needs-validation" action="{{ route('customer-shareholders.store', $customer->id) }}"
             method="POST" novalidate>
             @csrf
             <input type="text" name="form_info" value="shareholder" hidden>
@@ -67,7 +71,7 @@
                     <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
                     <button class="btn btn-custom" type="submit">{{ __('home_page.save') }}</button>
                     <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=trading' }}"
-                        class="btn btn-primary">{{ __('home_page.next') }} </a>
+                        class="btn btn-custom">{{ __('home_page.next') }} </a>
                 </div>
             </div>
         </form>

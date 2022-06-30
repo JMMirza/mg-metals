@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3 needs-validation" action="{{ route('customers.update', $customer->id) }}"
+                    <form class="row  needs-validation" action="{{ route('customers.update', $customer->id) }}"
                         method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         @method('PUT')
@@ -48,7 +48,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-label-group in-border">
                                                         <label for="gender" class="form-label">Gender</label>
-                                                        <select class="form-select mb-3" name="gender" required>
+                                                        <select class="form-select form-control mb-3" name="gender" required>
                                                             <option value=""
                                                                 @if ($customer->gender == '') {{ 'selected' }} @endif
                                                                 selected disabled>
@@ -804,7 +804,7 @@
                                 <div class="col-md-4">
                                     <div class="form-label-group in-border">
                                         <label for="gender" class="form-label">Gender</label>
-                                        <select class="form-select mb-3" name="gender" required>
+                                        <select class="form-select form-control mb-3" name="gender" required>
                                             <option value=""
                                                 @if ($customer->gender == '') {{ 'selected' }} @endif selected
                                                 disabled>

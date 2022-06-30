@@ -7,11 +7,12 @@
 
     <div class="main-content">
         <div class="page-content">
-            <div class="container-fuild center-aligned">
+            <div class="container center-aligned">
                 <div class="row">
-
-                    <div class="col-md-12">
-                        @if (\Auth::user()->customer_type == 'corporate')
+                     @if (\Auth::user()->customer_type == 'corporate')
+                    <div class="col-md-3">
+                        
+                        <div class=" left-nav-pills">
                             <ul class="nav nav-tabs tpl-tabs animate" role="tablist">
                                 <li class="nav-item">
                                     <a href="#item-1" aria-controls="item-1"
@@ -61,7 +62,11 @@
                                     </a>
                                 </li>
                             </ul>
-                        @endif
+                        </div>
+                        
+                    </div>
+                    @endif
+                    <div class="col">
                         <div class="tab-content tpl-tabs-cont section-text">
 
                             <div class="tab-pane fade {{ request()->query('tab') == 'individual' || request()->query('tab') == null ? 'active show' : '' }} "

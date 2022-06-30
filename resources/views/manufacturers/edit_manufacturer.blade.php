@@ -6,7 +6,7 @@
             </div>
 
             <div class="card-body">
-                <form class="row g-3 needs-validation" action="{{ route('manufacturers.update', $manufacturer->id) }}"
+                <form class="row  needs-validation" action="{{ route('manufacturers.update', $manufacturer->id) }}"
                     method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')

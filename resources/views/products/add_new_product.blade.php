@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3 needs-validation" action="{{ route('products.store') }}" method="POST"
+                    <form class="row  needs-validation" action="{{ route('products.store') }}" method="POST"
                         enctype='multipart/form-data' novalidate>
                         @csrf
 
@@ -48,7 +48,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="catergory_id" class="form-label">Categories (物品類別)</label>
-                                <select class="form-select mb-3" name="catergory_id" required>
+                                <select class="form-select form-control mb-3" name="catergory_id" required>
                                     <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -73,7 +73,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="manufacturer_id" class="form-label">Manufacturer</label>
-                                <select class="form-select mb-3" name="manufacturer_id" required>
+                                <select class="form-select form-control mb-3" name="manufacturer_id" required>
                                     <option value="" @if (old('manufacturer_id') == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -98,7 +98,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
-                                <select id="pricing_type" class="form-select mb-3" name="pricing_type" required>
+                                <select id="pricing_type" class="form-select form-control mb-3" name="pricing_type" required>
                                     <option value="" @if (old('pricing_type') == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -163,7 +163,7 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="surcharge_at_product" class="form-label">Mark up at Product Level</label>
-                                <select id="surcharge_at_product" class="form-select mb-3" name="surcharge_at_product"
+                                <select id="surcharge_at_product" class="form-select form-control mb-3" name="surcharge_at_product"
                                     required>
                                     <option value="" @if (old('surcharge_at_product') == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -190,7 +190,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-label-group in-border">
                                     <label for="markup_type" class="form-label">Mark up Type (加價類型)</label>
-                                    <select id="markup_type" class="form-select mb-3" name="markup_type">
+                                    <select id="markup_type" class="form-select form-control mb-3" name="markup_type">
                                         <option value=""
                                             @if (old('markup_type') == '') {{ 'selected' }} @endif selected
                                             disabled>

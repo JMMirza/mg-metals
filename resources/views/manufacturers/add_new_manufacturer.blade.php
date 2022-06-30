@@ -6,7 +6,7 @@
             </div>
 
             <div class="card-body">
-                <form class="row g-3 needs-validation" action="{{ route('manufacturers.store') }}" method="POST"
+                <form class="row  needs-validation" action="{{ route('manufacturers.store') }}" method="POST"
                     novalidate>
                     @csrf
                     <div class="col-md-6 col-sm-12">
