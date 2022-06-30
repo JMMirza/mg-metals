@@ -60,9 +60,11 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="username" class="form-label">{{ __('login.Email') }}</label>
-                                        <input type="text" class="form-control" id="login_email" name="email"
-                                            placeholder="Enter Email" value="{{ old('email') }}" required autofocus>
-                                        <div class="invalid-feedback">Email is required!</div>
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('email')) is-invalid @endif"
+                                            id="login_email" name="email" placeholder="Enter Email"
+                                            value="{{ old('email') }}" required autofocus>
+                                        <div class="invalid-feedback"><strong>{{ $errors->first('email') }}</strong></div>
 
                                     </div>
 
@@ -73,22 +75,12 @@
                                         </div>
                                         <label class="form-label" for="password-input">{{ __('login.Password') }}</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
-                                            <input type="password" class="form-control pe-5" placeholder="Enter password"
-                                                id="password-input" value="{{ old('password') }}" name="password"
-                                                required>
-                                            <div class="invalid-feedback">Password is required!</div>
-
-                                            @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                            <input type="password"
+                                                class="form-control pe-5 @if ($errors->has('password')) is-invalid @endif"
+                                                placeholder="Enter password" id="password-input"
+                                                value="{{ old('password') }}" name="password" required>
+                                            <div class="invalid-feedback"><strong>
+                                                    {{ $errors->first('password') }}</strong> </div>
 
                                             <button
                                                 class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted"
@@ -121,70 +113,69 @@
                                 <form method="POST" action="{{ route('customer-register-account') }}">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-12 col-md-6">
-                                            <div class="form-group">
-                                                <input id="name" type="text"
-                                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                                    value="{{ old('name') }}" autocomplete="name" autofocus
-                                                    placeholder="{{ __('login.Complete Name') }}">
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-md-6 mb-3">
+                                            {{-- <div class="form-group"> --}}
+                                            <input id="name" type="text"
+                                                class="form-control @if ($errors->has('name')) is-invalid @endif"
+                                                name="name" value="{{ old('name') }}" autocomplete="name" autofocus
+                                                placeholder="{{ __('login.Complete Name') }}" required>
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $errors->first('name') }}</strong>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="form-group">
-                                                <input id="email" type="email"
-                                                    placeholder="{{ __('login.Email') }}"
-                                                    class="form-control @error('email') is-invalid @enderror"
-                                                    name="email" value="{{ old('email') }}" required
-                                                    autocomplete="email">
 
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
+                                            {{-- </div> --}}
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="form-group">
-                                                <input id="password" type="password"
-                                                    class="form-control @error('password') is-invalid @enderror"
-                                                    name="password" required autocomplete="new-password"
-                                                    placeholder="{{ __('login.Password') }}">
+                                        <div class="col-12 col-md-6 mb-3">
+                                            {{-- <div class="form-group"> --}}
+                                            <input id="email" type="email" placeholder="{{ __('login.Email') }}"
+                                                class="form-control @if ($errors->has('email')) is-invalid @endif"
+                                                name="email" value="{{ old('email') }}" required
+                                                autocomplete="email">
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </div>
 
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
+                                            {{-- </div> --}}
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="form-group">
-                                                <input id="password-confirm" type="password" class="form-control"
-                                                    placeholder="{{ __('login.Confirm Password') }}"
-                                                    name="password_confirmation" required autocomplete="new-password">
+                                        <div class="col-12 col-md-6 mb-3">
+                                            {{-- <div class="form-group"> --}}
+                                            <input id="password" type="password"
+                                                class="form-control @if ($errors->has('password')) is-invalid @endif"
+                                                name="password" required autocomplete="new-password"
+                                                placeholder="{{ __('login.Password') }}">
+
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $errors->first('password') }}</strong>
                                             </div>
+
+                                            {{-- </div> --}}
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="form-group">
-                                                <input id="name" type="text"
-                                                    class="form-control @error('referred_by') is-invalid @enderror"
-                                                    name="referred_by" value="{{ old('referred_by') }}"
-                                                    autocomplete="referred_by" autofocus
-                                                    placeholder="{{ __('login.referred_by') }}">
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                        <div class="col-12 col-md-6 mb-3">
+                                            {{-- <div class="form-group"> --}}
+                                            <input id="password-confirm" type="password"
+                                                class="form-control @if ($errors->has('password_confirmation')) is-invalid @endif"
+                                                placeholder="{{ __('login.Confirm Password') }}"
+                                                name="password_confirmation" required autocomplete="new-password">
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $errors->first('password_confirmation') }}</strong>
                                             </div>
+
+                                            {{-- </div> --}}
                                         </div>
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-6 mb-3">
+                                            {{-- <div class="form-group"> --}}
+                                            <input id="name" type="text"
+                                                class="form-control @if ($errors->has('referred_by')) is-invalid @endif"
+                                                name="referred_by" value="{{ old('referred_by') }}"
+                                                autocomplete="referred_by" autofocus
+                                                placeholder="{{ __('login.referred_by') }}">
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $errors->first('referred_by') }}</strong>
+                                            </div>
+
+                                            {{-- </div> --}}
+                                        </div>
+                                        <div class="col-12 col-md-6 mb-3">
                                             <div class="form-group ht-70">
                                                 <label class="radio-inline mr-3">
                                                     <input type="radio" name="customer_type" value="individual"
@@ -199,12 +190,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="footer">
-                                        <button class="btn btn-custom" disabled="true">Previous</button>
-                                        <div class="ml-auto">
-                                            <button class="btn btn-default">Cancel</button>
-                                            <button class="btn btn-custom">Next</button>
-                                        </div>
+                                    <div class="footer text-end" style="display: block">
+                                        {{-- <button class="btn btn-custom" disabled="true">Previous</button> --}}
+                                        {{-- <div class="ml-auto"> --}}
+                                        <button class="btn btn-default" type="reset">Cancel</button>
+                                        <button class="btn btn-custom" type="submit">Save</button>
+                                        {{-- </div> --}}
                                     </div>
                                 </form>
                             </div>
