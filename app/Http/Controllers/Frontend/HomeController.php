@@ -81,6 +81,27 @@ class HomeController extends Controller
         return view('frontend.register.register');
     }
 
+    public function login_customer(Request $request)
+    {
+        $request->validate([
+            'login_email' => ['required', 'string', 'email', 'max:255'],
+            'login_password' => ['required', 'string', 'min:8'],
+        ]);
+
+        $email = $request->login_email;
+        $password = $request->login_password;
+
+        $user = User::where('email', '=', $email)->first();
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'Login Fail, please check email id']);
+        }
+        if (!Hash::check($password, $user->password)) {
+            return response()->json(['success' => false, 'message' => 'Login Fail, pls check password']);
+        }
+        auth()->login($user);
+        return redirect()->route('home');
+    }
+
     public function register_account(Request $request)
     {
         $request->validate([

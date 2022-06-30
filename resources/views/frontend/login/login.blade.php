@@ -53,26 +53,27 @@
                                 <span>Welcome back to Login</span>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
+                                <form method="POST" action="{{ route('login-customer') }}" class="needs-validation"
+                                    novalidate>
                                     @csrf
                                     <div class="row">
                                         <div class="col-12 mb-3">
                                             <input type="text"
-                                                class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                id="login_email" name="email" placeholder="{{ __('login.Email') }}"
-                                                value="{{ old('email') }}" required autofocus>
+                                                class="form-control @if ($errors->has('login_email')) is-invalid @endif"
+                                                id="login_email" name="login_email" placeholder="{{ __('login.Email') }}"
+                                                value="{{ old('login_email') }}" required autofocus>
                                             <div class="invalid-feedback">
-                                                <strong>{{ $errors->first('email') }}</strong>
+                                                <strong>{{ $errors->first('login_email') }}</strong>
                                             </div>
                                         </div>
                                         <div class="col-12 mb-3">
                                             <div class="position-relative auth-pass-inputgroup w-100">
                                                 <input type="password"
-                                                    class="form-control @if ($errors->has('password')) is-invalid @endif"
+                                                    class="form-control @if ($errors->has('login_password')) is-invalid @endif"
                                                     placeholder="{{ __('login.Password') }}" id="password-input"
-                                                    value="{{ old('password') }}" name="password" required>
+                                                    value="{{ old('login_password') }}" name="login_password" required>
                                                 <div class="invalid-feedback">
-                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                    <strong>{{ $errors->first('login_password') }}</strong>
                                                 </div>
 
                                                 <button
