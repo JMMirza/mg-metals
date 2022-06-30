@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use DataTables;
 
 class OrderController extends Controller
 {
@@ -12,9 +13,16 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = Order::with(['product', 'customer'])->get();
+            return Datatables::of($data)
+                // ->addIndexColumn()
+                // ->rawColumns()
+                ->make(true);
+        }
+        return view('orders.index');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductCommission;
 use Illuminate\Http\Request;
+use DataTables;
 
 class ProductCommissionController extends Controller
 {
@@ -12,9 +13,16 @@ class ProductCommissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = ProductCommission::with(['product', 'customer'])->get();
+            return Datatables::of($data)
+                // ->addIndexColumn()
+                // ->rawColumns()
+                ->make(true);
+        }
+        return view('product_commission.index');
     }
 
     /**

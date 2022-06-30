@@ -10,6 +10,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use App\Http\Controllers\FrontendCustomerController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductCommissionController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +63,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['customer-profile-data' => FrontendCustomerController::class]);
     Route::resources(['customer-shareholders' => CustomerShareholder::class]);
     Route::resources(['customer-trading' => CustomerTrading::class]);
+    Route::resources(['product-commission' => ProductCommissionController::class]);
+    Route::resources(['orders' => OrderController::class]);
     Route::get('customer-product/{id}', [CustomerProductController::class, 'customer_products'])->name('customer-product');
     Route::get('customer-product-ajax/{id}', [CustomerProductController::class, 'customer_products_ajax'])->name('customer-product-ajax');
     Route::get('load-shareholders', [CustomerShareholder::class, 'load_shareholders'])->name('load-shareholders');

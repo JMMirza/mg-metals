@@ -15,8 +15,7 @@
                 <img src="{{ asset('frontend/images/mgmetals_logo.png') }}" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('frontend/images/mgmetals_logo.png') }}" alt=""
-                    height="17">
+                <img src="{{ asset('frontend/images/mgmetals_logo.png') }}" alt="" height="17">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -40,7 +39,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link 
+                    <a class="nav-link menu-link
                     {{ Request::is('customers') ? 'active' : '' }}"
                         href="{{ route('customers.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers</span>
@@ -48,7 +47,7 @@
                 </li>
 
                 {{-- <li class="nav-item">
-                    <a class="nav-link menu-link 
+                    <a class="nav-link menu-link
                     {{ Request::is('agents') ? 'active' : '' }}"
                         href="{{ route('agents.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Agents</span>
@@ -56,7 +55,7 @@
                 </li> --}}
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link 
+                    <a class="nav-link menu-link
                     {{ Request::is('categories') ? 'active' : '' }}"
                         href="{{ route('categories.index') }}" role="
                         button">
@@ -65,7 +64,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link 
+                    <a class="nav-link menu-link
                     {{ Request::is('manufacturers') ? 'active' : '' }}"
                         href="{{ route('manufacturers.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Manufacturers</span>
@@ -73,7 +72,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link 
+                    <a class="nav-link menu-link
                     {{ Request::is('products') ? 'active' : '' }}"
                         href="{{ route('products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products</span>
@@ -81,10 +80,26 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link 
+                    <a class="nav-link menu-link
                     {{ Request::is('customers-products') ? 'active' : '' }}"
                         href="{{ route('customer-products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers Products</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link
+                    {{ Request::is('product-commission') ? 'active' : '' }}"
+                        href="{{ route('product-commission.index') }}" role="button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products Commission</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link
+                    {{ Request::is('orders') ? 'active' : '' }}"
+                        href="{{ route('orders.index') }}" role="button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customer Orders</span>
                     </a>
                 </li>
 
