@@ -13,8 +13,10 @@ use App\Models\CustomerShareholder;
 use App\Models\AuthorizedTradingRepresentative;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Validator as ValidationValidator;
 
 class HomeController extends Controller
 {
@@ -93,10 +95,16 @@ class HomeController extends Controller
 
         $user = User::where('email', '=', $email)->first();
         if (!$user) {
-            return response()->json(['success' => false, 'message' => 'Login Fail, please check email id']);
+            $validator = Validator::make([], []); // Empty data and rules fields
+            $validator->errors()->add('login_email', 'The auth credentials are not matched');
+            throw new ValidationException($validator);
+            // return response()->json(['success' => false, 'message' => 'Login Fail, please check email id']);
         }
         if (!Hash::check($password, $user->password)) {
-            return response()->json(['success' => false, 'message' => 'Login Fail, pls check password']);
+            $validator = Validator::make([], []); // Empty data and rules fields
+            $validator->errors()->add('login_email', 'The auth credentials are not matched');
+            throw new ValidationException($validator);
+            // return response()->json(['success' => false, 'message' => 'Login Fail, pls check password']);
         }
         auth()->login($user);
         return redirect()->route('home');
