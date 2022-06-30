@@ -12,10 +12,10 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>CustomerID</th>
+                                {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
                                 <th>Purchase Price</th>
-                                <th>Product id</th>
+                                {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Created At</th>
                             </tr>
@@ -25,10 +25,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>CustomerID</th>
+                                {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
                                 <th>Purchase Price</th>
-                                <th>Product id</th>
+                                {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Created At</th>
                             </tr>

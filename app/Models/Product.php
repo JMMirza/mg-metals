@@ -122,4 +122,22 @@ class Product extends Model
 
         return $final_price;
     }
+
+    public function getProductCommission()
+    {
+        if (isset($this->mark_up)) {
+            if ($this->markup_type == 'flat') {
+                return $this->mark_up;
+            } else {
+                $price = $this->getProductPrice($type = 'number');
+                if (gettype($price) == 'double') {
+                    $percentage = ($price / 100) * $this->mark_up;
+                    return $percentage;
+                    // dd($percentage);
+                }
+            }
+        } else {
+            return null;
+        }
+    }
 }

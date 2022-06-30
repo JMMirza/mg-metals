@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\CustomerProduct;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCommission;
 use App\Models\User;
@@ -57,43 +58,72 @@ class CustomerProductController extends Controller
             'purchase_price' => ['required'],
             'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
-        $tier_1_id = null;
-        $tier_2_id = null;
-        $tier_3_id = null;
+
+        $tier_1 = null;
+        $tier_2 = null;
+        $tier_3 = null;
+
+        $customer = Customer::where('user_id', $request->user_id)->first();
+        $product = Product::find($request->product_id);
         $user = User::find($request->user_id);
-        if ($user->referred_by != null) {
-            $tier_3 = User::where('referral_code', $user->referred_by)->first();
-            $tier_3_id = $tier_3->id;
-            if ($tier_3->referred_by != null) {
-                $tier_2 = User::where('referral_code', $tier_3->referred_by)->first();
-                $tier_2_id = $tier_2->id;
-                if ($tier_2->referred_by != null) {
-                    $tier_1 = User::where('referral_code', $tier_2->referred_by)->first();
-                    $tier_1_id = $tier_1->id;
+
+        if ($product->getProductCommission() != null) {
+            if ($user->referred_by != null) {
+                $tier_3 = User::where('referral_code', $user->referred_by)->first();
+                if ($tier_3 != null) {
+                    $tier_3_commission = ($product->getProductCommission() / 100) * $product->tier_commission_3;
+                    $input_product_commission = [
+                        'customer_id' => $customer->id,
+                        'product_id' => $request->product_id,
+                        'tier_type' => 'tier_3',
+                        'tier_id' => $tier_3->id,
+                        'tier_commission' => $tier_3_commission,
+                    ];
+
+                    ProductCommission::create($input_product_commission);
+                }
+                if ($tier_3->referred_by != null) {
+                    $tier_2 = User::where('referral_code', $tier_3->referred_by)->first();
+                    if ($tier_2 != null) {
+                        $tier_2_commission = ($product->getProductCommission() / 100) * $product->tier_commission_2;
+                        $input_product_commission = [
+                            'customer_id' => $customer->id,
+                            'product_id' => $request->product_id,
+                            'tier_type' => 'tier_2',
+                            'tier_id' => $tier_3->id,
+                            'tier_commission' => $tier_2_commission,
+                        ];
+                        ProductCommission::create($input_product_commission);
+                    }
+                    // dd($tier_3->referred_by);
+                    if ($tier_2->referred_by != null) {
+                        $tier_1 = User::where('referral_code', $tier_2->referred_by)->first();
+
+                        if ($tier_1 != null) {
+                            $tier_1_commission = ($product->getProductCommission() / 100) * $product->tier_commission_1;
+                            $input_product_commission = [
+                                'customer_id' => $customer->id,
+                                'product_id' => $request->product_id,
+                                'tier_type' => 'tier_1',
+                                'tier_id' => $tier_3->id,
+                                'tier_commission' => $tier_1_commission,
+                            ];
+                            ProductCommission::create($input_product_commission);
+                        }
+                    }
                 }
             }
         }
 
-        // dd($tier_3->toArray());
-        $customer = Customer::where('user_id', $request->user_id)->first();
-        $product = Product::find($request->product_id);
-
-        $input_product_commission = [
-            'customer_id' => $customer->id,
-            'product_id' => $request->product_id,
-            'tier_1_id' => $tier_1_id,
-            'tier_2_id' => $tier_2_id,
-            'tier_3_id' => $tier_3_id,
-            'tier_1_price' => $product->tier_commission_1,
-            'tier_2_price' => $product->tier_commission_2,
-            'tier_3_price' => $product->tier_commission_3,
-        ];
-        // dd($input_product_commission);
-        ProductCommission::create($input_product_commission);
-
         $input = $request->all();
         $input['customer_id'] = $customer->id;
         CustomerProduct::create($input);
+        Order::create([
+            'customer_id' => $customer->id,
+            'product_id' => $product->id,
+            'spot_price' => $product->getProductPrice($type = 'number'),
+            'mark_up' => $product->mark_up
+        ]);
         return back();
     }
 

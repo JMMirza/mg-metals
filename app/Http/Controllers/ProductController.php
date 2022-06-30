@@ -100,6 +100,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        // dd($product->getProductComission());
         $manufacturers = Manufacturer::all();
         $categories = Catergory::all();
         return view('products.edit_product', ['product' => $product, 'categories' => $categories, 'manufacturers' => $manufacturers]);

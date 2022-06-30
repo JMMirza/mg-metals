@@ -12,22 +12,22 @@ $(document).ready(function () {
         },
         ajax: route,
         columns: [
+            // {
+            //     data: "customer_id",
+            //     name: "customer_id",
+            // },
             {
-                data: "customer_id",
-                name: "customer_id",
-            },
-            {
-                data: "customer_name",
-                name: "customer_name",
+                data: "customer.full_name",
+                name: "customer.full_name",
             },
             {
                 data: "purchase_price",
                 name: "purchase_price",
             },
-            {
-                data: "product_id",
-                name: "product_id",
-            },
+            // {
+            //     data: "product_id",
+            //     name: "product_id",
+            // },
             {
                 data: "product.name",
                 name: "product.name",
