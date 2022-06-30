@@ -177,7 +177,7 @@
                                         </div>
                                     </div>
                                     <div class="footer">
-                                        <button class="btn btn-custom w-100">Register</button>
+                                        <button class="btn btn-custom w-100" type="submit">Register</button>
                                     </div>
                                 </form>
                             </div>
