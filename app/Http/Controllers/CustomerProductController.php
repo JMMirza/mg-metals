@@ -90,7 +90,7 @@ class CustomerProductController extends Controller
                             'customer_id' => $customer->id,
                             'product_id' => $request->product_id,
                             'tier_type' => 'tier_2',
-                            'tier_id' => $tier_3->id,
+                            'tier_id' => $tier_2->id,
                             'tier_commission' => $tier_2_commission,
                         ];
                         ProductCommission::create($input_product_commission);
@@ -105,7 +105,7 @@ class CustomerProductController extends Controller
                                 'customer_id' => $customer->id,
                                 'product_id' => $request->product_id,
                                 'tier_type' => 'tier_1',
-                                'tier_id' => $tier_3->id,
+                                'tier_id' => $tier_1->id,
                                 'tier_commission' => $tier_1_commission,
                             ];
                             ProductCommission::create($input_product_commission);
