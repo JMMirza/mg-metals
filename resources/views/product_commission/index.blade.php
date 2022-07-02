@@ -17,6 +17,9 @@
                                 <th>Tier Type</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
+                                <th>Product Price</th>
+                                <th>Product Mark up</th>
+                                <th>Product Tier Commission</th>
                                 <th>Created At</th>
                             </tr>
                         </thead>
@@ -30,6 +33,9 @@
                                 <th>Tier Type</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
+                                <th>Product Price</th>
+                                <th>Product Mark up</th>
+                                <th>Product Tier Commission</th>
                                 <th>Created At</th>
                             </tr>
                         </tfoot>

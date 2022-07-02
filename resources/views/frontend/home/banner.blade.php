@@ -1,4 +1,5 @@
-<section class="home-section bg-gray parallax-2 web-banner" data-background="{{ asset('frontend/images/banner.png') }}" id="home">
+<section class="home-section bg-gray parallax-2 web-banner" data-background="{{ asset('frontend/images/banner.png') }}"
+    id="home">
     <div class="js-height-full">
 
         <!-- Hero Content -->
@@ -22,7 +23,7 @@
 
         <!-- Scroll Down -->
         <div class="local-scroll">
-            <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
+            <a href="#services" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
                     class="sr-only">Scroll to the next section</span></a>
         </div>
         <!-- End Scroll Down -->
@@ -31,7 +32,8 @@
 </section>
 
 
-<section class="home-section bg-gray parallax-2 mobile-banner" data-background="{{ asset('frontend/images/mobile-banner.jpeg') }}"id="home">
+<section class="home-section bg-gray parallax-2 mobile-banner"
+    data-background="{{ asset('frontend/images/mobile-banner.jpeg') }}"id="home">
 
     <div class="js-height-full">
 
@@ -56,7 +58,7 @@
 
         <!-- Scroll Down -->
         <div class="local-scroll">
-            <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
+            <a href="#services" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i><span
                     class="sr-only">Scroll to the next section</span></a>
         </div>
         <!-- End Scroll Down -->

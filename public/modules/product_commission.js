@@ -33,6 +33,18 @@ $(document).ready(function () {
                 name: "product.name",
             },
             {
+                data: "product.name",
+                name: "product.name",
+            },
+            {
+                data: "product.name",
+                name: "product.name",
+            },
+            {
+                data: "product.name",
+                name: "product.name",
+            },
+            {
                 data: "created_at",
                 name: "created_at",
                 width: "15%",
