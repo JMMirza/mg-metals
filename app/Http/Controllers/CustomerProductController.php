@@ -24,7 +24,7 @@ class CustomerProductController extends Controller
             $data = CustomerProduct::with(['product', 'customer'])->get();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->rawColumns()
+                // ->rawColumns()
                 ->make(true);
         }
         return view('customer_products.index');
