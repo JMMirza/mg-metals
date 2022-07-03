@@ -11,6 +11,8 @@ use App\Models\Manufacturer;
 use App\Models\User;
 use App\Models\CustomerShareholder;
 use App\Models\AuthorizedTradingRepresentative;
+use App\Models\Order;
+use App\Models\ProductCommission;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -228,5 +230,29 @@ class HomeController extends Controller
         $customer = Customer::find($request->customer_id);
         $customer->update($request->all());
         return view('frontend.profile.profile', compact('customer'));
+    }
+
+    public function customer_orders()
+    {
+        $user = \Auth::user();
+        $customer = Customer::where('user_id', $user->id)->first();
+        if ($customer) {
+            $orders = Order::where('customer_id', $customer->id)->with(['product'])->get();
+            // dd($orders->toArray());
+            return view('frontend.orders.index', ['orders' => $orders]);
+        }
+        return view('frontend.orders.index');
+    }
+
+    public function customer_commissions()
+    {
+        $user = \Auth::user();
+        $customer = Customer::where('user_id', $user->id)->first();
+        if ($customer) {
+            $commissions = ProductCommission::where('customer_id', $customer->id)->with(['product'])->get();
+            // dd($commissions->toArray());
+            return view('frontend.customer_commissions.index', ['commissions' => $commissions]);
+        }
+        return view('frontend.customer_commissions.index');
     }
 }

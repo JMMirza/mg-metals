@@ -82,4 +82,6 @@ return [
     'previous' => 'Previous',
     'cancel' => 'Cancel',
     'save' => 'Save',
+    'orders' => 'ORDERS',
+    'product_commission' => 'My COMMISSION'
 ];
