@@ -10,5 +10,6 @@ return [
     'HKID No. / Passport No.' => 'HKID No. / Passport No.',
     'PHONE NUMBER' => 'PHONE NUMBER',
     'Nationality' => 'NATIONALITY',
-    'ADDRESS' => 'ADDRESS'
+    'ADDRESS' => 'ADDRESS',
+    'gender' => 'GENDER'
 ];

@@ -33,16 +33,20 @@ $(document).ready(function () {
                 name: "product.name",
             },
             {
-                data: "product.name",
-                name: "product.name",
+                data: "product_price",
+                name: "product_price",
             },
             {
-                data: "product.name",
-                name: "product.name",
+                data: "product_mark_up",
+                name: "product_mark_up",
             },
             {
-                data: "product.name",
-                name: "product.name",
+                data: "tier_commission_percentage",
+                name: "tier_commission_percentage",
+            },
+             {
+                data: "tier_commission",
+                name: "tier_commission",
             },
             {
                 data: "created_at",

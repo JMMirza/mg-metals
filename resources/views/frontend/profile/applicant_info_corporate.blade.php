@@ -13,6 +13,7 @@
              <input type="text" name="form_info" value="corporate" hidden>
              {{-- @endif --}}
              <div class="col-12 col-md-12">
+                 <label class="form-label">{{ __('corporate.FULL LEGAL NAME OF BUSINESS') }}</label>
                  <div class="form-group">
                      <input type="text" class="form-control @if ($errors->has('business_name')) is-invalid @endif"
                          id="business_name" name="business_name"
@@ -53,6 +54,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-4">
+                 <label class="form-label">{{ __('corporate.BUSINESS PHONE') }}</label>
                  <div class="form-group">
                      <input type="text" class="form-control @if ($errors->has('business_phone_num')) is-invalid @endif"
                          id="business_phone_num" name="business_phone_num"
@@ -62,6 +64,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-4">
+                 <label class="form-label">{{ __('corporate.BUSINESS FAX') }}</label>
                  <div class="form-group">
                      <input type="text" class="form-control @if ($errors->has('business_fax')) is-invalid @endif"
                          id="business_fax" name="business_fax" value="{{ $customer->business_fax }}"
@@ -70,6 +73,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-4">
+                 <label class="form-label">{{ __('corporate.BUSINESS EMAIL') }}</label>
                  <div class="form-group">
                      <input type="email" id="business_email" name="business_email"
                          class="form-control @if ($errors->has('business_email')) is-invalid @endif"
@@ -79,6 +83,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-12">
+                 <label class="form-label">{{ __('corporate.BUSINESS ADDRESS') }}</label>
                  <div class="form-group">
                      <textarea type="text" class="form-control @if ($errors->has('business_address')) is-invalid @endif" id="business_address"
                          name="business_address" placeholder="{{ __('corporate.BUSINESS ADDRESS') }}" required>{{ $customer->business_address }}</textarea>
@@ -86,6 +91,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-4">
+                 <label class="form-label">{{ __('corporate.CITY') }}</label>
                  <div class="form-group">
                      <input type="text" id="city" name="city"
                          class="form-control @if ($errors->has('city')) is-invalid @endif"
@@ -94,6 +100,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-4">
+                 <label class="form-label">{{ __('corporate.COUNTRY') }}</label>
                  <div class="form-group">
                      <input type="text" id="country" name="country" value="{{ $customer->country }}"
                          class="form-control orm-control @if ($errors->has('country')) is-invalid @endif"
@@ -102,6 +109,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-4">
+                 <label class="form-label">{{ __('corporate.ZIP CODE') }}</label>
                  <div class="form-group">
                      <input id="zip_code" name="zip_code" type="text" value="{{ $customer->zip_code }}"
                          class="form-control @if ($errors->has('zip_code')) is-invalid @endif"
@@ -146,6 +154,8 @@
                  </div>
              </div>
              <div class="col-12 col-md-12">
+                 <label
+                     class="form-label">{{ __('corporate.COMPANY INCORPORATION NUMBER / BUSINESS REGISTRATION CERTIFICATE NUMBER') }}</label>
                  <div class="form-group">
                      <input type="text" id="business_reg_num" name="business_reg_num"
                          value="{{ $customer->business_reg_num }}"
@@ -155,6 +165,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('corporate.COUNTRY OF INCORPORATION') }}</label>
                  <div class="form-group">
                      <input type="text" class="form-control @if ($errors->has('country_of_incorporation')) is-invalid @endif"
                          id="country_of_incorporation" name="country_of_incorporation"
@@ -164,6 +175,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('corporate.YEARS IN BUSINESS') }}</label>
                  <div class="form-group">
                      <input type="text" value="{{ $customer->years_in_business }}"
                          class="form-control @if ($errors->has('years_in_business')) is-invalid @endif"
@@ -189,6 +201,8 @@
                  </div>
              </div>
              <div class="col-12 col-md-12">
+                 <label
+                     class="form-label">{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}</label>
                  <div class="form-group">
                      <input type="text" class="form-control @if ($errors->has('countries_of_import')) is-invalid @endif"
                          id="countries_of_import" name="countries_of_import"

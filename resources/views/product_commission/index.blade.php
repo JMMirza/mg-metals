@@ -12,14 +12,13 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
                                 <th>Tier Type</th>
-                                {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Product Price</th>
                                 <th>Product Mark up</th>
                                 <th>Product Tier Commission</th>
+                                <th>Tier Commission</th>
                                 <th>Created At</th>
                             </tr>
                         </thead>
@@ -28,14 +27,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
                                 <th>Tier Type</th>
-                                {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Product Price</th>
                                 <th>Product Mark up</th>
                                 <th>Product Tier Commission</th>
+                                <th>Tier Commission</th>
                                 <th>Created At</th>
                             </tr>
                         </tfoot>

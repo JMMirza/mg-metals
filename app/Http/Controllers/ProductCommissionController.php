@@ -18,8 +18,22 @@ class ProductCommissionController extends Controller
         if ($request->ajax()) {
             $data = ProductCommission::with(['product', 'customer'])->get();
             return Datatables::of($data)
-                // ->addIndexColumn()
-                // ->rawColumns()
+                ->addIndexColumn()
+                ->addColumn('tier_commission', function ($row) {
+                    // dd($row);
+                    return  $row->tier_commission . ' USD';
+                })
+                ->addColumn('product_mark_up', function ($row) {
+                    if ($row->product->mark_up) {
+                        if ($row->product->markup_type == 'flat') {
+                            return  $row->product->mark_up . ' USD';
+                        } else {
+                            return  $row->product->mark_up . ' %';
+                        }
+                    } else {
+                        return 'N / A';
+                    }
+                })
                 ->make(true);
         }
         return view('product_commission.index');

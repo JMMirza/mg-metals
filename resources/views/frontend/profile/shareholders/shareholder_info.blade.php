@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-12">
-             <label class="form-label">{{ __('shareholder.SHAREHOLDER/DIRECTOR') }}</label>
+                <label class="form-label">{{ __('shareholder.SHAREHOLDER/DIRECTOR') }}</label>
             </div>
         </div>
         <form class="row  needs-validation" action="{{ route('customer-shareholders.store', $customer->id) }}"
@@ -14,6 +14,7 @@
             <input type="text" name="form_info" value="shareholder" hidden>
             <input type="text" id="customer_id" name="customer_id" value="{{ $customer->id }}" hidden>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('shareholder.full_name') }}</label>
                 <div class="form-group">
                     <input type="text" name="name" value="{{ old('name') }}"
                         class="form-control  @if ($errors->has('name')) is-invalid @endif"
@@ -21,6 +22,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('shareholder.title') }}</label>
                 <div class="form-group">
                     <input type="text" name="title" value="{{ old('title') }}"
                         class="form-control @if ($errors->has('title')) is-invalid @endif"
@@ -28,6 +30,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('shareholder.email') }}</label>
                 <div class="form-group">
                     <input type="text" value="{{ old('email') }}" name="email"
                         class="form-control @if ($errors->has('email')) is-invalid @endif"
@@ -36,6 +39,7 @@
             </div>
 
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('shareholder.phone_number') }}</label>
                 <div class="form-group">
                     <input type="text" name="phone_number" value="{{ old('phone_number') }}"
                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
@@ -43,6 +47,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('shareholder.passport_no') }}</label>
                 <div class="form-group">
                     <input type="text" name="passport_no" value="{{ old('passort_no') }}"
                         class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
@@ -50,6 +55,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('shareholder.nationality') }}</label>
                 <div class="form-group">
                     <input type="text" name="nationality" value="{{ old('nationality') }}"
                         class="form-control @if ($errors->has('nationality')) is-invalid @endif"
@@ -57,6 +63,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12">
+                <label class="form-label">{{ __('shareholder.address') }}</label>
                 <div class="form-group">
                     <input type="text" name="address" value="{{ old('address') }}"
                         class="form-control @if ($errors->has('address')) is-invalid @endif"

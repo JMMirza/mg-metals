@@ -18,8 +18,17 @@ class OrderController extends Controller
         if ($request->ajax()) {
             $data = Order::with(['product', 'customer'])->get();
             return Datatables::of($data)
-                // ->addIndexColumn()
-                // ->rawColumns()
+                ->addColumn('mark_up', function ($row) {
+                    if ($row->product->mark_up) {
+                        if ($row->product->markup_type == 'flat') {
+                            return  $row->mark_up . ' USD';
+                        } else {
+                            return  $row->mark_up . ' %';
+                        }
+                    } else {
+                        return 'N / A';
+                    }
+                })
                 ->make(true);
         }
         return view('orders.index');

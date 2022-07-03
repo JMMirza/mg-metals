@@ -9,6 +9,7 @@
              @method('PUT')
              <input type="text" name="form_info" value="bank_info" hidden>
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('bank_info.bank_name') }}</label>
                  <div class="form-group">
                      <input type="text" name="bank_name" value="{{ $customer->bank_name }}"
                          class="form-control @if ($errors->has('bank_name')) is-invalid @endif"
@@ -16,6 +17,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('bank_info.country') }}</label>
                  <div class="form-group">
                      <input type="text" name="bank_country_name" value="{{ $customer->bank_country_name }}"
                          class="form-control @if ($errors->has('bank_country_name')) is-invalid @endif"
@@ -25,6 +27,7 @@
              </div>
 
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('bank_info.account_name') }}</label>
                  <div class="form-group">
                      <input type="text" name="bank_account_name" value="{{ $customer->bank_account_name }}"
                          class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
@@ -33,6 +36,7 @@
              </div>
 
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('bank_info.branch_num') }}</label>
                  <div class="form-group">
                      <input type="text" name="bank_branch_number" value="{{ $customer->bank_branch_number }}"
                          class="form-control @if ($errors->has('bank_branch_number')) is-invalid @endif"
@@ -40,6 +44,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('bank_info.account_num') }}</label>
                  <div class="form-group">
                      <input type="text" name="bank_account_number" value="{{ $customer->bank_account_number }}"
                          class="form-control @if ($errors->has('bank_account_number')) is-invalid @endif"
@@ -47,6 +52,7 @@
                  </div>
              </div>
              <div class="col-12 col-md-6">
+                 <label class="form-label">{{ __('bank_info.swift_code') }}</label>
                  <div class="form-group">
                      <input type="text" name="bank_swift_code" value="{{ $customer->bank_swift_code }}"
                          class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"

@@ -9,8 +9,8 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="row  needs-validation" action="{{ route('products.update', $product->id) }}"
-                        method="POST" enctype="multipart/form-data" novalidate>
+                    <form class="row  needs-validation" action="{{ route('products.update', $product->id) }}" method="POST"
+                        enctype="multipart/form-data" novalidate>
                         @csrf
                         @method('PUT')
 
@@ -87,7 +87,8 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
-                                <select class="form-select form-control mb-3" name="pricing_type" id="pricing_type" required>
+                                <select class="form-select form-control mb-3" name="pricing_type" id="pricing_type"
+                                    required>
                                     <option value="" @if ($product->pricing_type == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -154,8 +155,8 @@
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="surcharge_at_product" class="form-label">Mark up at Product Level</label>
-                                <select id="surcharge_at_product" class="form-select form-control mb-3" name="surcharge_at_product"
-                                    required>
+                                <select id="surcharge_at_product" class="form-select form-control mb-3"
+                                    name="surcharge_at_product" required>
                                     <option value="" @if ($product->surcharge_at_product == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -178,17 +179,17 @@
                         </div>
 
 
-                        <div id="mark_up_div_1" @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif class="col-md-4 col-sm-12">
+                        <div id="mark_up_div_1"
+                            @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif
+                            class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
                                 <select id="markup_type" class="form-select form-control mb-3" name="markup_type">
-                                    <option value=""
-                                        @if ($product->markup_type == '') {{ 'selected' }} @endif selected
-                                        disabled>
+                                    <option value="" @if ($product->markup_type == '') {{ 'selected' }} @endif
+                                        selected disabled>
                                         Select One
                                     </option>
-                                    <option value="flat"
-                                        @if ($product->markup_type == 'flat') {{ 'selected' }} @endif>
+                                    <option value="flat" @if ($product->markup_type == 'flat') {{ 'selected' }} @endif>
                                         Flat (餵價)
                                     </option>
                                     <option value="percentage"
@@ -206,7 +207,9 @@
                             </div>
                         </div>
 
-                        <div id="mark_up_div_2" @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif class="col-md-4 col-sm-12">
+                        <div id="mark_up_div_2"
+                            @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif
+                            class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="mark_up" class="form-label">Mark Up Amount</label>
                                 <input type=number step=any
@@ -261,10 +264,52 @@
                             </div>
                         </div>
 
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="status" class="form-label">Status</label>
+                                <select id="" class="form-select form-control mb-3" name="status">
+                                    <option value="" @if ($product->status == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    <option value="active" @if ($product->status == 'active') {{ 'selected' }} @endif>
+                                        Active
+                                    </option>
+                                    <option value="inactive"
+                                        @if ($product->status == 'inactive') {{ 'selected' }} @endif>
+                                        In-Active
+                                    </option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('status'))
+                                        {{ $errors->first('status') }}
+                                    @else
+                                        Status is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="status" class="form-label">Valid Till</label>
+                                <input type="date" name="valid_till" value="{{ $product->valid_till }}"
+                                    class="form-control mb-3 @if ($errors->has('valid_till')) is-invalid @endif">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('valid_till'))
+                                        {{ $errors->first('valid_till') }}
+                                    @else
+                                        Valid till is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-12 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="description" id="description" placeholder="Enter product description here...">{{ $product->description }}</textarea>
+                                <textarea class="form-control mb-3" name="description" id="description"
+                                    placeholder="Enter product description here...">{{ $product->description }}</textarea>
                             </div>
                         </div>
 
@@ -325,12 +370,12 @@
                                         <span class="input-group-text" id="basic-addon1">%</span>
                                     </div>
                                     <input type="decimal" step="any"
-                                    class="form-control @if ($errors->has('tier_commission_3')) is-invalid @endif"
-                                    id="tier_commission_3" name="tier_commission_3"
-                                    placeholder="Please Enter Tier 3 Commission"
-                                    value="{{ $product->tier_commission_3 }}">                                
+                                        class="form-control mb-3 @if ($errors->has('tier_commission_3')) is-invalid @endif"
+                                        id="tier_commission_3" name="tier_commission_3"
+                                        placeholder="Please Enter Tier 3 Commission"
+                                        value="{{ $product->tier_commission_3 }}">
                                 </div>
-                                
+
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_3'))
                                         {{ $errors->first('tier_commission_3') }}

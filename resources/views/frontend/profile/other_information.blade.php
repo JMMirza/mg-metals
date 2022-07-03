@@ -36,6 +36,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('other_info.name_of_sale_rep') }}</label>
                 <div class="form-group">
                     <input type="text" name="sales_rep_name" value="{{ $customer->sales_rep_name }}"
                         class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
@@ -43,6 +44,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="form-label">{{ __('other_info.code') }}</label>
                 <div class="form-group">
                     <input type="text" name="sales_rep_number" value="{{ $customer->sales_rep_number }}"
                         class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"

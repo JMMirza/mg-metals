@@ -12,9 +12,12 @@ class ProductCommission extends Model
     protected $fillable = [
         'customer_id',
         'product_id',
+        'product_mark_up',
+        'product_price',
         'tier_type',
         'tier_id',
         'tier_commission',
+        'tier_commission_percentage',
     ];
 
     protected $dates = [

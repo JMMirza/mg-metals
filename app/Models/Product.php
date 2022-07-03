@@ -26,6 +26,8 @@ class Product extends Model
         'manufacturer_id',
         'weight',
         'mark_up',
+        'valid_till',
+        'status',
         'markup_type',
         'tier_commission_1',
         'tier_commission_2',

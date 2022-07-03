@@ -24,10 +24,6 @@ $(document).ready(function () {
                 data: "spot_price",
                 name: "spot_price",
             },
-            {
-                data: "mark_up",
-                name: "mark_up",
-            },
             // {
             //     data: "product_id",
             //     name: "product_id",
@@ -35,6 +31,18 @@ $(document).ready(function () {
             {
                 data: "product.name",
                 name: "product.name",
+            },
+             {
+                data: "delivery_method",
+                name: "delivery_method",
+            },
+            {
+                data: "mark_up",
+                name: "mark_up",
+            },
+            {
+                data: "quantity",
+                name: "quantity",
             },
             {
                 data: "created_at",
