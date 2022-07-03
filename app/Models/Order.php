@@ -16,6 +16,7 @@ class Order extends Model
         'spot_price',
         'mark_up',
         'delivery_method',
+        'quantity',
     ];
 
     protected $dates = [

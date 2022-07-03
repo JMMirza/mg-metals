@@ -53,8 +53,11 @@ class CustomerProductController extends Controller
             'user_id' => ['required'],
             'product_id' => ['required'],
             'purchase_price' => ['required'],
-            'referral_code' => ['required', 'string', 'min:6', 'max:6'],
+            'quantity' => ['required'],
+            // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
+
+        // dd($request->all());
 
         $tier_1 = null;
         $tier_2 = null;
@@ -66,7 +69,9 @@ class CustomerProductController extends Controller
 
         if ($product->getProductCommission() != null) {
             if ($user->referred_by != null) {
+
                 $tier_3 = User::where('referral_code', $user->referred_by)->first();
+
                 if ($tier_3 != null) {
                     $tier_3_commission = ($product->getProductCommission() / 100) * $product->tier_commission_3;
                     $input_product_commission = [
@@ -124,12 +129,15 @@ class CustomerProductController extends Controller
         $input = $request->all();
         $input['customer_id'] = $customer->id;
         CustomerProduct::create($input);
+
         Order::create([
             'customer_id' => $customer->id,
             'product_id' => $product->id,
             'spot_price' => $product->getProductPrice($type = 'number'),
-            'mark_up' => $product->mark_up
+            'mark_up' => $product->mark_up,
+            'quantity' => $request->quantity
         ]);
+
         return back();
     }
 
