@@ -118,32 +118,33 @@ class HomeController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'referred_by' => ['required', 'string', 'min:6', 'max:6'],
+            // 'referred_by' => ['required', 'string', 'min:6', 'max:6'],
             'customer_type' => ['required']
         ]);
 
-        $agent = User::where('referral_code', $request->referred_by)->first();
 
-        $referral_code = strtoupper(Str::random(6));
-        if ($agent) {
-            $input = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'customer_type' => $request->customer_type,
-                'referred_by' => $request->referred_by,
-                'referral_code' => $referral_code
-            ];
-        } else {
-            $input = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'customer_type' => $request->customer_type,
-                'referred_by' => null,
-                'referral_code' => $referral_code
-            ];
+        $input = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'customer_type' => $request->customer_type,
+        ];
+
+        if($request->has('referral_code')){
+
+            $agent = User::where('referral_code', $request->referred_by)->first();
+
+            $referral_code = strtoupper(Str::random(6));
+
+            if ($agent) {
+                $input['referred_by'] = $request->referred_by;
+                $input['referral_code'] = $referral_code;
+            } else {
+                $input['referred_by'] = null;
+                $input['referral_code'] = $referral_code;
+            }
         }
+
         // return back()->withErrors('Referral code not found');
         $user = User::create($input);
         auth()->login($user);

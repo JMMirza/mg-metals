@@ -158,7 +158,7 @@
                                             <input id="referred_by" type="text"
                                                 placeholder="{{ __('login.referred_by') }}"
                                                 class="form-control @if ($errors->has('referred_by')) is-invalid @endif"
-                                                name="referred_by" value="{{ old('referred_by') }}" required
+                                                name="referred_by" value="{{ old('referred_by') }}"
                                                 autocomplete="referred_by">
                                             <div class="invalid-feedback">
                                                 <strong>{{ $errors->first('referred_by') }}</strong>
