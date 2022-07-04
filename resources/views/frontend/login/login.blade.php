@@ -24,6 +24,7 @@
 
         </div>
     </section>
+    @include('layouts.flash_message')
 
     <div class="container center-aligned">
 

@@ -3,68 +3,68 @@
 
 @section('content')
     @include('frontend.profile.header')
-
+    @include('layouts.flash_message')
 
     <div class="main-content">
         <div class="page-content">
             <div class="container center-aligned">
                 <div class="row">
-                     @if (\Auth::user()->customer_type == 'corporate')
-                    <div class="col-md-3">
-                        
-                        <div class=" left-nav-pills">
-                            <ul class="nav nav-tabs tpl-tabs animate" role="tablist">
-                                <li class="nav-item">
-                                    <a href="#item-1" aria-controls="item-1"
-                                        class="nav-link {{ request()->query('tab') == 'individual' || request()->query('tab') == null ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab"
-                                        aria-selected="true">{{ __('individual.APPLICANT INFORMATION (INDIVIDUAL)') }}
-                                    </a>
-                                </li>
+                    @if (\Auth::user()->customer_type == 'corporate')
+                        <div class="col-md-3">
+
+                            <div class=" left-nav-pills">
+                                <ul class="nav nav-tabs tpl-tabs animate" role="tablist">
+                                    <li class="nav-item">
+                                        <a href="#item-1" aria-controls="item-1"
+                                            class="nav-link {{ request()->query('tab') == 'individual' || request()->query('tab') == null ? 'active' : '' }}"
+                                            data-bs-toggle="tab" role="tab"
+                                            aria-selected="true">{{ __('individual.APPLICANT INFORMATION (INDIVIDUAL)') }}
+                                        </a>
+                                    </li>
 
 
-                                <li class="nav-item">
-                                    <a href="#item-2" aria-controls="item-2"
-                                        class="nav-link {{ request()->query('tab') == 'corporate' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab"
-                                        aria-selected="false">{{ __('corporate.APPLICANT INFORMATION (CORPORATE)') }}
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="#item-2" aria-controls="item-2"
+                                            class="nav-link {{ request()->query('tab') == 'corporate' ? 'active' : '' }}"
+                                            data-bs-toggle="tab" role="tab"
+                                            aria-selected="false">{{ __('corporate.APPLICANT INFORMATION (CORPORATE)') }}
+                                        </a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a href="#item-3" aria-controls="item-3"
-                                        class="nav-link {{ request()->query('tab') == 'shareholder' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab"
-                                        aria-selected="false">{{ __('shareholder.SHAREHOLDER/DIRECTOR INFORMATION') }}
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="#item-3" aria-controls="item-3"
+                                            class="nav-link {{ request()->query('tab') == 'shareholder' ? 'active' : '' }}"
+                                            data-bs-toggle="tab" role="tab"
+                                            aria-selected="false">{{ __('shareholder.SHAREHOLDER/DIRECTOR INFORMATION') }}
+                                        </a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a href="#item-4" aria-controls="item-4"
-                                        class="nav-link {{ request()->query('tab') == 'trading' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab"
-                                        aria-selected="false">{{ __('trading.AUTHORIZED TRADING REPRESENTATIVE') }}
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="#item-4" aria-controls="item-4"
+                                            class="nav-link {{ request()->query('tab') == 'trading' ? 'active' : '' }}"
+                                            data-bs-toggle="tab" role="tab"
+                                            aria-selected="false">{{ __('trading.AUTHORIZED TRADING REPRESENTATIVE') }}
+                                        </a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a href="#item-5" aria-controls="item-5"
-                                        class="nav-link {{ request()->query('tab') == 'other_info' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab"
-                                        aria-selected="false">{{ __('other_info.OTHER INFORMATION') }} </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="#item-5" aria-controls="item-5"
+                                            class="nav-link {{ request()->query('tab') == 'other_info' ? 'active' : '' }}"
+                                            data-bs-toggle="tab" role="tab"
+                                            aria-selected="false">{{ __('other_info.OTHER INFORMATION') }} </a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a href="#item-6" aria-controls="item-6"
-                                        class="nav-link {{ request()->query('tab') == 'bank_info' ? 'active' : '' }}"
-                                        data-bs-toggle="tab" role="tab"
-                                        aria-selected="false">{{ __('bank_info.BANK ACCOUNT FOR RECEIVING PAYMENTS') }}
-                                    </a>
-                                </li>
-                            </ul>
+                                    <li class="nav-item">
+                                        <a href="#item-6" aria-controls="item-6"
+                                            class="nav-link {{ request()->query('tab') == 'bank_info' ? 'active' : '' }}"
+                                            data-bs-toggle="tab" role="tab"
+                                            aria-selected="false">{{ __('bank_info.BANK ACCOUNT FOR RECEIVING PAYMENTS') }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
-                        
-                    </div>
                     @endif
                     <div class="col">
                         <div class="tab-content tpl-tabs-cont section-text">

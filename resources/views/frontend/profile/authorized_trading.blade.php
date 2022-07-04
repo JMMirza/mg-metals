@@ -8,46 +8,61 @@
             @csrf
             <input type="text" name="form_info" value="trading" hidden>
             <input type="text" id="customer_id" name="customer_id" value="{{ $customer->id }}" hidden>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('trading.full_name') }}</label>
-                <div class="form-group">
-                    <input type="text" name="name" value="{{ old('name') }}"
-                        class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                        placeholder="{{ __('trading.full_name') }}" required>
+                {{-- <div class="form-group"> --}}
+                <input type="text" name="name" value="{{ old('name') }}"
+                    class="form-control  @if ($errors->has('name')) is-invalid @endif"
+                    placeholder="{{ __('trading.full_name') }}" required>
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('full_name') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('trading.title') }}</label>
-                <div class="form-group">
-                    <input type="text" name="title" value="{{ old('title') }}"
-                        class="form-control @if ($errors->has('title')) is-invalid @endif"
-                        placeholder="{{ __('trading.title') }}" required>
+                {{-- <div class="form-group"> --}}
+                <input type="text" name="title" value="{{ old('title') }}"
+                    class="form-control @if ($errors->has('title')) is-invalid @endif"
+                    placeholder="{{ __('trading.title') }}" required>
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('title') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('trading.email') }}</label>
-                <div class="form-group">
-                    <input type="text" value="{{ old('email') }}" name="email"
-                        class="form-control @if ($errors->has('email')) is-invalid @endif"
-                        placeholder="{{ __('trading.email') }}" required>
+                {{-- <div class="form-group"> --}}
+                <input type="text" value="{{ old('email') }}" name="email"
+                    class="form-control @if ($errors->has('email')) is-invalid @endif"
+                    placeholder="{{ __('trading.email') }}" required>
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('email') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('trading.phone_number') }}</label>
-                <div class="form-group">
-                    <input type="text" name="phone_number" value="{{ old('phone_number') }}"
-                        class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                        placeholder="{{ __('trading.phone_number') }}" required>
+                {{-- <div class="form-group"> --}}
+                <input type="text" name="phone_number" value="{{ old('phone_number') }}"
+                    class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                    placeholder="{{ __('trading.phone_number') }}" required>
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('phone_number') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-12">
+            <div class="col-12 col-md-12 mb-3">
                 <label class="form-label">{{ __('trading.signature') }}</label>
-                <div class="form-group">
-                    <input type="text" name="signature" value="{{ old('signature') }}"
-                        class="form-control @if ($errors->has('signature')) is-invalid @endif"
-                        placeholder="{{ __('trading.signature') }}" required>
+                {{-- <div class="form-group"> --}}
+                <input type="text" name="signature" value="{{ old('signature') }}"
+                    class="form-control @if ($errors->has('signature')) is-invalid @endif"
+                    placeholder="{{ __('trading.signature') }}" required>
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('signature') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
             <div class="footer">
                 <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=shareholder' }}"

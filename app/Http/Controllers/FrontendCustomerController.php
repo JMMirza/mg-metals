@@ -78,7 +78,6 @@ class FrontendCustomerController extends Controller
         $shareholders = CustomerShareholder::with('customer')->where('customer_id', $customer->id)->latest()->get();
         $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $customer->id)->latest()->get();
         return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer]);
-
     }
 
     /**
@@ -104,8 +103,14 @@ class FrontendCustomerController extends Controller
             ]);
 
             $customer->update($request->all());
-            return redirect(route('customer-profile-data.edit', $customer->id) . '?tab=corporate')
-                ->with('success', 'Account created successfully.');
+            $user = \Auth::user();
+            if ($user->customer_type == 'corporate') {
+                return redirect(route('customer-profile-data.edit', $customer->id) . '?tab=corporate')
+                    ->with('success', 'Account created successfully.');
+            } else {
+                return redirect(route('home'))
+                    ->with('success', 'Account created successfully.');
+            }
         }
         if ($request->form_info == 'corporate') {
             $request->validate([

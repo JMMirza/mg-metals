@@ -9,7 +9,7 @@
             @method('PUT')
 
             <input type="text" name="form_info" value="other_info" hidden>
-            <div class="col-12 col-md-12">
+            <div class="col-12 col-md-12 mb-3">
                 <label class="form-label">{{ __('other_info.hear_about_mg') }} </label>
                 <div class="form-group ">
                     <label class="radio-inline ">
@@ -35,21 +35,27 @@
 
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('other_info.name_of_sale_rep') }}</label>
-                <div class="form-group">
-                    <input type="text" name="sales_rep_name" value="{{ $customer->sales_rep_name }}"
-                        class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
-                        placeholder="{{ __('other_info.name_of_sale_rep') }}">
+                {{-- <div class="form-group"> --}}
+                <input type="text" name="sales_rep_name" value="{{ $customer->sales_rep_name }}"
+                    class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
+                    placeholder="{{ __('other_info.name_of_sale_rep') }}">
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('sales_rep_name') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('other_info.code') }}</label>
-                <div class="form-group">
-                    <input type="text" name="sales_rep_number" value="{{ $customer->sales_rep_number }}"
-                        class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
-                        placeholder="{{ __('other_info.code') }}">
+                {{-- <div class="form-group"> --}}
+                <input type="text" name="sales_rep_number" value="{{ $customer->sales_rep_number }}"
+                    class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
+                    placeholder="{{ __('other_info.code') }}">
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('sales_rep_number') }}</strong>
                 </div>
+                {{-- </div> --}}
             </div>
 
 

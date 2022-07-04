@@ -70,7 +70,8 @@
                     <div class="mb-30">
                         <form method="post" action="{{ route('customer-products.store') }}" class="form">
                             @csrf
-                            <input name="quantity" type="number" class="input-lg round" min="1" max="5" value="1" />
+                            <input name="quantity" type="number" class="input-lg round" min="1" max="5"
+                                value="1" />
 
                             @if (\Auth::user())
                                 <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
@@ -85,11 +86,6 @@
                                 <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy
                                     Now</a>
                             @endif
-
-
-
-                            {{-- <input type="text" class="input-lg round" placeholder="Agent Code"> --}}
-
                         </form>
                     </div>
 
