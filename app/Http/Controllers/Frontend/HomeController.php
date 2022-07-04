@@ -124,8 +124,8 @@ class HomeController extends Controller
 
         $agent = User::where('referral_code', $request->referred_by)->first();
 
+        $referral_code = strtoupper(Str::random(6));
         if ($agent) {
-            $referral_code = strtoupper(Str::random(6));
             $input = [
                 'name' => $request->name,
                 'email' => $request->email,
@@ -134,12 +134,21 @@ class HomeController extends Controller
                 'referred_by' => $request->referred_by,
                 'referral_code' => $referral_code
             ];
-            $user = User::create($input);
-            auth()->login($user);
-            return redirect(route('customer_profile'))
-                ->with('success', 'Account created successfully.');
+        } else {
+            $input = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'customer_type' => $request->customer_type,
+                'referred_by' => null,
+                'referral_code' => $referral_code
+            ];
         }
-        return back()->withErrors('Referral code not found');
+        // return back()->withErrors('Referral code not found');
+        $user = User::create($input);
+        auth()->login($user);
+        return redirect(route('customer_profile'))
+            ->with('success', 'Account created successfully.');
     }
 
     public function profile()
