@@ -9,6 +9,7 @@ use App\Http\Controllers\CustomerTrading;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use App\Http\Controllers\FrontendCustomerController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductCommissionController;
@@ -65,6 +66,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['customer-trading' => CustomerTrading::class]);
     Route::resources(['product-commission' => ProductCommissionController::class]);
     Route::resources(['orders' => OrderController::class]);
+    Route::resources(['inventories' => InventoryController::class]);
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');
     Route::get('customer-commissions', [HomeCtrl::class, 'customer_commissions'])->name('customer-commissions');
     Route::get('customer-product/{id}', [CustomerProductController::class, 'customer_products'])->name('customer-product');

@@ -6,8 +6,7 @@
             </div>
 
             <div class="card-body">
-                <form class="row  needs-validation" action="{{ route('categories.store') }}" method="POST"
-                    novalidate>
+                <form class="row  needs-validation" action="{{ route('categories.store') }}" method="POST" novalidate>
                     @csrf
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
@@ -52,7 +51,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            <div class="invalid-tooltip">Select the User!</div>
+                            <div class="invalid-tooltip">Select the Category!</div>
                         </div>
                     </div>
 

@@ -12,10 +12,10 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>CustomerID</th>
+                                {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
                                 <th>Purchase Price</th>
-                                <th>Product id</th>
+                                {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Created At</th>
                             </tr>
@@ -25,10 +25,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>CustomerID</th>
+                                {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
                                 <th>Purchase Price</th>
-                                <th>Product id</th>
+                                {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Created At</th>
                             </tr>
@@ -63,10 +63,11 @@
                     searchPlaceholder: "Search...",
                 },
                 ajax: '/customer-product-ajax/' + id,
-                columns: [{
-                        data: "customer_id",
-                        name: "customer_id",
-                    },
+                columns: [
+                    // {
+                    //     data: "customer_id",
+                    //     name: "customer_id",
+                    // },
                     {
                         data: "customer_name",
                         name: "customer_name",
@@ -75,10 +76,10 @@
                         data: "purchase_price",
                         name: "purchase_price",
                     },
-                    {
-                        data: "product_id",
-                        name: "product_id",
-                    },
+                    // {
+                    //     data: "product_id",
+                    //     name: "product_id",
+                    // },
                     {
                         data: "product.name",
                         name: "product.name",

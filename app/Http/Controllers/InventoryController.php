@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use DataTables;
+use Illuminate\Database\QueryException;
 
 class InventoryController extends Controller
 {
@@ -12,9 +15,25 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+
+            $data = Inventory::with(['product', 'order'])->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('product_price', function ($row) {
+                    return $row->product->getProductPrice();
+                })
+                ->addColumn('action', function ($row) {
+                    return view('inventory.action', ['row' => $row]);
+                })
+                ->rawColumns(['action', 'parent_id'])
+                ->make(true);
+        }
+        // dd($agents->toArray());
+        $products = Product::where('status', 'active')->get();
+        return view('inventory.inventory', ['products' => $products]);
     }
 
     /**
@@ -35,7 +54,15 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_id' => 'required|integer|max:255',
+            'units' => 'required|integer|max:255'
+        ]);
+
+        Inventory::create($request->all());
+
+        return redirect()->route('inventories.index')
+            ->with('success', 'Inventory created successfully.');
     }
 
     /**
@@ -57,7 +84,8 @@ class InventoryController extends Controller
      */
     public function edit(Inventory $inventory)
     {
-        //
+        $products = Product::where('status', 'active')->get();
+        return view('inventory.inventory', ['products' => $products, 'inventory' => $inventory]);
     }
 
     /**
@@ -69,7 +97,15 @@ class InventoryController extends Controller
      */
     public function update(Request $request, Inventory $inventory)
     {
-        //
+        $request->validate([
+            'product_id' => 'required|integer|max:255',
+            'units' => 'required|integer|max:255'
+        ]);
+
+        $inventory->update($request->all());
+
+        return redirect()->route('inventories.index')
+            ->with('success', 'Inventory updated successfully.');
     }
 
     /**
@@ -80,6 +116,10 @@ class InventoryController extends Controller
      */
     public function destroy(Inventory $inventory)
     {
-        //
+        try {
+            return $inventory->delete();
+        } catch (QueryException $e) {
+            print_r($e->errorInfo);
+        }
     }
 }

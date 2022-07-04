@@ -18,4 +18,5 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/vertical-rhythm.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
+{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
 <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />

@@ -81,6 +81,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
+                    {{ Request::is('inventories') ? 'active' : '' }}"
+                        href="{{ route('inventories.index') }}" role="button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Inventory</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link
                     {{ Request::is('customers-products') ? 'active' : '' }}"
                         href="{{ route('customer-products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers Products</span>

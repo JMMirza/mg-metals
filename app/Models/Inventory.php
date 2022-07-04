@@ -12,8 +12,8 @@ class Inventory extends Model
 
     protected $fillable = [
         'product_id',
-        'availabe_units',
-        'balance',
+        'units',
+        'order_id',
     ];
 
     protected $dates = [
@@ -25,4 +25,16 @@ class Inventory extends Model
     protected $casts = [
         'created_at' => 'date:d M, Y H:i',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
+
+    // public function
 }

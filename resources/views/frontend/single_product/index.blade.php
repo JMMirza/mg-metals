@@ -68,25 +68,48 @@
                     <hr class="mt-0 mb-30" />
 
                     <div class="mb-30">
-                        <form method="post" action="{{ route('customer-products.store') }}" class="form">
-                            @csrf
-                            <input name="quantity" type="number" class="input-lg round" min="1" max="5"
-                                value="1" />
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="exampleModalCenterTitle">Purchasing Product</h2>
+                                    </div>
+                                    <form method="post" action="{{ route('customer-products.store') }}" class="form">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <input name="quantity" type="number" class="input-lg round" min="1"
+                                                max="5" value="1" />
+                                            <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
+                                            <input type="text" value="{{ $product->id }}" name="product_id" hidden>
+                                            <input type="text"
+                                                value="{{ $product->getProductPrice($type = 'number') }}"
+                                                name="purchase_price" hidden>
+                                            <input type="text" value="{{ \Auth::user()->referred_by }}"
+                                                name="referral_code" hidden>
+                                            {{-- <button type="submit" class="btn btn-mod btn-large btn-round">Buy
+                                                    Now</button> --}}
 
-                            @if (\Auth::user())
-                                <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
-                                <input type="text" value="{{ $product->id }}" name="product_id" hidden>
-                                <input type="text" value="{{ $product->getProductPrice($type = 'number') }}"
-                                    name="purchase_price" hidden>
-                                <input type="text" value="{{ \Auth::user()->referred_by }}" name="referral_code"
-                                    hidden>
-                                <button type="submit" class="btn btn-mod btn-large btn-round">Buy
-                                    Now</button>
-                            @else
-                                <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy
-                                    Now</a>
-                            @endif
-                        </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if (\Auth::user())
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
+                                class="btn btn-mod btn-large btn-round">Buy
+                                Now</button>
+                        @else
+                            <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy
+                                Now</a>
+                        @endif
+
                     </div>
 
                     <hr class="mt-0 mb-30" />
