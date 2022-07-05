@@ -14,7 +14,7 @@
                         @csrf
                         @method('PUT')
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12 mb-3">
                             <div class="form-label-group in-border">
                                 <label for="sku" class="form-label">SKU (庫存單位)</label>
                                 <input type="text"
@@ -41,6 +41,40 @@
                                         {{ $errors->first('name') }}
                                     @else
                                         Product Name is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Product Name (Simplified Chinese)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif" id="name_s_ch"
+                                    name="name_s_ch" placeholder="Product name (Simplified Chinese)"
+                                    value="{{ $product->name_s_ch }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('name_s_ch'))
+                                        {{ $errors->first('name_s_ch') }}
+                                    @else
+                                        Name (Simplified Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Product Name (Traditional Chinese)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif" id="name_t_ch"
+                                    name="name_t_ch" placeholder="Product name (Traditional Chinese)"
+                                    value="{{ $product->name_t_ch }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('name_t_ch'))
+                                        {{ $errors->first('name_t_ch') }}
+                                    @else
+                                        Name (Traditional Chinese) is required!
                                     @endif
                                 </div>
                             </div>
@@ -310,6 +344,22 @@
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control mb-3" name="description" id="description"
                                     placeholder="Enter product description here...">{{ $product->description }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="description" class="form-label">Description (Simplified Chinese)</label>
+                                <textarea class="form-control mb-3" name="description_s_ch" id="description"
+                                    placeholder="Enter product description here...">{{ $product->description_s_ch }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="description" class="form-label">Description (Traditional Chinese)</label>
+                                <textarea class="form-control mb-3" name="description_t_ch" id="description"
+                                    placeholder="Enter product description here...">{{ $product->description_t_ch }}</textarea>
                             </div>
                         </div>
 

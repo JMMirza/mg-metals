@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="small-section bg-dark-lighter">
+    <section class="small-section bg-dark-lighter" data-background="{{ asset('frontend/images/banner1.png') }}">
         <div class="relative container align-left">
 
             <div class="row">
@@ -132,7 +132,8 @@
                                         <div class="col-12 mb-3">
                                             <input id="email" type="email" placeholder="{{ __('login.Email') }}"
                                                 class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                                                name="email" value="{{ old('email') }}" required
+                                                autocomplete="email">
                                             <div class="invalid-feedback">
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </div>

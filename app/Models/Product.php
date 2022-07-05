@@ -14,6 +14,8 @@ class Product extends Model
     protected $fillable = [
         'sku',
         'name',
+        'name_s_ch',
+        'name_t_ch',
         'abbreviation',
         'product_picture',
         'pricing_type',
@@ -22,6 +24,8 @@ class Product extends Model
         'buy_bank_amount',
         'surcharge_at_product',
         'description',
+        'description_s_ch',
+        'description_t_ch',
         'catergory_id',
         'manufacturer_id',
         'weight',
@@ -141,5 +145,20 @@ class Product extends Model
         } else {
             return null;
         }
+    }
+
+    public function productsInventory($product_id, $units)
+    {
+        $inventory = Inventory::where('product_id', $product_id)->first();
+        if ($inventory) {
+            $inv_units = $inventory->units;
+            if ($inv_units > 0) {
+                $new_units = $inv_units - $units;
+                $inventory->units = $new_units;
+                $inventory->save();
+                return $new_units;
+            }
+        }
+        return null;
     }
 }

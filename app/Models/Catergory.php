@@ -12,6 +12,8 @@ class Catergory extends Model
 
     protected $fillable = [
         'name',
+        'name_s_ch',
+        'name_t_ch',
         'abbreviation',
         'parent_id'
     ];
