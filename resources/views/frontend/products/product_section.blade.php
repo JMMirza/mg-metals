@@ -8,17 +8,28 @@
         </div> --}}
     </div>
 
-    <div class="post-prev-title font-alt align-center">
-        <a href="{{ route('single-product', $product->id) }}">{{ $product->name }}</a>
-    </div>
-
+    @if (Config::get('app.locale') == 'en')
+        {{-- {{ 'Current Language is English' }} --}}
+        <div class="post-prev-title font-alt align-center">
+            <a href="{{ route('single-product', $product->id) }}">{{ $product->name }}</a>
+        </div>
+    @elseif (Config::get('app.locale') == 'ch')
+        {{-- {{ 'Current Language is Chinese Traditional' }} --}}
+        <div class="post-prev-title font-alt align-center">
+            <a href="{{ route('single-product', $product->id) }}">{{ $product->name_t_ch }}</a>
+        </div>
+    @else
+        {{-- {{ 'Current Language is Chinese Simple' }} --}}
+        <div class="post-prev-title font-alt align-center">
+            <a href="{{ route('single-product', $product->id) }}">{{ $product->name_s_ch }}</a>
+        </div>
+    @endif
     <div class="post-prev-text align-center">
         <strong>{{ $product->getProductPrice() }}</strong>
     </div>
 
     <div class="post-prev-more align-center">
-        <a href="{{ route('single-product', $product->id) }}" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"
-                aria-hidden="true"></i>{{ __('home_page.purchase') }}</a>
+        <a href="{{ route('single-product', $product->id) }}" class="btn btn-mod btn-gray btn-round"><i
+                class="fa fa-shopping-cart" aria-hidden="true"></i>{{ __('home_page.purchase') }}</a>
     </div>
-
 </div>
