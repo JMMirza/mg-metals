@@ -147,16 +147,14 @@ class Product extends Model
         }
     }
 
-    public function productsInventory($product_id, $units)
+    public function productsInventory($product_id)
     {
         $inventory = Inventory::where('product_id', $product_id)->first();
         if ($inventory) {
             $inv_units = $inventory->units;
             if ($inv_units > 0) {
-                $new_units = $inv_units - $units;
-                $inventory->units = $new_units;
-                $inventory->save();
-                return $new_units;
+                return
+                    $inv_units;
             }
         }
         return null;

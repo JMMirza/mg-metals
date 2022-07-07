@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('customer-product-ajax/{id}', [CustomerProductController::class, 'customer_products_ajax'])->name('customer-product-ajax');
     Route::get('load-shareholders', [CustomerShareholder::class, 'load_shareholders'])->name('load-shareholders');
     Route::get('load-trading', [CustomerTrading::class, 'load_trading'])->name('load-trading');
+    Route::get('load-single-product-logs/{id}', [InventoryController::class, 'load_single_product_logs'])->name('load-single-product-logs');
 
     Route::post('/applicant-info-individual', [HomeCtrl::class, 'applicant_information_individual'])->name('applicant-info-individual');
     Route::post('/applicant-info-corporate', [HomeCtrl::class, 'applicant_information_corporate'])->name('applicant-info-corporate');

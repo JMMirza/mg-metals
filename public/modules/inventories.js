@@ -12,35 +12,36 @@ $(document).ready(function () {
             searchPlaceholder: "Search...",
         },
         ajax: route,
-        columns: [
-            {
-                data: "id",
-                name: "id",
+        columns: [{
+            data: 'DT_RowIndex',
+            name: 'DT_RowIndex',
+            orderable: false,
+            searchable: false
             },
             {
-                data: "product.name",
-                name: "product.name",
+                data: "product_name",
+                name: "product_name",
             },
-            {
-                data: "order_id",
-                name: "order_id",
-                width: "15%",
-            },
+            // {
+            //     data: "order_id",
+            //     name: "order_id",
+            //     width: "15%",
+            // },
             {
                 data: "units",
                 name: "units",
                 width: "15%",
             },
-            {
-                data: "product_price",
-                name: "product_price",
-                width: "15%",
-            },
-            {
-                data: "created_at",
-                name: "created_at",
-                width: "15%",
-            },
+            // {
+            //     data: "product_price",
+            //     name: "product_price",
+            //     width: "15%",
+            // },
+            // {
+            //     data: "created_at",
+            //     name: "created_at",
+            //     width: "15%",
+            // },
             {
                 data: "action",
                 name: "action",
@@ -50,5 +51,26 @@ $(document).ready(function () {
                 sClass: "text-center",
             },
         ],
+    });
+
+    $(document).on("click", "#single_product_logs", function (e) {
+        const product_id = $(this).val();
+        var url = $(this).data("url");
+
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                product_id: product_id,
+            },
+            cache: false,
+            success: function (data) {
+                console.log(data)
+            },
+            error: function () {},
+        });
     });
 });

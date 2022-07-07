@@ -17,23 +17,22 @@ class InventoryController extends Controller
      */
     public function index(Request $request)
     {
+
+        // dd($this->get_similar_products());
         if ($request->ajax()) {
 
-            $data = Inventory::with(['product', 'order'])->get();
+            $data = $this->get_similar_products();
+            // Inventory::with(['product', 'order'])->get();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('product_price', function ($row) {
-                    return $row->product->getProductPrice();
-                })
                 ->addColumn('action', function ($row) {
                     return view('inventory.action', ['row' => $row]);
                 })
-                ->rawColumns(['action', 'parent_id'])
+                ->rawColumns(['action'])
                 ->make(true);
         }
         // dd($agents->toArray());
-        $products = Product::where('status', 'active')->get();
-        return view('inventory.inventory', ['products' => $products]);
+        return view('inventory.inventory');
     }
 
     /**
@@ -43,7 +42,8 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::where('status', 'active')->get();
+        return view('inventory.add_new_inventory', ['products' => $products]);
     }
 
     /**
@@ -121,5 +121,29 @@ class InventoryController extends Controller
         } catch (QueryException $e) {
             print_r($e->errorInfo);
         }
+    }
+
+    public function load_single_product_logs($id)
+    {
+        $product_id = $id;
+        $inventories = Inventory::with(['product', 'order.customer'])->where('product_id', $product_id)->latest()->get();
+        // dd($inventories->toArray());
+        return view('inventory.single_product_log', ['inventories' => $inventories]);
+    }
+
+    private function get_similar_products()
+    {
+        $products = Product::where('status', 'active')->get();
+        $inventories = [];
+        foreach ($products as  $product) {
+            $get_prod_units = Inventory::where('product_id', $product->id)->sum('units');
+            // dd($get_prod_units);
+            array_push($inventories, [
+                'id' => $product->id,
+                'product_name' => $product->name,
+                'units' => $get_prod_units
+            ]);
+        }
+        return $inventories;
     }
 }

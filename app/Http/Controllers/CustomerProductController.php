@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\CustomerProduct;
+use App\Models\Inventory;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCommission;
@@ -66,7 +67,7 @@ class CustomerProductController extends Controller
         $customer = Customer::where('user_id', $request->user_id)->first();
         $product = Product::find($request->product_id);
         $user = User::find($request->user_id);
-        $result = $product->productsInventory($product->id, $request->quantity);
+        $result = $product->productsInventory($product->id);
         if ($result != null) {
             if ($product->getProductCommission() != null) {
                 if ($user->referred_by != null) {
@@ -131,12 +132,17 @@ class CustomerProductController extends Controller
             $input['customer_id'] = $customer->id;
             CustomerProduct::create($input);
 
-            Order::create([
+            $order = Order::create([
                 'customer_id' => $customer->id,
                 'product_id' => $product->id,
                 'spot_price' => $product->getProductPrice($type = 'number'),
                 'mark_up' => $product->mark_up,
                 'quantity' => $request->quantity
+            ]);
+            Inventory::create([
+                'product_id' => $product->id,
+                'order_id' => $order->id,
+                'units' => -1 * abs($request->quantity)
             ]);
         } else {
             return back()->with('error', 'Product not Available');

@@ -2,16 +2,21 @@
 
 @section('content')
     <div class="row">
-        @if (isset($inventory))
+        {{-- @if (isset($inventory))
             @include('inventory.edit_inventory')
-        @else
-            {{-- @permission('add-country') --}}
-            @include('inventory.add_new_inventory')
-            {{-- @endpermission --}}
-        @endif
+        @else --}}
+        {{-- @permission('add-country') --}}
+        {{-- @include('inventory.add_new_inventory') --}}
+        {{-- @endpermission --}}
+        {{-- @endif --}}
         <div class="col-lg-12">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Agents</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Products Inventory List</h4>
+                <div class="flex-shrink-0">
+                    <a href="{{ route('inventories.create') }}" class="btn btn-success btn-label btn-sm">
+                        <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Add New
+                    </a>
+                </div>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -21,10 +26,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Product Name</th>
-                                <th>Order ID</th>
+                                {{-- <th>Order ID</th> --}}
                                 <th>Units</th>
-                                <th>Product Price</th>
-                                <th>Created At</th>
+                                {{-- <th>Product Price</th> --}}
+                                {{-- <th>Created At</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -35,10 +40,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Product Name</th>
-                                <th>Order ID</th>
+                                {{-- <th>Order ID</th> --}}
                                 <th>Units</th>
-                                <th>Product Price</th>
-                                <th>Created At</th>
+                                {{-- <th>Product Price</th> --}}
+                                {{-- <th>Created At</th> --}}
                                 <th>Action</th>
                             </tr>
                         </tfoot>
