@@ -9,11 +9,8 @@
                 </div>
 
                 <div class="card-body">
-                    <div id="warningDivShow" class="alert alert-danger" style="display: none">
-                        You have to add 3 Preferences.
-                    </div>
-                    <form class="row  needs-validation" id="myForm" action="{{ route('customers.store') }}"
-                        method="POST" novalidate>
+                    <form class="row  needs-validation" id="myForm" action="{{ route('customers.store') }}" method="POST"
+                        novalidate>
                         @csrf
                         <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-primary"
                             id="accordionBordered">

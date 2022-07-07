@@ -28,7 +28,7 @@
                                 <th>Product Name</th>
                                 {{-- <th>Order ID</th> --}}
                                 <th>Units</th>
-                                {{-- <th>Product Price</th> --}}
+                                <th>Minimum Quantity</th>
                                 {{-- <th>Created At</th> --}}
                                 <th>Action</th>
                             </tr>
@@ -42,7 +42,7 @@
                                 <th>Product Name</th>
                                 {{-- <th>Order ID</th> --}}
                                 <th>Units</th>
-                                {{-- <th>Product Price</th> --}}
+                                <th>Minimum Quantity</th>
                                 {{-- <th>Created At</th> --}}
                                 <th>Action</th>
                             </tr>

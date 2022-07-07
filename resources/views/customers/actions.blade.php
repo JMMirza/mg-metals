@@ -12,16 +12,6 @@
 <a href="{{ route('customer-product', $row->id) }}" class="btn btn-sm btn-primary btn-icon waves-effect waves-light">
     <i class=" ri-customer-service-2-fill"></i>
 </a>
-
-@if ($row->user->customer_type == 'corporate')
-    <button type="button" class="btn btn-sm btn-success " data-bs-toggle="modal" value="{{ $row->id }}"
-        id="shareholders" data-url="{{ route('load-shareholders') }}"
-        data-target="#shareholderModel">Shareholders</button>
-
-    <button type="button" class="btn btn-sm btn-success " data-bs-toggle="modal" value="{{ $row->id }}"
-        id="trading" data-url="{{ route('load-trading') }}" data-target="#tradingModel">Authorized
-        Trading Representative</button>
-@endif
 {{-- @endpermission --}}
 
 {{-- @if (!auth()->user()->hasPermission('edit-course') &&

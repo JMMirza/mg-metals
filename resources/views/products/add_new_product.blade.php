@@ -9,71 +9,138 @@
                 </div>
 
                 <div class="card-body">
+
                     <form class="row  needs-validation" action="{{ route('products.store') }}" method="POST"
                         enctype='multipart/form-data' novalidate>
                         @csrf
+
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs mb-3" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab"
+                                            aria-selected="true">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#product1" role="tab"
+                                            aria-selected="false">
+                                            Simplified Chinese
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#messages" role="tab"
+                                            aria-selected="false">
+                                            Traditional Chinese
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12  mb-3">
+                                        <div class="form-label-group in-border">
+                                            <label for="name" class="form-label">Product Name (物品名稱)</label>
+                                            <input type="text"
+                                                class="form-control @if ($errors->has('name')) is-invalid @endif"
+                                                id="name" name="name" placeholder="Product Name"
+                                                value="{{ old('name') }}" required>
+                                            <div class="invalid-tooltip">
+                                                @if ($errors->has('name'))
+                                                    {{ $errors->first('name') }}
+                                                @else
+                                                    Product Name is required!
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-label-group in-border">
+                                            <label for="description" class="form-label">Description (物品描述)</label>
+                                            <textarea class="form-control mb-3" name="description" id="description" placeholder="Enter product description here...">{{ old('description') }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="product1" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12  mb-3">
+                                        <div class="form-label-group in-border">
+                                            <label for="name" class="form-label">Product Name (Simplified
+                                                Chinese)</label>
+                                            <input type="text"
+                                                class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif"
+                                                id="name_s_ch" name="name_s_ch"
+                                                placeholder="Product name (Simplified Chinese)"
+                                                value="{{ old('name_s_ch') }}">
+                                            <div class="invalid-tooltip">
+                                                @if ($errors->has('name_s_ch'))
+                                                    {{ $errors->first('name_s_ch') }}
+                                                @else
+                                                    Name (Simplified Chinese) is required!
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-label-group in-border">
+                                            <label for="description" class="form-label">Description (Simplified
+                                                Chinese)</label>
+                                            <textarea class="form-control mb-3" name="description_s_ch" id="description"
+                                                placeholder="Enter product description here...">{{ old('description_s_ch') }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="messages" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12  mb-3">
+                                        <div class="form-label-group in-border">
+                                            <label for="name" class="form-label">Product Name (Traditional
+                                                Chinese)</label>
+                                            <input type="text"
+                                                class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif"
+                                                id="name_t_ch" name="name_t_ch"
+                                                placeholder="Product name (Traditional Chinese)"
+                                                value="{{ old('name_t_ch') }}">
+                                            <div class="invalid-tooltip">
+                                                @if ($errors->has('name_t_ch'))
+                                                    {{ $errors->first('name_t_ch') }}
+                                                @else
+                                                    Name (Traditional Chinese) is required!
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-label-group in-border">
+                                            <label for="description" class="form-label">Description (Traditional
+                                                Chinese)</label>
+                                            <textarea class="form-control mb-3" name="description_t_ch" id="description"
+                                                placeholder="Enter product description here...">{{ old('description_t_ch') }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="form-label-group in-border">
                                 <label for="sku" class="form-label">SKU (庫存單位)</label>
                                 <input type="text"
-                                    class="form-control @if ($errors->has('sku')) is-invalid @endif" id="sku"
-                                    name="sku" placeholder="Enter SKU" value="{{ old('sku') }}" required>
+                                    class="form-control @if ($errors->has('sku')) is-invalid @endif"
+                                    id="sku" name="sku" placeholder="Enter SKU" value="{{ old('sku') }}"
+                                    required>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('sku'))
                                         {{ $errors->first('sku') }}
                                     @else
                                         SKU is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Product Name (物品名稱)</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
-                                    name="name" placeholder="Product Name" value="{{ old('name') }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('name'))
-                                        {{ $errors->first('name') }}
-                                    @else
-                                        Product Name is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Product Name (Simplified Chinese)</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif" id="name_s_ch"
-                                    name="name_s_ch" placeholder="Product name (Simplified Chinese)"
-                                    value="{{ old('name_s_ch') }}">
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('name_s_ch'))
-                                        {{ $errors->first('name_s_ch') }}
-                                    @else
-                                        Name (Simplified Chinese) is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Product Name (Traditional Chinese)</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif" id="name_t_ch"
-                                    name="name_t_ch" placeholder="Product name (Traditional Chinese)"
-                                    value="{{ old('name_t_ch') }}">
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('name_t_ch'))
-                                        {{ $errors->first('name_t_ch') }}
-                                    @else
-                                        Name (Traditional Chinese) is required!
                                     @endif
                                 </div>
                             </div>
@@ -138,7 +205,8 @@
                                         selected disabled>
                                         Select One
                                     </option>
-                                    <option value="use_feed" @if (old('pricing_type') == 'use_feed') {{ 'selected' }} @endif>
+                                    <option value="use_feed"
+                                        @if (old('pricing_type') == 'use_feed') {{ 'selected' }} @endif>
                                         Use Feed (餵價)
                                     </option>
                                     <option value="fix_price"
@@ -180,7 +248,8 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
+                                <label for="weight" class="form-label">Product Weight (Ounces)
+                                    (產品重量（盎司）)</label>
                                 <input type="decimal"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
                                     id="weight" name="weight" placeholder="Please enter Weight of Product"
@@ -197,7 +266,8 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="surcharge_at_product" class="form-label">Mark up at Product Level</label>
+                                <label for="surcharge_at_product" class="form-label">Mark up at Product
+                                    Level</label>
                                 <select id="surcharge_at_product" class="form-select form-control mb-3"
                                     name="surcharge_at_product" required>
                                     <option value="" @if (old('surcharge_at_product') == '') {{ 'selected' }} @endif
@@ -220,6 +290,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-4 col-sm-12" id="mark_up_div_1" style="display: none">
                             <div class="form-label-group in-border">
                                 <label for="markup_type" class="form-label">Mark up Type (加價類型)</label>
@@ -245,6 +316,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-4 col-sm-12" id="mark_up_div_2" style="display: none">
                             <div class="form-label-group in-border">
                                 <label for="mark_up" class="form-label">Mark Up Amount</label>
@@ -305,6 +377,23 @@
                             </div>
                         </div>
 
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="form-label-group in-border">
+                                <label for="on_hold" class="form-label">Minimum in Stock</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('on_hold')) is-invalid @endif"
+                                    id="on_hold" name="on_hold" placeholder="Enter Minimum in Stock"
+                                    value="{{ old('on_hold') }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('on_hold'))
+                                        {{ $errors->first('on_hold') }}
+                                    @else
+                                        Minimum in Stock is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="status" class="form-label">Valid Till</label>
@@ -320,33 +409,11 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="description" class="form-label">Description (物品描述)</label>
-                                <textarea class="form-control mb-3" name="description" id="description"
-                                    placeholder="Enter product description here...">{{ old('description') }}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="description" class="form-label">Description (Simplified Chinese)</label>
-                                <textarea class="form-control mb-3" name="description_s_ch" id="description"
-                                    placeholder="Enter product description here...">{{ old('description_s_ch') }}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="description" class="form-label">Description (Traditional Chinese)</label>
-                                <textarea class="form-control mb-3" name="description_t_ch" id="description"
-                                    placeholder="Enter product description here...">{{ old('description_t_ch') }}</textarea>
-                            </div>
-                        </div>
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="tier_commission_1" class="form-label">Tier 1 Commission (佣金層級-1)</label>
+                                <label for="tier_commission_1" class="form-label">Tier 1 Commission
+                                    (佣金層級-1)</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">%</span>
@@ -368,7 +435,8 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="tier_commission_2" class="form-label">Tier 2 Commission (佣金層級-2)</label>
+                                <label for="tier_commission_2" class="form-label">Tier 2 Commission
+                                    (佣金層級-2)</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">%</span>
@@ -390,7 +458,8 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="tier_commission_3" class="form-label">Tier 3 Commission (佣金層級-3)</label>
+                                <label for="tier_commission_3" class="form-label">Tier 3 Commission
+                                    (佣金層級-3)</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">%</span>

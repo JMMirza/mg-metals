@@ -6,7 +6,7 @@ return [
     'MALE' => 'MALE',
     'FEMALE' => 'FEMALE',
     'Email' => 'EMAIL',
-    'Occupation &amp; Business Background' => 'OCCUPATION &amp; BUSINESS BACKGROUND',
+    'Occupation & Business Background' => 'OCCUPATION & BUSINESS BACKGROUND',
     'HKID No. / Passport No.' => 'HKID No. / Passport No.',
     'PHONE NUMBER' => 'PHONE NUMBER',
     'Nationality' => 'NATIONALITY',

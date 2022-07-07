@@ -25,6 +25,8 @@
                                 <th>Phone Number</th>
                                 <th>Passport Number</th>
                                 <th>Nationality</th>
+                                <th>User Type</th>
+                                <th>Verified</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

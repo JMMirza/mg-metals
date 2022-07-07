@@ -141,7 +141,8 @@ class InventoryController extends Controller
             array_push($inventories, [
                 'id' => $product->id,
                 'product_name' => $product->name,
-                'units' => $get_prod_units
+                'units' => $get_prod_units,
+                'min_quantity' => $product->on_hold
             ]);
         }
         return $inventories;

@@ -32,11 +32,11 @@ $(document).ready(function () {
                 name: "units",
                 width: "15%",
             },
-            // {
-            //     data: "product_price",
-            //     name: "product_price",
-            //     width: "15%",
-            // },
+            {
+                data: "min_quantity",
+                name: "min_quantity",
+                width: "15%",
+            },
             // {
             //     data: "created_at",
             //     name: "created_at",

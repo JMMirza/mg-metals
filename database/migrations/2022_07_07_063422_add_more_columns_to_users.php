@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_email_verified')->after('referred_by')->default(0);
+            $table->boolean('is_verified')->after('referred_by')->default(0);
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_email_verified');
+            $table->dropColumn('is_verified');
         });
     }
 };

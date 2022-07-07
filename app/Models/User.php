@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         'customer_type',
         'referred_by',
-        'is_email_verified',
+        'is_verified',
         'referral_code'
     ];
 

@@ -37,6 +37,16 @@ $(document).ready(function () {
                 width: "15%",
             },
             {
+                data: "user_type",
+                name: "user_type",
+                width: "15%",
+            },
+            {
+                data: "is_verified",
+                name: "is_verified",
+                width: "15%",
+            },
+            {
                 data: "created_at",
                 name: "created_at",
                 width: "15%",

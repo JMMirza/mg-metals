@@ -33,6 +33,7 @@ class Product extends Model
         'valid_till',
         'status',
         'markup_type',
+        'on_hold',
         'tier_commission_1',
         'tier_commission_2',
         'tier_commission_3'

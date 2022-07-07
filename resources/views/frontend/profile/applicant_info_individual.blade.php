@@ -48,11 +48,11 @@
                 {{-- </div> --}}
             </div>
             <div class="col-12 col-md-6 mb-3">
-                <label class="form-label">{{ __('individual.Occupation &amp; Business Background') }}</label>
+                <label class="form-label">{{ __('individual.Occupation & Business Background') }}</label>
                 {{-- <div class="form-group"> --}}
                 <input type="text" class="form-control @if ($errors->has('occupation')) is-invalid @endif"
                     name="occupation" id="occupation" value="{{ $customer->occupation }}"
-                    placeholder="{{ __('individual.Occupation &amp; Business Background') }}" required>
+                    placeholder="{{ __('individual.Occupation & Business Background') }}" required>
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('occupation') }}</strong>
                 </div>
@@ -109,6 +109,11 @@
                     <strong>{{ $errors->first('address') }}</strong>
                 </div>
                 {{-- </div> --}}
+            </div>
+            <div class="col-12 col-md-12 mb-3">
+                <label class="form-label">{{ __('individual.verified') }}</label>
+                <input type="text" id="is_verified" class="form-control"
+                    placeholder=@if (Auth::user()->is_verified == 0) 'UnVerified' @else 'Verified' @endif disabled>
             </div>
             @if (\Auth::user()->customer_type == 'corporate')
                 <div class="footer">

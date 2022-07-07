@@ -26,7 +26,17 @@ class CustomerController extends Controller
                 ->addColumn('action', function ($row) {
                     return view('customers.actions', ['row' => $row]);
                 })
-                ->rawColumns(['action'])
+                ->addColumn('is_verified', function ($row) {
+                    if ($row->user->is_verified == 0) {
+                        return '<span class="badge bg-danger">UnVerified</span>';
+                    } else {
+                        return '<span class="badge bg-info">Verified</span>';
+                    }
+                })
+                ->addColumn('user_type', function ($row) {
+                    return strtoupper($row->user->customer_type);
+                })
+                ->rawColumns(['action', 'is_verified', 'user_type'])
                 ->make(true);
         }
         $users = User::all();

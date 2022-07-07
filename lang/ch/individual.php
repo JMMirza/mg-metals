@@ -6,7 +6,7 @@ return [
     'MALE' => '男性',
     'FEMALE' => '女性',
     'Email' => '電郵',
-    'Occupation &amp; Business Background' => '職業及業務背景',
+    'Occupation & Business Background' => '職業及業務背景',
     'HKID No. / Passport No.' => '香港身份證號碼 / 護照號碼',
     'PHONE NUMBER' => '電話',
     'Nationality' => '國籍',

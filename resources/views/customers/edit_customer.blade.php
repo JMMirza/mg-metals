@@ -6,6 +6,18 @@
             <div class="card">
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">Update Customer</h4>
+                    <div class="flex-shrink-0">
+                        @if ($user->customer_type == 'corporate')
+                            <button type="button" class="btn btn-sm btn-success " data-bs-toggle="modal"
+                                value="{{ $customer->id }}" id="shareholders" data-url="{{ route('load-shareholders') }}"
+                                data-target="#shareholderModel">Shareholders</button>
+
+                            <button type="button" class="btn btn-sm btn-success " data-bs-toggle="modal"
+                                value="{{ $customer->id }}" id="trading" data-url="{{ route('load-trading') }}"
+                                data-target="#tradingModel">Authorized
+                                Trading Representative</button>
+                        @endif
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -48,7 +60,8 @@
                                                 <div class="col-md-4">
                                                     <div class="form-label-group in-border">
                                                         <label for="gender" class="form-label">Gender</label>
-                                                        <select class="form-select form-control mb-3" name="gender" required>
+                                                        <select class="form-select form-control mb-3" name="gender"
+                                                            required>
                                                             <option value=""
                                                                 @if ($customer->gender == '') {{ 'selected' }} @endif
                                                                 selected disabled>
@@ -961,3 +974,6 @@
         </div>
     </div>
 @endsection
+@push('footer_scripts')
+    <script type="text/javascript" src="{{ asset('modules/customers.js') }}"></script>
+@endpush
