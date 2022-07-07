@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Order::with(['product', 'customer'])->get();
+            $data = Order::with(['product', 'customer'])->latest()->get();
             return Datatables::of($data)
                 ->addColumn('mark_up', function ($row) {
                     if ($row->product->mark_up) {
@@ -28,6 +28,9 @@ class OrderController extends Controller
                     } else {
                         return 'N / A';
                     }
+                })
+                ->addColumn('spot_price', function ($row) {
+                    return  $row->spot_price . ' USD';
                 })
                 ->make(true);
         }

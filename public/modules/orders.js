@@ -20,10 +20,6 @@ $(document).ready(function () {
                 data: "customer.full_name",
                 name: "customer.full_name",
             },
-            {
-                data: "spot_price",
-                name: "spot_price",
-            },
             // {
             //     data: "product_id",
             //     name: "product_id",
@@ -35,6 +31,10 @@ $(document).ready(function () {
              {
                 data: "delivery_method",
                 name: "delivery_method",
+            },
+            {
+                data: "spot_price",
+                name: "spot_price",
             },
             {
                 data: "mark_up",

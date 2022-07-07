@@ -18,7 +18,7 @@ class ManufacturerController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Manufacturer::get();
+            $data = Manufacturer::latest();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

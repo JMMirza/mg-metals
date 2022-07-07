@@ -19,7 +19,7 @@ class CatergoryController extends Controller
         $categories = Catergory::whereNull('parent_id')->get();
         if ($request->ajax()) {
 
-            $data = Catergory::get();
+            $data = Catergory::latest();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

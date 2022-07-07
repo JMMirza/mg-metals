@@ -14,10 +14,10 @@
                             <tr>
                                 {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
-                                <th>Spot Price</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Delivery Method</th>
+                                <th>Spot Price</th>
                                 <th>Mark Up</th>
                                 <th>Quantity</th>
                                 <th>Created At</th>
@@ -30,10 +30,10 @@
                             <tr>
                                 {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
-                                <th>Spot Price</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
                                 <th>Delivery Method</th>
+                                <th>Spot Price</th>
                                 <th>Mark Up</th>
                                 <th>Quantity</th>
                                 <th>Created At</th>
