@@ -14,9 +14,75 @@
                         enctype='multipart/form-data' novalidate>
                         @csrf
 
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="form-label-group in-border">
+                                <label for="sku" class="form-label">SKU (庫存單位)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('sku')) is-invalid @endif" id="sku"
+                                    name="sku" placeholder="Enter SKU" value="{{ old('sku') }}" required>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('sku'))
+                                        {{ $errors->first('sku') }}
+                                    @else
+                                        SKU is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
+                                <select class="form-select form-control mb-3" name="catergory_id" required>
+                                    <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            @if (old('catergory_id') == $category->id) {{ 'selected' }} @endif>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('catergory_id'))
+                                        {{ $errors->first('catergory_id') }}
+                                    @else
+                                        Select the Category!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="manufacturer_id" class="form-label">Manufacturer</label>
+                                <select class="form-select form-control mb-3" name="manufacturer_id" required>
+                                    <option value="" @if (old('manufacturer_id') == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    @foreach ($manufacturers as $manufacturer)
+                                        <option value="{{ $manufacturer->id }}"
+                                            @if (old('manufacturer_id') == $manufacturer->id) {{ 'selected' }} @endif>
+                                            {{ $manufacturer->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('manufacturer_id'))
+                                        {{ $errors->first('manufacturer_id') }}
+                                    @else
+                                        Select the Manufacturer!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-12">
-                                <ul class="nav nav-tabs mb-3" role="tablist">
+                                <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab"
                                             aria-selected="true">
@@ -129,72 +195,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12 mb-3">
-                            <div class="form-label-group in-border">
-                                <label for="sku" class="form-label">SKU (庫存單位)</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('sku')) is-invalid @endif"
-                                    id="sku" name="sku" placeholder="Enter SKU" value="{{ old('sku') }}"
-                                    required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('sku'))
-                                        {{ $errors->first('sku') }}
-                                    @else
-                                        SKU is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
-                                <select class="form-select form-control mb-3" name="catergory_id" required>
-                                    <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            @if (old('catergory_id') == $category->id) {{ 'selected' }} @endif>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('catergory_id'))
-                                        {{ $errors->first('catergory_id') }}
-                                    @else
-                                        Select the Category!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="manufacturer_id" class="form-label">Manufacturer</label>
-                                <select class="form-select form-control mb-3" name="manufacturer_id" required>
-                                    <option value="" @if (old('manufacturer_id') == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    @foreach ($manufacturers as $manufacturer)
-                                        <option value="{{ $manufacturer->id }}"
-                                            @if (old('manufacturer_id') == $manufacturer->id) {{ 'selected' }} @endif>
-                                            {{ $manufacturer->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('manufacturer_id'))
-                                        {{ $errors->first('manufacturer_id') }}
-                                    @else
-                                        Select the Manufacturer!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
@@ -224,7 +225,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12" id="fixed_amount_div" style="display: none">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <div class="input-group">
@@ -234,7 +235,7 @@
                                     <input type="decimal" step="0.001"
                                         class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                         id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
-                                        value="{{ old('fixed_amount') }}">
+                                        value="{{ old('fixed_amount') }}" disabled>
                                 </div>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('fixed_amount'))
@@ -291,10 +292,11 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12" id="mark_up_div_1" style="display: none">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="markup_type" class="form-label">Mark up Type (加價類型)</label>
-                                <select id="markup_type" class="form-select form-control mb-3" name="markup_type">
+                                <select id="markup_type" class="form-select form-control mb-3" name="markup_type"
+                                    disabled>
                                     <option value="" @if (old('markup_type') == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -317,13 +319,13 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12" id="mark_up_div_2" style="display: none">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="mark_up" class="form-label">Mark Up Amount</label>
                                 <input type=number step=any
                                     class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
                                     id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
-                                    value="{{ old('mark_up') }}">
+                                    value="{{ old('mark_up') }}" disabled>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('mark_up'))
                                         {{ $errors->first('mark_up') }}
@@ -334,7 +336,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-8 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="product_picture" class="form-label">Product Picture (產品圖片)</label>
                                 <input type="file"
@@ -498,10 +500,10 @@
                 var selected_option = $('#pricing_type').val();
                 if (selected_option == 'fix_price') {
                     // document.getElementById("promo_amount_div").style.display = "none";
-                    document.getElementById("fixed_amount_div").style.display = "block";
+                    $('#fixed_amount').attr('disabled', false);
                 }
                 if (selected_option == 'use_feed') {
-                    document.getElementById("fixed_amount_div").style.display = "none";
+                    $('#fixed_amount').attr('disabled', true);
                     // document.getElementById("promo_amount_div").style.display = "block";
                 }
             });
@@ -509,12 +511,12 @@
             $("#surcharge_at_product").change(function() {
                 var selected_option = $('#surcharge_at_product').val();
                 if (selected_option == 'yes') {
-                    document.getElementById("mark_up_div_1").style.display = "block";
-                    document.getElementById("mark_up_div_2").style.display = "block";
+                    $('#markup_type').attr('disabled', false);
+                    $('#mark_up').attr('disabled', false);
                 }
                 if (selected_option == 'no') {
-                    document.getElementById("mark_up_div_1").style.display = "none";
-                    document.getElementById("mark_up_div_2").style.display = "none";
+                    $('#markup_type').attr('disabled', true);
+                    $('#mark_up').attr('disabled', true);
                 }
             });
         })

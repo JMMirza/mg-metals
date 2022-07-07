@@ -26,6 +26,7 @@
                                 <th>Passport Number</th>
                                 <th>Nationality</th>
                                 <th>User Type</th>
+                                <th>Email Verified</th>
                                 <th>Verified</th>
                                 <th>Created At</th>
                                 <th>Action</th>

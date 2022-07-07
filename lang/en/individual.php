@@ -12,5 +12,7 @@ return [
     'Nationality' => 'NATIONALITY',
     'ADDRESS' => 'ADDRESS',
     'gender' => 'GENDER',
-    'verified' => 'STATUS'
+    'verified' => 'STATUS',
+    'referral_code' => 'REFERRAL CODE',
+    'referred_by' => 'REFERRED BY'
 ];

@@ -45,6 +45,8 @@
                             <li><a href="{{ route('customer-orders') }}" class="text-center">My Orders</a></li>
                             <li><a href="{{ route('customer-commissions') }}" class="text-center">My Commission</a>
                             </li>
+                            <li><a href="{{ route('customer-referrals') }}" class="text-center">My Referrals</a>
+                            </li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

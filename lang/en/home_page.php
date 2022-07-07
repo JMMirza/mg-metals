@@ -84,5 +84,6 @@ return [
     'save' => 'Save',
     'orders' => 'ORDERS',
     'product_commission' => 'My COMMISSION',
-    'products' => 'Products'
+    'products' => 'Products',
+    'referrals' => 'MY REFERRALS'
 ];

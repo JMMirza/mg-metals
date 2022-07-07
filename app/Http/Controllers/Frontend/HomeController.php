@@ -130,7 +130,7 @@ class HomeController extends Controller
             'customer_type' => $request->customer_type,
         ];
 
-        if($request->has('referral_code')){
+        if ($request->has('referral_code')) {
 
             $agent = User::where('referral_code', $request->referred_by)->first();
 
@@ -252,6 +252,14 @@ class HomeController extends Controller
             return view('frontend.orders.index', ['orders' => $orders]);
         }
         return view('frontend.orders.index');
+    }
+
+    public function customer_referrals()
+    {
+        $user = \Auth::user();
+        $referrals = User::with('customer')->where('referred_by', $user->referral_code)->latest()->get();
+        // dd($referrals->toArray());
+        return view('frontend.my_referrals.index', ['referrals' => $referrals]);
     }
 
     public function customer_commissions()

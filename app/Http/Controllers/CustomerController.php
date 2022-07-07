@@ -33,10 +33,17 @@ class CustomerController extends Controller
                         return '<span class="badge bg-info">Verified</span>';
                     }
                 })
+                ->addColumn('email_verified', function ($row) {
+                    if ($row->user->email_verified_at == null) {
+                        return '<span class="badge bg-danger">UnVerified</span>';
+                    } else {
+                        return '<span class="badge bg-info">Verified</span>';
+                    }
+                })
                 ->addColumn('user_type', function ($row) {
                     return strtoupper($row->user->customer_type);
                 })
-                ->rawColumns(['action', 'is_verified', 'user_type'])
+                ->rawColumns(['action', 'is_verified', 'user_type', 'email_verified'])
                 ->make(true);
         }
         $users = User::all();
