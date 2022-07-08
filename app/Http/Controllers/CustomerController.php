@@ -231,4 +231,22 @@ class CustomerController extends Controller
             print_r($e->errorInfo);
         }
     }
+    public function verify_user(Request $request)
+    {
+        $user_id = $request->user_id;
+        $user = User::find($user_id);
+        // dd($user);
+        if ($user) {
+            if ($user->is_verified == 0) {
+                $user->is_verified = 1;
+                $user->save();
+                return true;
+            } else {
+                $user->is_verified = 0;
+                $user->save();
+                return true;
+            }
+        }
+        return false;
+    }
 }

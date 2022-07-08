@@ -13,6 +13,7 @@ use App\Models\CustomerShareholder;
 use App\Models\AuthorizedTradingRepresentative;
 use App\Models\Order;
 use App\Models\ProductCommission;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +25,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $_products = Product::with('category');
+        $_products = Product::with('category')->whereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'))->where('status', 'active');
         $products = $_products->limit(3)->latest()->get();
 
         return view('frontend.home.index', [
@@ -34,7 +35,7 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-        $_products = Product::with('category');
+        $_products = Product::with('category')->whereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'))->where('status', 'active');
 
         if ($request->has('category')) {
 

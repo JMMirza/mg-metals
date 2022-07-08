@@ -67,6 +67,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['product-commission' => ProductCommissionController::class]);
     Route::resources(['orders' => OrderController::class]);
     Route::resources(['inventories' => InventoryController::class]);
+    Route::get('verify-user', [CustomerController::class, 'verify_user'])->name('verify-user');
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');
     Route::get('customer-referrals', [HomeCtrl::class, 'customer_referrals'])->name('customer-referrals');
     Route::get('customer-commissions', [HomeCtrl::class, 'customer_commissions'])->name('customer-commissions');
