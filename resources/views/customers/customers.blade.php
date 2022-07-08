@@ -21,6 +21,7 @@
                         <thead>
                             <tr>
                                 <th>Full name</th>
+                                <th>Email</th>
                                 <th>Gender</th>
                                 <th>Phone Number</th>
                                 <th>Passport Number</th>

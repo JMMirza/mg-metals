@@ -18,6 +18,10 @@ $(document).ready(function () {
                 name: "full_name",
             },
             {
+                data: "user.email",
+                name: "user.email",
+            },
+            {
                 data: "gender",
                 name: "gender",
             },
@@ -125,7 +129,7 @@ $(document).ready(function () {
             },
             cache: false,
             success: function (data) {
-                alert(data);
+                // alert(data);
                $("#customers-data-table").DataTable().ajax.reload();
             },
             error: function () {},
@@ -146,7 +150,7 @@ $(document).ready(function () {
             },
             cache: false,
             success: function (data) {
-                alert(data);
+                // alert(data);
                $("#customers-data-table").DataTable().ajax.reload();
             },
             error: function () {},
