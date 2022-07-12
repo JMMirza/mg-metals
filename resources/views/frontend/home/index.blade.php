@@ -10,17 +10,17 @@
     @include('frontend.home.services')
 
 
-    <section class="page-section pt-0 pb-0 banner-section bg-dark"
-        data-background="{{ asset('frontend/images/full-width-images/section-bg-2.jpg') }}">
+    <section class="page-section pt-0 pb-0 banner-section bg-dark bg-dark-alfa-50"
+        data-background="{{ asset('frontend/images/banners/banner.jpg') }}">
         <div class="container relative">
 
             <div class="row">
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
 
                     <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
-                        <div class="banner-content">
-                            <h3 class="banner-heading font-alt">
+                        <div class="banner-content text-center">
+                            <h3 class="banner-heading font-alt bold">
                                 {{ __('home_page.INTERESTED IN ANY OF OUR MEMBER SERVICES?') }}</h3>
                             <div class="banner-decription">{{ __('home_page.sign_up_or_login') }}</div>
                             <div class="local-scroll">
@@ -34,9 +34,6 @@
 
                 </div>
 
-                <div class="col-sm-6 banner-image wow fadeInUp">
-                    <img src="{{ asset('frontend') }}/images/promo-1.png" alt="" />
-                </div>
 
             </div>
 
@@ -51,9 +48,11 @@
                 <div class="col-md-4">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-descr align-center">
-                            <div class="alt-features-icon">
-                                <span class="icon-flag"></span>
-                            </div>
+                        <div class="alt-tabs-icon">
+                        
+                            <img src="{{ asset('frontend/images/banners/Icon-Cert.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
+                        </div>
+                            <h4 class="heading">CREDENTIAL</h4>
                             {{ __('home_page.choose_us_1') }}
                         </div>
                     </div>
@@ -62,9 +61,11 @@
                 <div class="col-md-4">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-descr align-center">
-                            <div class="alt-features-icon">
-                                <span class="icon-clock"></span>
-                            </div>
+                        <div class="alt-tabs-icon">
+                        
+                        <img src="{{ asset('frontend/images/banners/Icon-Sustain.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
+                    </div>
+                        <h4  class="heading">SUSTAINABILITY</h4>
                             {{ __('home_page.choose_us_2') }}
                         </div>
                     </div>
@@ -73,9 +74,11 @@
                 <div class="col-md-4">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-descr align-center">
-                            <div class="alt-features-icon">
-                                <span class="icon-chat"></span>
-                            </div>
+                        <div class="alt-tabs-icon">
+                        
+                        <img src="{{ asset('frontend/images/banners/Icon-Trusted.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
+                    </div>
+                        <h4  class="heading">CREDIBILITY</h4>
                             {{ __('home_page.choose_us_3') }}
                         </div>
                     </div>
@@ -93,7 +96,7 @@
     @include('frontend.home.newsletter')
 
 
-    <section class="page-section" id="contact">
+    <section class="page-section" id="contact" style="padding:50px 0px !important">
         <div class="container relative">
 
             <h2 class="section-title font-alt mb-70 mb-sm-40">

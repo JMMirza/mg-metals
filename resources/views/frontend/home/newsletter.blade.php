@@ -1,4 +1,4 @@
-<section class="small-section bg-gray-lighter">
+<section class="small-section bg-gray-lighter" style="display:none !Important">
     <div class="container relative">
 
         <form class="form align-center" id="mailchimp">

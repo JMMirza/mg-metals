@@ -10,7 +10,8 @@
                     aria-selected="true">
 
                     <div class="alt-tabs-icon">
-                        <span class="icon-strategy"></span>
+                        
+                        <img src="{{ asset('frontend/images/banners/service-1.png') }}" alt="image" class="icon">
                     </div>
 
                     {{ __('home_page.service_title_1') }}
@@ -21,7 +22,8 @@
                     aria-selected="false">
 
                     <div class="alt-tabs-icon">
-                        <span class="icon-desktop"></span>
+                        
+                        <img src="{{ asset('frontend/images/banners/service-2.png') }}" alt="image" class="icon">
                     </div>
 
                     {{ __('home_page.service_title_2') }}
@@ -31,7 +33,8 @@
                 <a href="#service-graphic" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">
 
                     <div class="alt-tabs-icon">
-                        <span class="icon-tools"></span>
+                        
+                        <img src="{{ asset('frontend/images/banners/service-3.png') }}" alt="image" class="icon">
                     </div>
 
                     {{ __('home_page.service_title_3') }}
@@ -42,22 +45,14 @@
                     aria-selected="false">
 
                     <div class="alt-tabs-icon">
-                        <span class="icon-gears"></span>
+                        
+                        <img src="{{ asset('frontend/images/banners/service-4.png') }}" alt="image" class="icon">
                     </div>
 
                     {{ __('home_page.service_title_4') }}
                 </a>
             </li>
-            <li>
-                <a href="{{ route('shop') }}" class="">
-
-                    <div class="alt-tabs-icon">
-                        <span class="icon-camera"></span>
-                    </div>
-
-                    {{ __('home_page.service_title_5') }}
-                </a>
-            </li>
+           
         </ul>
         <!-- End Nav tabs -->
 

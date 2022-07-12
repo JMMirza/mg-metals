@@ -54,16 +54,6 @@
                                 {{ __('home_page.service_title_4') }}
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('shop') }}" class="">
-
-                                <div class="alt-tabs-icon">
-                                    <span class="icon-camera"></span>
-                                </div>
-
-                                {{ __('home_page.service_title_5') }}
-                            </a>
-                        </li>
                     </ul>
 
                     <!-- Tab panes -->

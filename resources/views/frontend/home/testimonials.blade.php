@@ -1,5 +1,5 @@
-<section class="page-section bg-dark bg-dark-alfa-90 fullwidth-slider"
-    data-background="{{ asset('frontend/images/full-width-images/section-bg-3.jpg') }}">
+<section class="page-section bg-dark bg-dark-alfa-70 fullwidth-slider"
+    data-background="{{ asset('frontend/images/banners/banner2.jpg') }}">
 
     <!-- Slide Item -->
     <div>

@@ -1,4 +1,4 @@
-<section class="home-section bg-gray parallax-2 web-banner" data-background="{{ asset('frontend/images/banner.png') }}"
+<section class="home-section home-section-banner bg-gray parallax-2 web-banner" 
     id="home">
     <div class="js-height-full">
 
@@ -29,6 +29,11 @@
         <!-- End Scroll Down -->
 
     </div>
+   
+    <!-- <video class="bg-video" autoplay loop preload="metadata" >
+    <source type="video/mp4" src="{{ asset('frontend/images/banners/bg-video.mp4') }}">
+    </video> -->
+    <video class="bg-video" role="presentation" crossorigin="anonymous" playsinline="" preload="auto" muted="" loop="" tabindex="-1" width="100%" height="100%" autoplay="" src="https://video.wixstatic.com/video/942665_f1828cf6463f406cbc297c0e9bbdd02a/1080p/mp4/file.mp4" style=""></video>
 </section>
 
 
