@@ -25,7 +25,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $_products = Product::with('category')->whereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'))->where('status', 'active');
+        $_products = Product::with('category')->where('status', 'active')->where(function($query){
+            $query->whereNull('valid_till')->orWhereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'));
+        });
         $products = $_products->limit(3)->latest()->get();
 
         return view('frontend.home.index', [
@@ -35,7 +37,10 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-        $_products = Product::with('category')->whereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'))->where('status', 'active');
+        $_products = Product::with('category')->where('status', 'active')->where(function($query){
+
+            $query->whereNull('valid_till')->orWhereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'));
+        });
 
         if ($request->has('category')) {
 
@@ -45,6 +50,9 @@ class HomeController extends Controller
 
             $_products = $_products->where(['catergory_id' => $request->category]);
         }
+
+        // dd($_products->get());
+
 
         $products = $_products->paginate(12);
         $categories = Catergory::whereNull('parent_id')->with(['children'])->get();

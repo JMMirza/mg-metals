@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class Product extends Model
 {
@@ -38,6 +40,7 @@ class Product extends Model
         'tier_commission_2',
         'tier_commission_3'
     ];
+
     protected $dates = [
 
         'created_at',
@@ -98,12 +101,28 @@ class Product extends Model
             } else {
                 $final_price = $product->fixed_amount;
             }
+
         } else {
 
+
+
             try {
-                $response = Http::get('http://150.242.218.15:3080/');
-                $resp = $response->object();
-                $gold_price = $resp->ask;
+
+                $gold_price = 0;
+
+                if(Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
+
+                    $gold_price = Session::get('gold_price');
+
+                }else{
+
+                    $response = Http::get('http://150.242.218.15:3080/');
+                    $resp = $response->object();
+                    $gold_price = $resp->ask;
+
+                    Session::put('gold_price', $gold_price);
+                    Session::put('gold_price_expires_at', Carbon::now()->addMinutes(10)->timestamp);
+                }
 
                 if ($product->surcharge_at_product == 'yes') {
 

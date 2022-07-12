@@ -3,7 +3,7 @@
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
             <a href="{{ route('home') }}" class="logo">
-                <img src="{{ asset('frontend/images/mgmetals_logo.png') }}" alt="" />
+                <img src="{{ asset('frontend/images/mg-logo.webp') }}" alt="" />
             </a>
         </div>
         <div class="mobile-nav" role="button" tabindex="0">
