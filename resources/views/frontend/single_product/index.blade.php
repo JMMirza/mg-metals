@@ -52,7 +52,7 @@
                     <hr class="mt-0 mb-30" />
 
                     <div class="mb-30">
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -80,7 +80,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         @if (\Auth::user())
                             <form method="post" action="{{ route('customer-products.store') }}" class="form">
