@@ -6715,8 +6715,8 @@ section:hover .small-item-carousel .owl-next {
     font-weight: bold !important;
     margin-bottom: 15px;
 }
-.form-card .card-body .form-group a{
-    font-size: 12px !important
+.form-card .card-body .form-group a {
+    font-size: 12px !important;
 }
 .form-card .card-body .form-group .radio-inline {
     font-size: 12px;
@@ -6753,7 +6753,7 @@ section:hover .small-item-carousel .owl-next {
     z-index: 99;
     height: 12px;
     width: 12px;
-    border-radius:50px;
+    border-radius: 50px;
     background: #bf8a00;
     top: 50%;
     left: 50%;
@@ -6781,7 +6781,7 @@ section:hover .small-item-carousel .owl-next {
     width: 22px;
     background: #fff;
     border: 1px solid #dedede;
-    border-radius:2px;
+    border-radius: 2px;
     cursor: pointer;
 }
 .form-card .card-body .form-group .checkbox-inline input:checked + span::after {
@@ -6797,8 +6797,8 @@ section:hover .small-item-carousel .owl-next {
     transform: translate(-50%, -50%);
 }
 .form-card .card-body table tr th,
-.form-card .card-body table tr td{
-    font-size: 12px ;
+.form-card .card-body table tr td {
+    font-size: 12px;
 }
 .form-card .card-body .footer {
     display: flex;
@@ -6822,7 +6822,6 @@ section:hover .small-item-carousel .owl-next {
 }
 .form-card .card-body .footer .btn-default {
     background: #444444;
-    
 }
 /*****  form-card *******/
 
@@ -6839,122 +6838,124 @@ section:hover .small-item-carousel .owl-next {
     }
 }
 
-.left-nav-pills .nav-tabs{
-    border-color:transparent !important;
+.left-nav-pills .nav-tabs {
+    border-color: transparent !important;
 }
-.left-nav-pills .nav-tabs .nav-item{
+.left-nav-pills .nav-tabs .nav-item {
     width: 100% !important;
 }
-.left-nav-pills .nav-tabs .nav-item .nav-link{
+.left-nav-pills .nav-tabs .nav-item .nav-link {
     height: 50px !important;
     display: flex;
     align-items: center;
-    padding:5px 10px ;
-   
+    padding: 5px 10px;
+
     width: 100%;
     border-bottom: 1px solid #dedede !important;
 }
-.left-nav-pills .nav-tabs .nav-item:last-child .nav-link{
+.left-nav-pills .nav-tabs .nav-item:last-child .nav-link {
     border-bottom: none !important;
 }
-.left-nav-pills .nav-tabs .nav-item .nav-link:hover{
+.left-nav-pills .nav-tabs .nav-item .nav-link:hover {
     background: #dedede !important;
     cursor: pointer;
 }
 .left-nav-pills .nav-tabs .nav-item .nav-link.active,
-.left-nav-pills .nav-tabs .nav-item .nav-link.active:hover{
-   background: #495057 !important;
+.left-nav-pills .nav-tabs .nav-item .nav-link.active:hover {
+    background: #495057 !important;
     font-weight: 500 !important;
-    color:#fff !important;
+    color: #fff !important;
     border-radius: 4px !important;
 }
 .login-tabs .nav-item .nav-link.active,
-.login-tabs .nav-item .nav-link.active:hover{
+.login-tabs .nav-item .nav-link.active:hover {
     color: #fff;
     font-weight: bold;
     background-color: #495057;
     border-color: #495057;
     border-radius: 4px 4px 0px 0px !important;
 }
-.login-tabs .nav-item .nav-link:hover{
+.login-tabs .nav-item .nav-link:hover {
     color: #495057;
     background-color: #efefef;
     border-color: #efefef;
     border-radius: 4px 4px 0px 0px !important;
 }
-.login-tab-content{
-    width:450px !important
+.login-tab-content {
+    width: 450px !important;
 }
-.login-tab-content  .form-card{
+.login-tab-content .form-card {
     border-radius: 0px 0px 4px 4px !important;
 }
-.login-tab-content  .form-card .card-header span{
-    margin:0px !important
+.login-tab-content .form-card .card-header span {
+    margin: 0px !important;
 }
-.tab-content{
+.tab-content {
     padding-top: 0px !important;
 }
-.row>* {
+.row > * {
     margin-top: 0px !important;
 }
 .owl-wrapper h3,
 .section-title,
-.banner-heading{
-    color:#D6A650 !important;
+.banner-heading {
+    color: #d6a650 !important;
     font-weight: bold;
 }
-.heading{
-    color:#D6A650 !important;
+.heading {
+    color: #d6a650 !important;
 }
-.tpl-alt-tabs > li > a{
-    color:#000 !important;
-    opacity: .6;
+.tpl-alt-tabs > li > a {
+    color: #000 !important;
+    opacity: 0.6;
 }
-.tpl-alt-tabs img{
-
+.tpl-alt-tabs img {
     height: 100px !important;
-    width: 100px  !important;
+    width: 100px !important;
 }
-.tpl-alt-tabs > li > a img{
-    opacity: .6;
-    transition: all .3s;
+.tpl-alt-tabs > li > a img {
+    opacity: 0.6;
+    transition: all 0.3s;
     height: 100px !important;
-    width: 100px  !important;
+    width: 100px !important;
 }
-.tpl-alt-tabs > li > a.active{
-    color:#D6A650 !important;
+.tpl-alt-tabs > li > a.active {
+    color: #d6a650 !important;
     opacity: 1;
 }
-.tpl-alt-tabs > li > a.active img{
+.tpl-alt-tabs > li > a.active img {
     opacity: 1;
 }
-.tpl-alt-tabs > li > a:hover{
-    color:#D6A650 !important;
+.tpl-alt-tabs > li > a:hover {
+    color: #d6a650 !important;
     opacity: 1;
 }
-.tpl-alt-tabs > li > a:hover img{
+.tpl-alt-tabs > li > a:hover img {
     opacity: 1;
 }
-.alt-tabs-icon img{
-
+.alt-tabs-icon img {
 }
-.home-section-banner .bg-video{
+.home-section-banner .bg-video {
     width: 100%;
     height: 100%;
     position: absolute;
-    top:0;left:0;right:0;bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 88;
-    object-fit: cover; object-position: center center;
+    object-fit: cover;
+    object-position: center center;
 }
-.home-section-banner{
+.home-section-banner {
     height: 639px;
 }
-.home-section-banner .js-height-full{
+.home-section-banner .js-height-full {
     position: absolute;
     z-index: 999;
     width: 100%;
 }
-.sticky-wrapper{
+.sticky-wrapper {
     background: transparent;
     position: absolute;
     z-index: 99;
@@ -6962,15 +6963,21 @@ section:hover .small-item-carousel .owl-next {
     width: 100%;
     left: 0px;
 }
-.sticky-wrapper .main-nav{
+.sticky-wrapper .main-nav {
     background-color: transparent;
 }
-.sticky-wrapper.is-sticky{
+.sticky-wrapper.is-sticky {
     z-index: 99999;
 }
-.sticky-wrapper.is-sticky .main-nav{
+.sticky-wrapper.is-sticky .main-nav {
     background: #fff !important;
 }
-.inner-nav ul li a{
+.inner-nav ul li a {
     font-weight: bold;
+    color: #fff;
+}
+
+.small-height .inner-nav ul li a {
+    font-weight: bold;
+    color: #777;
 }

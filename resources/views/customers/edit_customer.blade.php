@@ -911,7 +911,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-md-6 mt-3">
+                                <div class="col-12 col-md-4 mt-3">
                                     <label for="">Nationality</label>
                                     <div class="form-group">
                                         <select class="form-select" name="nationality" required>
@@ -962,10 +962,12 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="col-12 text-end">
-                            <button class="btn btn-primary" type="submit">Save Changes</button>
-                            <a href="{{ route('customers.index') }}" type="button"
-                                class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
+                        <div class="row">
+                            <div class="col-12 mt-3 text-end">
+                                <button class="btn btn-primary" type="submit">Save Changes</button>
+                                <a href="{{ route('customers.index') }}" type="button"
+                                    class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
+                            </div>
                         </div>
                     </form>
 

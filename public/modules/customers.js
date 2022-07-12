@@ -5,11 +5,15 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         responsive: true,
-
         scrollX: true,
+        // scrollY: "300px",
+        scrollCollapse: true,
         language: {
             search: "",
             searchPlaceholder: "Search...",
+        },
+        fixedColumns: {
+            right: 1,
         },
         ajax: route,
         columns: [
@@ -115,7 +119,7 @@ $(document).ready(function () {
         });
     });
 
-     $(document).on("click", "#unverified", function (e) {
+    $(document).on("click", "#unverified", function (e) {
         const user_id = $(this).val();
         var url = $(this).data("url");
         $.ajax({
@@ -130,13 +134,13 @@ $(document).ready(function () {
             cache: false,
             success: function (data) {
                 // alert(data);
-               $("#customers-data-table").DataTable().ajax.reload();
+                $("#customers-data-table").DataTable().ajax.reload();
             },
             error: function () {},
         });
     });
 
-     $(document).on("click", "#verified", function (e) {
+    $(document).on("click", "#verified", function (e) {
         const user_id = $(this).val();
         var url = $(this).data("url");
         $.ajax({
@@ -151,7 +155,7 @@ $(document).ready(function () {
             cache: false,
             success: function (data) {
                 // alert(data);
-               $("#customers-data-table").DataTable().ajax.reload();
+                $("#customers-data-table").DataTable().ajax.reload();
             },
             error: function () {},
         });
@@ -240,6 +244,4 @@ $(document).ready(function () {
             error: function () {},
         });
     });
-
-
 });
