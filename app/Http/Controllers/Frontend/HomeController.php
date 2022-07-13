@@ -139,18 +139,17 @@ class HomeController extends Controller
             'customer_type' => $request->customer_type,
         ];
 
+        $referral_code = strtoupper(Str::random(6));
+        $input['referral_code'] = $referral_code;
         if ($request->has('referral_code')) {
 
             $agent = User::where('referral_code', $request->referred_by)->first();
 
-            $referral_code = strtoupper(Str::random(6));
 
             if ($agent) {
                 $input['referred_by'] = $request->referred_by;
-                $input['referral_code'] = $referral_code;
             } else {
                 $input['referred_by'] = null;
-                $input['referral_code'] = $referral_code;
             }
         }
 
