@@ -40,4 +40,17 @@ $(document).ready(function () {
             },
         ],
     });
+    $(document).ready(function () {
+        $("#surcharge_at_category").change(function () {
+            var selected_option = $("#surcharge_at_category").val();
+            if (selected_option == "yes") {
+                $("#markup_type").attr("disabled", false);
+                $("#mark_up").attr("disabled", false);
+            }
+            if (selected_option == "no") {
+                $("#markup_type").attr("disabled", true);
+                $("#mark_up").attr("disabled", true);
+            }
+        });
+    });
 });

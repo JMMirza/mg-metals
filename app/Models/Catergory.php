@@ -15,7 +15,10 @@ class Catergory extends Model
         'name_s_ch',
         'name_t_ch',
         'abbreviation',
-        'parent_id'
+        'parent_id',
+        'surcharge_at_category',
+        'markup_type',
+        'mark_up',
     ];
     protected $dates = [
 

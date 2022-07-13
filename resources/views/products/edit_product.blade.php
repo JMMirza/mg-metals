@@ -14,9 +14,64 @@
                         @csrf
                         @method('PUT')
 
+
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <div class="form-label-group in-border">
+                                <label for="sku" class="form-label">SKU (庫存單位)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('sku')) is-invalid @endif" id="sku"
+                                    name="sku" placeholder="Enter SKU" value="{{ $product->sku }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('sku'))
+                                        {{ $errors->first('sku') }}
+                                    @else
+                                        SKU is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-label-group in-border">
+                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
+                                <select class="form-select form-control mb-3" name="catergory_id" required>
+                                    <option value="" @if ($product->catergory_id == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            @if ($product->catergory_id == $category->id) {{ 'selected' }} @endif>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-tooltip">Select the Category!</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-label-group in-border">
+                                <label for="manufacturer_id" class="form-label">Manufacturers</label>
+                                <select class="form-select form-control mb-3" name="manufacturer_id" required>
+                                    <option value="" @if ($product->manufacturer_id == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    @foreach ($manufacturers as $manufacturer)
+                                        <option value="{{ $manufacturer->id }}"
+                                            @if ($product->manufacturer_id == $manufacturer->id) {{ 'selected' }} @endif>
+                                            {{ $manufacturer->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-tooltip">Select the Manufacturer!</div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-12">
-                                <ul class="nav nav-tabs mb-3" role="tablist">
+                                <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab"
                                             aria-selected="true">
@@ -130,60 +185,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12 mb-3">
-                            <div class="form-label-group in-border">
-                                <label for="sku" class="form-label">SKU (庫存單位)</label>
-                                <input type="text"
-                                    class="form-control @if ($errors->has('sku')) is-invalid @endif"
-                                    id="sku" name="sku" placeholder="Enter SKU"
-                                    value="{{ $product->sku }}">
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('sku'))
-                                        {{ $errors->first('sku') }}
-                                    @else
-                                        SKU is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="form-label-group in-border">
-                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
-                                <select class="form-select form-control mb-3" name="catergory_id" required>
-                                    <option value="" @if ($product->catergory_id == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            @if ($product->catergory_id == $category->id) {{ 'selected' }} @endif>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-tooltip">Select the Category!</div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-label-group in-border">
-                                <label for="manufacturer_id" class="form-label">Manufacturers</label>
-                                <select class="form-select form-control mb-3" name="manufacturer_id" required>
-                                    <option value="" @if ($product->manufacturer_id == '') {{ 'selected' }} @endif
-                                        selected disabled>
-                                        Select One
-                                    </option>
-                                    @foreach ($manufacturers as $manufacturer)
-                                        <option value="{{ $manufacturer->id }}"
-                                            @if ($product->manufacturer_id == $manufacturer->id) {{ 'selected' }} @endif>
-                                            {{ $manufacturer->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-tooltip">Select the Manufacturer!</div>
-                            </div>
-                        </div>
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
@@ -262,12 +264,11 @@
                             </div>
                         </div>
 
-                        <div id="mark_up_div_1"
-                            @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif
-                            class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
-                                <select id="markup_type" class="form-select form-control mb-3" name="markup_type">
+                                <select id="markup_type" class="form-select form-control mb-3" name="markup_type"
+                                    @if ($product->surcharge_at_product == 'no') disabled @endif>
                                     <option value="" @if ($product->markup_type == '') {{ 'selected' }} @endif
                                         selected disabled>
                                         Select One
@@ -290,15 +291,13 @@
                             </div>
                         </div>
 
-                        <div id="mark_up_div_2"
-                            @if ($product->surcharge_at_product == 'yes') style="display: block" @else style="display: none" @endif
-                            class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="mark_up" class="form-label">Mark Up Amount</label>
                                 <input type=number step=any
                                     class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
                                     id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
-                                    value="{{ $product->mark_up }}">
+                                    value="{{ $product->mark_up }}" @if ($product->surcharge_at_product == 'no') disabled @endif>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('mark_up'))
                                         {{ $errors->first('mark_up') }}
@@ -510,23 +509,24 @@
             $("#pricing_type").change(function() {
                 var selected_option = $('#pricing_type').val();
                 if (selected_option == 'fix_price') {
-                    document.getElementById("fixed_amount_div").style.display = "block";
+                    // document.getElementById("promo_amount_div").style.display = "none";
+                    $('#fixed_amount').attr('disabled', false);
                 }
                 if (selected_option == 'use_feed') {
-                    document.getElementById("fixed_amount_div").style.display = "none";
+                    $('#fixed_amount').attr('disabled', true);
+                    // document.getElementById("promo_amount_div").style.display = "block";
                 }
             });
 
             $("#surcharge_at_product").change(function() {
                 var selected_option = $('#surcharge_at_product').val();
                 if (selected_option == 'yes') {
-                    document.getElementById("mark_up_div_1").style.display = "block";
-                    document.getElementById("mark_up_div_2").style.display = "block";
-
+                    $('#markup_type').attr('disabled', false);
+                    $('#mark_up').attr('disabled', false);
                 }
                 if (selected_option == 'no') {
-                    document.getElementById("mark_up_div_1").style.display = "none";
-                    document.getElementById("mark_up_div_2").style.display = "none";
+                    $('#markup_type').attr('disabled', true);
+                    $('#mark_up').attr('disabled', true);
                 }
             });
         })

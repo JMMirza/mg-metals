@@ -23,7 +23,7 @@
                             <tr>
                                 <td>{{ ucfirst($commission->tier_type) }}</td>
                                 <td>{{ $commission->product->name }}</td>
-                                <td>{{ $commission->product_price }} USD</td>
+                                <td>{{ $commission->product_price }}</td>
                                 @if ($commission->product->markup_type == 'flat')
                                     <td>{{ $commission->product_mark_up }} USD</td>
                                 @else

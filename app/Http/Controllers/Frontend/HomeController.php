@@ -25,7 +25,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $_products = Product::with('category')->where('status', 'active')->where(function($query){
+        $_products = Product::with('category')->where('status', 'active')->where(function ($query) {
             $query->whereNull('valid_till')->orWhereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'));
         });
         $products = $_products->limit(3)->latest()->get();
@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-        $_products = Product::with('category')->where('status', 'active')->where(function($query){
+        $_products = Product::with('category')->where('status', 'active')->where(function ($query) {
 
             $query->whereNull('valid_till')->orWhereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'));
         });
@@ -276,7 +276,7 @@ class HomeController extends Controller
         $user = \Auth::user();
         $customer = Customer::where('user_id', $user->id)->first();
         if ($customer) {
-            $commissions = ProductCommission::where('customer_id', $customer->id)->with(['product'])->get();
+            $commissions = ProductCommission::where('tier_id', $user->id)->with(['product'])->get();
             // dd($commissions->toArray());
             return view('frontend.customer_commissions.index', ['commissions' => $commissions]);
         }

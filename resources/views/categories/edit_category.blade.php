@@ -91,6 +91,77 @@
                             <div class="invalid-tooltip">Select the Category!</div>
                         </div>
                     </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="surcharge_at_category" class="form-label">Mark up at Category Level</label>
+                            <select id="surcharge_at_category" class="form-select form-control mb-3"
+                                name="surcharge_at_category" required>
+                                <option value="" @if ($category->surcharge_at_category == '') {{ 'selected' }} @endif
+                                    selected disabled>
+                                    Select One
+                                </option>
+                                <option value="yes" @if ($category->surcharge_at_category == 'yes') {{ 'selected' }} @endif>
+                                    Yes
+                                </option>
+                                <option value="no" @if ($category->surcharge_at_category == 'no') {{ 'selected' }} @endif>
+                                    No
+                                </option>
+                            </select>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('surcharge_at_category'))
+                                    {{ $errors->first('surcharge_at_category') }}
+                                @else
+                                    Surcharge at Product Level is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="markup_type" class="form-label">Mark up Type (價格類別)</label>
+                            <select id="markup_type" class="form-select form-control mb-3" name="markup_type"
+                                @if ($category->surcharge_at_product == 'no') disabled @endif>
+                                <option value="" @if ($category->markup_type == '') {{ 'selected' }} @endif
+                                    selected disabled>
+                                    Select One
+                                </option>
+                                <option value="flat" @if ($category->markup_type == 'flat') {{ 'selected' }} @endif>
+                                    Flat (餵價)
+                                </option>
+                                <option value="percentage"
+                                    @if ($category->markup_type == 'percentage') {{ 'selected' }} @endif>
+                                    Percentage (定價)
+                                </option>
+                            </select>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('markup_type'))
+                                    {{ $errors->first('markup_type') }}
+                                @else
+                                    Mark up Type is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="mark_up" class="form-label">Mark Up Amount</label>
+                            <input type=number step=any
+                                class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
+                                id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
+                                value="{{ $category->mark_up }}" @if ($category->surcharge_at_product == 'no') disabled @endif>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('mark_up'))
+                                    {{ $errors->first('mark_up') }}
+                                @else
+                                    Mark Up Amount is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-12 text-end">
                         <button class="btn btn-primary" type="submit">Save Changes</button>
                         <a href="{{ route('categories.index') }}" type="button"
