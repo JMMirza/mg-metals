@@ -22,7 +22,7 @@
                             <tr>
                                 <td>{{ $referral->id }}</td>
                                 <td>{{ $referral->name }}</td>
-                                <td>{{ $referral->email }} USD</td>
+                                <td>{{ $referral->email }}</td>
                                 <td>{{ $referral->customer->gender }}</td>
                                 <td>{{ $referral->customer->occupation }}</td>
                             </tr>
