@@ -108,6 +108,7 @@ class FrontendCustomerController extends Controller
                 return redirect(route('customer-profile-data.edit', $customer->id) . '?tab=corporate')
                     ->with('success', 'Account created successfully.');
             } else {
+                // dd($request->all());
                 return redirect(route('home'))
                     ->with('success', 'Account created successfully.');
             }

@@ -91,9 +91,9 @@
                 {{-- </div> --}}
             </div>
             <div class="col-12 col-md-6 mb-3">
-                <label class="form-label">{{ __('individual.Nationality') }}</label>
+                <label class="form-label">{{ __('individual.Nationality') }} *</label>
                 {{-- <div class="form-group"> --}}
-                <select class="form-select form-control " name="nationality" required>
+                <select class="form-select form-control @if ($errors->has('nationality')) is-invalid @endif" name="nationality" required>
                     <option value="" @if ($customer->nationality == '') {{ 'selected' }} @endif disabled>
                         {{ __('individual.Nationality') }}
                     </option>
@@ -110,7 +110,9 @@
                         Other
                     </option>
                 </select>
-
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('nationality') }}</strong>
+                </div>
                 {{-- </div> --}}
             </div>
             <div class="col-12 col-md-12 mb-3">
