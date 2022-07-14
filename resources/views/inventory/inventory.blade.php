@@ -24,7 +24,9 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Sr.#</th>
+                                <th>SKU</th>
+                                <th>Product ID</th>
                                 <th>Product Name</th>
                                 {{-- <th>Order ID</th> --}}
                                 <th>Units</th>
@@ -38,7 +40,9 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
+                                <th>Sr.#</th>
+                                <th>SKU</th>
+                                <th>Product ID</th>
                                 <th>Product Name</th>
                                 {{-- <th>Order ID</th> --}}
                                 <th>Units</th>

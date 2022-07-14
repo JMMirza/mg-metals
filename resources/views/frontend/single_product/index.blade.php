@@ -12,9 +12,18 @@
                     <div class="post-prev-img">
                         <a href="{{ $product->product_picture_url }}" class="lightbox-gallery-3 mfp-image"><img
                                 src="{{ $product->product_picture_url }}" alt="" /></a>
-                        <div class="intro-label">
+                        @if ($product->productsQuantity() != null)
+                            <div class="intro-label">
+                                <span class="badge badge-primary bg-green">In Stock</span>
+                            </div>
+                        @else
+                            <div class="intro-label">
+                                <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
+                            </div>
+                        @endif
+                        {{-- <div class="intro-label">
                             <span class="badge badge-danger bg-red">Sale</span>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

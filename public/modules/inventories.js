@@ -19,6 +19,14 @@ $(document).ready(function () {
             searchable: false
             },
             {
+                data: "sku",
+                name: "sku",
+            },
+            {
+                data: "id",
+                name: "id",
+            },
+            {
                 data: "product_name",
                 name: "product_name",
             },

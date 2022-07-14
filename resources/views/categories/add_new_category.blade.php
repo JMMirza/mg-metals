@@ -74,8 +74,8 @@
                         <div class="form-label-group in-border">
                             <label for="user_id" class="form-label">Categories</label>
                             <select class="form-select form-control mb-3" name="parent_id">
-                                <option value="" @if (old('parent_id') == '') {{ 'selected' }} @endif
-                                    selected disabled>
+                                <option value='' @if (old('parent_id') == '') {{ 'selected' }} @endif
+                                    selected>
                                     Select One
                                 </option>
                                 @foreach ($categories as $user)

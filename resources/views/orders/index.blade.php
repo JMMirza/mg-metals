@@ -12,10 +12,13 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                {{-- <th>CustomerID</th> --}}
-                                <th>Customer name</th>
-                                {{-- <th>Product id</th> --}}
-                                <th>Product name</th>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
+                                <th>Customer Email</th>
+                                <th>Customer Type</th>
+                                <th>Product ID</th>
+                                <th>Product SKU</th>
+                                <th>Product Name</th>
                                 <th>Delivery Method</th>
                                 <th>Spot Price</th>
                                 <th>Mark Up</th>
@@ -28,10 +31,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                {{-- <th>CustomerID</th> --}}
-                                <th>Customer name</th>
-                                {{-- <th>Product id</th> --}}
-                                <th>Product name</th>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
+                                <th>Customer Email</th>
+                                <th>Customer Type</th>
+                                <th>Product ID</th>
+                                <th>Product SKU</th>
+                                <th>Product Name</th>
                                 <th>Delivery Method</th>
                                 <th>Spot Price</th>
                                 <th>Mark Up</th>

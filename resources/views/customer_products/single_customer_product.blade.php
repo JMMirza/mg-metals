@@ -14,9 +14,9 @@
                             <tr>
                                 {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
-                                <th>Purchase Price</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
+                                <th>Purchase Price</th>
                                 <th>Created At</th>
                             </tr>
                         </thead>
@@ -27,9 +27,9 @@
                             <tr>
                                 {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
-                                <th>Purchase Price</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
+                                <th>Purchase Price</th>
                                 <th>Created At</th>
                             </tr>
                         </tfoot>
@@ -69,12 +69,8 @@
                     //     name: "customer_id",
                     // },
                     {
-                        data: "customer_name",
-                        name: "customer_name",
-                    },
-                    {
-                        data: "purchase_price",
-                        name: "purchase_price",
+                        data: "customer.full_name",
+                        name: "customer.full_name",
                     },
                     // {
                     //     data: "product_id",
@@ -83,6 +79,10 @@
                     {
                         data: "product.name",
                         name: "product.name",
+                    },
+                    {
+                        data: "purchase_price",
+                        name: "purchase_price",
                     },
                     {
                         data: "created_at",

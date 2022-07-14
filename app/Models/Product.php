@@ -70,6 +70,11 @@ class Product extends Model
         return $this->hasMany(CustomerProduct::class);
     }
 
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
+
     public function getProductPictureUrlAttribute()
     {
         $image = asset('frontend/images/shop/product-placeholder.jpg');
@@ -99,9 +104,9 @@ class Product extends Model
                     $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
                 }
             } else {
+                // $product->category()->;
                 $final_price = $product->fixed_amount;
             }
-
         } else {
 
 
@@ -110,11 +115,10 @@ class Product extends Model
 
                 $gold_price = 0;
 
-                if(Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
+                if (Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
 
                     $gold_price = Session::get('gold_price');
-
-                }else{
+                } else {
 
                     $response = Http::get('http://150.242.218.15:3080/');
                     $resp = $response->object();
@@ -167,15 +171,24 @@ class Product extends Model
         }
     }
 
-    public function productsInventory($product_id)
+    public function productsInventory($quantity)
     {
-        $inventory = Inventory::where('product_id', $product_id)->first();
-        if ($inventory) {
-            $inv_units = $inventory->units;
-            if ($inv_units > 0) {
-                return
-                    $inv_units;
+        $inventory = Inventory::where('product_id', $this->id)->sum('units');
+        // dd($inventory);
+        if ($inventory > 0 && $inventory > $this->on_hold) {
+            if ($inventory > $quantity) {
+                return $inventory;
             }
+        }
+        return null;
+    }
+
+    public function productsQuantity()
+    {
+        $inventory = Inventory::where('product_id', $this->id)->sum('units');
+        // dd($inventory);
+        if ($inventory > 0 && $inventory > $this->on_hold) {
+            return $inventory;
         }
         return null;
     }

@@ -12,10 +12,10 @@ $(document).ready(function () {
         },
         ajax: route,
         columns: [
-            // {
-            //     data: "customer_id",
-            //     name: "customer_id",
-            // },
+            {
+                data: "customer_id",
+                name: "customer_id",
+            },
             {
                 data: "customer.full_name",
                 name: "customer.full_name",
@@ -24,10 +24,10 @@ $(document).ready(function () {
                 data: "tier_type",
                 name: "tier_type",
             },
-            // {
-            //     data: "product_id",
-            //     name: "product_id",
-            // },
+            {
+                data: "product_id",
+                name: "product_id",
+            },
             {
                 data: "product.name",
                 name: "product.name",

@@ -10,7 +10,7 @@
     <i class="ri-delete-bin-5-line"></i>
 </a>
 <a href="{{ route('customer-product', $row->id) }}" class="btn btn-sm btn-primary btn-icon waves-effect waves-light">
-    <i class=" ri-customer-service-2-fill"></i>
+    <i class="ri-list-check"></i>
 </a>
 @if ($row->user->is_verified == 1)
     <button id="verified" value="{{ $row->user->id }}" data-url="{{ route('verify-user') }}"

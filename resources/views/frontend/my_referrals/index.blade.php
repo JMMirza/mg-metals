@@ -15,6 +15,7 @@
                             <th>Customer Email</th>
                             <th>Customer Gender</th>
                             <th>Customer Occupation</th>
+                            <th>Agent Code</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,6 +26,7 @@
                                 <td>{{ $referral->email }}</td>
                                 <td>{{ $referral->customer->gender }}</td>
                                 <td>{{ $referral->customer->occupation }}</td>
+                                <td>{{ $referral->referral_code }}</td>
                             </tr>
                         @empty
                             <tr>

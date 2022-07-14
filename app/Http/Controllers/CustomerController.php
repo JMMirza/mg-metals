@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\User;
+use App\Models\UserVerify;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class CustomerController extends Controller
 {
@@ -124,6 +127,17 @@ class CustomerController extends Controller
             'password' => Hash::make($request->password),
             'customer_type' => $request->customer_type
         ]);
+        $token = Str::random(64);
+
+        UserVerify::create([
+            'user_id' => $user->id,
+            'token' => $token
+        ]);
+
+        Mail::send('email.verification_email', ['token' => $token], function ($message) use ($request) {
+            $message->to($request->email);
+            $message->subject('Email Verification Mail');
+        });
         $input = $request->all();
         $input['user_id'] = $user->id;
         $input['full_name'] = $request->name;

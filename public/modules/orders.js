@@ -12,18 +12,30 @@ $(document).ready(function () {
         },
         ajax: route,
         columns: [
-            // {
-            //     data: "customer_id",
-            //     name: "customer_id",
-            // },
+            {
+                data: "customer_id",
+                name: "customer_id",
+            },
             {
                 data: "customer.full_name",
                 name: "customer.full_name",
             },
-            // {
-            //     data: "product_id",
-            //     name: "product_id",
-            // },
+            {
+                data: "customer.user.email",
+                name: "customer.user.email",
+            },
+            {
+                data: "customer.user.customer_type",
+                name: "customer.user.customer_type",
+            },
+            {
+                data: "product_id",
+                name: "product_id",
+            },
+            {
+                data: "product.sku",
+                name: "product.sku",
+            },
             {
                 data: "product.name",
                 name: "product.name",

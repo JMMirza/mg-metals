@@ -25,6 +25,9 @@ class CustomerProductController extends Controller
             $data = CustomerProduct::with(['product', 'customer'])->get();
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('purchase_price', function ($row) {
+                    return $row->purchase_price . ' USD';
+                })
                 // ->rawColumns()
                 ->make(true);
         }
@@ -67,8 +70,8 @@ class CustomerProductController extends Controller
         $user = User::find($request->user_id);
         if ($user->is_verified == 1) {
             $customer = Customer::where('user_id', $request->user_id)->first();
-            $product = Product::find($request->product_id);
-            $result = $product->productsInventory($product->id);
+            $product = Product::where('id', $request->product_id)->with('category')->first();
+            $result = $product->productsInventory($request->quantity);
             if ($result != null) {
                 if ($product->getProductCommission() != null) {
                     if ($user->referred_by != null) {
@@ -77,33 +80,58 @@ class CustomerProductController extends Controller
 
                         if ($tier_3 != null) {
                             $tier_3_commission = ($product->getProductCommission() / 100) * $product->tier_commission_3;
-                            $input_product_commission = [
-                                'customer_id' => $customer->id,
-                                'product_id' => $request->product_id,
-                                'product_price' => $product->getProductPrice(),
-                                'product_mark_up' => $product->mark_up,
-                                'tier_type' => 'tier_3',
-                                'tier_id' => $tier_3->id,
-                                'tier_commission' => $tier_3_commission,
-                                'tier_commission_percentage' => $product->tier_commission_3,
-                            ];
-
+                            if ($product->surcharge_at_product == 'no') {
+                                $input_product_commission = [
+                                    'customer_id' => $customer->id,
+                                    'product_id' => $request->product_id,
+                                    'product_price' => $product->getProductPrice(),
+                                    'product_mark_up' => $product->category->mark_up,
+                                    'tier_type' => 'tier_3',
+                                    'tier_id' => $tier_3->id,
+                                    'tier_commission' => $tier_3_commission,
+                                    'tier_commission_percentage' => $product->tier_commission_3,
+                                ];
+                            } else {
+                                $input_product_commission = [
+                                    'customer_id' => $customer->id,
+                                    'product_id' => $request->product_id,
+                                    'product_price' => $product->getProductPrice(),
+                                    'product_mark_up' => $product->mark_up,
+                                    'tier_type' => 'tier_3',
+                                    'tier_id' => $tier_3->id,
+                                    'tier_commission' => $tier_3_commission,
+                                    'tier_commission_percentage' => $product->tier_commission_3,
+                                ];
+                            }
                             ProductCommission::create($input_product_commission);
                         }
                         if ($tier_3->referred_by != null) {
                             $tier_2 = User::where('referral_code', $tier_3->referred_by)->first();
                             if ($tier_2 != null) {
                                 $tier_2_commission = ($product->getProductCommission() / 100) * $product->tier_commission_2;
-                                $input_product_commission = [
-                                    'customer_id' => $customer->id,
-                                    'product_id' => $request->product_id,
-                                    'product_price' => $product->getProductPrice(),
-                                    'product_mark_up' => $product->mark_up,
-                                    'tier_type' => 'tier_2',
-                                    'tier_id' => $tier_2->id,
-                                    'tier_commission' => $tier_2_commission,
-                                    'tier_commission_percentage' => $product->tier_commission_2,
-                                ];
+                                if ($product->surcharge_at_product == 'no') {
+                                    $input_product_commission = [
+                                        'customer_id' => $customer->id,
+                                        'product_id' => $request->product_id,
+                                        'product_price' => $product->getProductPrice(),
+                                        'product_mark_up' => $product->category->mark_up,
+                                        'tier_type' => 'tier_2',
+                                        'tier_id' => $tier_2->id,
+                                        'tier_commission' => $tier_2_commission,
+                                        'tier_commission_percentage' => $product->tier_commission_2,
+                                    ];
+                                } else {
+                                    $input_product_commission = [
+                                        'customer_id' => $customer->id,
+                                        'product_id' => $request->product_id,
+                                        'product_price' => $product->getProductPrice(),
+                                        'product_mark_up' => $product->mark_up,
+                                        'tier_type' => 'tier_2',
+                                        'tier_id' => $tier_2->id,
+                                        'tier_commission' => $tier_2_commission,
+                                        'tier_commission_percentage' => $product->tier_commission_2,
+                                    ];
+                                }
                                 ProductCommission::create($input_product_commission);
                             }
                             // dd($tier_3->referred_by);
@@ -112,16 +140,29 @@ class CustomerProductController extends Controller
 
                                 if ($tier_1 != null) {
                                     $tier_1_commission = ($product->getProductCommission() / 100) * $product->tier_commission_1;
-                                    $input_product_commission = [
-                                        'customer_id' => $customer->id,
-                                        'product_id' => $request->product_id,
-                                        'product_price' => $product->getProductPrice(),
-                                        'product_mark_up' => $product->mark_up,
-                                        'tier_type' => 'tier_1',
-                                        'tier_id' => $tier_1->id,
-                                        'tier_commission' => $tier_1_commission,
-                                        'tier_commission_percentage' => $product->tier_commission_1,
-                                    ];
+                                    if ($product->surcharge_at_product == 'no') {
+                                        $input_product_commission = [
+                                            'customer_id' => $customer->id,
+                                            'product_id' => $request->product_id,
+                                            'product_price' => $product->getProductPrice(),
+                                            'product_mark_up' => $product->category->mark_up,
+                                            'tier_type' => 'tier_1',
+                                            'tier_id' => $tier_1->id,
+                                            'tier_commission' => $tier_1_commission,
+                                            'tier_commission_percentage' => $product->tier_commission_1,
+                                        ];
+                                    } else {
+                                        $input_product_commission = [
+                                            'customer_id' => $customer->id,
+                                            'product_id' => $request->product_id,
+                                            'product_price' => $product->getProductPrice(),
+                                            'product_mark_up' => $product->mark_up,
+                                            'tier_type' => 'tier_1',
+                                            'tier_id' => $tier_1->id,
+                                            'tier_commission' => $tier_1_commission,
+                                            'tier_commission_percentage' => $product->tier_commission_1,
+                                        ];
+                                    }
                                     ProductCommission::create($input_product_commission);
                                 }
                             }
@@ -132,14 +173,23 @@ class CustomerProductController extends Controller
                 $input = $request->all();
                 $input['customer_id'] = $customer->id;
                 CustomerProduct::create($input);
-
-                $order = Order::create([
-                    'customer_id' => $customer->id,
-                    'product_id' => $product->id,
-                    'spot_price' => $product->getProductPrice($type = 'number'),
-                    'mark_up' => $product->mark_up,
-                    'quantity' => $request->quantity
-                ]);
+                if ($product->surcharge_at_product == 'no') {
+                    $order = Order::create([
+                        'customer_id' => $customer->id,
+                        'product_id' => $product->id,
+                        'spot_price' => $product->getProductPrice($type = 'number'),
+                        'mark_up' => $product->category->mark_up,
+                        'quantity' => $request->quantity
+                    ]);
+                } else {
+                    $order = Order::create([
+                        'customer_id' => $customer->id,
+                        'product_id' => $product->id,
+                        'spot_price' => $product->getProductPrice($type = 'number'),
+                        'mark_up' => $product->mark_up,
+                        'quantity' => $request->quantity
+                    ]);
+                }
                 Inventory::create([
                     'product_id' => $product->id,
                     'order_id' => $order->id,
@@ -210,10 +260,10 @@ class CustomerProductController extends Controller
         })->get();
         return Datatables::of($data)
             ->addIndexColumn()
-            ->addColumn('customer_name', function ($row) {
-                return $row->customer->first_name . ' ' . $row->customer->last_name;
+            ->addColumn('purchase_price', function ($row) {
+                return $row->purchase_price . ' USD';
             })
-            ->rawColumns(['customer_name'])
+            // ->rawColumns(['customer_name'])
             ->make(true);
     }
 }

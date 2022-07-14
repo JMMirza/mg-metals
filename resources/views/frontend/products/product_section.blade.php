@@ -3,6 +3,17 @@
     <div class="post-prev-img">
         <a href="{{ route('single-product', $product->id) }}"><img src="{{ $product->product_picture_url }}"
                 alt=""></a>
+        {{-- @if ($product->productsInventory($product->id) != null) --}}
+        @if ($product->productsQuantity() != null)
+            <div class="intro-label">
+                <span class="badge badge-primary bg-green">In Stock</span>
+            </div>
+        @else
+            <div class="intro-label">
+                <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
+            </div>
+        @endif
+        {{-- @endif --}}
         {{-- <div class="intro-label">
             <span class="badge badge-danger bg-red">Sale</span>
         </div> --}}

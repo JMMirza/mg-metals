@@ -20,10 +20,6 @@ $(document).ready(function () {
                 data: "customer.full_name",
                 name: "customer.full_name",
             },
-            {
-                data: "purchase_price",
-                name: "purchase_price",
-            },
             // {
             //     data: "product_id",
             //     name: "product_id",
@@ -33,10 +29,17 @@ $(document).ready(function () {
                 name: "product.name",
             },
             {
+                data: "purchase_price",
+                name: "purchase_price",
+            },
+            {
                 data: "created_at",
                 name: "created_at",
                 width: "15%",
             },
         ],
+    });
+    $('#date_range').flatpickr({
+        mode: "range"
     });
 });

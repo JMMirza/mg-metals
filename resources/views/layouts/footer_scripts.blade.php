@@ -6,7 +6,7 @@
 <script src="{{ asset('theme/dist/default/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
 <script src="{{ asset('theme/dist/default/assets/js/plugins.js') }}"></script>
 
- <script src="{{ asset('theme/dist/default/assets/libs/prismjs/prism.js') }}"></script>
+<script src="{{ asset('theme/dist/default/assets/libs/prismjs/prism.js') }}"></script>
 <script src="{{ asset('theme/dist/default/assets/js/pages/form-validation.init.js') }}"></script>
 
 
@@ -21,14 +21,14 @@
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <!-- App js -->
 <script src="{{ asset('theme/dist/default/assets/js/app.js') }}"></script>
 
 
 <script type="text/javascript">
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
     })
 
     $(document).on('click', '.delete-record', function(e) {
@@ -122,7 +122,4 @@
             targetStyles: ['*'],
         })
     });
-
-
-
 </script>

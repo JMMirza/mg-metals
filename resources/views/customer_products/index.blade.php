@@ -8,15 +8,21 @@
             </div>
             <div class="card">
                 <div class="card-body">
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-label-group in-border">
+                            <label for="date_range" class="form-label">Date</label>
+                            <input class="form-control filter mb-3" name="date_range" id="date_range">
+                        </div>
+                    </div>
                     <table id="customer-products-data-table"
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
                                 {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
-                                <th>Purchase Price</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
+                                <th>Purchase Price</th>
                                 <th>Created At</th>
                             </tr>
                         </thead>
@@ -27,9 +33,9 @@
                             <tr>
                                 {{-- <th>CustomerID</th> --}}
                                 <th>Customer name</th>
-                                <th>Purchase Price</th>
                                 {{-- <th>Product id</th> --}}
                                 <th>Product name</th>
+                                <th>Purchase Price</th>
                                 <th>Created At</th>
                             </tr>
                         </tfoot>

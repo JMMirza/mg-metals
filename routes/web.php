@@ -52,6 +52,7 @@ Route::get('/customer-register', [HomeCtrl::class, 'register'])->name('customer_
 Route::post('/login-customer', [HomeCtrl::class, 'login_customer'])->name('login-customer');
 Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])->name('customer-register-account');
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
+Route::get('account/verify/{token}', [HomeCtrl::class, 'verifyAccount'])->name('user.verify');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
