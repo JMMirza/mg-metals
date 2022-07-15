@@ -32,6 +32,10 @@ class OrderController extends Controller
                 ->addColumn('spot_price', function ($row) {
                     return  $row->spot_price . ' USD';
                 })
+                ->addColumn('action', function ($row) {
+                    return view('orders.actions', ['row' => $row]);
+                })
+                ->rawColumns(['action'])
                 ->make(true);
         }
         return view('orders.index');
@@ -77,7 +81,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        return view('orders.order_details');
     }
 
     /**
@@ -101,5 +105,12 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function order_details($id)
+    {
+        $order = Order::where('id', $id)->with(['product', 'customer'])->first();
+        // dd($order->toArray());
+        return view('orders.order_details', ['order' => $order]);
     }
 }

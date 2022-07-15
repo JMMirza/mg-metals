@@ -104,7 +104,15 @@ class Product extends Model
                     $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
                 }
             } else {
-                // $product->category()->;
+                if ($product->category->surcharge_at_category == 'yes') {
+
+                    if ($product->category->mark_up == 'flat') {
+                        $final_price = $product->mark_up + $product->fixed_amount;
+                    } else {
+                        $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
+                    }
+                }
+                $product->category->mark_up;
                 $final_price = $product->fixed_amount;
             }
         } else {

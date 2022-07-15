@@ -6,6 +6,10 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
         scrollX: true,
+        scrollCollapse: true,
+        fixedColumns: {
+            right: 1,
+        },
         language: {
             search: "",
             searchPlaceholder: "Search...",
@@ -60,6 +64,14 @@ $(document).ready(function () {
                 data: "created_at",
                 name: "created_at",
                 width: "15%",
+            },
+            {
+                data: "action",
+                name: "action",
+                orderable: false,
+                searchable: false,
+                width: "5%",
+                sClass: "text-center",
             },
         ],
     });

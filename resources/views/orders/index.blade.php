@@ -24,6 +24,7 @@
                                 <th>Mark Up</th>
                                 <th>Quantity</th>
                                 <th>Created At</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,7 @@
                                 <th>Mark Up</th>
                                 <th>Quantity</th>
                                 <th>Created At</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>
