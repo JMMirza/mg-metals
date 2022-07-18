@@ -10,8 +10,9 @@ Primary use: MultiPurpose Template
 
 @import "font-awesome.min.css";
 @import "et-line.css";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,300,700);
-@import url(https://fonts.googleapis.com/css?family=Dosis:300,400,700);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,300;0,500;0,600;0,800;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800&display=swap');
+
 
 /*------------------------------------------------------------------
 [Table of contents]
@@ -440,9 +441,12 @@ video {
 body {
     color: #111;
     font-size: 14px;
-    font-family: "Open Sans", arial, sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+}
+.font-alt{
+    font-family: 'Noto Sans', sans-serif !important;
 }
 
 a {
@@ -1134,6 +1138,10 @@ a.btn-mod:focus {
     display: table-cell;
     height: 100%;
     vertical-align: middle;
+}
+.home-text h2{
+    font-family: 'Playfair Display', serif !important;
+
 }
 
 /* Scroll down icon */
@@ -2840,12 +2848,14 @@ a.logo:hover {
 
 .section-title {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 0.5em;
     line-height: 1.4;
+    font-family: 'Playfair Display', serif !important;
+
 }
 .section-more {
     margin-top: 7px;
@@ -5305,6 +5315,11 @@ section:hover .small-item-carousel .owl-next {
     font-size: 48px;
     letter-spacing: 0;
 }
+.alt-features-descr .heading{
+    color: #000 !important;
+    font-family: 'Playfair Display', serif !important;
+
+}
 .tpl-minimal-tabs-cont {
 }
 
@@ -6907,31 +6922,33 @@ section:hover .small-item-carousel .owl-next {
 }
 .tpl-alt-tabs > li > a {
     color: #000 !important;
-    opacity: 0.6;
+    opacity: 0.9;
+    font-family: 'Playfair Display', serif;
+
 }
 .tpl-alt-tabs img {
     height: 100px !important;
     width: 100px !important;
 }
 .tpl-alt-tabs > li > a img {
-    opacity: 0.6;
-    transition: all 0.3s;
+    opacity: 0.9;
     height: 100px !important;
     width: 100px !important;
 }
-.tpl-alt-tabs > li > a.active {
-    color: #d6a650 !important;
-    opacity: 1;
-}
-.tpl-alt-tabs > li > a.active img {
-    opacity: 1;
-}
+
 .tpl-alt-tabs > li > a:hover {
     color: #d6a650 !important;
     opacity: 1;
 }
-.tpl-alt-tabs > li > a:hover img {
+.tpl-alt-tabs > li > a:hover img.hover {
     opacity: 1;
+    display: inline-block;
+}
+.tpl-alt-tabs > li > a:hover img {
+    display: none;
+}
+.tpl-alt-tabs > li > a img.hover {
+    display: none;
 }
 .alt-tabs-icon img {
 }
@@ -6958,7 +6975,7 @@ section:hover .small-item-carousel .owl-next {
 .sticky-wrapper {
     background: transparent;
     position: absolute;
-    z-index: 99;
+    z-index: 9999;
     top: 0px;
     width: 100%;
     left: 0px;
@@ -6972,9 +6989,28 @@ section:hover .small-item-carousel .owl-next {
 .sticky-wrapper.is-sticky .main-nav {
     background: #fff !important;
 }
+.sticky-wrapper .main-nav .gold{
+    display: none;
+}
+.sticky-wrapper .main-nav .white{
+    display: block;
+}
+.sticky-wrapper.is-sticky .main-nav .gold{
+    display: block;
+}
+.sticky-wrapper.is-sticky .main-nav .white{
+    display: none;
+}
 .inner-nav ul li a {
     font-weight: bold;
     color: #fff;
+    opacity: .8;
+    font-size: 13px;
+}
+.inner-nav ul li a:hover {
+    font-weight: bold;
+    color: #fff;
+    opacity: 1;
 }
 
 .small-height .inner-nav ul li a {

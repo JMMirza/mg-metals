@@ -11,7 +11,8 @@
 
                     <div class="alt-tabs-icon">
                         
-                        <img src="{{ asset('frontend/images/banners/service-1.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/phy-gold.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/phy-gold-h.png') }}" alt="image" class="icon hover">
                     </div>
 
                     {{ __('home_page.service_title_1') }}
@@ -23,7 +24,8 @@
 
                     <div class="alt-tabs-icon">
                         
-                        <img src="{{ asset('frontend/images/banners/service-2.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/casting.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/casting-h.png') }}" alt="image" class="icon hover">
                     </div>
 
                     {{ __('home_page.service_title_2') }}
@@ -34,7 +36,8 @@
 
                     <div class="alt-tabs-icon">
                         
-                        <img src="{{ asset('frontend/images/banners/service-3.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/ex-sol.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/ex-sol-h.png') }}" alt="image" class="icon hover">
                     </div>
 
                     {{ __('home_page.service_title_3') }}
@@ -45,8 +48,8 @@
                     aria-selected="false">
 
                     <div class="alt-tabs-icon">
-                        
-                        <img src="{{ asset('frontend/images/banners/service-4.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/network.png') }}" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/network-h.png') }}" alt="image" class="icon hover">
                     </div>
 
                     {{ __('home_page.service_title_4') }}

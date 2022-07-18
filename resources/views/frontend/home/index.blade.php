@@ -50,7 +50,7 @@
                         <div class="alt-features-descr align-center">
                         <div class="alt-tabs-icon">
                         
-                            <img src="{{ asset('frontend/images/banners/Icon-Cert.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
+                            <img src="{{ asset('frontend/images/icons/credential.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                         </div>
                             <h4 class="heading">CREDENTIAL</h4>
                             {{ __('home_page.choose_us_1') }}
@@ -63,7 +63,7 @@
                         <div class="alt-features-descr align-center">
                         <div class="alt-tabs-icon">
                         
-                        <img src="{{ asset('frontend/images/banners/Icon-Sustain.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/sustain.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                     </div>
                         <h4  class="heading">SUSTAINABILITY</h4>
                             {{ __('home_page.choose_us_2') }}
@@ -76,7 +76,7 @@
                         <div class="alt-features-descr align-center">
                         <div class="alt-tabs-icon">
                         
-                        <img src="{{ asset('frontend/images/banners/Icon-Trusted.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
+                        <img src="{{ asset('frontend/images/icons/credibility.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                     </div>
                         <h4  class="heading">CREDIBILITY</h4>
                             {{ __('home_page.choose_us_3') }}
