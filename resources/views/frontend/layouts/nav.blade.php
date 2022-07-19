@@ -57,6 +57,9 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{ route('shop-cart.index') }}"><i class="fa fa-shopping-cart"></i> Cart(0)</a>
+                    </li>
                 @else
                     <li>
                         <a href="{{ route('customer_login') }}" class="">{{ __('home_page.login') }}</i></a>

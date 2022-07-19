@@ -92,18 +92,20 @@
                         </div> --}}
 
                         @if (\Auth::user())
-                            <form method="post" action="{{ route('customer-products.store') }}" class="form">
+                            <form method="post" action="{{ route('shop-cart.store') }}" class="form">
+                                {{-- <form method="post" action="{{ route('customer-products.store') }}" class="form"> --}}
                                 @csrf
                                 <input name="quantity" type="number" class="input-lg round" min="1" max="5"
                                     value="1" />
                                 <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
                                 <input type="text" value="{{ $product->id }}" name="product_id" hidden>
+                                {{-- <input type="text" value="{{ $product->getProductPrice($type = 'number') }}"
+                                    name="purchase_price" hidden> --}}
                                 <input type="text" value="{{ $product->getProductPrice($type = 'number') }}"
-                                    name="purchase_price" hidden>
+                                    name="spot_price" hidden>
                                 <input type="text" value="{{ \Auth::user()->referred_by }}" name="referral_code"
                                     hidden>
-                                <button type="submit" class="btn btn-mod btn-large btn-round">Buy
-                                    Now</button>
+                                <button type="submit" class="btn btn-mod btn-large btn-round">ADD TO CART</button>
                             </form>
                             {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
                                 class="btn btn-mod btn-large btn-round">Buy

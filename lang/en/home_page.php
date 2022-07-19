@@ -85,5 +85,6 @@ return [
     'orders' => 'ORDERS',
     'product_commission' => 'My COMMISSION',
     'products' => 'Products',
-    'referrals' => 'MY REFERRALS'
+    'referrals' => 'MY REFERRALS',
+    'shop_cart' => 'SHOP CART',
 ];

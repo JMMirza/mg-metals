@@ -14,6 +14,7 @@ use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductCommissionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopCartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,6 +69,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['product-commission' => ProductCommissionController::class]);
     Route::resources(['orders' => OrderController::class]);
     Route::resources(['inventories' => InventoryController::class]);
+    Route::resources(['shop-cart' => ShopCartController::class]);
     Route::get('verify-user', [CustomerController::class, 'verify_user'])->name('verify-user');
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');
     Route::get('customer-referrals', [HomeCtrl::class, 'customer_referrals'])->name('customer-referrals');
