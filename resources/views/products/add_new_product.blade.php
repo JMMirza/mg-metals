@@ -336,7 +336,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-8 col-sm-12">
+                        <div class="col-md-12 col-sm-12 mb-3">
                             <div class="form-label-group in-border">
                                 <label for="product_picture" class="form-label">Product Picture (產品圖片)</label>
                                 <input type="file"
@@ -477,6 +477,54 @@
                                         {{ $errors->first('tier_commission_3') }}
                                     @else
                                         Tier 3 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="tier_commission_4" class="form-label">Tier 4 Commission
+                                    (佣金層級-4)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type=number step=any
+                                        class="form-control mb-3 @if ($errors->has('tier_commission_4')) is-invalid @endif"
+                                        id="tier_commission_4" name="tier_commission_4"
+                                        placeholder="Please Enter Tier 4 Commission"
+                                        value="{{ old('tier_commission_4') }}">
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('tier_commission_4'))
+                                        {{ $errors->first('tier_commission_4') }}
+                                    @else
+                                        Tier 4 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="tier_commission_5" class="form-label">Tier 5 Commission
+                                    (佣金層級-5)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type=number step=any
+                                        class="form-control mb-3 @if ($errors->has('tier_commission_5')) is-invalid @endif"
+                                        id="tier_commission_5" name="tier_commission_5"
+                                        placeholder="Please Enter Tier 5 Commission"
+                                        value="{{ old('tier_commission_5') }}">
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('tier_commission_5'))
+                                        {{ $errors->first('tier_commission_5') }}
+                                    @else
+                                        Tier 5 Commission is required!
                                     @endif
                                 </div>
                             </div>

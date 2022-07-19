@@ -38,7 +38,9 @@ class Product extends Model
         'on_hold',
         'tier_commission_1',
         'tier_commission_2',
-        'tier_commission_3'
+        'tier_commission_3',
+        'tier_commission_4',
+        'tier_commission_5',
     ];
 
     protected $dates = [

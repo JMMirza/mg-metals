@@ -38,13 +38,13 @@
 
 
                     <hr class="mt-0 mb-30" />
-
-                    <div class="row">
-                        <div class="col-6 lead mt-0 mb-20">
-                            <strong>{{ $product->getProductPrice() }}</strong>
+                    @if (\Auth::user())
+                        <div class="row">
+                            <div class="col-6 lead mt-0 mb-20">
+                                <strong>{{ $product->getProductPrice() }}</strong>
+                            </div>
                         </div>
-                    </div>
-
+                    @endif
                     <hr class="mt-0 mb-30" />
 
                     <div class="section-text mb-30">

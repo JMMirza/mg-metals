@@ -215,8 +215,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12" id="fixed_amount_div"
-                            @if ($product->pricing_type == 'fix_price') style="display: block" @else style="display: none" @endif>
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <div class="input-group">
@@ -226,13 +225,31 @@
                                     <input type="decimal" step="any"
                                         class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                         id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
-                                        value="{{ $product->fixed_amount }}">
+                                        value="{{ $product->fixed_amount }}"
+                                        @if ($product->pricing_type == 'use_feed') disabled @endif>
                                 </div>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('fixed_amount'))
                                         {{ $errors->first('fixed_amount') }}
                                     @else
                                         Fixed Amount is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
+                                <input type="decimal"
+                                    class="form-control @if ($errors->has('weight')) is-invalid @endif"
+                                    id="weight" name="weight" placeholder="Please enter Weight of Product"
+                                    value="{{ $product->weight }}" required>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('weight'))
+                                        {{ $errors->first('weight') }}
+                                    @else
+                                        Weight of Product is required!
                                     @endif
                                 </div>
                             </div>
@@ -308,24 +325,9 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
-                                <input type="decimal"
-                                    class="form-control @if ($errors->has('weight')) is-invalid @endif"
-                                    id="weight" name="weight" placeholder="Please enter Weight of Product"
-                                    value="{{ $product->weight }}" required>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('weight'))
-                                        {{ $errors->first('weight') }}
-                                    @else
-                                        Weight of Product is required!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4 col-sm-12">
+
+                        <div class="col-md-12 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="product_picture" class="form-label">Product Picture</label>
                                 <input type="file"
@@ -472,6 +474,54 @@
                                         {{ $errors->first('tier_commission_3') }}
                                     @else
                                         Tier 3 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="tier_commission_4" class="form-label">Tier 4 Commission
+                                    (佣金層級-4)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type=number step=any
+                                        class="form-control mb-3 @if ($errors->has('tier_commission_4')) is-invalid @endif"
+                                        id="tier_commission_4" name="tier_commission_4"
+                                        placeholder="Please Enter Tier 4 Commission"
+                                        value="{{ $product->tier_commission_4 }}">
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('tier_commission_4'))
+                                        {{ $errors->first('tier_commission_4') }}
+                                    @else
+                                        Tier 4 Commission is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="tier_commission_5" class="form-label">Tier 5 Commission
+                                    (佣金層級-5)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                    </div>
+                                    <input type=number step=any
+                                        class="form-control mb-3 @if ($errors->has('tier_commission_5')) is-invalid @endif"
+                                        id="tier_commission_5" name="tier_commission_5"
+                                        placeholder="Please Enter Tier 5 Commission"
+                                        value="{{ $product->tier_commission_5 }}">
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('tier_commission_5'))
+                                        {{ $errors->first('tier_commission_5') }}
+                                    @else
+                                        Tier 5 Commission is required!
                                     @endif
                                 </div>
                             </div>

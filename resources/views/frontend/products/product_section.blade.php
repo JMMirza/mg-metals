@@ -35,9 +35,12 @@
             <a href="{{ route('single-product', $product->id) }}">{{ $product->name_s_ch }}</a>
         </div>
     @endif
-    <div class="post-prev-text align-center">
-        <strong>{{ $product->getProductPrice() }}</strong>
-    </div>
+
+    @if (\Auth::user())
+        <div class="post-prev-text align-center">
+            <strong>{{ $product->getProductPrice() }}</strong>
+        </div>
+    @endif
 
     <div class="post-prev-more align-center">
         <a href="{{ route('single-product', $product->id) }}" class="btn btn-mod btn-gray btn-round"><i
