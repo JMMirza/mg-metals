@@ -29,16 +29,16 @@
                         <tbody>
 
                         </tbody>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
-                                {{-- <th>CustomerID</th> --}}
+                                <th>CustomerID</th>
                                 <th>Customer name</th>
-                                {{-- <th>Product id</th> --}}
+                                <th>Product id</th>
                                 <th>Product name</th>
                                 <th>Purchase Price</th>
                                 <th>Created At</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                     </table>
                 </div>
             </div>

@@ -38,19 +38,19 @@
                         <tbody>
 
                         </tbody>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>Sr.#</th>
                                 <th>SKU</th>
                                 <th>Product ID</th>
                                 <th>Product Name</th>
-                                {{-- <th>Order ID</th> --}}
+                                <th>Order ID</th>
                                 <th>Units</th>
                                 <th>Minimum Quantity</th>
-                                {{-- <th>Created At</th> --}}
+                                <th>Created At</th>
                                 <th>Action</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                     </table>
                 </div>
             </div>

@@ -27,7 +27,7 @@
                         <tbody>
 
                         </tbody>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>Customer ID</th>
                                 <th>Customer name</th>
@@ -40,7 +40,7 @@
                                 <th>Tier Commission</th>
                                 <th>Created At</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                     </table>
                 </div>
             </div>

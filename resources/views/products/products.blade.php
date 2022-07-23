@@ -30,7 +30,7 @@
                         <tbody>
 
                         </tbody>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
@@ -38,7 +38,7 @@
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                     </table>
                 </div>
             </div>
