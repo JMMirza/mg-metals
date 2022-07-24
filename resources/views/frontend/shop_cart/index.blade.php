@@ -56,7 +56,7 @@
                         </table>
                     </div>
 
-                    <hr />
+                    {{-- <hr /> --}}
 
                     <div class="row">
                         <div class="col-sm-12 text align-right">
@@ -72,21 +72,23 @@
 
                     <div class="row">
                         <div class="col-sm-12 text align-right pt-10">
-                            <div>
+                            {{-- <div>
                                 Cart subtotal: <strong>$45.95</strong>
                             </div>
 
                             <div class="mb-10">
                                 Shipping: <strong>$30.00</strong>
-                            </div>
+                            </div> --}}
+
 
                             <div class="lead mt-0 mb-30">
-                                Order Total: <strong>$75.99</strong>
+                                Order Total: <strong>{{ $total_price }} USD</strong>
                             </div>
 
                             <div>
                                 <a href="#" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
                             </div>
+
 
                         </div>
                     </div>

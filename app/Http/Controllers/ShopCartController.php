@@ -17,8 +17,12 @@ class ShopCartController extends Controller
     {
         $user = \Auth::user();
         $cart = ShopCart::where('user_id', $user->id)->latest()->get();
+        $total_price = 0;
+        foreach ($cart as $key => $value) {
+            $total_price = $value->spot_price + $total_price;
+        }
         // dd($cart->toArray());
-        return view('frontend.shop_cart.index', ['carts' => $cart]);
+        return view('frontend.shop_cart.index', ['carts' => $cart, 'total_price' => $total_price]);
     }
 
     /**
