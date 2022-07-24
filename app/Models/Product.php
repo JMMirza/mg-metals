@@ -97,9 +97,7 @@ class Product extends Model
         // return 'N/A';
 
         if ($product->pricing_type == 'fix_price') {
-
             if ($product->surcharge_at_product == 'yes') {
-
                 if ($product->markup_type == 'flat') {
                     $final_price = $product->mark_up + $product->fixed_amount;
                 } else {
@@ -107,41 +105,32 @@ class Product extends Model
                 }
             } else {
                 if ($product->category->surcharge_at_category == 'yes') {
-
                     if ($product->category->mark_up == 'flat') {
                         $final_price = $product->mark_up + $product->fixed_amount;
                     } else {
                         $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
                     }
+                } else {
+                    $final_price = $product->fixed_amount;
                 }
-                $product->category->mark_up;
-                $final_price = $product->fixed_amount;
+                // $product->category->mark_up;
+                // $final_price = $product->fixed_amount;
             }
         } else {
-
-
-
             try {
-
                 $gold_price = 0;
-
                 if (Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
-
                     $gold_price = Session::get('gold_price');
                 } else {
-
                     $response = Http::get('http://150.242.218.15:3080/');
                     $resp = $response->object();
                     $gold_price = $resp->ask;
-
                     Session::put('gold_price', $gold_price);
                     Session::put('gold_price_expires_at', Carbon::now()->addMinutes(10)->timestamp);
                 }
 
                 if ($product->surcharge_at_product == 'yes') {
-
                     $price = ($product->weight * $gold_price);
-
                     if ($product->markup_type == 'flat') {
                         $final_price = $product->mark_up + $price;
                     } else {

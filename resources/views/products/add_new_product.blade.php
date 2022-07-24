@@ -411,7 +411,10 @@
                             </div>
                         </div>
 
-
+                        <div class="col-md-12 mb-3">
+                            <div id="invalid-tooltip-tiers" style="font-size:15px ;text-align:center;color: red">
+                            </div>
+                        </div>
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="tier_commission_1" class="form-label">Tier 1 Commission
@@ -425,6 +428,7 @@
                                         id="tier_commission_1" placeholder="Please Enter Tier 1 Commission"
                                         value="{{ old('tier_commission_1') }}">
                                 </div>
+
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_1'))
                                         {{ $errors->first('tier_commission_1') }}
@@ -448,6 +452,7 @@
                                         id="tier_commission_2" placeholder="Please Enter Tier 2 Commission"
                                         value="{{ old('tier_commission_2') }}">
                                 </div>
+
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_2'))
                                         {{ $errors->first('tier_commission_2') }}
@@ -472,6 +477,7 @@
                                         placeholder="Please Enter Tier 3 Commission"
                                         value="{{ old('tier_commission_3') }}">
                                 </div>
+
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_3'))
                                         {{ $errors->first('tier_commission_3') }}
@@ -496,6 +502,7 @@
                                         placeholder="Please Enter Tier 4 Commission"
                                         value="{{ old('tier_commission_4') }}">
                                 </div>
+
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_4'))
                                         {{ $errors->first('tier_commission_4') }}
@@ -518,7 +525,7 @@
                                         class="form-control mb-3 @if ($errors->has('tier_commission_5')) is-invalid @endif"
                                         id="tier_commission_5" name="tier_commission_5"
                                         placeholder="Please Enter Tier 5 Commission"
-                                        value="{{ old('tier_commission_5') }}">
+                                        value="{{ old('tier_commission_5') }}" disabled>
                                 </div>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_5'))
@@ -527,11 +534,12 @@
                                         Tier 5 Commission is required!
                                     @endif
                                 </div>
+
                             </div>
                         </div>
 
                         <div class="col-12 text-end">
-                            <button class="btn btn-primary" type="submit">Save Changes</button>
+                            <button id="submit_btn" class="btn btn-primary" type="submit">Save Changes</button>
                             <a href="{{ route('products.index') }}" type="button"
                                 class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
                         </div>
@@ -567,6 +575,133 @@
                     $('#mark_up').attr('disabled', true);
                 }
             });
-        })
+
+            $('#tier_commission_5').val(100);
+
+            $('#tier_commission_1').change(function() {
+                var tier_1 = parseInt($('#tier_commission_1').val());
+                var tier_2 = $('#tier_commission_2').val();
+                var tier_3 = $('#tier_commission_3').val();
+                var tier_4 = $('#tier_commission_4').val();
+                if (tier_2) {
+                    tier_2 = parseInt(tier_2);
+                }
+                if (tier_3) {
+                    tier_3 = parseInt(tier_3);
+                }
+                if (tier_4) {
+                    tier_4 = parseInt(tier_4);
+                }
+                var sum = tier_1 + tier_2 + tier_3 + tier_4;
+
+                if (sum <= 100) {
+                    $('#submit_btn').attr('disabled', false);
+                    $('#tier_commission_5').val(100 - sum);
+                } else {
+                    $('#submit_btn').attr('disabled', true);
+                    $("#tier_commission_1").addClass("is-invalid");
+                    $("#tier_commission_2").addClass("is-invalid");
+                    $("#tier_commission_3").addClass("is-invalid");
+                    $("#tier_commission_4").addClass("is-invalid");
+                    $('#invalid-tooltip-tiers').html(`<strong>
+                                    Value Exeed from the limit
+                                    </strong>`);
+                }
+            });
+
+            $('#tier_commission_2').change(function() {
+                var tier_2 = parseInt($('#tier_commission_2').val());
+                var tier_1 = $('#tier_commission_1').val();
+                var tier_3 = $('#tier_commission_3').val();
+                var tier_4 = $('#tier_commission_4').val();
+                if (tier_1) {
+                    // alert('tier1', tier_1);
+                    tier_1 = parseInt(tier_1);
+                }
+                if (tier_3) {
+                    tier_3 = parseInt(tier_3);
+                }
+                if (tier_4) {
+                    tier_4 = parseInt(tier_4);
+                }
+
+                var sum = tier_1 + tier_2 + tier_3 + tier_4;
+
+                if (sum <= 100) {
+                    $('#submit_btn').attr('disabled', false);
+                    $('#tier_commission_5').val(100 - sum);
+                } else {
+                    $('#submit_btn').attr('disabled', true);
+                    $("#tier_commission_1").addClass("is-invalid");
+                    $("#tier_commission_2").addClass("is-invalid");
+                    $("#tier_commission_3").addClass("is-invalid");
+                    $("#tier_commission_4").addClass("is-invalid");
+                    $('#invalid-tooltip-tiers').html(`<strong>
+                                    Value Exeed from the limit
+                                    </strong>`);
+                }
+            });
+
+            $('#tier_commission_3').change(function() {
+                var tier_1 = $('#tier_commission_1').val();
+                var tier_2 = $('#tier_commission_2').val();
+                var tier_4 = $('#tier_commission_4').val();
+                var tier_3 = parseInt($('#tier_commission_3').val());
+                if (tier_2) {
+                    tier_2 = parseInt(tier_2);
+                }
+                if (tier_1) {
+                    tier_1 = parseInt(tier_1);
+                }
+                if (tier_4) {
+                    tier_4 = parseInt(tier_4);
+                }
+                var sum = tier_1 + tier_2 + tier_3 + tier_4;
+                // alert(sum);
+                if (sum <= 100) {
+                    $('#submit_btn').attr('disabled', false);
+                    $('#tier_commission_5').val(100 - sum);
+                } else {
+                    $('#submit_btn').attr('disabled', true);
+                    $("#tier_commission_1").addClass("is-invalid");
+                    $("#tier_commission_2").addClass("is-invalid");
+                    $("#tier_commission_3").addClass("is-invalid");
+                    $("#tier_commission_4").addClass("is-invalid");
+                    $('#invalid-tooltip-tiers').html(`<strong>
+                                    Value Exeed from the limit
+                                    </strong>`);
+                }
+            });
+
+            $('#tier_commission_4').change(function() {
+                var tier_1 = $('#tier_commission_1').val();
+                var tier_2 = $('#tier_commission_2').val();
+                var tier_3 = $('#tier_commission_3').val();
+                var tier_4 = parseInt($('#tier_commission_4').val());
+                if (tier_2) {
+                    tier_2 = parseInt(tier_2);
+                }
+                if (tier_1) {
+                    tier_1 = parseInt(tier_1);
+                }
+                if (tier_3) {
+                    tier_3 = parseInt(tier_3);
+                }
+                var sum = tier_1 + tier_2 + tier_3 + tier_4;
+                if (sum <= 100) {
+                    $('#submit_btn').attr('disabled', false);
+                    $('#tier_commission_5').val(100 - sum);
+                } else {
+                    $('#submit_btn').attr('disabled', true);
+                    $("#tier_commission_1").addClass("is-invalid");
+                    $("#tier_commission_2").addClass("is-invalid");
+                    $("#tier_commission_3").addClass("is-invalid");
+                    $("#tier_commission_4").addClass("is-invalid");
+                    $('#invalid-tooltip-tiers').html(`<strong>
+                                    Value Exeed from the limit
+                                    </strong>`);
+                }
+            });
+        });
     </script>
 @endpush
