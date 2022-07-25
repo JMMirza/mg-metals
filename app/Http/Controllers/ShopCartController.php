@@ -19,7 +19,7 @@ class ShopCartController extends Controller
         $cart = ShopCart::where('user_id', $user->id)->latest()->get();
         $total_price = 0;
         foreach ($cart as $key => $value) {
-            $total_price = $value->spot_price + $total_price;
+            $total_price = $value->total_price + $total_price;
         }
         // dd($cart->toArray());
         return view('frontend.shop_cart.index', ['carts' => $cart, 'total_price' => $total_price]);
@@ -47,11 +47,12 @@ class ShopCartController extends Controller
             'user_id' => ['required'],
             'product_id' => ['required'],
             'spot_price' => ['required'],
-            // 'quantity' => ['required'],
+            'quantity' => ['required'],
             // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
-        // dd('validated');
-        ShopCart::create($request->all());
+        $input = $request->all();
+        $input['total_price'] = $request->quantity * $request->spot_price;
+        ShopCart::create($input);
         return back()->with('success', 'Item Added to Cart Successfully');
     }
 

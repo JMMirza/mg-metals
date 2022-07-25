@@ -14,9 +14,9 @@ class ShopCart extends Model
         'user_id',
         'product_id',
         'spot_price',
-        // 'mark_up',
+        'total_price',
         // 'delivery_method',
-        // 'quantity',
+        'quantity',
     ];
 
     protected $dates = [
