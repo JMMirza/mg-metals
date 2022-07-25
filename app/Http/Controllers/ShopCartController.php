@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ShopCart;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -50,10 +51,15 @@ class ShopCartController extends Controller
             'quantity' => ['required'],
             // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
-        $input = $request->all();
-        $input['total_price'] = $request->quantity * $request->spot_price;
-        ShopCart::create($input);
-        return back()->with('success', 'Item Added to Cart Successfully');
+        $product = Product::find($request->product_id);
+        $result = $product->productsInventory($request->quantity);
+        if ($result != null) {
+            $input = $request->all();
+            $input['total_price'] = $request->quantity * $request->spot_price;
+            ShopCart::create($input);
+            return back()->with('success', 'Item Added to Cart Successfully');
+        }
+        return back()->with('error', 'Product is not in stock');
     }
 
     /**
