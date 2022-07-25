@@ -278,7 +278,10 @@ class HomeController extends Controller
     public function customer_referrals()
     {
         $user = \Auth::user();
-        $referrals = User::with('customer')->where('referred_by', $user->referral_code)->latest()->get();
+        $referrals = [];
+        if ($user->referral_code != null) {
+            $referrals = User::with('customer')->where('referred_by', $user->referral_code)->latest()->get();
+        }
         // dd($referrals->toArray());
         return view('frontend.my_referrals.index', ['referrals' => $referrals]);
     }
