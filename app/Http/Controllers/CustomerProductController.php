@@ -65,6 +65,8 @@ class CustomerProductController extends Controller
         ]);
         $products = [];
         $quantities = [];
+        $total_order_price = 0;
+        $total_quantity = 0;
         // dd($request->all());
         foreach ($request->cart_ids as $key => $cart) {
             $user_cart = ShopCart::find($cart);
@@ -83,6 +85,8 @@ class CustomerProductController extends Controller
                 if ($result != null) {
                     array_push($products, $product);
                     array_push($quantities, $user_cart->quantity);
+                    $total_order_price = $total_order_price + $user_cart->total_price;
+                    $total_quantity = $total_quantity + $user_cart->quantity;
                     $user_cart->status = 'purchased';
                     $user_cart->save();
                     if ($product->getProductCommission() != null) {
@@ -248,6 +252,8 @@ class CustomerProductController extends Controller
         }
         $order = Order::create([
             'customer_id' => $customer->id,
+            'total_order_price' => $total_order_price,
+            'total_quantity' => $total_quantity,
         ]);
         foreach ($products as $key => $prod) {
             if ($prod->surcharge_at_product == 'no') {

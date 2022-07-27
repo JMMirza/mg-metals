@@ -12,9 +12,10 @@ class Order extends Model
 
     protected $fillable = [
         'customer_id',
-        'product_id',
+        'total_order_price',
+        'total_quantity',
         'delivery_method',
-        'shipping_address'
+        'shipping_address',
     ];
 
     protected $dates = [

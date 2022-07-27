@@ -268,7 +268,7 @@ class HomeController extends Controller
         $user = \Auth::user();
         $customer = Customer::where('user_id', $user->id)->first();
         if ($customer) {
-            $orders = Order::where('customer_id', $customer->id)->with(['product'])->get();
+            $orders = Order::where('customer_id', $customer->id)->with(['order_products.product'])->get();
             // dd($orders->toArray());
             return view('frontend.orders.index', ['orders' => $orders]);
         }

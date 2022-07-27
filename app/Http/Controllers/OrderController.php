@@ -16,22 +16,8 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Order::with(['product', 'customer.user'])->latest()->get();
+            $data = Order::with(['customer.user'])->latest()->get();
             return Datatables::of($data)
-                ->addColumn('mark_up', function ($row) {
-                    if ($row->product->mark_up) {
-                        if ($row->product->markup_type == 'flat') {
-                            return  $row->mark_up . ' USD';
-                        } else {
-                            return  $row->mark_up . ' %';
-                        }
-                    } else {
-                        return 'N / A';
-                    }
-                })
-                ->addColumn('spot_price', function ($row) {
-                    return  $row->spot_price . ' USD';
-                })
                 ->addColumn('action', function ($row) {
                     return view('orders.actions', ['row' => $row]);
                 })
@@ -117,8 +103,8 @@ class OrderController extends Controller
 
     public function order_details($id)
     {
-        $order = Order::where('id', $id)->with(['product', 'customer'])->first();
-        // dd($order->toArray());
+        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category'])->first();
+        // dd($order->order_products[0]);
         return view('orders.order_details', ['order' => $order]);
     }
 

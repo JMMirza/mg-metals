@@ -23,42 +23,37 @@ $(document).ready(function () {
             {
                 data: "customer.full_name",
                 name: "customer.full_name",
+                defaultContent: '<span>N / A</span>'
             },
             {
                 data: "customer.user.email",
                 name: "customer.user.email",
+                defaultContent: '<span>N / A</span>'
             },
             {
                 data: "customer.user.customer_type",
                 name: "customer.user.customer_type",
+                defaultContent: '<span>N / A</span>'
             },
             {
-                data: "product_id",
-                name: "product_id",
-            },
-            {
-                data: "product.sku",
-                name: "product.sku",
-            },
-            {
-                data: "product.name",
-                name: "product.name",
-            },
-             {
                 data: "delivery_method",
                 name: "delivery_method",
+                defaultContent: '<span>N / A</span>'
             },
             {
-                data: "spot_price",
-                name: "spot_price",
+                data: "total_quantity",
+                name: "total_quantity",
+                defaultContent: '<span>N / A</span>'
             },
             {
-                data: "mark_up",
-                name: "mark_up",
+                data: "total_order_price",
+                name: "total_order_price",
+                defaultContent: '<span>N / A</span>'
             },
             {
-                data: "quantity",
-                name: "quantity",
+                data: "shipping_address",
+                name: "shipping_address",
+                defaultContent: '<span>N / A</span>'
             },
             {
                 data: "created_at",

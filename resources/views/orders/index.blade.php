@@ -16,13 +16,14 @@
                                 <th>Customer Name</th>
                                 <th>Customer Email</th>
                                 <th>Customer Type</th>
-                                <th>Product ID</th>
+                                {{-- <th>Product ID</th>
                                 <th>Product SKU</th>
-                                <th>Product Name</th>
+                                <th>Product Name</th> --}}
                                 <th>Delivery Method</th>
-                                <th>Spot Price</th>
-                                <th>Mark Up</th>
+                                {{-- <th>Mark Up</th> --}}
                                 <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Shipping Address</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

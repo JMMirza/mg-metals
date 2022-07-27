@@ -10,25 +10,25 @@
                 <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Delivery Method</th>
-                            <th>Spot Price</th>
-                            <th>Mark Up</th>
+                            <th>Order ID</th>
                             <th>Quantity</th>
+                            <th>Delivery Method</th>
+                            <th>Total Price</th>
+                            <th>Shipping Address</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($orders as $order)
                             <tr>
-                                <td>{{ $order->product->name }}</td>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->total_quantity }}</td>
                                 <td>{{ $order->delivery_method }}</td>
-                                <td>{{ $order->spot_price }} USD</td>
-                                @if ($order->product->markup_type == 'flat')
-                                    <td>{{ $order->mark_up }} USD</td>
+                                @if ($order->total_order_price == null)
+                                    <td>0 USD</td>
                                 @else
-                                    <td>{{ $order->mark_up }} %</td>
+                                    <td>{{ $order->total_order_price }} USD</td>
                                 @endif
-                                <td>{{ $order->quantity }}</td>
+                                <td>{{ $order->shipping_address }}</td>
                             </tr>
                         @empty
                             <tr>

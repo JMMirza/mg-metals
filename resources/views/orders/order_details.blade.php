@@ -26,62 +26,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
-                                                <img src="{{ $order->product->product_picture_url }}" alt=""
-                                                    class="img-fluid d-block">
+                                @foreach ($order->order_products as $product)
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
+                                                    <img src="{{ $product->product->product_picture_url }}" alt=""
+                                                        class="img-fluid d-block">
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h5 class="fs-15"><a
+                                                            class="link-primary">{{ $product->product->name }}</a>
+                                                    </h5>
+                                                    <p class="text-muted mb-0">SKU: <span
+                                                            class="fw-medium">{{ $product->product->sku }}</span></p>
+                                                    <p class="text-muted mb-0">Category: <span
+                                                            class="fw-medium">{{ $product->product->category->name }}</span>
+                                                    </p>
+                                                    <p class="text-muted mb-0">Manufacturer: <span
+                                                            class="fw-medium">{{ $product->product->manufacturer->name }}</span>
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="flex-grow-1 ms-3">
-                                                <h5 class="fs-15"><a class="link-primary">{{ $order->product->name }}</a>
-                                                </h5>
-                                                <p class="text-muted mb-0">SKU: <span
-                                                        class="fw-medium">{{ $order->product->sku }}</span></p>
-                                                <p class="text-muted mb-0">Category: <span
-                                                        class="fw-medium">{{ $order->product->category->name }}</span></p>
-                                                <p class="text-muted mb-0">Manufacturer: <span
-                                                        class="fw-medium">{{ $order->product->manufacturer->name }}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $order->spot_price }} USD</td>
-                                    <td>{{ $order->quantity }}</td>
-                                    <td>{{ $order->mark_up }}</td>
-                                    <td class="fw-medium text-end">
-                                        {{ $order->spot_price * $order->quantity }} USD
-                                    </td>
-                                </tr>
-                                {{-- <tr class="border-top border-top-dashed">
-                                    <td colspan="3"></td>
-                                    <td colspan="2" class="fw-medium p-0">
-                                        <table class="table table-borderless mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Sub Total :</td>
-                                                    <td class="text-end">$359.96</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Discount <span class="text-muted">(VELZON15)</span> : :</td>
-                                                    <td class="text-end">-$53.99</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shipping Charge :</td>
-                                                    <td class="text-end">$65.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Estimated Tax :</td>
-                                                    <td class="text-end">$44.99</td>
-                                                </tr>
-                                                <tr class="border-top border-top-dashed">
-                                                    <th scope="row">Total (USD) :</th>
-                                                    <th class="text-end">$415.96</th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr> --}}
+                                        </td>
+                                        {{-- {{ dd($product->toArray()) }} --}}
+                                        <td>{{ $product->spot_price }} USD</td>
+                                        <td>{{ $product->quantity }}</td>
+                                        <td>{{ $product->mark_up }}</td>
+                                        <td class="fw-medium text-end">
+                                            {{ $product->total_price }} USD
+                                        </td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
