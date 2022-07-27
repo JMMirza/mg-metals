@@ -15,7 +15,7 @@ class ShopCart extends Model
         'product_id',
         'spot_price',
         'total_price',
-        // 'delivery_method',
+        'status',
         'quantity',
     ];
 

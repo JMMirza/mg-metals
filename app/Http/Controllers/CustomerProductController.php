@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\CustomerProduct;
 use App\Models\Inventory;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\ProductCommission;
 use App\Models\ShopCart;
@@ -53,6 +54,7 @@ class CustomerProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->cart_ids = explode(",", $request->cart_ids[0]);
         // dd($request->cart_ids);
         $request->validate([
             'cart_ids' => ['required'],
@@ -61,7 +63,8 @@ class CustomerProductController extends Controller
             // 'quantity' => ['required'],
             // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
-
+        $products = [];
+        $quantities = [];
         // dd($request->all());
         foreach ($request->cart_ids as $key => $cart) {
             $user_cart = ShopCart::find($cart);
@@ -77,8 +80,11 @@ class CustomerProductController extends Controller
                 $customer = Customer::where('user_id', $request->user_id)->first();
                 $product = Product::where('id', $user_cart->product_id)->with('category')->first();
                 $result = $product->productsInventory($user_cart->quantity);
-
                 if ($result != null) {
+                    array_push($products, $product);
+                    array_push($quantities, $user_cart->quantity);
+                    $user_cart->status = 'purchased';
+                    $user_cart->save();
                     if ($product->getProductCommission() != null) {
                         $tier_5_commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
                         if ($product->surcharge_at_product == 'no') {
@@ -230,33 +236,9 @@ class CustomerProductController extends Controller
                             }
                         }
                     }
-
                     $input = $user_cart->toArray();
                     $input['customer_id'] = $customer->id;
                     CustomerProduct::create($input);
-                    // dd($input);
-                    if ($product->surcharge_at_product == 'no') {
-                        $order = Order::create([
-                            'customer_id' => $customer->id,
-                            'product_id' => $product->id,
-                            'spot_price' => $product->getProductPrice($type = 'number'),
-                            'mark_up' => $product->category->mark_up,
-                            'quantity' => $user_cart->quantity
-                        ]);
-                    } else {
-                        $order = Order::create([
-                            'customer_id' => $customer->id,
-                            'product_id' => $product->id,
-                            'spot_price' => $product->getProductPrice($type = 'number'),
-                            'mark_up' => $product->mark_up,
-                            'quantity' => $user_cart->quantity
-                        ]);
-                    }
-                    Inventory::create([
-                        'product_id' => $product->id,
-                        'order_id' => $order->id,
-                        'units' => -1 * abs($user_cart->quantity)
-                    ]);
                 } else {
                     return back()->with('error', 'Product not Available');
                 }
@@ -264,7 +246,38 @@ class CustomerProductController extends Controller
                 return back()->with('error', 'User not verified');
             }
         }
-        return back()->with('success', 'Purchased the item');
+        $order = Order::create([
+            'customer_id' => $customer->id,
+        ]);
+        foreach ($products as $key => $prod) {
+            if ($prod->surcharge_at_product == 'no') {
+                OrderProduct::create([
+                    'order_id' => $order->id,
+                    'product_id' => $prod->id,
+                    'spot_price' => $prod->getProductPrice($type = 'number'),
+                    'total_price' => $prod->getProductPrice($type = 'number') * $quantities[$key],
+                    'mark_up' => $prod->category->mark_up,
+                    'quantity' => $quantities[$key]
+                ]);
+            } else {
+                OrderProduct::create([
+                    'order_id' => $order->id,
+                    'product_id' => $prod->id,
+                    'spot_price' => $prod->getProductPrice($type = 'number'),
+                    'total_price' => $prod->getProductPrice($type = 'number') * $quantities[$key],
+                    'mark_up' => $prod->mark_up,
+                    'quantity' => $quantities[$key]
+                ]);
+            }
+            // dd($prod->surcharge_at_product);
+            # code...
+            Inventory::create([
+                'product_id' => $prod->id,
+                'order_id' => $order->id,
+                'units' => -1 * abs($quantities[$key])
+            ]);
+        }
+        return redirect(route('order-delivery-details', $order->id))->with('success', 'Purchased the item');
     }
 
     /**

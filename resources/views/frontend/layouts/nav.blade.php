@@ -58,7 +58,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('shop-cart.index') }}"><i class="fa fa-shopping-cart"></i> Cart(0)</a>
+                        <a href="{{ route('shop-cart.index') }}"><i class="fa fa-shopping-cart"></i>
+                            Cart({{ \Auth::user()->cart_count }})</a>
                     </li>
                 @else
                     <li>

@@ -38,6 +38,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = [
+        'cart_count',
+    ];
+
     /**
      * The attributes that should be cast.
      *
@@ -50,5 +54,11 @@ class User extends Authenticatable
     public function customer()
     {
         return $this->hasOne(Customer::class);
+    }
+
+    public function getCartCountAttribute()
+    {
+        $count = ShopCart::where(['user_id' => $this->id, 'status' => 'pending'])->count();
+        return $count;
     }
 }

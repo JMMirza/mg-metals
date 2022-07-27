@@ -13,10 +13,8 @@ class Order extends Model
     protected $fillable = [
         'customer_id',
         'product_id',
-        'spot_price',
-        'mark_up',
         'delivery_method',
-        'quantity',
+        'shipping_address'
     ];
 
     protected $dates = [

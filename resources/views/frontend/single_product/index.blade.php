@@ -99,12 +99,10 @@
                                     value="1" />
                                 <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
                                 <input type="text" value="{{ $product->id }}" name="product_id" hidden>
-                                {{-- <input type="text" value="{{ $product->getProductPrice($type = 'number') }}"
-                                    name="purchase_price" hidden> --}}
+                                <input type="text" value="pending" name="status" hidden>
                                 <input type="text" value="{{ $product->getProductPrice($type = 'number') }}"
                                     name="spot_price" hidden>
-                                <input type="text" value="{{ \Auth::user()->referred_by }}" name="referral_code"
-                                    hidden>
+                                <input type="text" value="{{ \Auth::user()->referred_by }}" name="referral_code" hidden>
                                 <button type="submit" class="btn btn-mod btn-large btn-round">ADD TO CART</button>
                             </form>
                             {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"

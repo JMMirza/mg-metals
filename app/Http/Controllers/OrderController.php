@@ -93,7 +93,15 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'delivery_method' => 'required|string|max:255',
+            'shipping_address' => 'required|string|max:255',
+        ]);
+        $order->delivery_method = $request->delivery_method;
+        $order->shipping_address = $request->shipping_address;
+        $order->save();
+        return redirect(route('home'))->with('success', 'order placed successfully');
     }
 
     /**
@@ -112,5 +120,15 @@ class OrderController extends Controller
         $order = Order::where('id', $id)->with(['product', 'customer'])->first();
         // dd($order->toArray());
         return view('orders.order_details', ['order' => $order]);
+    }
+
+    public function order_delivery_details($id)
+    {
+        $order = Order::where('id', $id)->with(['customer.user'])->first();
+        // dd($order->toArray());
+        if ($order) {
+            return view('frontend.shop_cart.delievery_method', ['order' => $order]);
+        }
+        return back()->with('error', 'No Order Found');
     }
 }

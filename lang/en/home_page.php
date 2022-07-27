@@ -87,4 +87,5 @@ return [
     'products' => 'Products',
     'referrals' => 'MY REFERRALS',
     'shop_cart' => 'SHOP CART',
+    'delivery_method' => 'DELIVERY METHOD',
 ];
