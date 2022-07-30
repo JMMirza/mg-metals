@@ -171,7 +171,20 @@ class Product extends Model
                 }
             }
         } else {
-            return null;
+            if (isset($this->category->mark_up)) {
+                $final_price = 0;
+                if ($this->category->mark_up == 'flat') {
+                    $final_price = $this->mark_up;
+                } else {
+                    $price = $this->getProductPrice($type = 'number');
+                    if (gettype($price) == 'double') {
+                        $final_price = ($price / 100) * $this->mark_up;
+                    }
+                }
+                return $final_price;
+            } else {
+                return null;
+            }
         }
     }
 

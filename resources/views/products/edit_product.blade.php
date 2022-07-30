@@ -515,7 +515,7 @@
                                         class="form-control mb-3 @if ($errors->has('tier_commission_5')) is-invalid @endif"
                                         id="tier_commission_5" name="tier_commission_5"
                                         placeholder="Please Enter Tier 5 Commission"
-                                        value="{{ $product->tier_commission_5 }}" disabled>
+                                        value="{{ $product->tier_commission_5 }}" readonly>
                                 </div>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_5'))
@@ -580,7 +580,7 @@
                 }
             });
 
-            $('#tier_commission_5').val(100);
+            // $('#tier_commission_5').val(100);
 
             $('#tier_commission_1').change(function() {
                 var tier_1 = parseInt($('#tier_commission_1').val());

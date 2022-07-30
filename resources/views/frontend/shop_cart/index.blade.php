@@ -15,7 +15,7 @@
                                 <th> Photo </th>
                                 <th> Product </th>
                                 <th> Q-ty </th>
-                                <th> Spot Price </th>
+                                <th> Item Price </th>
                                 <th> Total </th>
                                 <th> &nbsp;</th>
                             </tr>

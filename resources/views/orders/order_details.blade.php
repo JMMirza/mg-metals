@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item border-0">
+                            {{-- <div class="accordion-item border-0">
                                 <div class="accordion-header" id="headingTwo">
                                     <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse"
                                         href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -191,7 +191,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -223,18 +223,12 @@
                 <div class="card-header">
                     <div class="d-flex">
                         <h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
-                        {{-- <div class="flex-shrink-0">
-                            <a href="javascript:void(0);" class="link-secondary">View Profile</a>
-                        </div> --}}
                     </div>
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled mb-0 vstack gap-3">
                         <li>
                             <div class="d-flex align-items-center">
-                                {{-- <div class="flex-shrink-0">
-                                    <img src="assets/images/users/avatar-3.jpg" alt="" class="avatar-sm rounded">
-                                </div> --}}
                                 <div class="flex-grow-1 ms-3">
                                     <h6 class="fs-14 mb-1">{{ $order->customer->full_name }}</h6>
                                     <p class="text-muted mb-0">Customer</p>
@@ -298,7 +292,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Billing
                         Address</h5>
@@ -312,7 +306,7 @@
                         <li>United States</li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Shipping
@@ -320,11 +314,12 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
-                        <li class="fw-medium fs-14">Joseph Parker</li>
-                        <li>+(256) 245451 451</li>
-                        <li>2186 Joyce Street Rocky Mount</li>
-                        <li>California - 24567</li>
-                        <li>United States</li>
+                        <li class="fw-medium fs-14">{{ $order->shipping_address }}</li>
+                        <li>{{ $order->full_name }}</li>
+                        <li>{{ $order->phone_number }}</li>
+                        <li>{{ $order->email }}</li>
+                        <li>{{ $order->city }}-{{ $order->zip_code }}</li>
+                        <li>{{ $order->country }}</li>
                     </ul>
                 </div>
             </div>

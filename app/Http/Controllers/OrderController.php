@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Order::with(['customer.user'])->latest()->get();
+            $data = Order::with(['customer.user', 'order_products'])->latest()->get();
             return Datatables::of($data)
                 ->addColumn('action', function ($row) {
                     return view('orders.actions', ['row' => $row]);
@@ -81,11 +81,23 @@ class OrderController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'delivery_method' => 'required|string|max:255',
-            'shipping_address' => 'required|string|max:255',
+            'delivery_method' => 'required|string',
+            'full_name' => 'required|string',
+            'phone_number' => 'required|string',
+            'email' => 'required|string',
+            'city' => 'required|string',
+            'country' => 'required|string',
+            'zip_code' => 'required|string',
+            'shipping_address' => 'required|string',
         ]);
         $order->delivery_method = $request->delivery_method;
         $order->shipping_address = $request->shipping_address;
+        $order->full_name = $request->full_name;
+        $order->phone_number = $request->phone_number;
+        $order->email = $request->email;
+        $order->city = $request->city;
+        $order->country = $request->country;
+        $order->zip_code = $request->zip_code;
         $order->save();
         return redirect(route('home'))->with('success', 'order placed successfully');
     }

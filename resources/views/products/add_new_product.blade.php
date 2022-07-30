@@ -525,7 +525,7 @@
                                         class="form-control mb-3 @if ($errors->has('tier_commission_5')) is-invalid @endif"
                                         id="tier_commission_5" name="tier_commission_5"
                                         placeholder="Please Enter Tier 5 Commission"
-                                        value="{{ old('tier_commission_5') }}" disabled>
+                                        value="{{ old('tier_commission_5') }}" readonly>
                                 </div>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('tier_commission_5'))

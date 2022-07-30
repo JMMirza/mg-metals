@@ -22,6 +22,9 @@
                             <option value="home_delivery">
                                 Home Delivery
                             </option>
+                            <option value="hold">
+                                Hold
+                            </option>
                         </select>
                         <div class="invalid-feedback">
                             <strong>{{ $errors->first('delivery_method') }}</strong>

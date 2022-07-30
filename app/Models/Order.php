@@ -15,6 +15,12 @@ class Order extends Model
         'total_order_price',
         'total_quantity',
         'delivery_method',
+        'full_name',
+        'phone_number',
+        'email',
+        'city',
+        'country',
+        'zip_code',
         'shipping_address',
     ];
 
