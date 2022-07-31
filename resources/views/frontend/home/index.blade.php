@@ -13,30 +13,40 @@
     <section class="page-section pt-0 pb-0 banner-section bg-dark bg-dark-alfa-50"
         data-background="{{ asset('frontend/images/banners/banner.jpg') }}">
         <div class="container relative">
+            
+                <div class="row interested-in ">
 
-            <div class="row">
+                    <div class="col-12 col-md-8 align-self-center">
 
-                <div class="col-sm-12">
-
-                    <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
-                        <div class="banner-content text-center">
-                            <h3 class="banner-heading font-alt bold">
-                                {{ __('home_page.INTERESTED IN ANY OF OUR MEMBER SERVICES?') }}</h3>
-                            <div class="banner-decription">{{ __('home_page.sign_up_or_login') }}</div>
-                            <div class="local-scroll">
-                                <a href="{{ route('customer_login') }}"
-                                    class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.signup_login') }}</a>
-                                <a href="{{ route('contact_us') }}"
-                                    class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.contact_us') }}</a>
+                        <div class="">
+                            <div class="banner-content text-center">
+                                <h3 class="banner-heading font-alt bold playfare">
+                                    {{ __('home_page.INTERESTED IN ANY OF OUR MEMBER SERVICES?') }}</h3>
+                                <div class="banner-decription">{{ __('home_page.sign_up_or_login') }}</div>
+                                <div class="local-scroll">
+                                    <a href="{{ route('customer_login') }}"
+                                        class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.signup_login') }}</a>
+                                    <a href="{{ route('contact_us') }}"
+                                        class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.contact_us') }}</a>
+                                </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="col-12 col-md-4">
+                            <div class="card card-default">
+                                <div class="card-body">
+                                    <h3 class="playfare mb-2">Discover EZgold App</h3>
+                                    <p>Invest smartly with your EZgold App. A new way to manage your precious metal investment portfolio. </p>
+                                    <a href="{{ route('contact_us') }}"
+                                        class="btn btn-mod btn-w btn-medium btn-round">Learn More</a>
+                            
+                                </div>
+                            </div>
                     </div>
 
                 </div>
-
-
-            </div>
-
+            
         </div>
     </section>
 
@@ -105,7 +115,7 @@
 
             <div class="row">
 
-                <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                <div class="col-lg-12 offset-lg-0 col-xl-10 offset-xl-1">
                     <div class="row">
 
                         <!-- Phone -->

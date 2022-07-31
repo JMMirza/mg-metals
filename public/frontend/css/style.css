@@ -1144,6 +1144,9 @@ a.btn-mod:focus {
     font-family: 'Playfair Display', serif !important;
 
 }
+.playfare{
+    font-family: 'Playfair Display', serif !important;
+}
 .home-text .banner-heading{
     font-size: 81px;
     line-height: 1.25em;
@@ -2548,7 +2551,7 @@ a.logo:hover {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    padding: 50px 0;
+    padding: 100px 0;
 }
 .small-section {
     padding: 70px 0;
@@ -2886,7 +2889,7 @@ a.logo:hover {
 .section-more {
     margin-top: 7px;
     color: #999;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.4em;
     text-decoration: none;
@@ -3314,11 +3317,13 @@ a.logo:hover {
 }
 .alt-features-descr {
     color: #777;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 15px;
     line-height: 1.86;
 }
 
+.white{
+    color: #fff  !important;
+}
 /* ==============================
    Benefits
    ============================== */
@@ -3896,10 +3901,15 @@ a.logo:hover {
     letter-spacing: 0;
     opacity: 0.85;
 }
+.testimonial .section-title{
+    color: #fff !important;
+}
 .testimonial p {
     font-size: 18px;
 }
 .testimonial-author {
+    margin-bottom: 20px !important;
+    font-family: 'Playfair Display', serif !important;
 }
 
 /*
@@ -4110,7 +4120,7 @@ a.logo:hover {
 .ci-title {
     margin-bottom: 1px;
     color: #777;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.3em;
@@ -4118,6 +4128,7 @@ a.logo:hover {
 .ci-text {
     font-size: 15px;
     font-weight: 300;
+    padding-right: 10px;
 }
 
 /*
@@ -5342,9 +5353,12 @@ section:hover .small-item-carousel .owl-next {
     letter-spacing: 0;
 }
 .alt-features-descr .heading{
-    color: #000 !important;
+    letter-spacing: 0.2em;
     font-family: 'Playfair Display', serif !important;
 
+}
+.alt-features-descr{
+    
 }
 .tpl-minimal-tabs-cont {
 }
@@ -6940,11 +6954,11 @@ section:hover .small-item-carousel .owl-next {
 .owl-wrapper h3,
 .section-title,
 .banner-heading {
-    color: #d6a650 !important;
+    color: #c9a401;
     font-weight: bold;
 }
 .heading {
-    color: #d6a650 !important;
+    color: #c9a401 !important;
 }
 .tpl-alt-tabs > li > a {
     color: #000 !important;
@@ -6961,9 +6975,14 @@ section:hover .small-item-carousel .owl-next {
     height: 100px !important;
     width: 100px !important;
 }
-
+.tpl-alt-tabs > li > a {
+    color: #c9a401 !important;
+    opacity: 1 !important;
+    font-size: 14px;
+    font-weight: bold;
+}
 .tpl-alt-tabs > li > a:hover {
-    color: #d6a650 !important;
+    color: #c9a401 !important;
     opacity: 1;
 }
 .tpl-alt-tabs > li > a:hover img.hover {
@@ -7066,7 +7085,7 @@ section:hover .small-item-carousel .owl-next {
     transition: 1s; 
   } 
   figure#spinner figure { 
-    width: 27%; 
+    width: 23%; 
     max-width: 500px; 
     position: absolute; 
     left: 40%;
@@ -7129,7 +7148,7 @@ section:hover .small-item-carousel .owl-next {
     left:auto; 
   }
   .slider .ss-icon:hover{
-    background: #d6a650 ;
+    background: #c9a401 ;
     color: #000;
   }
   @media only screen and (max-width: 768px) {
@@ -7152,4 +7171,36 @@ section:hover .small-item-carousel .owl-next {
         right:0px;
         left:auto; 
       }
+  }
+  .dark{
+    color:#000
+  }
+  .interested-in{
+    padding:140px 0px !important;
+  }
+  .interested-in .btn{
+    color: #fff !important;
+    background-color: #000 !important;
+    border-color: #000 !important;
+    margin:0px 10px;
+  }
+  .interested-in .btn:hover{
+    color: #fff !important;
+    background-color: #666 !important;
+    border-color: #666 !important;
+    
+  }
+  .interested-in .banner-heading{
+    color:#fff  !important;
+    font-size: 22px  !important;
+  }
+  .interested-in .card{
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 15px;
+    border-radius: 0px;;
+  }
+  .interested-in .card .card-body{
+    border-radius: 0px;;
   }

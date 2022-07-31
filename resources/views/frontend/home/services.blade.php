@@ -58,9 +58,21 @@
            
         </ul>
         <!-- End Nav tabs -->
+        <div class="row section-text">
+            <div class="col-12 col-md-4">
+                <h3 class="playfare bold dark">Every decade or so, dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
+                <p>Warren Buffett</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <p>MG Group was established in 2001. Within 10 years, our company has developed into a diversified business conglomerate-wide range of businesses from a real estate investment company. Our core businesses include a variety of financial services, real estate, entertainment, publishing, arts and cultures, education and training, multimedia and environmental protection. </p>
+            </div>
+            <div class="col-12 col-md-4">
+                <p>As a portfolio company of MG Metals, Marigold International Bullion Dealers Limited (A member of The Chinese Gold and Silver Exchange Society, Hong Kong (CGSE)* and Gold Bullion Group Member**, License number: 023) was established in 2007. </p>
+            </div>
+        </div>
 
         <!-- Tab panes -->
-        <div class="tab-content tpl-tabs-cont">
+        <div class="tab-content tpl-tabs-cont" style="display:none">
 
             <!-- Service Item -->
             <div role="tabpanel" class="tab-pane fade show active" id="service-branding">
@@ -157,7 +169,7 @@
 
         <div class="align-center">
             <a href="{{ route('services') }}"
-                class="section-more font-alt">{{ __('home_page.VIEW ALL SERVICES') }}
+                class="section-more font-alt playfare">{{ __('home_page.VIEW ALL SERVICES') }}
                 <i class="fa fa-angle-right"></i></a>
         </div>
 
