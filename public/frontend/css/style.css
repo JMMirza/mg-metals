@@ -1138,7 +1138,6 @@ a.btn-mod:focus {
     display: table-cell;
     height: 100%;
     vertical-align: middle;
-    padding-top: 50px;
 }
 .home-text h2{
     font-family: 'Playfair Display', serif !important;
@@ -1148,7 +1147,7 @@ a.btn-mod:focus {
     font-family: 'Playfair Display', serif !important;
 }
 .home-text .banner-heading{
-    font-size: 81px;
+    font-size: 60px;
     line-height: 1.25em;
     text-align: center;
     color: #fff !important;
