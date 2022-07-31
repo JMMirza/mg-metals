@@ -4117,6 +4117,13 @@ a.logo:hover {
     position: relative;
     font-size: 20px;
 }
+
+.avatar{
+    height: 25px;
+    width: 25px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
 .ci-title {
     margin-bottom: 1px;
     color: #777;
@@ -6957,6 +6964,9 @@ section:hover .small-item-carousel .owl-next {
     color: #c9a401;
     font-weight: bold;
 }
+.gold{
+    color: #c9a401 !important;
+}
 .heading {
     color: #c9a401 !important;
 }
@@ -7055,7 +7065,7 @@ section:hover .small-item-carousel .owl-next {
     font-size: 13px;
 }
 .inner-nav ul li a:hover {
-    font-weight: bold;
+    font-weight: normal;
     color: #fff;
     opacity: 1;
 }
