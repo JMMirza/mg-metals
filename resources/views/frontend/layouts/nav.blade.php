@@ -33,7 +33,12 @@
                 <li>
                     <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
                 </li>
-
+                <li>
+                    <a href="{{ route('ez-gold') }}" class="">{{ __('home_page.ez_gold') }}</i></a>
+                </li>
+                <li>
+                    <a href="{{ route('mg-pay') }}" class="">{{ __('home_page.mg_pay') }}</i></a>
+                </li>
                 @if (\Auth::user())
                     <li>
                         <a href="#" class="mn-has-sub">{{ \Auth::user()->name }}

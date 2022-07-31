@@ -318,4 +318,14 @@ class HomeController extends Controller
 
         return redirect()->route('login')->with('message', $message);
     }
+
+    public function ez_gold()
+    {
+        return view('frontend.ez_gold.index');
+    }
+
+    public function mg_pay()
+    {
+        return view('frontend.mg_pay.header');
+    }
 }
