@@ -1,17 +1,20 @@
 <section class="page-section" id="about">
     <div class="container relative">
         <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
-            {{ __('home_page.MG_GROUP_WAS_ESTABLISHED_IN_2001') }}
+                ABOUT COMPANY
             <a target="_blank" href="{{ route('about_us') }}" class="section-more right"> 
-                {{ __('home_page.about_us'); }} <i class="fa fa-angle-right"></i>
+                More About Us <i class="fa fa-angle-right"></i>
             </a>
         </h2>
         <div class="section-text">
             <div class="row">
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-2 col-12"></div>
+                <div class="col-md-5 col-12">
                     <p>
                         {{ __('about_us.para_1') }}
                     </p>
+                </div>
+                <div class="col-md-5 col-12">
                     <p>
                         {{ __('about_us.para_2') }}
                     </p>

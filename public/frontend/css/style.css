@@ -1138,12 +1138,33 @@ a.btn-mod:focus {
     display: table-cell;
     height: 100%;
     vertical-align: middle;
+    padding-top: 50px;
 }
 .home-text h2{
     font-family: 'Playfair Display', serif !important;
 
 }
-
+.home-text .banner-heading{
+    font-size: 81px;
+    line-height: 1.25em;
+    text-align: center;
+    color: #fff !important;
+    letter-spacing: 0.2em;
+    font-weight: normal;
+}
+.home-text .btn-mod{
+    border:2px solid #fff !important;
+    background-color: transparent !important;
+    color: #fff !important;
+    transition: all .3s;
+    margin:0px 10px !important;
+}
+.home-text .btn-mod:hover{
+    border:2px solid #222 !important;
+    background-color: #222 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
 /* Scroll down icon */
 
 @-webkit-keyframes scroll-down-anim {
@@ -1398,9 +1419,9 @@ a.bg-video-button-muted {
 .hs-line-8 {
     margin-top: 0;
     position: relative;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.5em;
     line-height: 1.2;
     opacity: 0.75;
 }
@@ -1596,9 +1617,9 @@ a.bg-video-button-muted {
 .nav-logo-wrap .logo {
     display: flex;
     align-items: center;
-    max-width: 118px;
+    max-width: 180px;
     height: 75px;
-
+    
     -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
     -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
     -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
@@ -1607,6 +1628,8 @@ a.bg-video-button-muted {
 }
 .nav-logo-wrap .logo img {
     max-height: 100%;
+    height: auto;
+    width: 180px;
 }
 .nav-logo-wrap .logo:before,
 .nav-logo-wrap .logo:after {
@@ -2848,7 +2871,7 @@ a.logo:hover {
 
 .section-title {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
@@ -2856,6 +2879,9 @@ a.logo:hover {
     line-height: 1.4;
     font-family: 'Playfair Display', serif !important;
 
+}
+.section-title a {
+    font-size: 14px !important;
 }
 .section-more {
     margin-top: 7px;
@@ -6994,15 +7020,17 @@ section:hover .small-item-carousel .owl-next {
 }
 .sticky-wrapper .main-nav .white{
     display: block;
+    margin-top: 5px !important;
 }
 .sticky-wrapper.is-sticky .main-nav .gold{
     display: block;
+    margin-top: 0px;
 }
 .sticky-wrapper.is-sticky .main-nav .white{
     display: none;
 }
 .inner-nav ul li a {
-    font-weight: bold;
+    font-weight: 500;
     color: #fff;
     opacity: .8;
     font-size: 13px;
@@ -7014,8 +7042,8 @@ section:hover .small-item-carousel .owl-next {
 }
 
 .small-height .inner-nav ul li a {
-    font-weight: bold;
-    color: #777;
+    font-weight: 500;
+    color: #666;
 }
 * { 
     box-sizing: border-box; 
