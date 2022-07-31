@@ -88,4 +88,9 @@ return [
     'referrals' => 'MY REFERRALS',
     'shop_cart' => 'SHOP CART',
     'delivery_method' => 'DELIVERY METHOD',
+    'ez_gold' => 'EZgold',
+    'coming_soon' => 'MGPay Coming Soon',
+    'notify_signup' => 'Sign up to be the first to know when we go live.',
+    'enter_email' => 'Enter your email here*',
+    'mg_pay' => 'MGPay'
 ];

@@ -54,6 +54,8 @@ Route::post('/login-customer', [HomeCtrl::class, 'login_customer'])->name('login
 Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])->name('customer-register-account');
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 Route::get('account/verify/{token}', [HomeCtrl::class, 'verifyAccount'])->name('user.verify');
+Route::get('/ez-gold', [HomeCtrl::class, 'ez_gold'])->name('ez-gold');
+Route::get('/mg-pay', [HomeCtrl::class, 'mg_pay'])->name('mg-pay');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
