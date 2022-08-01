@@ -1,4 +1,4 @@
-<section class="small-section bg-dark-lighter" style="padding:140px 0px 100px !important;    background-position-y: -30px;
+<section class="small-section bg-dark-alfa-30" style="padding:150px 0px 150px !important;    background-position-y: -90px;
     background-size: contain;" data-background="{{ asset('frontend/images/ezg.png') }}">
     <div class="relative container align-left">
 
@@ -6,7 +6,7 @@
 
             <div class="col-md-8">
                 <img src="{{ asset('frontend/images/app-logo.png') }}" class="mb-3" alt="logo">
-                <div class="hs-line-4 font-alt ">
+                <div class="hs-line-4 font-alt " style="letter-spacing:0.5em;margin-top:10px;font-size:16px;">
                 ONE APP, MANY USES.
                 </div> 
                

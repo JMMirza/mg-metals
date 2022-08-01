@@ -130,15 +130,15 @@ Whenever & Where you want.</h3>
 
                 <div class="row">
 
-                    <div class="col-md-7 align-self-center col-12">
+                    <div class="col-md-6 align-self-center col-12">
 
                     <img src="{{ asset('frontend/images/person-withapp.png') }}" alt="" />
 
                     </div>
 
-                    <div class="col-md-5 col-lg-4 offset-lg-1 align-self-center">
+                    <div class="col-md-6 align-self-center">
 
-                        <div class="row">
+                        <div class="row m-0">
 
                             <div class="col-md-12 text-center">
                                 <h2 class="playfare dark bold" style="font-size:20px; line-height:normal;"><span>Download the app now!</span></h2>
@@ -146,15 +146,15 @@ Whenever & Where you want.</h3>
                                 <h3 class="playfare dark" style="font-size:16px;margin-top:10px;">Join EZgold community</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
-                                <img src="{{ asset('frontend/images/whatsapp-scan.png') }}" alt="" />
+                                <img src="{{ asset('frontend/images/whatsapp-scan.png') }}" style="height: 115px; margin-bottom: 10px;" alt="" />
                                 <h3 class="playfare gold" style="font-size:14px;">Whatsapp</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
-                                <img src="{{ asset('frontend/images/wechat-scan.png') }}" alt="" />
+                                <img src="{{ asset('frontend/images/wechat-scan.png') }}" style="height: 115px; margin-bottom: 10px;" alt="" />
                                 <h3 class="playfare gold" style="font-size:14px;">We Chat</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
-                                <img src="{{ asset('frontend/images/line-scan.png') }}" alt="" />
+                                <img src="{{ asset('frontend/images/line-scan.png') }}" style="height: 115px; margin-bottom: 10px;" alt="" />
                                 <h3 class="playfare gold" style="font-size:14px;">Line</h3>
                             </div>
                         </div>

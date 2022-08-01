@@ -12,7 +12,7 @@ Primary use: MultiPurpose Template
 @import "et-line.css";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,300;0,500;0,600;0,800;1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /*------------------------------------------------------------------
 [Table of contents]
@@ -439,14 +439,15 @@ video {
    ============================== */
 
 body {
-    color: #111;
-    font-size: 14px;
-    font-family: 'Noto Sans', sans-serif;
-    line-height: 1.6;
+    color: #6E6D6D;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.88em;
     -webkit-font-smoothing: antialiased;
+    background: #fdfdf6 !important ;
 }
 .font-alt{
-    font-family: 'Noto Sans', sans-serif !important;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -495,6 +496,10 @@ h6,
 }
 p {
     margin: 0 0 2em 0;
+    line-height: 1.88em;
+    font-weight: normal;
+    color: #6E6D6D;
+    font-size: 16px;
 }
 ul,
 ol {
@@ -544,12 +549,12 @@ hr.white {
     letter-spacing: 1px;
 }
 .font-alt {
-    font-family: Dosis, arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.2em;
 }
 .serif {
-    font-family: "Times New Roman", Times, serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: italic;
     font-weight: normal;
 }
@@ -1639,7 +1644,7 @@ a.bg-video-button-muted {
 }
 .logo,
 a.logo:hover {
-    font-family: Dosis, arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;;
     font-size: 18px;
     font-weight: 400 !important;
     text-transform: uppercase;
@@ -3893,7 +3898,7 @@ a.logo:hover {
     background: none;
     border: none;
     text-align: center;
-    font-family: "Open Sans", arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 300;
@@ -4566,7 +4571,7 @@ a.blog-item-more:hover {
 
 .pagination {
     font-size: 13px;
-    font-family: "Open Sans", arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;;
 }
 .pagination a {
     display: inline-block;
@@ -4640,7 +4645,7 @@ a.blog-item-more:hover {
 .comment-item-data {
     margin: 0 0 5px;
     text-transform: uppercase;
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     color: #777;
 }
@@ -4939,7 +4944,7 @@ table.shopping-cart-table tr td {
     line-height: 1;
 }
 .pricing-num sup {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 400;
     position: relative;
@@ -5074,6 +5079,10 @@ table.shopping-cart-table tr td {
 .owl-carousel .owl-next:focus {
     opacity: 1;
     right: -35px;
+}
+.owl-carousel .owl-prev .fa,
+.owl-carousel .owl-next .fa {
+    font-size: 22px;;
 }
 .owl-pagination {
     display: block;
@@ -7019,7 +7028,7 @@ section:hover .small-item-carousel .owl-next {
     object-position: center center;
 }
 .home-section-banner {
-    height: 639px;
+    height: 875px;
 }
 .home-section-banner .js-height-full {
     position: absolute;
@@ -7041,7 +7050,7 @@ section:hover .small-item-carousel .owl-next {
     z-index: 99999;
 }
 .sticky-wrapper.is-sticky .main-nav {
-    background: #fff !important;
+    background: #fdfdf6  !important;
 }
 .sticky-wrapper .main-nav .gold{
     display: none;
@@ -7239,4 +7248,7 @@ section:hover .small-item-carousel .owl-next {
     justify-content: center;
     text-align: center;
     margin-top: 25px;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 300;
   }
