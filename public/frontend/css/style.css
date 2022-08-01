@@ -7213,3 +7213,30 @@ section:hover .small-item-carousel .owl-next {
   .interested-in .card .card-body{
     border-radius: 0px;;
   }
+  .mobile-app li{
+    text-align: center;
+  }
+  .mobile-app li img{
+    margin:0px auto;
+    height: 400px;
+    width: auto;
+  }
+  .alt-features-item{
+    padding:5px;
+    margin-top: 0px !important;
+  }
+  .alt-features-item .alt-features-title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .alt-features-item .alt-features-descr {
+    padding:15px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 25px;
+  }
