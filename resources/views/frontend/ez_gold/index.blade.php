@@ -8,15 +8,15 @@
 
             <div class="row">
 
-                <div class="col-md-5 col-lg-4 mb-sm-40">
+                <div class="col-md-6  mb-sm-40">
 
                     <!-- About Project -->
                     <div class="text">
 
-                        <h3 class="font-alt mb-30 mb-xxs-10">Creative Project</h3>
+                        <h3 class="font-alt mb-30 mb-xxs-10 playfare gold">Manage your gold reserve,
+Whenever & Where you want.</h3>
                         <p>
-                            Phasellus facilisis mauris vel velit molestie pellentesque. Donec rutrum, tortor ut elementum
-                            venenatis, purus magna bibendum nisl, ut accumsan ipsum erat eu sapien.
+                        EZgold is a fully owned subsidiary of MG Group. EZgold APP provides a simple operation interface for personal and corporate accounts. Within the APP, members can buy, sell, specialize and extract gold wherever and whenever they want.
                         </p>
 
                         <div class="mt-40">
@@ -29,7 +29,7 @@
 
                 </div>
 
-                <div class="col-md-7 offset-lg-1">
+                <div class="col-md-6">
 
                     <!-- Work Gallery -->
                     <div class="work-full-media mt-0 white-shadow">

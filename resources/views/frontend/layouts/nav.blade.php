@@ -68,7 +68,9 @@
                     </li>
                 @else
                     <li>
-                        <a href="{{ route('customer_login') }}" class="">{{ __('home_page.login') }}</i></a>
+                        <a href="{{ route('customer_login') }}" class="">
+                        <img src="{{ asset('frontend/images/user-avatar.png') }}" class="avatar" alt="">      
+                        {{ __('home_page.login') }}</i></a>
                 @endif
                 </li>
 
@@ -79,13 +81,12 @@
                 <!-- Languages -->
                 <li>
                     <a href="#"
-                        class="mn-has-sub">{{ (session()->get('locale') == 'ch' ? '繁體中文' : session()->get('locale') == 'ch_simple') ? '簡體中文' : 'English' }}
+                        class="mn-has-sub">{{ (session()->get('locale') == 'ch' ? '繁體' : session()->get('locale') == 'ch_simple') ? '簡體' : 'En' }}
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="mn-sub">
-                        <li><a href="{{ route('language', 'en') }}">English</a></li>
-                        <li><a href="{{ route('language', 'ch') }}">繁體中文</a></li>
-                        <li><a href="{{ route('language', 'ch_simple') }}">簡體中文</a></li>
+                        <li><a href="{{ route('language', 'en') }}">En</a></li>
+                        <li><a href="{{ route('language', 'ch') }}">繁體</a></li>
                     </ul>
                 </li>
                 <!-- End Languages -->

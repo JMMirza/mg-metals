@@ -6,8 +6,8 @@
         <div class="home-content container">
             <div class="home-text">
 
-                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30 text-white">{{ __('home_page.since_2001') }}</h1>
-                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30 text-white">{{ __('home_page.mg_metals') }}</h2>
+                <h1 class="hs-line-8 font-alt mb-30 mb-xs-30 text-white">METALS INDUSTRY EXPERT SINCE 2001</h1>
+                <h2 class="banner-heading hs-line-11 font-alt mb-50 mb-xs-30 text-white">PHYSICAL PRECIOUS METALS </h2>
 
                 <div class="local-scroll">
                     <a href="{{ route('contact_us') }}"
@@ -46,8 +46,8 @@
         <div class="home-content container">
             <div class="home-text">
 
-                <h1 class="hs-line-8 font-alt mb-50 mb-xs-30 text-white">{{ __('home_page.since_2001') }}</h1>
-                <h2 class="hs-line-11 font-alt mb-50 mb-xs-30 text-white">{{ __('home_page.mg_metals') }}</h2>
+                <h1 class="hs-line-8 font-alt mb-30 mb-xs-30 text-white">METALS INDUSTRY EXPERT SINCE 2001</h1>
+                <h2 class="banner-heading hs-line-11 font-alt mb-50 mb-xs-30 text-white">PHYSICAL PRECIOUS METALS </h2>
 
                 <div class="local-scroll">
                     <a href="{{ route('contact_us') }}"
@@ -67,6 +67,5 @@
                     class="sr-only">Scroll to the next section</span></a>
         </div>
         <!-- End Scroll Down -->
-
     </div>
 </section>

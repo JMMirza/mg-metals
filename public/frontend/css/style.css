@@ -1143,7 +1143,30 @@ a.btn-mod:focus {
     font-family: 'Playfair Display', serif !important;
 
 }
-
+.playfare{
+    font-family: 'Playfair Display', serif !important;
+}
+.home-text .banner-heading{
+    font-size: 60px;
+    line-height: 1.25em;
+    text-align: center;
+    color: #fff !important;
+    letter-spacing: 0.2em;
+    font-weight: normal;
+}
+.home-text .btn-mod{
+    border:2px solid #fff !important;
+    background-color: transparent !important;
+    color: #fff !important;
+    transition: all .3s;
+    margin:0px 10px !important;
+}
+.home-text .btn-mod:hover{
+    border:2px solid #222 !important;
+    background-color: #222 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
 /* Scroll down icon */
 
 @-webkit-keyframes scroll-down-anim {
@@ -1398,9 +1421,9 @@ a.bg-video-button-muted {
 .hs-line-8 {
     margin-top: 0;
     position: relative;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.5em;
     line-height: 1.2;
     opacity: 0.75;
 }
@@ -1596,9 +1619,9 @@ a.bg-video-button-muted {
 .nav-logo-wrap .logo {
     display: flex;
     align-items: center;
-    max-width: 118px;
+    max-width: 180px;
     height: 75px;
-
+    
     -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
     -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
     -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
@@ -1607,6 +1630,8 @@ a.bg-video-button-muted {
 }
 .nav-logo-wrap .logo img {
     max-height: 100%;
+    height: auto;
+    width: 180px;
 }
 .nav-logo-wrap .logo:before,
 .nav-logo-wrap .logo:after {
@@ -2525,7 +2550,7 @@ a.logo:hover {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    padding: 140px 0;
+    padding: 100px 0;
 }
 .small-section {
     padding: 70px 0;
@@ -2848,7 +2873,7 @@ a.logo:hover {
 
 .section-title {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
@@ -2857,10 +2882,13 @@ a.logo:hover {
     font-family: 'Playfair Display', serif !important;
 
 }
+.section-title a {
+    font-size: 14px !important;
+}
 .section-more {
     margin-top: 7px;
     color: #999;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.4em;
     text-decoration: none;
@@ -3288,11 +3316,13 @@ a.logo:hover {
 }
 .alt-features-descr {
     color: #777;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 15px;
     line-height: 1.86;
 }
 
+.white{
+    color: #fff  !important;
+}
 /* ==============================
    Benefits
    ============================== */
@@ -3870,10 +3900,15 @@ a.logo:hover {
     letter-spacing: 0;
     opacity: 0.85;
 }
+.testimonial .section-title{
+    color: #fff !important;
+}
 .testimonial p {
     font-size: 18px;
 }
 .testimonial-author {
+    margin-bottom: 20px !important;
+    font-family: 'Playfair Display', serif !important;
 }
 
 /*
@@ -4081,10 +4116,17 @@ a.logo:hover {
     position: relative;
     font-size: 20px;
 }
+
+.avatar{
+    height: 25px;
+    width: 25px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
 .ci-title {
     margin-bottom: 1px;
     color: #777;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.3em;
@@ -4092,6 +4134,7 @@ a.logo:hover {
 .ci-text {
     font-size: 15px;
     font-weight: 300;
+    padding-right: 10px;
 }
 
 /*
@@ -5316,9 +5359,12 @@ section:hover .small-item-carousel .owl-next {
     letter-spacing: 0;
 }
 .alt-features-descr .heading{
-    color: #000 !important;
+    letter-spacing: 0.2em;
     font-family: 'Playfair Display', serif !important;
 
+}
+.alt-features-descr{
+    
 }
 .tpl-minimal-tabs-cont {
 }
@@ -6914,11 +6960,14 @@ section:hover .small-item-carousel .owl-next {
 .owl-wrapper h3,
 .section-title,
 .banner-heading {
-    color: #d6a650 !important;
+    color: #c9a401;
     font-weight: bold;
 }
+.gold{
+    color: #c9a401 !important;
+}
 .heading {
-    color: #d6a650 !important;
+    color: #c9a401 !important;
 }
 .tpl-alt-tabs > li > a {
     color: #000 !important;
@@ -6935,9 +6984,14 @@ section:hover .small-item-carousel .owl-next {
     height: 100px !important;
     width: 100px !important;
 }
-
+.tpl-alt-tabs > li > a {
+    color: #c9a401 !important;
+    opacity: 1 !important;
+    font-size: 14px;
+    font-weight: bold;
+}
 .tpl-alt-tabs > li > a:hover {
-    color: #d6a650 !important;
+    color: #c9a401 !important;
     opacity: 1;
 }
 .tpl-alt-tabs > li > a:hover img.hover {
@@ -6994,28 +7048,30 @@ section:hover .small-item-carousel .owl-next {
 }
 .sticky-wrapper .main-nav .white{
     display: block;
+    margin-top: 5px !important;
 }
 .sticky-wrapper.is-sticky .main-nav .gold{
     display: block;
+    margin-top: 0px;
 }
 .sticky-wrapper.is-sticky .main-nav .white{
     display: none;
 }
 .inner-nav ul li a {
-    font-weight: bold;
+    font-weight: 500;
     color: #fff;
     opacity: .8;
     font-size: 13px;
 }
 .inner-nav ul li a:hover {
-    font-weight: bold;
+    font-weight: normal;
     color: #fff;
     opacity: 1;
 }
 
 .small-height .inner-nav ul li a {
-    font-weight: bold;
-    color: #777;
+    font-weight: 500;
+    color: #666;
 }
 * { 
     box-sizing: border-box; 
@@ -7038,7 +7094,7 @@ section:hover .small-item-carousel .owl-next {
     transition: 1s; 
   } 
   figure#spinner figure { 
-    width: 27%; 
+    width: 23%; 
     max-width: 500px; 
     position: absolute; 
     left: 40%;
@@ -7101,7 +7157,7 @@ section:hover .small-item-carousel .owl-next {
     left:auto; 
   }
   .slider .ss-icon:hover{
-    background: #d6a650 ;
+    background: #c9a401 ;
     color: #000;
   }
   @media only screen and (max-width: 768px) {
@@ -7124,4 +7180,36 @@ section:hover .small-item-carousel .owl-next {
         right:0px;
         left:auto; 
       }
+  }
+  .dark{
+    color:#000
+  }
+  .interested-in{
+    padding:140px 0px !important;
+  }
+  .interested-in .btn{
+    color: #fff !important;
+    background-color: #000 !important;
+    border-color: #000 !important;
+    margin:0px 10px;
+  }
+  .interested-in .btn:hover{
+    color: #fff !important;
+    background-color: #666 !important;
+    border-color: #666 !important;
+    
+  }
+  .interested-in .banner-heading{
+    color:#fff  !important;
+    font-size: 22px  !important;
+  }
+  .interested-in .card{
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 15px;
+    border-radius: 0px;;
+  }
+  .interested-in .card .card-body{
+    border-radius: 0px;;
   }
