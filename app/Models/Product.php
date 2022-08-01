@@ -93,6 +93,35 @@ class Product extends Model
         return $image;
     }
 
+    public function getProductPriceWithoutMarkUp()
+    {
+        $product = $this;
+        $final_price = 0;
+
+        // return 'N/A';
+
+        if ($product->pricing_type == 'fix_price') {
+            $final_price = $product->fixed_amount;
+        } else {
+            try {
+                $gold_price = 0;
+                if (Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
+                    $gold_price = Session::get('gold_price');
+                } else {
+                    $response = Http::get('http://150.242.218.15:3080/');
+                    $resp = $response->object();
+                    $gold_price = $resp->ask;
+                    Session::put('gold_price', $gold_price);
+                    Session::put('gold_price_expires_at', Carbon::now()->addMinutes(10)->timestamp);
+                }
+                $final_price = ($product->weight * $gold_price);
+            } catch (\Throwable $th) {
+                //throw $th;
+                return 'N/A';
+            }
+        }
+        return $final_price;
+    }
 
     public function getProductPrice($type = 'str')
     {
@@ -113,7 +142,7 @@ class Product extends Model
                     if ($product->category->mark_up == 'flat') {
                         $final_price = $product->mark_up + $product->fixed_amount;
                     } else {
-                        $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->mark_up);
+                        $final_price = $product->fixed_amount + (($product->fixed_amount / 100) * $product->category->mark_up);
                     }
                 } else {
                     $final_price = $product->fixed_amount;
@@ -134,15 +163,23 @@ class Product extends Model
                     Session::put('gold_price_expires_at', Carbon::now()->addMinutes(10)->timestamp);
                 }
 
+                $price = ($product->weight * $gold_price);
                 if ($product->surcharge_at_product == 'yes') {
-                    $price = ($product->weight * $gold_price);
                     if ($product->markup_type == 'flat') {
                         $final_price = $product->mark_up + $price;
                     } else {
                         $final_price = $price + (($price / 100) * $product->mark_up);
                     }
                 } else {
-                    $final_price = ($product->weight * $gold_price);
+                    if ($product->category->surcharge_at_category == 'yes') {
+                        if ($product->category->mark_up == 'flat') {
+                            $final_price = $product->mark_up + $price;
+                        } else {
+                            $final_price = $price + (($price / 100) * $product->category->mark_up);
+                        }
+                    } else {
+                        $final_price = $price;
+                    }
                 }
             } catch (\Throwable $th) {
                 //throw $th;
@@ -163,7 +200,7 @@ class Product extends Model
             if ($this->markup_type == 'flat') {
                 return $this->mark_up;
             } else {
-                $price = $this->getProductPrice($type = 'number');
+                $price = $this->getProductPriceWithoutMarkUp();
                 if (gettype($price) == 'double') {
                     $percentage = ($price / 100) * $this->mark_up;
                     return $percentage;
@@ -176,7 +213,7 @@ class Product extends Model
                 if ($this->category->mark_up == 'flat') {
                     $final_price = $this->mark_up;
                 } else {
-                    $price = $this->getProductPrice($type = 'number');
+                    $price = $this->getProductPriceWithoutMarkUp();
                     if (gettype($price) == 'double') {
                         $final_price = ($price / 100) * $this->mark_up;
                     }

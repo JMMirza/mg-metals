@@ -44,6 +44,7 @@ Route::get('/', function () {
 
 Route::get('/', [HomeCtrl::class, 'index']);
 Route::get('/home', [HomeCtrl::class, 'index'])->name('home');
+
 Route::get('/shop', [HomeCtrl::class, 'shop'])->name('shop');
 Route::get('/about-us', [HomeCtrl::class, 'about_us'])->name('about_us');
 Route::get('/services', [HomeCtrl::class, 'services'])->name('services');

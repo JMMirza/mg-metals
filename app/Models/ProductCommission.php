@@ -13,6 +13,7 @@ class ProductCommission extends Model
         'customer_id',
         'product_id',
         'product_mark_up',
+        'mark_up_type',
         'product_price',
         'tier_type',
         'tier_id',

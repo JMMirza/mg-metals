@@ -24,12 +24,22 @@ class ProductCommissionController extends Controller
                     return  $row->tier_commission . ' USD';
                 })
                 ->addColumn('product_mark_up', function ($row) {
-                    if ($row->product->mark_up) {
-                        if ($row->product->markup_type == 'flat') {
-                            return  $row->product->mark_up . ' USD';
+                    if (isset($row->product_mark_up)) {
+                        if ($row->mark_up_type == 'flat') {
+                            return  $row->product_mark_up . ' USD';
                         } else {
-                            return  $row->product->mark_up . ' %';
+                            // dd('hello');
+                            $row->product_price = (int)$row->product_price;
+                            $markup = ($row->product_price / 100) * $row->product_mark_up;
+                            return  $markup . ' USD';
                         }
+                    } else {
+                        return 'N / A';
+                    }
+                })
+                ->addColumn('tier_commission_percentage', function ($row) {
+                    if (isset($row->tier_commission_percentage)) {
+                        return  $row->tier_commission_percentage . ' %';
                     } else {
                         return 'N / A';
                     }
