@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Update Delivey Charge</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Update Delivery Charge</h4>
             </div>
 
             <div class="card-body">
@@ -12,7 +12,7 @@
                     @method('PUT')
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="delivery_method" class="form-label">Delivey Method</label>
+                            <label for="delivery_method" class="form-label">Delivery Method</label>
                             <input type="text"
                                 class="form-control @if ($errors->has('delivery_method')) is-invalid @endif"
                                 id="delivery_method" name="delivery_method" placeholder="delivery_method"

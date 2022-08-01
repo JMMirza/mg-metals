@@ -7,7 +7,6 @@ use App\Http\Controllers\CustomerProductController;
 use App\Http\Controllers\CustomerShareholder;
 use App\Http\Controllers\CustomerTrading;
 use App\Http\Controllers\DeliveryChargesController;
-use App\Http\Controllers\DeliveyChargesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use App\Http\Controllers\FrontendCustomerController;

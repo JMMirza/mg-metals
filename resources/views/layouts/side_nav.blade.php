@@ -83,7 +83,7 @@
                     <a class="nav-link menu-link
                     {{ Request::is('delivery-charges/*') ? 'active' : '' }}"
                         href="{{ route('delivery-charges.index') }}" role="button">
-                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Delivey Charges</span>
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Delivery Charges</span>
                     </a>
                 </li>
 
