@@ -575,8 +575,24 @@
                     $('#mark_up').attr('disabled', true);
                 }
             });
-
-            $('#tier_commission_5').val(100);
+            var tier_1_init = $('#tier_commission_1').val();
+            if (tier_1_init) {
+                tier_1_init = parseInt(tier_1_init);
+            }
+            var tier_2_init = $('#tier_commission_2').val();
+            if (tier_2_init) {
+                tier_2_init = parseInt(tier_2_init);
+            }
+            var tier_3_init = $('#tier_commission_3').val();
+            if (tier_3_init) {
+                tier_3_init = parseInt(tier_3_init);
+            }
+            var tier_4_init = $('#tier_commission_4').val();
+            if (tier_4_init) {
+                tier_4_init = parseInt(tier_4_init);
+            }
+            var sum = tier_1_init + tier_2_init + tier_3_init + tier_4_init;
+            $('#tier_commission_5').val(100 - sum);
 
             $('#tier_commission_1').change(function() {
                 var tier_1 = parseInt($('#tier_commission_1').val());
