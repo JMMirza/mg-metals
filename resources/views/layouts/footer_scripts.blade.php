@@ -15,7 +15,7 @@
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/fixedcolumns/4.1.0/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 <script src="{{ asset('theme/dist/default/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
@@ -30,6 +30,12 @@
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    $('#myselect').select2({
+        width: '100%',
+        placeholder: "Select an Option",
+        allowClear: true
+    });
 
     $(document).on('click', '.delete-record', function(e) {
         e.preventDefault();

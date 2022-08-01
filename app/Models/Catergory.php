@@ -44,4 +44,9 @@ class Catergory extends Model
     {
         return $this->hasMany(Catergory::class, 'parent_id');
     }
+
+    public function deliver_charges()
+    {
+        return $this->hasOne(DeliveryCharges::class);
+    }
 }

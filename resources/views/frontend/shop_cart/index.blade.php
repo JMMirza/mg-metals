@@ -67,16 +67,24 @@
                     @if (count($carts) > 0)
                         <hr class="mt-10 mb-60" />
                         <div class="row">
-                            <div class="col-sm-12 text align-right pt-10">
-                                {{-- <div>
-                                    Cart subtotal: <strong>$45.95</strong>
-                                </div>
+                            <div class="col-sm-6">
 
-                                <div class="mb-10">
-                                    Shipping: <strong>$30.00</strong>
-                                </div> --}}
+                                <h3 class="small-title font-alt">Delivery Method</h3>
 
+                                <form action="#" class="form">
 
+                                    <div class="mb-10">
+                                        <select class="input-md form-control">
+                                            <option>Select Method</option>
+                                            <option>Hold</option>
+                                            <option>Pick Up</option>
+                                            <option>Delivery</option>
+                                        </select>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="col-sm-6 text-end">
                                 <div class="lead mt-0 mb-30">
                                     Order Total: <strong>{{ $total_price }} USD</strong>
                                 </div>
