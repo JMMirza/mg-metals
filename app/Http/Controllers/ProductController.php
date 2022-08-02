@@ -23,7 +23,7 @@ class ProductController extends Controller
         if ($request->ajax()) {
 
             $data = Product::with('category')->latest()->get();
-            // dd($data->get());
+            dd($data->toArray());
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('status_prd', function ($row) {
