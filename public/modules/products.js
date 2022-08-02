@@ -24,14 +24,17 @@ $(document).ready(function () {
             {
                 data: "category.name",
                 name: "category.name",
+                defaultContent: '<span>N/A</span>'
             },
             {
                 data: "status_prd",
-                name: "status_prd"
+                name: "status_prd",
+                defaultContent: '<span>N/A</span>'
             },
             {
                 data: "created_at",
-                name: "created_at"
+                name: "created_at",
+                defaultContent: '<span>N/A</span>'
             },
             {
                 data: "action",
@@ -40,7 +43,7 @@ $(document).ready(function () {
                 searchable: false,
                 width: "5%",
                 sClass: "text-center",
-            },
+            }
         ],
     });
 });
