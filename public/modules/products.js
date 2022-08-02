@@ -26,6 +26,10 @@ $(document).ready(function () {
                 name: "category.name",
             },
             {
+                data: "status",
+                name: "status",
+            },
+            {
                 data: "created_at",
                 name: "created_at",
                 width: "15%",
