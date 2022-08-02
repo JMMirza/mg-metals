@@ -22,11 +22,12 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Product::with('category')->latest();
+            $data = Product::with('category')->latest()->get();
+            // dd($data->get());
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('status', function ($row) {
-                    if ($row->status == 'inactive' || $row->status == null && $row->valid_till <= Carbon::now()->format('Y-m-d')) {
+                ->addColumn('status_prd', function ($row) {
+                    if (($row->status == 'inactive' || $row->status == null) && $row->valid_till <= Carbon::now()->format('Y-m-d')) {
                         return '<span class="badge bg-danger">In Active</span>';
                     } else {
                         return '<span class="badge bg-info">Active</span>';
@@ -35,7 +36,7 @@ class ProductController extends Controller
                 ->addColumn('action', function ($row) {
                     return view('products.actions', ['row' => $row]);
                 })
-                ->rawColumns(['action', 'status'])
+                ->rawColumns(['action', 'status_prd'])
                 ->make(true);
         }
         $manufacturers = Manufacturer::all();
