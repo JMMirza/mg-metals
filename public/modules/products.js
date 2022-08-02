@@ -26,13 +26,12 @@ $(document).ready(function () {
                 name: "category.name",
             },
             {
-                data: "category.name",
-                name: "category.name"
+                data: "status_prd",
+                name: "status_prd"
             },
             {
                 data: "created_at",
-                name: "created_at",
-                width: "15%",
+                name: "created_at"
             },
             {
                 data: "action",
