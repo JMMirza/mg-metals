@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerProductController;
 use App\Http\Controllers\CustomerShareholder;
 use App\Http\Controllers\CustomerTrading;
 use App\Http\Controllers\DeliveryChargesController;
+use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use App\Http\Controllers\FrontendCustomerController;
@@ -75,6 +76,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['inventories' => InventoryController::class]);
     Route::resources(['shop-cart' => ShopCartController::class]);
     Route::resources(['delivery-charges' => DeliveryChargesController::class]);
+    Route::resources(['exchange-rate' => ExchangeRateController::class]);
     Route::get('verify-user', [CustomerController::class, 'verify_user'])->name('verify-user');
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');
     Route::get('customer-referrals', [HomeCtrl::class, 'customer_referrals'])->name('customer-referrals');

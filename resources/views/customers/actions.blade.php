@@ -5,10 +5,6 @@
 {{-- @endpermission --}}
 
 {{-- @permission('delete-course') --}}
-<a href="{{ route('customers.destroy', $row->id) }}" data-rowid="{{ $row->id }}" data-table="customers-data-table"
-    class="btn btn-sm btn-danger btn-icon waves-effect waves-light delete-record">
-    <i class="ri-delete-bin-5-line"></i>
-</a>
 <a href="{{ route('customer-product', $row->id) }}" class="btn btn-sm btn-primary btn-icon waves-effect waves-light">
     <i class="ri-list-check"></i>
 </a>
@@ -21,6 +17,10 @@
         class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
             class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i> UnVerified</button>
 @endif
+<a href="{{ route('customers.destroy', $row->id) }}" data-rowid="{{ $row->id }}" data-table="customers-data-table"
+    class="btn btn-sm btn-danger btn-icon waves-effect waves-light delete-record">
+    <i class="ri-delete-bin-5-line"></i>
+</a>
 {{-- @endpermission --}}
 
 {{-- @if (!auth()->user()->hasPermission('edit-course') &&
