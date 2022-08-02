@@ -26,8 +26,8 @@ $(document).ready(function () {
                 name: "category.name",
             },
             {
-                data: "status_prd",
-                name: "status_prd",
+                data: "category.name",
+                name: "category.name"
             },
             {
                 data: "created_at",

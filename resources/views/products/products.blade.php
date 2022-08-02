@@ -28,18 +28,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                        </tbody>
-                        {{-- <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Product Type</th>
-                                <th>Created At</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot> --}}
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
