@@ -25,10 +25,10 @@ $(document).ready(function () {
                 data: "category.name",
                 name: "category.name",
             },
-            // {
-            //     data: "status",
-            //     name: "status",
-            // },
+            {
+                data: "status",
+                name: "status",
+            },
             {
                 data: "created_at",
                 name: "created_at",
