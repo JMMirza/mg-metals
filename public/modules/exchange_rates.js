@@ -1,11 +1,10 @@
 $(document).ready(function () {
     var route = $("#ajaxRoute").val();
     console.log(route);
-    $("#products-data-table").DataTable({
+    $("#exchange-rate-data-table").DataTable({
         processing: true,
         serverSide: true,
         responsive: true,
-
         scrollX: true,
         language: {
             search: "",
@@ -18,23 +17,21 @@ $(document).ready(function () {
                 name: "id",
             },
             {
-                data: "name",
-                name: "name",
+                data: "from_currency",
+                name: "from_currency",
             },
             {
-                data: "category.name",
-                name: "category.name",
-                defaultContent: '<span>N/A</span>'
+                data: "to_currency",
+                name: "to_currency",
             },
             {
-                data: "status_prd",
-                name: "status_prd",
-                defaultContent: '<span>N/A</span>'
+                data: "rate",
+                name: "rate",
             },
             {
                 data: "created_at",
                 name: "created_at",
-                defaultContent: '<span>N/A</span>'
+                width: "15%",
             },
             {
                 data: "action",
@@ -43,7 +40,7 @@ $(document).ready(function () {
                 searchable: false,
                 width: "5%",
                 sClass: "text-center",
-            }
+            },
         ],
     });
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catergory;
 use App\Models\Manufacturer;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
 use File;
@@ -21,13 +22,20 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Product::with('category')->latest();
+            $data = Product::with('category')->latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('status_prd', function ($row) {
+                    if (($row->status == 'inactive' || $row->status == null) && $row->valid_till <= Carbon::now()->format('Y-m-d')) {
+                        return '<span class="badge bg-danger">In Active</span>';
+                    } else {
+                        return '<span class="badge bg-info">Active</span>';
+                    }
+                })
                 ->addColumn('action', function ($row) {
                     return view('products.actions', ['row' => $row]);
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'status_prd'])
                 ->make(true);
         }
         $manufacturers = Manufacturer::all();

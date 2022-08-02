@@ -61,8 +61,7 @@ class InventoryController extends Controller
 
         Inventory::create($request->all());
 
-        return redirect()->route('inventories.index')
-            ->with('success', 'Inventory created successfully.');
+        return back()->with('success', 'Inventory created successfully.');
     }
 
     /**
@@ -126,9 +125,11 @@ class InventoryController extends Controller
     public function load_single_product_logs($id)
     {
         $product_id = $id;
+        $product = Product::find($product_id);
+        $total_units = Inventory::where('product_id', $product_id)->sum('units');
         $inventories = Inventory::with(['product', 'order.customer'])->where('product_id', $product_id)->latest()->get();
         // dd($inventories->toArray());
-        return view('inventory.single_product_log', ['inventories' => $inventories]);
+        return view('inventory.single_product_log', ['inventories' => $inventories, 'product' => $product, 'total_units' => $total_units]);
     }
 
     private function get_similar_products()

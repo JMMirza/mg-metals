@@ -40,7 +40,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('customers') ? 'active' : '' }}"
+                    {{ Request::is('customers') || Request::is('customers/*') ? 'active' : '' }}"
                         href="{{ route('customers.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers</span>
                     </a>
@@ -56,7 +56,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('categories') ? 'active' : '' }}"
+                    {{ Request::is('categories') || Request::is('categories/*') ? 'active' : '' }}"
                         href="{{ route('categories.index') }}" role="
                         button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Categories</span>
@@ -65,7 +65,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('manufacturers') ? 'active' : '' }}"
+                    {{ Request::is('manufacturers') || Request::is('manufacturers/*') ? 'active' : '' }}"
                         href="{{ route('manufacturers.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Manufacturers</span>
                     </a>
@@ -73,7 +73,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('products') ? 'active' : '' }}"
+                    {{ Request::is('products') || Request::is('products/*') ? 'active' : '' }}"
                         href="{{ route('products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products</span>
                     </a>
@@ -81,7 +81,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('delivery-charges/*') ? 'active' : '' }}"
+                    {{ Request::is('delivery-charges') || Request::is('delivery-charges/*') ? 'active' : '' }}"
                         href="{{ route('delivery-charges.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Delivery Charges</span>
                     </a>
@@ -89,7 +89,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('inventories') ? 'active' : '' }}"
+                    {{ Request::is('inventories') || Request::is('inventories/*') ? 'active' : '' }}"
                         href="{{ route('inventories.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Inventory</span>
                     </a>
@@ -97,7 +97,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('customers-products') ? 'active' : '' }}"
+                    {{ Request::is('customers-products') || Request::is('customers-products/*') ? 'active' : '' }}"
                         href="{{ route('customer-products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers Products</span>
                     </a>
@@ -105,7 +105,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('product-commission') ? 'active' : '' }}"
+                    {{ Request::is('product-commission') || Request::is('product-commission/*') ? 'active' : '' }}"
                         href="{{ route('product-commission.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Products Commission</span>
                     </a>
@@ -113,9 +113,17 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link
-                    {{ Request::is('orders') ? 'active' : '' }}"
+                    {{ Request::is('orders') || Request::is('orders/*') ? 'active' : '' }}"
                         href="{{ route('orders.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customer Orders</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link
+                    {{ Request::is('exchange-rate') || Request::is('exchange-rate/*') ? 'active' : '' }}"
+                        href="{{ route('exchange-rate.index') }}" role="button">
+                        <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Exchange Rate</span>
                     </a>
                 </li>
 

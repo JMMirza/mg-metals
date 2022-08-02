@@ -54,7 +54,7 @@
 
                     {{-- <hr /> --}}
 
-                    <div class="row">
+                    <div class="row mt-10 mb-60">
                         <div class="col-sm-12 text align-right">
                             <div>
                                 <a href="{{ route('shop') }}" class="btn btn-mod btn-gray btn-round">Update
@@ -65,26 +65,32 @@
                     </div>
 
                     @if (count($carts) > 0)
-                        <hr class="mt-10 mb-60" />
                         <div class="row">
                             <div class="col-sm-6">
 
-                                <h3 class="small-title font-alt">Delivery Method</h3>
+                                {{-- <form action="#" class="form"> --}}
+                                <div class="mb-10">
+                                    <label for="" class="font-alt">Delivery Method</label>
+                                    <select class="input-md form-control">
+                                        <option>Select Method</option>
+                                        <option>Hold</option>
+                                        <option>Pick Up</option>
+                                        <option>Delivery</option>
+                                    </select>
+                                </div>
 
-                                <form action="#" class="form">
-
-                                    <div class="mb-10">
-                                        <select class="input-md form-control">
-                                            <option>Select Method</option>
-                                            <option>Hold</option>
-                                            <option>Pick Up</option>
-                                            <option>Delivery</option>
-                                        </select>
-                                    </div>
-                                </form>
+                                <div class="mb-10">
+                                    <label for="" class="font-alt">Payment Method</label>
+                                    <select id="payment_method" name="payment_method" class="input-md form-control">
+                                        <option value="">Select Method</option>
+                                        <option value="bank_transfer">Bank Transfer</option>
+                                        <option value="credit_card">Credit Card</option>
+                                    </select>
+                                </div>
 
                             </div>
-                            <div class="col-sm-6 text-end">
+                            {{-- </form> --}}
+                            <div class="col-sm-6 pt-4 text-end">
                                 <div class="lead mt-0 mb-30">
                                     Order Total: <strong>{{ $total_price }} USD</strong>
                                 </div>
@@ -93,8 +99,6 @@
                                         data-toggle="modal" data-target="#exampleModalCenter">Proceed to
                                         Checkout</button>
                                 </div>
-
-
                             </div>
                         </div>
                     @endif
@@ -191,37 +195,42 @@
 @endsection
 @push('frontend.layouts.footer_scripts')
     <script type="text/javascript">
-        $(document).ready(function() {
-            $(document).on('click', '.delete-cart', function(e) {
-                e.preventDefault();
+        $(document).on('click', '.delete-cart', function(e) {
+            e.preventDefault();
 
-                var url = $(this).attr('href');
+            var url = $(this).attr('href');
 
-                $.ajax({
+            $.ajax({
 
-                    url: url,
-                    type: "DELETE",
-                    // data : filters,
-                    headers: {
-                        'X-CSRF-Token': '{{ csrf_token() }}',
-                    },
-                    cache: false,
-                    success: function(data) {
-                        // alert('deleted')
-                        location.reload(true);
-                    },
-                    error: function(error) {
-                        // alert(error)
-                    },
-                    beforeSend: function() {
+                url: url,
+                type: "DELETE",
+                // data : filters,
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}',
+                },
+                cache: false,
+                success: function(data) {
+                    // alert('deleted')
+                    location.reload(true);
+                },
+                error: function(error) {
+                    // alert(error)
+                },
+                beforeSend: function() {
 
-                    },
-                    complete: function() {
+                },
+                complete: function() {
 
-                    }
-                });
+                }
             });
+        });
 
+        $(document).on('change', '#payment_method', function(e) {
+            var payment_method = $('#payment_method').val();
+            // alert(payment_method);
+        });
+
+        $(document).ready(function() {
             $('#myModal').on('click', function(e) {
                 e.preventDefault();
                 arrp = [];
