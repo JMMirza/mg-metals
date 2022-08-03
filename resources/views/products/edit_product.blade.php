@@ -187,7 +187,7 @@
 
 
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
                                 <select class="form-select form-control mb-3" name="pricing_type" id="pricing_type"
@@ -215,7 +215,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <div class="input-group">
@@ -240,11 +240,57 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="weight" class="form-label">Product Weight (Ounces) (產品重量（盎司）)</label>
+                                <label for="weight_unit" class="form-label">Weight Unit
+                                </label>
+                                <select id="weight_unit" class="form-select form-control mb-3" name="weight_unit"
+                                    required>
+                                    <option value="" @if (old('weight_unit') == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Select One
+                                    </option>
+                                    <option value="grams" @if (old('weight_unit') == 'grams') {{ 'selected' }} @endif>
+                                        Grams
+                                    </option>
+                                    <option value="ounces" @if (old('weight_unit') == 'ounces') {{ 'selected' }} @endif>
+                                        Ounces
+                                    </option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('weight_unit'))
+                                        {{ $errors->first('weight_unit') }}
+                                    @else
+                                        Weight Unit is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="weight" class="form-label">Product Weight (Grams)
+                                    (產品重量（盎司）)</label>
                                 <input type="decimal"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
-                                    id="weight" name="weight" placeholder="Please enter Weight of Product"
-                                    value="{{ $product->weight }}" required>
+                                    id="weight_in_grams" name="weight_in_grams"
+                                    placeholder="Please enter Weight of Product" value="{{ old('weight') }}" readonly>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('weight'))
+                                        {{ $errors->first('weight') }}
+                                    @else
+                                        Weight of Product is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="weight" class="form-label">Product Weight (Ounces)
+                                    (產品重量（盎司）)</label>
+                                <input type="decimal"
+                                    class="form-control @if ($errors->has('weight')) is-invalid @endif"
+                                    id="weight_in_ounces" name="weight" placeholder="Please enter Weight of Product"
+                                    value="{{ $product->weight }}" readonly>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('weight'))
                                         {{ $errors->first('weight') }}
@@ -566,6 +612,26 @@
                     $('#fixed_amount').attr('disabled', true);
                     // document.getElementById("promo_amount_div").style.display = "block";
                 }
+            });
+
+            $("#weight_unit").change(function() {
+                var selected_option = $('#weight_unit').val();
+                if (selected_option == 'grams') {
+                    // document.getElementById("promo_amount_div").style.display = "none";
+                    $("#weight_in_grams").attr("readonly", false);
+                    $("#weight_in_ounces").attr("readonly", true);
+                }
+                if (selected_option == 'ounces') {
+                    $("#weight_in_grams").attr("readonly", true);
+                    $("#weight_in_ounces").attr("readonly", false);
+                    // document.getElementById("promo_amount_div").style.display = "block";
+                }
+            });
+
+            $("#weight_in_grams").change(function() {
+                var value = $("#weight_in_grams").val();
+                value = parseInt(value)
+                $("#weight_in_ounces").val(value * 0.035274);
             });
 
             $("#surcharge_at_product").change(function() {

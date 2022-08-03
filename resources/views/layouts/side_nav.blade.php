@@ -95,13 +95,13 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link menu-link
                     {{ Request::is('customers-products') || Request::is('customers-products/*') ? 'active' : '' }}"
                         href="{{ route('customer-products.index') }}" role="button">
                         <i class="ri-home-smile-line"></i> <span data-key="t-dashboards">Customers Products</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link menu-link

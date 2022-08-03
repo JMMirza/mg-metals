@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('customer-commissions', [HomeCtrl::class, 'customer_commissions'])->name('customer-commissions');
     Route::get('customer-product/{id}', [CustomerProductController::class, 'customer_products'])->name('customer-product');
     Route::get('customer-product-ajax/{id}', [CustomerProductController::class, 'customer_products_ajax'])->name('customer-product-ajax');
+    Route::get('tier-hierarchy/{id}', [CustomerController::class, 'tier_hierarchy'])->name('tier-hierarchy');
     Route::get('load-shareholders', [CustomerShareholder::class, 'load_shareholders'])->name('load-shareholders');
     Route::get('load-trading', [CustomerTrading::class, 'load_trading'])->name('load-trading');
     Route::get('load-single-product-logs/{id}', [InventoryController::class, 'load_single_product_logs'])->name('load-single-product-logs');

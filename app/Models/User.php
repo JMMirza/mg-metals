@@ -61,4 +61,9 @@ class User extends Authenticatable
         $count = ShopCart::where(['user_id' => $this->id, 'status' => 'pending'])->count();
         return $count;
     }
+
+    public function child()
+    {
+        return $this->hasMany(User::class, 'referred_by', 'referral_code');
+    }
 }
