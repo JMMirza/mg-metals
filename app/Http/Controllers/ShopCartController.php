@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ExchangeRate;
 use App\Models\Product;
 use App\Models\ShopCart;
 use Illuminate\Database\QueryException;
@@ -22,8 +23,9 @@ class ShopCartController extends Controller
         foreach ($cart as $key => $value) {
             $total_price = $value->total_price + $total_price;
         }
+        $hkd_price = ExchangeRate::latest()->first();
         // dd($cart->toArray());
-        return view('frontend.shop_cart.index', ['carts' => $cart, 'total_price' => $total_price]);
+        return view('frontend.shop_cart.index', ['carts' => $cart, 'total_price' => $total_price, 'hkd_price' => $hkd_price->rate]);
     }
 
     /**
