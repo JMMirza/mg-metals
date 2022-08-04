@@ -229,7 +229,7 @@ class Product extends Model
     {
         $inventory = Inventory::where('product_id', $this->id)->sum('units');
         // dd($inventory);
-        if ($inventory > 0 && $inventory > $this->on_hold) {
+        if ($inventory > 0) {
             if ($inventory > $quantity) {
                 return $inventory;
             }
@@ -241,7 +241,7 @@ class Product extends Model
     {
         $inventory = Inventory::where('product_id', $this->id)->sum('units');
         // dd($inventory);
-        if ($inventory > 0 && $inventory > $this->on_hold) {
+        if ($inventory > 0) {
             return $inventory;
         }
         return null;

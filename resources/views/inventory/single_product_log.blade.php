@@ -110,12 +110,14 @@
                     <table id="shareholders" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Inventory ID</th>
+                                <th>SKU</th>
                                 <th>Product Name</th>
                                 <th>Units</th>
+                                <th>Action</th>
                                 <th>Order ID</th>
                                 <th>Customer Name</th>
-                                <th>Delivery Method</th>
+                                {{-- <th>Delivery Method</th> --}}
                                 <th>Spot Price</th>
                                 <th>Created At</th>
                             </tr>
@@ -124,17 +126,20 @@
                             @forelse ($inventories as $inventories)
                                 <tr>
                                     <td>{{ $inventories->id }}</td>
+                                    <td>{{ $inventories->product->sku }}</td>
                                     <td>{{ $inventories->product->name }}</td>
                                     <td>{{ $inventories->units }}</td>
                                     @if ($inventories->order != null)
+                                        <td><span class="badge bg-warning">Sold</span></td>
                                         <td>{{ $inventories->order->id }}</td>
                                         <td>{{ $inventories->order->customer->full_name }}</td>
-                                        <td>{{ $inventories->order->delivery_method }}</td>
+                                        {{-- <td>{{ $inventories->order->delivery_method }}</td> --}}
                                         <td>{{ $inventories->order->spot_price }} USD</td>
                                     @else
+                                        <td><span class="badge bg-success">Added</span></td>
                                         <td>N /A</td>
                                         <td>N /A</td>
-                                        <td>N /A</td>
+                                        {{-- <td>N /A</td> --}}
                                         <td>N /A</td>
                                     @endif
                                     <td>{{ $inventories->created_at }}</td>

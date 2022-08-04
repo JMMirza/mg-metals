@@ -22,10 +22,10 @@ $(document).ready(function () {
                 data: "sku",
                 name: "sku",
             },
-            {
-                data: "id",
-                name: "id",
-            },
+            // {
+            //     data: "id",
+            //     name: "id",
+            // },
             {
                 data: "product_name",
                 name: "product_name",

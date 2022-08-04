@@ -5,11 +5,12 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         responsive: true,
+        "order": [[ 7, "desc" ]],
         scrollX: true,
         scrollCollapse: true,
-        fixedColumns: {
-            right: 1,
-        },
+        // fixedColumns: {
+        //     right: 1,
+        // },
         language: {
             search: "",
             searchPlaceholder: "Search...",
@@ -17,17 +18,16 @@ $(document).ready(function () {
         ajax: route,
         columns: [
             {
-                data: "customer_id",
-                name: "customer_id",
+                data:'id',
+                name:'id',
+                orderable: false,
+                searchable: false,
+                width: "5%",
+                sClass: "text-center",
             },
             {
                 data: "customer.full_name",
                 name: "customer.full_name",
-                defaultContent: '<span>N / A</span>'
-            },
-            {
-                data: "customer.user.email",
-                name: "customer.user.email",
                 defaultContent: '<span>N / A</span>'
             },
             {
@@ -41,18 +41,13 @@ $(document).ready(function () {
                 defaultContent: '<span>N / A</span>'
             },
             {
-                data: "total_quantity",
-                name: "total_quantity",
+                data: "payment_method",
+                name: "payment_method",
                 defaultContent: '<span>N / A</span>'
             },
             {
                 data: "total_order_price",
                 name: "total_order_price",
-                defaultContent: '<span>N / A</span>'
-            },
-            {
-                data: "shipping_address",
-                name: "shipping_address",
                 defaultContent: '<span>N / A</span>'
             },
             {

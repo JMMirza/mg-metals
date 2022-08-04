@@ -22,8 +22,8 @@
                                 <th>ID</th>
                                 <th>Delivery Method</th>
                                 <th>Product Category</th>
-                                <th>Amount</th>
                                 <th>Time Duration</th>
+                                <th>Amount</th>
                                 <th>Grace Period</th>
                                 <th>Charge At Begining</th>
                                 <th>Created At</th>

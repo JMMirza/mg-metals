@@ -6,6 +6,7 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
         scrollX: true,
+       "order": [[ 10, "desc" ]],
         // scrollY: "300px",
         scrollCollapse: true,
         language: {
@@ -50,13 +51,13 @@ $(document).ready(function () {
                 width: "15%",
             },
             {
-                data: "email_verified",
-                name: "email_verified",
+                data: "is_verified",
+                name: "is_verified",
                 width: "15%",
             },
             {
-                data: "is_verified",
-                name: "is_verified",
+                data: "email_verified",
+                name: "email_verified",
                 width: "15%",
             },
             {

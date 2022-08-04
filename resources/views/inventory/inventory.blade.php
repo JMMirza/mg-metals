@@ -26,10 +26,10 @@
                             <tr>
                                 <th>Sr.#</th>
                                 <th>SKU</th>
-                                <th>Product ID</th>
+                                {{-- <th>Product ID</th> --}}
                                 <th>Product Name</th>
                                 {{-- <th>Order ID</th> --}}
-                                <th>Units</th>
+                                <th>Available Units</th>
                                 <th>Minimum Quantity</th>
                                 {{-- <th>Created At</th> --}}
                                 <th>Action</th>

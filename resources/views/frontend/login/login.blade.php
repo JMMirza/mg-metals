@@ -53,12 +53,15 @@
                             <div class="card-header">
                                 <span>Welcome back to Login</span>
                             </div>
+
+
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login-customer') }}" class="needs-validation"
                                     novalidate>
                                     @csrf
                                     <div class="row">
                                         <div class="col-12 mb-3">
+                                            <input type="hidden" value="{{ url()->previous() }}" name="url">
                                             <input type="text"
                                                 class="form-control @if ($errors->has('login_email')) is-invalid @endif"
                                                 id="login_email" name="login_email" placeholder="{{ __('login.Email') }}"

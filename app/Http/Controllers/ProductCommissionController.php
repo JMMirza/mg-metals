@@ -16,7 +16,8 @@ class ProductCommissionController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = ProductCommission::with(['product', 'customer'])->get();
+            $data = ProductCommission::with(['product', 'customer'])->latest()->get();
+            // dd($data->toArray());
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('tier_commission', function ($row) {

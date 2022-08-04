@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Customer Order</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Products Commission</h4>
             </div>
             <div class="card">
                 <div class="card-body">

@@ -21,9 +21,12 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
+        // $data = Customer::with('user')->latest()->get();
+        // dd($data->toArray());
         if ($request->ajax()) {
 
-            $data = Customer::with('user')->latest();
+            $data = Customer::with('user')->latest()->get();
+            //dd($data->toArray());
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -31,9 +34,9 @@ class CustomerController extends Controller
                 })
                 ->addColumn('is_verified', function ($row) {
                     if ($row->user->is_verified == 0) {
-                        return '<span class="badge bg-danger">UnVerified</span>';
+                        return '<span class="badge bg-danger">In-Active</span>';
                     } else {
-                        return '<span class="badge bg-info">Verified</span>';
+                        return '<span class="badge bg-info">Active</span>';
                     }
                 })
                 ->addColumn('email_verified', function ($row) {
@@ -262,5 +265,13 @@ class CustomerController extends Controller
             }
         }
         return false;
+    }
+
+    public function tier_hierarchy($id)
+    {
+        $customer = Customer::where('id', $id)->first();
+        $users = User::where('id', $customer->user_id)->with('child')->get();
+        // $allUsers = User::pluck('name', 'id')->all();
+        return view('customers.tiers_details', ['users' => $users]);
     }
 }

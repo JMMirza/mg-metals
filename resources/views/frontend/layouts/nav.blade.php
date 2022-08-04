@@ -16,7 +16,36 @@
             <div class="inner-nav desktop-nav">
                 <ul class="clearlist">
 
-                    <!-- Item With Sub -->
+                <!-- Item With Sub -->
+                <li>
+                    <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home') }}</i></a>
+                </li>
+                <!-- <li>
+                    <a href="{{ route('shop') }}" role="button"
+                        class="">{{ __('home_page.RETAIL SHOP') }}</i></a>
+                </li> -->
+                <li>
+                    <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us') }}</i></a>
+                </li>
+                <li>
+                    <a href="{{ route('services') }}" class="">{{ __('home_page.our_service') }}</i></a>
+                </li>
+                <li>
+                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
+                </li>
+                <li>
+                    <a href="{{ route('ez-gold') }}" class="">{{ __('home_page.ez_gold') }}</i></a>
+                </li>
+                <li>
+                    <a href="{{ route('mg-pay') }}" class="">{{ __('home_page.mg_pay') }}</i></a>
+                </li>
+                @if (\Auth::user())
+                    @if (\Auth::user()->hasRole('admin'))
+                        <li>
+                            <a href="{{ route('dashboard') }}"
+                                class="">{{ __('home_page.admin_panel') }}</i></a>
+                        </li>
+                    @endif
                     <li>
                         <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home') }}</i></a>
                     </li>
@@ -89,7 +118,38 @@
                             <li><a href="{{ route('language', 'ch') }}">繁體</a></li>
                         </ul>
                     </li>
-                    <!-- End Languages -->
+                    <li>
+                        <a href="{{ route('shop-cart.index') }}"><i class="fa fa-shopping-cart"></i>
+                            Cart({{ \Auth::user()->cart_count }})</a>
+                    </li>
+                @else
+                    <li>
+                        <a href="{{ route('customer_login') }}" class="">
+                            <img src="{{ asset('frontend/images/user-avatar.png') }}" class="avatar" alt="">
+                            {{ __('home_page.login') }}</i></a>
+                @endif
+                </li>
+
+                <!-- Divider -->
+                {{-- <li><a>&nbsp;</a></li> --}}
+                <!-- End Divider -->
+
+                <!-- Languages -->
+                <li>
+                    <a href="#"
+                        class="mn-has-sub">{{ (session()->get('locale') == 'ch' ? '繁體' : session()->get('locale') == 'ch_simple') ? '簡體' : 'En' }}
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="mn-sub">
+                        <li><a href="{{ route('language', 'en') }}">En</a></li>
+                        <li><a href="{{ route('language', 'ch') }}">繁體</a></li>
+                    </ul>
+                </li>
+                <!-- End Languages -->
+
+            </ul>
+        </div>
+        <!-- End Main Menu -->
 
                 </ul>
             </div>

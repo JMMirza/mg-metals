@@ -33,10 +33,15 @@
                                         {{ $cart->quantity }}
                                     </td>
                                     <td>
-                                        ${{ $cart->spot_price }}
+                                        <span class="spot_price_usd"> ${{ $cart->spot_price }} </span> <span
+                                            class="spot_price_hkd" style="display: none">
+                                            HK$ {{ $cart->spot_price * $hkd_price }}</span>
                                     </td>
                                     <td>
-                                        ${{ $cart->total_price }}
+                                        <span class="price_usd"> ${{ $cart->total_price }} </span> <span class="price_hkd"
+                                            style="display: none">
+                                            HK$ {{ $cart->total_price * $hkd_price }}</span>
+
                                     </td>
                                     <td>
                                         <a class="delete-cart" href="{{ route('shop-cart.destroy', $cart->id) }}"><i
@@ -92,7 +97,9 @@
                             {{-- </form> --}}
                             <div class="col-sm-6 pt-4 text-end">
                                 <div class="lead mt-0 mb-30">
-                                    Order Total: <strong>{{ $total_price }} USD</strong>
+                                    Order Total: <span id="total_price_usd"><strong>{{ $total_price }}
+                                            USD</strong></span><span id="total_price_hkd"
+                                        style="display: none"><strong>{{ $total_price * $hkd_price }} HKD</strong></span>
                                 </div>
                                 <div>
                                     <button type="button" id="myModal" class="btn btn-mod btn-round btn-large"
@@ -227,7 +234,21 @@
 
         $(document).on('change', '#payment_method', function(e) {
             var payment_method = $('#payment_method').val();
-            // alert(payment_method);
+            if (payment_method == 'bank_transfer') {
+                document.getElementById('total_price_usd').style.display = "none";
+                document.getElementById('total_price_hkd').style.display = "block";
+                $('.spot_price_usd').css("display", "none");
+                $('.spot_price_hkd').css("display", "block");
+                $('.price_usd').css("display", "none");
+                $('.price_hkd').css("display", "block");
+            } else {
+                document.getElementById('total_price_usd').style.display = "block";
+                document.getElementById('total_price_hkd').style.display = "none";
+                $('.spot_price_usd').css("display", "block");
+                $('.spot_price_hkd').css("display", "none");
+                $('.price_usd').css("display", "block");
+                $('.price_hkd').css("display", "none");
+            }
         });
 
         $(document).ready(function() {

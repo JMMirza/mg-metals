@@ -120,7 +120,10 @@ class HomeController extends Controller
             // return response()->json(['success' => false, 'message' => 'Login Fail, pls check password']);
         }
         auth()->login($user);
-        return redirect()->route('home');
+        if (isset($request->url)) {
+            return redirect($request->url);
+        }
+        return redirect()->back('home');
     }
 
     public function register_account(Request $request)

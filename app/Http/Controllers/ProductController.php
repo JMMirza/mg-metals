@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Product::with('category')->latest()->get();
+            $data = Product::with('category')->latest('updated_at')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('status_prd', function ($row) {
