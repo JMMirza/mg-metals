@@ -3,7 +3,7 @@
 @section('content')
     @include('frontend.ez_gold.header')
 
-    <section class="page-section">
+    <section class="page-section pad-100">
         <div class="container relative">
 
             <div class="row">
@@ -63,24 +63,24 @@ Whenever & Where you want.</h3>
 
     {{-- <hr class="mt-0 mb-0" /> --}}
 
-    <section class="page-section "
+    <section class="page-section pad-100"
         data-background="{{ asset('frontend/images/why-banner.png') }}">
         <div class="container relative">
 
             <h2 class="section-title font-alt playfare dark mb-10 text-center">
                 What can EZgold App do?
             </h2>
-            <p class="dark mb-3 text-center">Join over a million happy users!</p>
+            <p class="dark mb-3 mt-3 text-center">Join over a million happy users!</p>
 
             <!-- Features Grid -->
-            <div class="row multi-columns-row alt-features-grid mt-5">
+            <div class="row multi-columns-row alt-features-grid mt-3">
 
                 
                 <!-- Features Item -->
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
                         <h3 class="alt-features-title font-alt playfare">Purchase</h3>
-                        <div class="alt-features-descr align-left">
+                        <div class="alt-features-descr align-left bg-light">
                         Purchases are made easy through your EZgold wallet.
                         </div>
                     </div>
@@ -90,7 +90,7 @@ Whenever & Where you want.</h3>
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
                         <h3 class="alt-features-title font-alt playfare">Cash-Out</h3>
-                        <div class="alt-features-descr align-left">
+                        <div class="alt-features-descr align-left bg-light">
                         Sell your gold through EZgold App & receive cash in your EZgold wallet.
                         </div>
                     </div>
@@ -100,7 +100,7 @@ Whenever & Where you want.</h3>
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
                         <h3 class="alt-features-title font-alt playfare">Transfer</h3>
-                        <div class="alt-features-descr align-left">
+                        <div class="alt-features-descr align-left bg-light">
                         Transfer gold reserves to another EZgold user.
                         </div>
                     </div>
@@ -110,7 +110,7 @@ Whenever & Where you want.</h3>
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
                         <h3 class="alt-features-title font-alt playfare">Extract</h3>
-                        <div class="alt-features-descr align-left">
+                        <div class="alt-features-descr align-left bg-light">
                         A number of exquisite solid gold products for you to choose from.
                         </div>
                     </div>
@@ -124,7 +124,7 @@ Whenever & Where you want.</h3>
 
     {{-- <hr class="mt-0 mb-0" /> --}}
 
-    <section class="page-section">
+    <section class="page-section pad-100">
         <div class="container relative">
             <div class="container relative">
 

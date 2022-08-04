@@ -1,7 +1,7 @@
 <section class="page-section" id="services">
     <div class="container relative">
 
-        <h2 class="section-title font-alt mb-70 mb-sm-40">{{ __('home_page.service') }}</h2>
+        <h2 class="section-title font-alt mb-50 mb-sm-40">{{ __('home_page.service') }}</h2>
 
         <!-- Nav tabs -->
         <ul role="tablist" class="nav nav-tabs tpl-alt-tabs font-alt pt-30 pt-sm-0 pb-30 pb-sm-0">

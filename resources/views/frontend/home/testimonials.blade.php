@@ -1,4 +1,4 @@
-<section class="page-section bg-dark bg-dark-alfa-70 fullwidth-slider"
+<section class="page-section bg-dark  fullwidth-slider reviews" style=" "
     data-background="{{ asset('frontend/images/banners/banner2.jpg') }}">
 
     <!-- Slide Item -->

@@ -1,10 +1,10 @@
 <section class="page-section">
     <div class="container relative">
         
-        <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
+        <h2 class="section-title font-alt align-left mt-50 mb-50 mb-sm-40">
             {{ __('home_page.BEST SELLERS') }}
             
-            <a href="{{ route('shop') }}" class="section-more right">{{ __('home_page.RETAIL SHOP') }} <i class="fa fa-angle-right"></i></a>
+            <a href="{{ route('shop') }}" class="section-more right">{{ __('home_page.Rental Shop') }} <i class="fa fa-angle-right"></i></a>
             
         </h2>
         <div class="slider">
