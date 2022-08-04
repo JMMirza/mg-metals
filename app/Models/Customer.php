@@ -56,6 +56,7 @@ class Customer extends Model
 
     protected $casts = [
         'created_at' => 'date:d M, Y H:i',
+        'updated_at' => 'date:d M, Y H:i',
     ];
 
     public function user()

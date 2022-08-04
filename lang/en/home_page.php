@@ -92,5 +92,6 @@ return [
     'coming_soon' => 'MGPay Coming Soon',
     'notify_signup' => 'Sign up to be the first to know when we go live.',
     'enter_email' => 'Enter your email here*',
-    'mg_pay' => 'MGPay'
+    'mg_pay' => 'MGPay',
+    'admin_panel' => 'Admin Panel'
 ];

@@ -21,9 +21,12 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
+        // $data = Customer::with('user')->latest()->get();
+        // dd($data->toArray());
         if ($request->ajax()) {
 
-            $data = Customer::with('user')->latest();
+            $data = Customer::with('user')->latest()->get();
+            //dd($data->toArray());
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

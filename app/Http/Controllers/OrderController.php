@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Order::with(['customer.user', 'order_products'])->latest()->get();
+            $data = Order::with(['customer.user', 'order_products'])->latest('updated_at')->get();
             return Datatables::of($data)
                 ->addColumn('action', function ($row) {
                     return view('orders.actions', ['row' => $row]);

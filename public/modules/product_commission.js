@@ -6,6 +6,7 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
         scrollX: true,
+        "order": [[ 0, "desc" ]],
         language: {
             search: "",
             searchPlaceholder: "Search...",

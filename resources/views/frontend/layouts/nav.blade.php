@@ -40,6 +40,12 @@
                     <a href="{{ route('mg-pay') }}" class="">{{ __('home_page.mg_pay') }}</i></a>
                 </li>
                 @if (\Auth::user())
+                    @if (\Auth::user()->hasRole('admin'))
+                        <li>
+                            <a href="{{ route('dashboard') }}"
+                                class="">{{ __('home_page.admin_panel') }}</i></a>
+                        </li>
+                    @endif
                     <li>
                         <a href="#" class="mn-has-sub">{{ \Auth::user()->name }}
                             <i class="fa fa-angle-down"></i>
@@ -69,8 +75,8 @@
                 @else
                     <li>
                         <a href="{{ route('customer_login') }}" class="">
-                        <img src="{{ asset('frontend/images/user-avatar.png') }}" class="avatar" alt="">      
-                        {{ __('home_page.login') }}</i></a>
+                            <img src="{{ asset('frontend/images/user-avatar.png') }}" class="avatar" alt="">
+                            {{ __('home_page.login') }}</i></a>
                 @endif
                 </li>
 
