@@ -63,7 +63,7 @@
                             <img src="{{ asset('frontend/images/icons/credential.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                         </div>
                             <h4 class="heading mt-20 mb-30">CREDENTIAL</h4>
-                            {{ __('home_page.choose_us_1') }}
+                            <p style="color:#7a7a7a;font-weight:normal;line-height:30px;font-size:16px;">{{ __('home_page.choose_us_1') }}</p>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                         <img src="{{ asset('frontend/images/icons/sustain.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                     </div>
                         <h4  class="heading mt-20 mb-30">SUSTAINABILITY</h4>
-                            {{ __('home_page.choose_us_2') }}
+                        <p style="color:#7a7a7a;font-weight:normal;line-height:30px;font-size:16px;">{{ __('home_page.choose_us_2') }}</p>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                         <img src="{{ asset('frontend/images/icons/credibility.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                     </div>
                         <h4  class="heading mt-20 mb-30">CREDIBILITY</h4>
-                            {{ __('home_page.choose_us_3') }}
+                        <p style="color:#7a7a7a;font-weight:normal;line-height:30px;font-size:16px;">{{ __('home_page.choose_us_3') }}</p>
                         </div>
                     </div>
                 </div>

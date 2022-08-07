@@ -58,10 +58,10 @@
            
         </ul>
         <!-- End Nav tabs -->
-        <div class="row section-text">
-            <div class="col-12 col-md-4">
-                <h3 class="playfare bold dark">Every decade or so, dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
-                <p>Warren Buffett</p>
+        <div class="row section-text mb-30">
+            <div class="col-12 col-md-4 pr-0">
+                <h3 class="playfare bold dark-light" style="font-size: 26px;line-height: 1.88em;">Every decade or so, dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
+                <p style="letter-spacing:0.1em;">Warren Buffett</p>
             </div>
             <div class="col-12 col-md-4">
                 <p>MG Group was established in 2001. Within 10 years, our company has developed into a diversified business conglomerate-wide range of businesses from a real estate investment company. Our core businesses include a variety of financial services, real estate, entertainment, publishing, arts and cultures, education and training, multimedia and environmental protection. </p>
@@ -167,7 +167,7 @@
         </div>
         <!-- End Tab panes -->
 
-        <div class="align-center">
+        <div class="align-center mb-40">
             <a href="{{ route('services') }}"
                 class="section-more font-alt playfare">{{ __('home_page.VIEW ALL SERVICES') }}
                 <i class="fa fa-angle-right"></i></a>

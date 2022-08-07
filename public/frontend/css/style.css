@@ -548,10 +548,19 @@ hr.white {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+.normal{
+    font-weight: normal s !important;
+}
+.capitalize {
+    text-transform: capitalize  !important;
+}
+.ls-none{
+    letter-spacing: 0em !important;
+}
 .font-alt {
     font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    text-transform: capitalize;
+    letter-spacing: 0em;
 }
 .serif {
     font-family: 'Montserrat', sans-serif;
@@ -715,15 +724,16 @@ a.btn-mod {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 4px 13px;
+    padding: 8px 30px  !important;
     color: #fff;
     background: rgba(34, 34, 34, 0.9);
     border: 2px solid transparent;
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
+    font-size: 15px  !important;;
+    font-weight: normal  !important;;
+    text-transform: capitalize;
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 0em  !important;;
+    font-family: 'Montserrat', sans-serif !important
 
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -1152,10 +1162,10 @@ a.btn-mod:focus {
     font-family: 'Playfair Display', serif !important;
 }
 .home-text .banner-heading{
-    font-size: 60px;
+    font-size: 82px;
     line-height: 1.25em;
     text-align: center;
-    color: #fff !important;
+    color: #fffef8 !important;
     letter-spacing: 0.2em;
     font-weight: normal;
 }
@@ -1218,9 +1228,12 @@ a.btn-mod:focus {
         bottom: 2px;
     }
 }
-
+.pt-450{
+    padding-top: 450px !important;
+}
 .scroll-down {
     width: 40px;
+    display: none;
     height: 40px;
     margin-left: -20px;
     position: absolute;
@@ -1430,7 +1443,7 @@ a.bg-video-button-muted {
     font-weight: 400;
     letter-spacing: 0.5em;
     line-height: 1.2;
-    opacity: 0.75;
+    opacity: 1;
 }
 .hs-line-8.no-transp {
     opacity: 1;
@@ -2917,14 +2930,21 @@ hr:not([size]){
 
 }
 .section-title a {
-    font-size: 14px !important;
+    font-size: 16px !important;
+    letter-spacing: 0.1em !important;
+}
+.section-title a:hover {
+    font-size: 16px !important;
+    letter-spacing: 0.1em !important;
+    text-decoration: underline;
+    color: #0d2123 !important;
 }
 .section-more {
     margin-top: 7px;
     color: #999;
-    font-size: 14px;
+    letter-spacing: 0.1em;
+    font-size: 16px;
     font-weight: 400;
-    letter-spacing: 0.4em;
     text-decoration: none;
 
     -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
@@ -2934,7 +2954,7 @@ hr:not([size]){
     transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
 }
 .section-more:hover {
-    text-decoration: none;
+    text-decoration: underline;
     color: #000;
 }
 .section-more .fa {
@@ -2961,6 +2981,12 @@ hr:not([size]){
     font-weight: 300;
     color: #777;
     line-height: 1.7;
+}
+.section-text p{
+    font-size: 16px;
+    line-height: 1.88em;
+    color: #6E6D6D;
+    font-family: 'Montserrat', sans-serif !important;
 }
 .section-text blockquote {
     margin-top: -5px;
@@ -3343,10 +3369,12 @@ hr:not([size]){
 }
 .alt-features-title {
     margin: 21px 0;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: capitalize;
     letter-spacing: 0.4em;
+    color: #000;
+    letter-spacing: 0;
 }
 .alt-features-descr {
     color: #777;
@@ -3934,12 +3962,14 @@ hr:not([size]){
     letter-spacing: 0;
     opacity: 0.85;
 }
-.testimonial .section-title{
-    color: #fff !important;
+.font-22{
+ 
+    font-size: 22px !important;
 }
 .testimonial p {
-    font-size: 18px;
+    font-size: 16px;
     color: #fff !important;
+    letter-spacing: .1em;
 }
 .testimonial-author {
     margin-bottom: 20px !important;
@@ -4117,6 +4147,19 @@ hr:not([size]){
     color: #000;
     text-decoration: none;
 }
+.contact-item .ci-title{
+    letter-spacing:0.3em;
+    color: #222;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 16px;
+}
+.contact-item .ci-text{
+    color: #000;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 
 .ci-icon {
     width: 40px;
@@ -5405,7 +5448,9 @@ section:hover .small-item-carousel .owl-next {
 .alt-features-descr .heading{
     letter-spacing: 0.2em;
     font-family: 'Playfair Display', serif !important;
-
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    font-weight: 500;
 }
 .alt-features-descr{
     
@@ -7004,14 +7049,15 @@ section:hover .small-item-carousel .owl-next {
 .owl-wrapper h3,
 .section-title,
 .banner-heading {
-    color: #c9a401;
-    font-weight: bold;
+    color: #D6A650;
+    font-weight: 500;
+    letter-spacing: 0.5em;
 }
 .gold{
-    color: #c9a401 !important;
+    color: #D6A650 !important;
 }
 .heading {
-    color: #c9a401 !important;
+    color: #D6A650 !important;
 }
 .tpl-alt-tabs > li > a {
     color: #000 !important;
@@ -7029,13 +7075,15 @@ section:hover .small-item-carousel .owl-next {
     width: 100px !important;
 }
 .tpl-alt-tabs > li > a {
-    color: #c9a401 !important;
+    color: #D6A650 !important;
     opacity: 1 !important;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    line-height: 22px;
 }
 .tpl-alt-tabs > li > a:hover {
-    color: #c9a401 !important;
+    color: #D6A650 !important;
     opacity: 1;
 }
 .tpl-alt-tabs > li > a:hover img.hover {
@@ -7063,7 +7111,7 @@ section:hover .small-item-carousel .owl-next {
     object-position: center center;
 }
 .home-section-banner {
-    height: 875px;
+    height: 920px;
 }
 .home-section-banner .js-height-full {
     position: absolute;
@@ -7191,7 +7239,7 @@ section:hover .small-item-carousel .owl-next {
     left:auto; 
   }
   .slider .ss-icon:hover{
-    background: #c9a401 ;
+    background: #D6A650 ;
     color: #000;
   }
   @media only screen and (max-width: 768px) {
@@ -7216,7 +7264,14 @@ section:hover .small-item-carousel .owl-next {
       }
   }
   .dark{
-    color:#000
+    color:#0D2123;
+  }
+  .dark-light{
+    color: #6E6D6D;
+  }
+  .font-17{
+    font-size: 17px  !important;
+    line-height: 1.8em;
   }
   .interested-in{
     padding:50px 0px !important;
@@ -7224,19 +7279,27 @@ section:hover .small-item-carousel .owl-next {
   .interested-in .btn{
     color: #fff !important;
     background-color: #000 !important;
-    border-color: #000 !important;
-    margin:0px 10px;
+    border-width: 0px !important;
+    margin:0px 5px;
+    padding: 8px 25px;
   }
   .interested-in .btn:hover{
     color: #fff !important;
-    background-color: #666 !important;
-    border-color: #666 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-width: 0px   !important;
     
   }
   .interested-in .banner-heading{
-    color:#fff  !important;
-    font-size: 19px  !important;
+    color: #fff !important;
+    font-size: 26px !important;
     font-weight: 500 !important;
+    letter-spacing: 0.15em;
+
+  }
+  .interested-in  .banner-decription{
+    letter-spacing: 0.03em;
+    font-size:16px !important;
+    color: #fff !important;
   }
   .interested-in .card{
     background-color: #fff;
@@ -7248,26 +7311,38 @@ section:hover .small-item-carousel .owl-next {
   .interested-in .card .card-body{
     border-radius: 0px;;
   }
+  .interested-in .card .card-body h3{
+    font-size: 30px !important;
+    color: #333;
+  }
+  .interested-in .card .card-body p{
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0em;
+    color: rgb(50, 50, 50);
+  }
   .mobile-app li{
     text-align: center;
   }
   .mobile-app li img{
     margin:0px auto;
-    height: 400px;
+    height: 500px;
     width: auto;
   }
+  
   .alt-features-item{
     padding:5px;
     margin-top: 0px !important;
   }
   .alt-features-item .alt-features-title{
-    font-size: 16px;
-    font-weight: bold;
-    color: #333 ;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000 ;
+    letter-spacing: 0;
   }
   .alt-features-item .alt-features-descr {
     padding:15px;
-    color: #000;
+    color: #0d2123;
     /* background-color: rgba(255, 255, 255, 0.8); */
     min-height: 120px;
     display: flex;
@@ -7277,10 +7352,11 @@ section:hover .small-item-carousel .owl-next {
     margin-top: 25px;
     flex-direction: column;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: normal;
+    line-height:1.5em;
   }
   .alt-features-item .alt-features-descr.bg-light{
-    background-color: rgba(255, 255, 255, 0.8) !important; 
+    background-color: rgba(255, 255, 255, 0.6) !important; 
   }
 
   .comming-soon h1{

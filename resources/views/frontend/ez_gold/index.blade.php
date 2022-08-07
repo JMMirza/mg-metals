@@ -8,23 +8,23 @@
 
             <div class="row">
 
-                <div class="col-md-7 align-self-center  mb-sm-40">
+                <div class="col-md-6 align-self-center  mb-sm-40">
 
                     <!-- About Project -->
                     <div class="text">
 
-                        <h3 class="font-alt mb-30 mb-xxs-10 playfare gold">Manage your gold reserve,
+                        <h3 class="font-alt mb-10 mb-xxs-10 playfare gold">Manage your gold reserve,<br>
 Whenever & Where you want.</h3>
-                        <p>
-                        EZgold is a fully owned subsidiary of MG Group. EZgold APP provides a simple operation interface for personal and corporate accounts. Within the APP, members can buy, sell, specialize and extract gold wherever and whenever they want.
+                        <p class="dark font-17">
+                        EZgold is a fully owned subsidiary of MG Group.<br> EZgold APP provides a simple operation interface for personal and corporate accounts. Within the APP, members can buy, sell, specialize and extract gold wherever and whenever they want.
                         </p>
 
                         <div class="mt-40">
                             <a href="#" target="_blank">
-                                <img src="{{ asset('frontend/images/app-store.png') }}" class="mr-0" style="width:180px;margin-right:30px" alt="logo">
+                                <img src="{{ asset('frontend/images/app-store.png') }}" class="mr-0" style="width:150px;margin-right:30px" alt="logo">
                             </a>
                             <a href="#" target="_blank">
-                                <img src="{{ asset('frontend/images/play-store.png') }}" class="mr-0" style="width:180px"  alt="logo">
+                                <img src="{{ asset('frontend/images/play-store.png') }}" class="mr-0" style="width:150px"  alt="logo">
                             </a>
                         </div>
 
@@ -33,7 +33,7 @@ Whenever & Where you want.</h3>
 
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-6">
 
                     <!-- Work Gallery -->
                     <div class="work-full-media mt-0 white-shadow">
@@ -67,10 +67,10 @@ Whenever & Where you want.</h3>
         data-background="{{ asset('frontend/images/why-banner.png') }}">
         <div class="container relative">
 
-            <h2 class="section-title font-alt playfare dark mb-10 text-center">
-                What can EZgold App do?
+            <h2 style="font-size:38px;line-height:1em !important;font-weight:normal !important" class="section-title normal font-alt playfare dark mb-10  capitalize ls-none text-center">
+                What can EZgold App do?<br>
+                <span style="font-size:24px;">Join over a million happy users!</span>
             </h2>
-            <p class="dark mb-3 mt-3 text-center">Join over a million happy users!</p>
 
             <!-- Features Grid -->
             <div class="row multi-columns-row alt-features-grid mt-3">
@@ -141,21 +141,21 @@ Whenever & Where you want.</h3>
                         <div class="row m-0">
 
                             <div class="col-md-12 text-center">
-                                <h2 class="playfare dark bold" style="font-size:20px; line-height:normal;"><span>Download the app now!</span></h2>
+                                <h2 class="playfare dark bold" style="font-size:30px; line-height:normal;"><span>Download the app now!</span></h2>
                                 <img src="{{ asset('frontend/images/download-scan.png') }}" alt="" />
-                                <h3 class="playfare dark" style="font-size:16px;margin-top:10px;">Join EZgold community</h3>
+                                <h3 class="playfare dark" style="font-size:22px;margin-top:10px;">Join EZgold community</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/whatsapp-scan.png') }}" style="height: 115px; margin-bottom: 10px;" alt="" />
-                                <h3 class="playfare gold" style="font-size:14px;">Whatsapp</h3>
+                                <h3 class="playfare gold" style="font-size:16px;">Whatsapp</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/wechat-scan.png') }}" style="height: 115px; margin-bottom: 10px;" alt="" />
-                                <h3 class="playfare gold" style="font-size:14px;">We Chat</h3>
+                                <h3 class="playfare gold" style="font-size:16px;">We Chat</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/line-scan.png') }}" style="height: 115px; margin-bottom: 10px;" alt="" />
-                                <h3 class="playfare gold" style="font-size:14px;">Line</h3>
+                                <h3 class="playfare gold" style="font-size:16px;">Line</h3>
                             </div>
                         </div>
 

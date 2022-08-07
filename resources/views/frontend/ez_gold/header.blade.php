@@ -1,4 +1,4 @@
-<section class="small-section bg-dark-alfa-30" style="padding:150px 0px 150px !important;    background-position-y: -90px;
+<section class="small-section bg-dark-alfa-50" style="padding:150px 0px 150px !important;   
     background-size: cover;" data-background="{{ asset('frontend/images/ezg.png') }}">
     <div class="relative container align-left">
 
