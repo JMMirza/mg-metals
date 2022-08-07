@@ -1679,9 +1679,8 @@ a.logo:hover {
     text-align: left;
     background: rgba(255, 255, 255, 0.97);
 
-    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+ 
+    box-shadow: none !important;
 
     z-index: 1030;
 
@@ -7358,17 +7357,21 @@ section:hover .small-item-carousel .owl-next {
   .alt-features-item .alt-features-descr.bg-light{
     background-color: rgba(255, 255, 255, 0.6) !important; 
   }
-
+  .comming-soon{
+    padding-top: 130px;
+  }
   .comming-soon h1{
-    font-size: 65px !important;
+    font-size: 90px;
     text-transform: inherit;
-    letter-spacing: 0.2em;
-    font-weight: bold;
-    margin-bottom: 10px  !important;
+    letter-spacing: normal;
+    font-weight: normal;
+    margin-bottom: 10px !important;
+    color: white !important;
+    opacity: 1;
   }
   .comming-soon p{
-    letter-spacing: 0.2em;
-    font-size: 14px !important;
+    letter-spacing: 0em;
+    font-size: 16px !important;
   }
   .comming-soon .btn-mod{
     width: 160px;
