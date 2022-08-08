@@ -2747,6 +2747,16 @@ hr:not([size]){
     left: 0;
     background: rgba(17, 17, 17, 0.97);
 }
+.bg-dark-alfa-20:before,
+.bg-dark-alfa-20 .YTPOverlay:before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(34, 34, 34, 0.1);
+}
 .bg-dark-alfa-30:before,
 .bg-dark-alfa-30 .YTPOverlay:before {
     content: " ";
@@ -7087,13 +7097,16 @@ section:hover .small-item-carousel .owl-next {
 }
 .tpl-alt-tabs > li > a:hover img.hover {
     opacity: 1;
-    display: inline-block;
+    display: none;
 }
 .tpl-alt-tabs > li > a:hover img {
-    display: none;
+    display: inline-block;
 }
 .tpl-alt-tabs > li > a img.hover {
     display: none;
+}
+.tpl-alt-tabs > li > a img{
+    opacity: .6;
 }
 .alt-tabs-icon img {
 }
@@ -7263,7 +7276,7 @@ section:hover .small-item-carousel .owl-next {
       }
   }
   .dark{
-    color:#0D2123;
+    color:#0D2123 !important;
   }
   .dark-light{
     color: #6E6D6D;
@@ -7289,16 +7302,18 @@ section:hover .small-item-carousel .owl-next {
     
   }
   .interested-in .banner-heading{
-    color: #fff !important;
+    color: #fff ;
     font-size: 26px !important;
     font-weight: 500 !important;
     letter-spacing: 0.15em;
 
   }
+
   .interested-in  .banner-decription{
     letter-spacing: 0.03em;
     font-size:16px !important;
-    color: #fff !important;
+    color: #fff ;
+    line-height: normal  !important;
   }
   .interested-in .card{
     background-color: #fff;
@@ -7379,4 +7394,10 @@ section:hover .small-item-carousel .owl-next {
     border-color:#000 !important;
     background: #000 !important;
     text-transform: capitalize  !important;
+  }
+  .mh-90{
+    min-height: 90px !important;
+    color: #6E6D6D;
+    font-size: 16px;
+    letter-spacing: 0.3em;
   }

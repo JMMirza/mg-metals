@@ -40,7 +40,7 @@
                         <img src="{{ asset('frontend/images/icons/ex-sol-h.png') }}" alt="image" class="icon hover">
                     </div>
 
-                    {{ __('home_page.service_title_3') }}
+                    {{ __('home_page.service_title_4') }}
                 </a>
             </li>
             <li>
@@ -52,7 +52,7 @@
                         <img src="{{ asset('frontend/images/icons/network-h.png') }}" alt="image" class="icon hover">
                     </div>
 
-                    {{ __('home_page.service_title_4') }}
+                    {{ __('home_page.service_title_3') }}
                 </a>
             </li>
            
