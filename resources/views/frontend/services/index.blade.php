@@ -103,9 +103,9 @@
                                         <div class="banner-decription dark text-left">Interested in any of our member services? Sign up or log in to our member services portal to continue with services offered by MG Metals. Contact us if you need more information.</div>
                                         <div class="local-scroll">
                                             <a href="{{ route('customer_login') }}"
-                                                class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.signup_login') }}</a>
+                                                class="btn btn-mod btn-w btn-medium btn-round" style="background:#959595">{{ __('home_page.signup_login') }}</a>
                                             <a href="{{ route('contact_us') }}"
-                                                class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.contact_us') }}</a>
+                                                class="btn btn-mod btn-w btn-medium btn-round"  style="background:#959595">{{ __('home_page.contact_us') }}</a>
                                         </div>
                                     </div>
                                 </div>
