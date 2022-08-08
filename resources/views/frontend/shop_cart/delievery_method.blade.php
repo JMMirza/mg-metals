@@ -16,14 +16,11 @@
                             <option value="" selected disabled>
                                 Delivery Method
                             </option>
-                            <option value="pickup">
-                                Pick up
-                            </option>
-                            <option value="home_delivery">
-                                Home Delivery
+                            <option value="courier">
+                                Courier
                             </option>
                             <option value="hold">
-                                Hold
+                                Keep With MG
                             </option>
                         </select>
                         <div class="invalid-feedback">

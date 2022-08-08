@@ -54,15 +54,16 @@ class CustomerProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->cart_ids = explode(",", $request->cart_ids[0]);
-        // dd($request->cart_ids);
+        // $request->cart_ids = explode(",", $request->cart_ids[0]);
+        // dd($request->all());
         $request->validate([
             'cart_ids' => ['required'],
             'user_id' => ['required'],
-            // 'purchase_price' => ['required'],
-            // 'quantity' => ['required'],
-            // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
+            'payment_method' => ['required'],
+            'delivery_method' => ['required'],
+            'currency' => ['required'],
         ]);
+        // dd($request->cart_ids);
         $products = [];
         $quantities = [];
         $total_order_price = 0;
@@ -260,11 +261,27 @@ class CustomerProductController extends Controller
                 return back()->with('error', 'User not verified');
             }
         }
-        $order = Order::create([
-            'customer_id' => $customer->id,
-            'total_order_price' => $total_order_price,
-            'total_quantity' => $total_quantity,
-        ]);
+        if ($request->courier_type) {
+            $order = Order::create([
+                'customer_id' => $customer->id,
+                'total_order_price' => $total_order_price,
+                'total_quantity' => $total_quantity,
+                'delivery_method' => $request->delivery_method,
+                'payment_method' => $request->payment_method,
+                'currency' => $request->currency,
+                'courier_type' => $request->courier_type,
+            ]);
+        } else {
+            $order = Order::create([
+                'customer_id' => $customer->id,
+                'total_order_price' => $total_order_price,
+                'total_quantity' => $total_quantity,
+                'delivery_method' => $request->delivery_method,
+                'payment_method' => $request->payment_method,
+                'currency' => $request->currency,
+            ]);
+        }
+
         foreach ($products as $key => $prod) {
             if ($prod->surcharge_at_product == 'no') {
                 OrderProduct::create([
@@ -273,7 +290,7 @@ class CustomerProductController extends Controller
                     'spot_price' => $prod->getProductPrice($type = 'number'),
                     'total_price' => $prod->getProductPrice($type = 'number') * $quantities[$key],
                     'mark_up' => $prod->category->mark_up,
-                    'quantity' => $quantities[$key]
+                    'quantity' => $quantities[$key],
                 ]);
             } else {
                 OrderProduct::create([
@@ -293,7 +310,8 @@ class CustomerProductController extends Controller
                 'units' => -1 * abs($quantities[$key])
             ]);
         }
-        return redirect(route('order-delivery-details', $order->id))->with('success', 'Purchased the item');
+        // return redirect(route('order-delivery-details', $order->id))->with('success', 'Purchased the item');
+        return ['url' => route('order-delivery-details', $order->id)];
     }
 
     /**

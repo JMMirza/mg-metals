@@ -2,7 +2,18 @@
 
 @section('content')
     @include('frontend.single_product.header')
-    @include('layouts.flash_message')
+    <div id="success_div" class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show" role="alert"
+        style="display: none">
+        <i class="ri-notification-off-line label-icon"></i><strong>Success</strong>
+        - <span id="succ_span"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div id="err_div" class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show" role="alert"
+        style="display: none">
+        <i class="ri-error-warning-line label-icon"></i><strong>Error</strong>
+        -<span id="err_span"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <section class="page-section">
         <div class="container relative">
 
@@ -61,48 +72,20 @@
                     <hr class="mt-0 mb-30" />
 
                     <div class="mb-30">
-                        {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h2 class="modal-title" id="exampleModalCenterTitle">Purchasing Product</h2>
-                                    </div>
-                                    <form method="post" action="{{ route('customer-products.store') }}" class="form">
-                                        @csrf
-                                        <div class="modal-body">
-                                            <input name="quantity" type="number" class="input-lg round" min="1"
-                                                max="5" value="1" />
-                                            <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
-                                            <input type="text" value="{{ $product->id }}" name="product_id" hidden>
-                                            <input type="text"
-                                                value="{{ $product->getProductPrice($type = 'number') }}"
-                                                name="purchase_price" hidden>
-                                            <input type="text" value="{{ \Auth::user()->referred_by }}"
-                                                name="referral_code" hidden>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> --}}
 
                         @if (\Auth::user())
-                            <form method="post" action="{{ route('shop-cart.store') }}" class="form">
+                            <form method="post" action="{{ route('shop-cart.store') }}" class="form" id="shor_cart_form">
                                 {{-- <form method="post" action="{{ route('customer-products.store') }}" class="form"> --}}
                                 @csrf
-                                <input name="quantity" type="number" class="input-lg round" min="1" max="5"
-                                    value="1" />
-                                <input type="text" value="{{ \Auth::user()->id }}" name="user_id" hidden>
-                                <input type="text" value="{{ $product->id }}" name="product_id" hidden>
-                                <input type="text" value="pending" name="status" hidden>
-                                <input type="text" value="{{ $product->getProductPrice($type = 'number') }}"
-                                    name="spot_price" hidden>
-                                <input type="text" value="{{ \Auth::user()->referred_by }}" name="referral_code" hidden>
+                                <input name="quantity" id="quantity" type="number" class="input-lg round" min="1"
+                                    max="5" value="1" />
+                                <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id" hidden>
+                                <input type="text" id="product_id" value="{{ $product->id }}" name="product_id" hidden>
+                                <input type="text" id="status" value="pending" name="status" hidden>
+                                <input type="text" id="spot_price"
+                                    value="{{ $product->getProductPrice($type = 'number') }}" name="spot_price" hidden>
+                                <input type="text" id="referral_code" value="{{ \Auth::user()->referred_by }}"
+                                    name="referral_code" hidden>
                                 <button type="submit" class="btn btn-mod btn-large btn-round">ADD TO CART</button>
                             </form>
                             {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
@@ -171,4 +154,108 @@
             <!-- End Tab panes -->
         </div>
     </section>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="panel-title">
+                        Item Added to Cart
+                    </h3>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
+                                    <img src="{{ $product->product_picture_url }}" alt="" style="height: 120px"
+                                        class="img-fluid d-block">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <p class="text-muted mb-0"><span class="fw-medium">{{ $product->name }}</span>
+                                    </p>
+                                    <p class="text-muted mb-0">SKU: <span class="fw-medium">{{ $product->sku }}</span>
+                                    </p>
+                                    <p class="text-muted mb-0">Category: <span
+                                            class="fw-medium">{{ $product->category->name }}</span>
+                                    </p>
+                                    <p class="text-muted mb-0">Manufacturer: <span
+                                            class="fw-medium">{{ $product->manufacturer->name }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modal_close" class="btn btn-mod btn-gray btn-round"
+                        data-dismiss="modal">Continue shopping</button>
+                    <a href="{{ route('shop-cart.index') }}" type="button" class="btn btn-mod btn-round">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+@push('frontend.layouts.footer_scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#shor_cart_form').on('submit', function(e) {
+                e.preventDefault();
+
+                let spot_price = $('#spot_price').val();
+                let status = $('#status').val();
+                let product_id = $('#product_id').val();
+                let user_id = $('#user_id').val();
+                let quantity = $('#quantity').val();
+                let referral_code = $('#referral_code').val();
+                const url = $('#shor_cart_form').attr('action');
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        spot_price: spot_price,
+                        status: status,
+                        product_id: product_id,
+                        user_id: user_id,
+                        quantity: quantity,
+                        referral_code: referral_code,
+                    },
+                    success: function(response) {
+                        // alert('hello')
+                        console.log(response.error);
+                        if (response.success) {
+                            // document.getElementById('total_price_usd').style.display = "none";
+                            document.getElementById('success_div').style.display = "block";
+                            document.getElementById('err_div').style.display = "none";
+                            $('#succ_span').text(response.success);
+                            $("#shor_cart_form")[0].reset();
+                            $('#exampleModalCenter').modal('show')
+                            // window.location.reload();
+                        }
+                        if (response.error) {
+                            document.getElementById('err_div').style.display = "block";
+                            document.getElementById('success_div').style.display = "none";
+                            $('#err_span').text(response.error);
+                            $("#shor_cart_form")[0].reset();
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error)
+                        // $('#err_div').text(response.success);
+                    }
+                });
+            });
+
+
+            $('#modal_close').on('click', function(e) {
+                e.preventDefault()
+                $('#exampleModalCenter').modal('hide')
+            })
+        });
+    </script>
+@endpush
