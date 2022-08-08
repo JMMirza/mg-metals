@@ -78,8 +78,8 @@
                         <a href="{{ route('customer_login') }}" class="">
                             <img src="{{ asset('frontend/images/user-avatar.png') }}" class="avatar" alt="">
                             {{ __('home_page.login') }}</i></a>
+                    </li>
                 @endif
-                </li>
 
                 <!-- Divider -->
                 {{-- <li><a>&nbsp;</a></li> --}}
