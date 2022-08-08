@@ -4,7 +4,7 @@
 
         <!-- Hero Content -->
         <div class="home-content container">
-            <div class="home-text">
+            <div class="home-text pt-450">
 
                 <h1 class="hs-line-8 font-alt mb-30 mb-xs-30 text-white">METALS INDUSTRY EXPERT SINCE 2001</h1>
                 <h2 class="banner-heading hs-line-11 font-alt mb-50 mb-xs-30 text-white">PHYSICAL PRECIOUS METALS </h2>

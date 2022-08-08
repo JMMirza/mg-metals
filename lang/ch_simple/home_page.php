@@ -26,7 +26,7 @@ return [
     'MINING' => 'MINING',
     'PRECIOUS METALS RECYCLING' => 'PRECIOUS METALS RECYCLING',
     'PRECIOUS METALS BOOKING' => 'PRECIOUS METALS BOOKING',
-    'RETAIL SHOP' => '零售商店',
+    'Rental Shop' => '零售商店',
 
     'choose_us_1' => '我们是香港金银业贸易场行员，是经过认可的贵金属交易商以及黄金炼铸商认证的黄金制造商，拥有铸造各种细度和重量的金银条的许可证',
     'choose_us_2' => '作为全球贵金属的主要参与者，我们有责任认真对待我们的业务。对可持续发展的承诺是我们对业务运营的重要信念，也是我们对该行业持续投资的关键。',

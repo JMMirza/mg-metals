@@ -4,7 +4,7 @@
         <div class="row">
 
             <div class="col-md-8">
-                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">{{ __('home_page.RETAIL SHOP') }}</h1>
+                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">{{ __('home_page.Rental Shop') }}</h1>
                 {{-- <div class="hs-line-4 font-alt">
                     Lorem ipsum dolor sit amet, consectetur adipiscing
                 </div> --}}
@@ -13,7 +13,7 @@
             <div class="col-md-4 mt-30">
                 <div class="mod-breadcrumbs font-alt align-right">
                     <a
-                        href="{{ route('home') }}">{{ __('home_page.home') }}</a>&nbsp;/&nbsp;<span>{{ __('home_page.RETAIL SHOP') }}</span>
+                        href="{{ route('home') }}">{{ __('home_page.home') }}</a>&nbsp;/&nbsp;<span>{{ __('home_page.Rental Shop') }}</span>
                 </div>
             </div>
         </div>

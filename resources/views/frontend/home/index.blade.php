@@ -10,13 +10,13 @@
     @include('frontend.home.services')
 
 
-    <section class="page-section pt-0 pb-0 banner-section bg-dark bg-dark-alfa-50"
+    <section class="page-section pt-0 pb-0 banner-section bg-dark "
         data-background="{{ asset('frontend/images/banners/banner.jpg') }}">
         <div class="container relative">
             
                 <div class="row interested-in ">
 
-                    <div class="col-12 col-md-8 align-self-center">
+                    <div class="col-12 col-md-7 align-self-center p-0">
 
                         <div class="">
                             <div class="banner-content text-center">
@@ -33,7 +33,7 @@
                         </div>
 
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-5">
                             <div class="card card-default">
                                 <div class="card-body">
                                     <h3 class="playfare mb-2">Discover EZgold App</h3>
@@ -52,44 +52,44 @@
 
     <section class="page-section">
         <div class="container relative">
-            <h2 class="section-title font-alt mb-70 mb-sm-40">{{ __('home_page.why_choose_us') }}</h2>
-            <div class="row alt-features-grid">
+            <h2 class="section-title font-alt mb-80 mt-50 mb-sm-40">{{ __('home_page.why_choose_us') }}</h2>
+            <div class="row alt-features-grid mb-50">
 
                 <div class="col-md-4">
                     <div class="alt-features-item align-center">
-                        <div class="alt-features-descr align-center">
+                        <div class="alt-features-descr align-left">
                         <div class="alt-tabs-icon">
                         
                             <img src="{{ asset('frontend/images/icons/credential.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                         </div>
-                            <h4 class="heading">CREDENTIAL</h4>
-                            {{ __('home_page.choose_us_1') }}
+                            <h4 class="heading mt-20 mb-30">CREDENTIAL</h4>
+                            <p style="color:#7a7a7a;font-weight:normal;line-height:30px;font-size:16px;">{{ __('home_page.choose_us_1') }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="alt-features-item align-center">
-                        <div class="alt-features-descr align-center">
+                        <div class="alt-features-descr align-left">
                         <div class="alt-tabs-icon">
                         
                         <img src="{{ asset('frontend/images/icons/sustain.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                     </div>
-                        <h4  class="heading">SUSTAINABILITY</h4>
-                            {{ __('home_page.choose_us_2') }}
+                        <h4  class="heading mt-20 mb-30">SUSTAINABILITY</h4>
+                        <p style="color:#7a7a7a;font-weight:normal;line-height:30px;font-size:16px;">{{ __('home_page.choose_us_2') }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="alt-features-item align-center">
-                        <div class="alt-features-descr align-center">
+                        <div class="alt-features-descr align-left">
                         <div class="alt-tabs-icon">
                         
                         <img src="{{ asset('frontend/images/icons/credibility.png') }}" style="width:80px;height:auto;" alt="image" class="icon">
                     </div>
-                        <h4  class="heading">CREDIBILITY</h4>
-                            {{ __('home_page.choose_us_3') }}
+                        <h4  class="heading mt-20 mb-30">CREDIBILITY</h4>
+                        <p style="color:#7a7a7a;font-weight:normal;line-height:30px;font-size:16px;">{{ __('home_page.choose_us_3') }}</p>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
     <section class="page-section" id="contact" style="padding:50px 0px !important">
         <div class="container relative">
 
-            <h2 class="section-title font-alt mb-70 mb-sm-40">
+            <h2 class="section-title font-alt mt-50 mb-50 mb-sm-40">
                 {{ __('home_page.Find us') }}
             </h2>
 
