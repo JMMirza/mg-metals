@@ -20,10 +20,10 @@
                 <li>
                     <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home') }}</i></a>
                 </li>
-                <!-- <li>
+                <li>
                     <a href="{{ route('shop') }}" role="button"
                         class="">{{ __('home_page.RETAIL SHOP') }}</i></a>
-                </li> -->
+                </li>
                 <li>
                     <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us') }}</i></a>
                 </li>

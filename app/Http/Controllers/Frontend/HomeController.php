@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator as ValidationValidator;
+use NextApps\VerificationCode\VerificationCode;
 
 class HomeController extends Controller
 {
@@ -160,22 +161,54 @@ class HomeController extends Controller
 
         // return back()->withErrors('Referral code not found');
         $user = User::create($input);
-        $token = Str::random(64);
-
-        UserVerify::create([
-            'user_id' => $user->id,
-            'token' => $token
-        ]);
-
-        Mail::send('email.verification_email', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Email Verification Mail');
-        });
+        VerificationCode::send($user->email);
         auth()->login($user);
-        return redirect(route('customer_profile'))
-            ->with('success', 'Account created successfully.');
+        //return view('frontend.verify_email.verify_email', ['email' => $request->email]);
+        return redirect(route('verify-code-view'));
+        // $token = Str::random(64);
+
+        // UserVerify::create([
+        //     'user_id' => $user->id,
+        //     'token' => $token
+        // ]);
+
+        // Mail::send('email.verification_email', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Email Verification Mail');
+        // });
+        // auth()->login($user);
+        // return redirect(route('customer_profile'))
+        //     ->with('success', 'Account created successfully.');
     }
 
+    public function verify_code(Request $request)
+    {
+        $user = \Auth::user();
+        //dd($user);
+        // dd($request->all());
+        $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'code' => ['required', 'string', 'min:6', 'max:6'],
+        ]);
+        $user = User::where(['email' => $request->email])->first();
+        $verified = VerificationCode::verify($request->code, $request->email);
+
+        if ($verified == true) {
+            $user->is_email_verified = 1;
+            $user->save();
+            auth()->login($user);
+            return redirect(route('customer_profile'))
+                ->with('success', 'Account created successfully.');
+        }
+
+        return redirect(route('verify-code-view', ['email' => $request->email]))->with('error', 'Verification Failed');
+    }
+    public function verifyCode()
+    {
+        $user = \Auth::user();
+
+        return view('frontend.verify_email.verify_email', ['email' => $user->email]);
+    }
     public function profile()
     {
         $user = \Auth::user();

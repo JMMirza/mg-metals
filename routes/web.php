@@ -55,6 +55,8 @@ Route::get('/single-product/{id}', [HomeCtrl::class, 'single_product'])->name('s
 Route::get('/customer-login', [HomeCtrl::class, 'login'])->name('customer_login');
 Route::get('/customer-register', [HomeCtrl::class, 'register'])->name('customer_register');
 Route::post('/login-customer', [HomeCtrl::class, 'login_customer'])->name('login-customer');
+Route::post('verify-code', [HomeCtrl::class, 'verify_code'])->name('verify-code');
+Route::get('verify-code-view', [HomeCtrl::class, 'verifyCode'])->name('verify-code-view');
 Route::post('/customer-register-account', [HomeCtrl::class, 'register_account'])->name('customer-register-account');
 Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('language');
 Route::get('account/verify/{token}', [HomeCtrl::class, 'verifyAccount'])->name('user.verify');
@@ -80,6 +82,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['exchange-rate' => ExchangeRateController::class]);
     Route::resources(['setup' => SetupController::class]);
     Route::get('verify-user', [CustomerController::class, 'verify_user'])->name('verify-user');
+
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');
     Route::get('customer-referrals', [HomeCtrl::class, 'customer_referrals'])->name('customer-referrals');
     Route::get('customer-commissions', [HomeCtrl::class, 'customer_commissions'])->name('customer-commissions');
