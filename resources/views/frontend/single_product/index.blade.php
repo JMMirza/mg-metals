@@ -170,7 +170,7 @@
                         <div class="col-xs-12 col-md-12">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
-                                    <img src="{{ $product->product_picture_url }}" alt="" style="height: 120px"
+                                    <img src="{{ $product->product_picture_url }}" alt="" style="height: 145px"
                                         class="img-fluid d-block">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
@@ -183,6 +183,9 @@
                                     </p>
                                     <p class="text-muted mb-0">Manufacturer: <span
                                             class="fw-medium">{{ $product->manufacturer->name }}</span>
+                                    </p>
+                                    <p class="text-muted mb-0">Spot Price: <span
+                                            class="fw-medium">{{ $product->getProductPrice() }}</span>
                                     </p>
                                 </div>
                             </div>

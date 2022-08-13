@@ -31,9 +31,12 @@ class Product extends Model
         'catergory_id',
         'manufacturer_id',
         'weight',
+        'weight_in_grams',
+        'weight_unit',
         'mark_up',
         'valid_till',
         'status',
+        'session_duration',
         'markup_type',
         'on_hold',
         'tier_commission_1',
@@ -70,6 +73,11 @@ class Product extends Model
     public function customer_products()
     {
         return $this->hasMany(CustomerProduct::class);
+    }
+
+    public function product_commissions()
+    {
+        return $this->hasMany(ProductCommission::class);
     }
 
     public function order_products()

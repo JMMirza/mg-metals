@@ -25,6 +25,10 @@ $(document).ready(function () {
                 name: "to_currency",
             },
             {
+                data: "effective_date",
+                name: "effective_date",
+            },
+            {
                 data: "rate",
                 name: "rate",
             },

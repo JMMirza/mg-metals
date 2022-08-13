@@ -26,7 +26,7 @@ return [
     'MINING' => 'MINING',
     'PRECIOUS METALS RECYCLING' => 'PRECIOUS METALS RECYCLING',
     'PRECIOUS METALS BOOKING' => 'PRECIOUS METALS BOOKING',
-    'Rental Shop' => 'Rental Shop',
+    'Rental Shop' => 'Retail Shop',
 
     'choose_us_1' => 'We are an accredited precious metal dealer and gold manufacturer with the license to mint gold and silver bars of various fines and weights',
     'choose_us_2' => 'As a major global player in precious metals, we take our responsibility to the industry seriously.  Our commitment to sustainability is key to everything we do and a major part of our ongoing investment in the industry. ',
@@ -36,7 +36,7 @@ return [
     'service_title_2' => 'Precious Metal Recovery',
     'service_title_3' => 'Financing in Mining and Exchange Solutions',
     'service_title_4' => 'Technology Applications',
-    'service_title_5' => 'Rental Shop',
+    'service_title_5' => 'Retail Shop',
 
     'service_desc_01' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers. MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',
     'service_desc_02' => 'MG Metals accepts and trades high value physical gold. As long as you open a special account for gold bullion trading with us, you can deposit and trade physical gold at any time. MG Metals has a number of industry certifications, and all the gold bars it produces are approved by The Gold and Silver Exchange, Hong Kong. Investors can list their precious metals on The Gold and Silver Exchange during trading hours to sell and cash out at the market price, without worrying about extra fees paid to second-hand dealers.',

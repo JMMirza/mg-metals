@@ -21,17 +21,13 @@
                     <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('shop') }}" role="button"
-                        class="">{{ __('home_page.RETAIL SHOP') }}</i></a>
-                </li>
-                <li>
                     <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us') }}</i></a>
                 </li>
                 <li>
                     <a href="{{ route('services') }}" class="">{{ __('home_page.our_service') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
+                    <a href="{{ route('shop') }}" class="">{{ __('home_page.Rental Shop') }}</i></a>
                 </li>
                 <li>
                     <a href="{{ route('ez-gold') }}" class="">{{ __('home_page.ez_gold') }}</i></a>
@@ -39,16 +35,12 @@
                 <li>
                     <a href="{{ route('mg-pay') }}" class="">{{ __('home_page.mg_pay') }}</i></a>
                 </li>
+                <li>
+                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
+                </li>
                 @if (\Auth::user())
-                    @if (\Auth::user()->hasRole('admin'))
-                        <li>
-                            <a href="{{ route('dashboard') }}"
-                                class="">{{ __('home_page.admin_panel') }}</i></a>
-                        </li>
-                    @endif
-
                     <li>
-                        <a href="#" class="mn-has-sub">{{ \Auth::user()->name }}
+                        <a href="#" class="mn-has-sub">{{ \Auth::user()->customer->full_name }}
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="mn-sub">
@@ -60,6 +52,12 @@
                             </li>
                             <li><a href="{{ route('customer-referrals') }}" class="text-center">My Referrals</a>
                             </li>
+                            @if (\Auth::user()->hasRole('admin'))
+                                <li>
+                                    <a href="{{ route('dashboard') }}"
+                                        class="text-center">{{ __('home_page.admin_panel') }}</i></a>
+                                </li>
+                            @endif
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

@@ -12,6 +12,7 @@ class ProductCommission extends Model
     protected $fillable = [
         'customer_id',
         'product_id',
+        'order_id',
         'product_mark_up',
         'mark_up_type',
         'product_price',
@@ -38,5 +39,10 @@ class ProductCommission extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
     }
 }

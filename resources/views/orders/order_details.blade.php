@@ -19,10 +19,11 @@
                             <thead class="table-light text-muted">
                                 <tr>
                                     <th scope="col">Product Details</th>
-                                    <th scope="col">Item Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Markup</th>
-                                    <th scope="col" class="text-end">Total Amount</th>
+                                    <th scope="col" class="text-center">Spot Price</th>
+                                    <th scope="col" class="text-center">Markup</th>
+                                    <th scope="col" class="text-center">Total Price</th>
+                                    <th scope="col" class="text-center">Quantity</th>
+                                    <th scope="col" class="text-center">Total Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,10 +51,16 @@
                                             </div>
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
-                                        <td>{{ $product->spot_price }} USD</td>
-                                        <td>{{ $product->quantity }}</td>
-                                        <td>{{ $product->mark_up }}</td>
-                                        <td class="fw-medium text-end">
+                                        <td class="fw-medium text-center">{{ $product->spot_price }} USD</td>
+                                        <td class="fw-medium text-center">{{ $product->mark_up }} @if ($product->markup_type == 'percentage')
+                                                %
+                                            @else
+                                                USD
+                                            @endif
+                                        </td>
+                                        <td class="fw-medium text-center">{{ $product->price_with_markup }} USD</td>
+                                        <td class="fw-medium text-center">{{ $product->quantity }}</td>
+                                        <td class="fw-medium text-center">
                                             {{ $product->total_price }} USD
                                         </td>
                                     </tr>
@@ -69,8 +76,6 @@
                     <div class="d-sm-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
                         <div class="flex-shrink-0 mt-2 mt-sm-0">
-                            <a href="javasccript:void(0;)" class="btn btn-soft-info btn-sm mt-2 mt-sm-0"><i
-                                    class="ri-map-pin-line align-middle me-1"></i> Change Address</a>
                             <a href="javasccript:void(0;)" class="btn btn-soft-danger btn-sm mt-2 mt-sm-0"><i
                                     class="mdi mdi-archive-remove-outline align-middle me-1"></i> Cancel Order</a>
                         </div>
@@ -198,29 +203,53 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-3">
-            {{-- <div class="card">
+            <div class="card">
                 <div class="card-header">
-                    <div class="d-flex">
-                        <h5 class="card-title flex-grow-1 mb-0"><i
-                                class="mdi mdi-truck-fast-outline align-middle me-1 text-muted"></i> Logistics Details</h5>
-                        <div class="flex-shrink-0">
-                            <a href="javascript:void(0);" class="badge badge-soft-primary fs-11">Track Order</a>
-                        </div>
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0">Order Commision</h5>
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="text-center">
-                        <lord-icon src="https://cdn.lordicon.com/uetqnvvg.json" trigger="loop"
-                            colors="primary:#405189,secondary:#0ab39c" style="width:80px;height:80px"></lord-icon>
-                        <h5 class="fs-16 mt-2">RQK Logistics</h5>
-                        <p class="text-muted mb-0">ID: MFDS1400457854</p>
-                        <p class="text-muted mb-0">Payment Mode : Debit Card</p>
+                    <div class="table-responsive table-card">
+                        <table class="table table-nowrap align-middle table-borderless mb-0">
+                            <thead class="table-light text-muted">
+                                <tr>
+                                    <th scope="col">Customer ID</th>
+                                    <th scope="col" class="text-center">Customer Name</th>
+                                    <th scope="col" class="text-center">Tier Type</th>
+                                    <th scope="col" class="text-center">Product ID</th>
+                                    <th scope="col" class="text-center">Product Name</th>
+                                    <th scope="col" class="text-center">Product Tier Commission</th>
+                                    <th scope="col" class="text-center">Tier Commission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($order->order_products as $product) --}}
+                                @foreach ($order->product_commissions as $commission)
+                                    <tr>
+                                        <td>
+                                            {{ $order->customer_id }}
+                                        </td>
+                                        <td>
+                                            {{ $order->customer->full_name }}
+                                        </td>
+                                        <td class="fw-medium text-center">{{ $commission->tier_type }}</td>
+                                        <td class="fw-medium text-center">{{ $commission->product_id }} </td>
+                                        <td class="fw-medium text-center">{{ $commission->product->name }}</td>
+                                        <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
+                                        </td>
+                                        <td class="fw-medium text-center">{{ $commission->tier_commission }} USD</td>
+                                    </tr>
+                                @endforeach
+                                {{-- @endforeach --}}
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div> --}}
-
+            </div>
+        </div>
+        <div class="col-xl-3">
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex">
@@ -230,18 +259,31 @@
                 <div class="card-body">
                     <ul class="list-unstyled mb-0 vstack gap-3">
                         <li>
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1 ms-3">
+                            <span class="d-flex align-items-center">
+                                <img class="rounded-circle header-profile-user"
+                                    src="{{ asset('theme/dist/default/assets/images/users/user-dummy-img.jpg') }}"
+                                    alt="Header Avatar">
+                                <span class="text-start ms-xl-2">
                                     <h6 class="fs-14 mb-1">{{ $order->customer->full_name }}</h6>
                                     <p class="text-muted mb-0">Customer</p>
-                                </div>
-                            </div>
+                                </span>
+                            </span>
                         </li>
-                        <li><i
-                                class="ri-mail-line me-2 align-middle text-muted fs-16"></i>{{ $order->customer->user->email }}
+                        <li>
+                            <span class="d-flex align-items-center">
+                                <i class="ri-mail-line me-2 align-middle text-muted fs-16"></i>
+                                <span class="text-start ms-xl-2">
+                                    {{ $order->customer->user->email }}
+                                </span>
+                            </span>
                         </li>
-                        <li><i
-                                class="ri-phone-line me-2 align-middle text-muted fs-16"></i>{{ $order->customer->phone_number }}
+                        <li>
+                            <span class="d-flex align-items-center">
+                                <i class="ri-phone-line me-2 align-middle text-muted fs-16"></i>
+                                <span class="text-start ms-xl-2">
+                                    {{ $order->phone_number }}
+                                </span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -265,7 +307,13 @@
                             <p class="text-muted mb-0">Payment Method:</p>
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">Debit Card</h6>
+                            <h6 class="mb-0">
+                                @if ($order->payment_method == 'bank_transfer')
+                                    Bank Transfer
+                                @else
+                                    Credit Card
+                                @endif
+                            </h6>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-2">
@@ -273,7 +321,7 @@
                             <p class="text-muted mb-0">Card Holder Name:</p>
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">Joseph Parker</h6>
+                            <h6 class="mb-0">{{ $order->full_name }}</h6>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-2">
@@ -289,26 +337,11 @@
                             <p class="text-muted mb-0">Total Amount:</p>
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">$415.96</h6>
+                            <h6 class="mb-0">${{ $total_price }}</h6>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Billing
-                        Address</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
-                        <li class="fw-medium fs-14">Joseph Parker</li>
-                        <li>+(256) 245451 451</li>
-                        <li>2186 Joyce Street Rocky Mount</li>
-                        <li>New York - 25645</li>
-                        <li>United States</li>
-                    </ul>
-                </div>
-            </div> --}}
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Shipping

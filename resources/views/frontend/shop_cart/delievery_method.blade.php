@@ -10,24 +10,6 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-12 col-md-12 mb-3">
-                        <label class="form-label">Delivery Method</label>
-                        <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
-                            name="delivery_method" required>
-                            <option value="" selected disabled>
-                                Delivery Method
-                            </option>
-                            <option value="courier">
-                                Courier
-                            </option>
-                            <option value="hold">
-                                Keep With MG
-                            </option>
-                        </select>
-                        <div class="invalid-feedback">
-                            <strong>{{ $errors->first('delivery_method') }}</strong>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-12 mb-3">
                         <label class="form-label">Full Name *</label>
                         <input type="text" name="full_name" id="full_name" value="{{ $order->customer->full_name }}"
                             placeholder="Full Name"

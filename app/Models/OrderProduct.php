@@ -14,8 +14,10 @@ class OrderProduct extends Model
         'order_id',
         'product_id',
         'spot_price',
+        'price_with_markup',
         'total_price',
         'mark_up',
+        'markup_type',
         'quantity',
     ];
 

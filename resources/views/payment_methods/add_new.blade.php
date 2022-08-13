@@ -1,38 +1,38 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Add Setup</h4>
+            <h4 class="card-title mb-0 flex-grow-1">Add New Payment Setup</h4>
         </div>
 
         <div class="card-body">
 
-            <form class="row  needs-validation" action="{{ route('setup.store') }}" method="POST"
+            <form class="row  needs-validation" action="{{ route('payment-methods.store') }}" method="POST"
                 enctype='multipart/form-data' novalidate>
                 @csrf
                 <div class="row">
                     <div class="col-md-6 col-sm-12  mb-3">
                         <div class="form-label-group in-border">
-                            <label for="delivery_method" class="form-label">Delivery Method</label>
-                            <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
-                                name="delivery_method" required>
-                                <option value="" selected disabled>
+                            <label for="payment_method" class="form-label">Payment Method</label>
+                            <select class="form-select form-control @if ($errors->has('payment_method')) is-invalid @endif"
+                                name="payment_method" required>
+                                <option value="" @if (old('payment_method') == '') {{ 'selected' }} @endif
+                                    disabled>
                                     Select One
                                 </option>
-                                <option value="pickup">
-                                    Self Pick
+                                <option value="bank_transfer"
+                                    @if (old('payment_method') == 'bank_transfer') {{ 'selected' }} @endif>
+                                    Bank Transfer
                                 </option>
-                                <option value="home_delivery">
-                                    Home Delivery
-                                </option>
-                                <option value="hold">
-                                    Keep with MG
+                                <option value="credit_card"
+                                    @if (old('payment_method') == 'credit_card') {{ 'selected' }} @endif>
+                                    Credit Card
                                 </option>
                             </select>
                             <div class="invalid-tooltip">
-                                @if ($errors->has('delivery_method'))
-                                    {{ $errors->first('delivery_method') }}
+                                @if ($errors->has('payment_method'))
+                                    {{ $errors->first('payment_method') }}
                                 @else
-                                    Delivery Method is required!
+                                    Payment Method is required!
                                 @endif
                             </div>
                         </div>
@@ -106,7 +106,7 @@
 
                 <div class="col-12 text-end">
                     <button id="submit_btn" class="btn btn-primary" type="submit">Save Changes</button>
-                    <a href="{{ route('products.index') }}" type="button"
+                    <a href="{{ route('payment-methods.index') }}" type="button"
                         class="btn btn-light bg-gradient waves-effect waves-light">Cancel</a>
                 </div>
             </form>

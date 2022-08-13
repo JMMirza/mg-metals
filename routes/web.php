@@ -13,7 +13,9 @@ use App\Http\Controllers\Frontend\HomeController as HomeCtrl;
 use App\Http\Controllers\FrontendCustomerController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\NationalityController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProductCommissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SetupController;
@@ -81,6 +83,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['delivery-charges' => DeliveryChargesController::class]);
     Route::resources(['exchange-rate' => ExchangeRateController::class]);
     Route::resources(['setup' => SetupController::class]);
+    Route::resources(['payment-methods' => PaymentMethodController::class]);
+    Route::resources(['nationalities' => NationalityController::class]);
     Route::get('verify-user', [CustomerController::class, 'verify_user'])->name('verify-user');
 
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');

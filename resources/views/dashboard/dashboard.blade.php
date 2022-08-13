@@ -37,7 +37,8 @@
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
                                                     data-target="{{ $products }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all products</a>
+                                            <a href="{{ route('products.index') }}" class="text-decoration-underline">View
+                                                all products</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-success rounded fs-3">
@@ -67,7 +68,8 @@
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
                                                     data-target="{{ $orders }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all orders</a>
+                                            <a href="{{ route('orders.index') }}" class="text-decoration-underline">View
+                                                all orders</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-info rounded fs-3">
@@ -98,7 +100,8 @@
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
                                                     data-target="{{ $verified_customers }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">See details</a>
+                                            <a href="{{ route('customers.index') }}" class="text-decoration-underline">See
+                                                details</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-warning rounded fs-3">
@@ -129,7 +132,8 @@
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
                                                     data-target="{{ $total_customers }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">See details</a>
+                                            <a href="{{ route('customers.index') }}" class="text-decoration-underline">See
+                                                details</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-primary rounded fs-3">

@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ExchangeRate extends Model
+class PaymentMethod extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'from_currency',
-        'to_currency',
-        'rate',
-        'effective_date',
+        'payment_method',
+        'description',
+        'description_s_ch',
+        'description_ch',
     ];
 
     protected $dates = [

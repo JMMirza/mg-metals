@@ -8,7 +8,7 @@
             <div class="card-body">
                 <form class="row  needs-validation" action="{{ route('exchange-rate.store') }}" method="POST" novalidate>
                     @csrf
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12 mb-3">
                         <div class="form-label-group in-border">
                             <label for="from_currency" class="form-label">From Currency</label>
                             <input type="text"
@@ -25,7 +25,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-6 col-sm-12 mb-3">
                         <div class="form-label-group in-border">
                             <label for="to_currency" class="form-label">To Currency</label>
                             <input type="text"
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 mb-3">
+                    <div class="col-md-6 col-sm-12 mb-3">
                         <div class="form-label-group in-border">
                             <label for="rate" class="form-label">Rate</label>
                             <input type="float"
@@ -52,6 +52,23 @@
                                     {{ $errors->first('rate') }}
                                 @else
                                     Rate is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mb-3">
+                        <div class="form-label-group in-border">
+                            <label for="effective_date" class="form-label">Effective Date</label>
+                            <input type="text"
+                                class="form-control @if ($errors->has('effective_date')) is-invalid @endif"
+                                id="effective_date" name="effective_date" placeholder="Effective Date"
+                                value="{{ old('effective_date') }}" data-provider="flatpickr" data-date-format="Y-m-d"
+                                data-altFormat="d M, Y" required>
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('effective_date'))
+                                    {{ $errors->first('effective_date') }}
+                                @else
+                                    Effective Date is required!
                                 @endif
                             </div>
                         </div>

@@ -15,7 +15,7 @@
                                 <tr>
                                     <th> Photo </th>
                                     <th> Product </th>
-                                    <th> Q-ty </th>
+                                    <th> Quantity </th>
                                     <th> Item Price </th>
                                     <th> Total </th>
                                     <th> &nbsp;</th>
@@ -65,8 +65,8 @@
                         <div class="row mt-10 mb-60">
                             <div class="col-sm-12 text align-right">
                                 <div>
-                                    <a href="{{ route('shop') }}" class="btn btn-mod btn-gray btn-round">Update
-                                        Cart</a>
+                                    <a href="{{ route('shop') }}" class="btn btn-mod btn-gray btn-round">Continue
+                                        Shopping</a>
                                 </div>
 
                             </div>
@@ -75,15 +75,14 @@
                         @if (count($carts) > 0)
                             <div class="row">
                                 <div class="col-sm-6">
-
                                     {{-- <form action="#" class="form"> --}}
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Delivery Method</label>
-                                        <select
-                                            class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
-                                            name="delivery_method" id="delivery_method" required>
-                                            <option value="" selected disabled>
-                                                Delivery Method
+                                        <select class="input-md form-control" name="delivery_method" id="delivery_method"
+                                            required>
+                                            <option value="" selected disabled>Select One</option>
+                                            <option value="pickup">
+                                                Self Pick
                                             </option>
                                             <option value="courier">
                                                 Courier
@@ -115,7 +114,7 @@
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Payment Method</label>
                                         <select id="payment_method" name="payment_method" class="input-md form-control">
-                                            <option value="">Select Method</option>
+                                            <option value="" selected disabled>Select One</option>
                                             <option value="bank_transfer">Bank Transfer</option>
                                             <option value="credit_card">Credit Card</option>
                                         </select>

@@ -18,7 +18,7 @@
                                 name="delivery_method" required>
                                 <option value="" @if ($setup->delivery_method == '') {{ 'selected' }} @endif
                                     disabled>
-                                    Delivery Method
+                                    Select One
                                 </option>
                                 <option value="pickup" @if ($setup->delivery_method == 'pickup') {{ 'selected' }} @endif>
                                     Pick up

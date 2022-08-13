@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -81,7 +82,6 @@ class OrderController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'delivery_method' => 'required|string',
             'full_name' => 'required|string',
             'phone_number' => 'required|string',
             'email' => 'required|string',
@@ -115,9 +115,9 @@ class OrderController extends Controller
 
     public function order_details($id)
     {
-        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category'])->first();
-        // dd($order->order_products[0]);
-        return view('orders.order_details', ['order' => $order]);
+        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category', 'product_commissions'])->first();
+        $total_price = OrderProduct::where('order_id', $id)->sum('total_price');
+        return view('orders.order_details', ['order' => $order, 'total_price' => $total_price]);
     }
 
     public function order_delivery_details($id)

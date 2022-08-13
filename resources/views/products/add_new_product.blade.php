@@ -197,7 +197,7 @@
 
 
 
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
                                 <select id="pricing_type" class="form-select form-control mb-3" name="pricing_type"
@@ -225,7 +225,30 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="session_duration" class="form-label">Session Duration</label>
+                                <div class="input-group">
+                                    <input type="decimal" step="0.001"
+                                        class="form-control @if ($errors->has('session_duration')) is-invalid @endif"
+                                        id="session_duration" name="session_duration"
+                                        placeholder="Please enter Session Duration"
+                                        value="{{ old('session_duration') }}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Mins</span>
+                                    </div>
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('session_duration'))
+                                        {{ $errors->first('session_duration') }}
+                                    @else
+                                        Session Duration is empty or incorrect!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <div class="input-group">
@@ -281,7 +304,8 @@
                                 <input type="decimal"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
                                     id="weight_in_grams" name="weight_in_grams"
-                                    placeholder="Please enter Weight of Product" value="{{ old('weight') }}" readonly>
+                                    placeholder="Please enter Weight of Product" value="{{ old('weight_in_grams') }}"
+                                    disabled>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('weight'))
                                         {{ $errors->first('weight') }}
@@ -606,6 +630,7 @@
                 }
                 if (selected_option == 'use_feed') {
                     $('#fixed_amount').attr('disabled', true);
+                    $('#fixed_amount').val(0);
                     // document.getElementById("promo_amount_div").style.display = "block";
                 }
             });
@@ -614,11 +639,13 @@
                 var selected_option = $('#weight_unit').val();
                 if (selected_option == 'grams') {
                     // document.getElementById("promo_amount_div").style.display = "none";
-                    $("#weight_in_grams").attr("readonly", false);
+                    $("#weight_in_grams").attr("disabled", false);
                     $("#weight_in_ounces").attr("readonly", true);
+                    // $("#weight_in_ounces").val(0);
                 }
                 if (selected_option == 'ounces') {
-                    $("#weight_in_grams").attr("readonly", true);
+                    $("#weight_in_grams").attr("disabled", true);
+                    $("#weight_in_grams").val(0);
                     $("#weight_in_ounces").attr("readonly", false);
                     // document.getElementById("promo_amount_div").style.display = "block";
                 }

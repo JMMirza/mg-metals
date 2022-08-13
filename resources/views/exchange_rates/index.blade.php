@@ -23,6 +23,7 @@
                                 <th>ID</th>
                                 <th>From Currency</th>
                                 <th>To Currency</th>
+                                <th>Effective Date</th>
                                 <th>Rate</th>
                                 <th>Created At</th>
                                 <th>Action</th>
