@@ -20,10 +20,7 @@
                 <li>
                     <a href="{{ route('home') }}" role="button" class="">{{ __('home_page.home') }}</i></a>
                 </li>
-                <li>
-                    <a href="{{ route('shop') }}" role="button"
-                        class="">{{ __('home_page.RETAIL SHOP') }}</i></a>
-                </li>
+                
                 <li>
                     <a href="{{ route('about_us') }}" class="">{{ __('home_page.about_us') }}</i></a>
                 </li>
@@ -31,13 +28,18 @@
                     <a href="{{ route('services') }}" class="">{{ __('home_page.our_service') }}</i></a>
                 </li>
                 <li>
-                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
+                    <a href="{{ route('shop') }}" role="button"
+                        class="">Retail Shop</i></a>
                 </li>
+                
                 <li>
                     <a href="{{ route('ez-gold') }}" class="">{{ __('home_page.ez_gold') }}</i></a>
                 </li>
                 <li>
                     <a href="{{ route('mg-pay') }}" class="">{{ __('home_page.mg_pay') }}</i></a>
+                </li>
+                <li>
+                    <a href="{{ route('contact_us') }}" class="">{{ __('home_page.contact_us') }}</i></a>
                 </li>
                 @if (\Auth::user())
                     @if (\Auth::user()->hasRole('admin'))

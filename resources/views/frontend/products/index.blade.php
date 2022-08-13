@@ -7,8 +7,8 @@
     <section class="page-section">
         <div class="container relative">
             <div class="row">
-
-                <div class="col-sm-8">
+                @include('frontend.products.sidebar')
+                <div class="col-sm-9">
 
                     <div class="clearfix mb-40">
 
@@ -19,7 +19,7 @@
                         <div class="right">
                             <form method="post" action="#" class="form">
                                 <select class="input-md round">
-                                    <option>Default sorting</option>
+                                    <option>Sorting</option>
                                     <option>Sort by price: low to high</option>
                                     <option>Sort by price: high to low</option>
                                 </select>
@@ -43,9 +43,6 @@
                     <!-- End Pagination -->
 
                 </div>
-
-                @include('frontend.products.sidebar')
-
             </div>
         </div>
     </section>

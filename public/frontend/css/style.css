@@ -1728,7 +1728,7 @@ a.logo:hover {
 }
 .inner-nav ul li {
     float: left;
-    margin-left: 20px;
+    margin-left: 20px !important;
     position: relative;
 }
 .inner-nav ul li a {
@@ -4028,8 +4028,18 @@ hr:not([size]){
 .post-prev-img {
     margin-bottom: 23px;
     position: relative;
+    height:200px;
+    background-color: #bfbfbf;
+    overflow: hidden;
 }
 .post-prev-img a {
+    -webkit-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
+    -moz-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
+    -o-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
+    -ms-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
+    transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
+}
+.post-prev-img a img {
     -webkit-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
     -moz-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
     -o-transition: all 0.2s cubic-bezier(0.3, 0.1, 0.58, 1);
@@ -4041,6 +4051,11 @@ hr:not([size]){
 }
 .post-prev-img img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.post-prev-img a:hover img{
+    transform: scale(1.2);
 }
 .post-prev-title {
     margin-bottom: 6px;
@@ -4777,12 +4792,11 @@ a.blog-item-more:hover {
 }
 .widget-title {
     margin-bottom: 20px;
-    padding-bottom: 5px;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    color: #777;
-    border-bottom: 1px solid #ccc;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: 500;
+    border: none !important;
+    padding: 10px 0px;
 }
 .widget-body {
     font-size: 13px;
@@ -5854,11 +5868,15 @@ section:hover .small-item-carousel .owl-next {
 }
 .intro-label {
     position: absolute;
-    top: 7px;
-    right: 10px;
+    top: -4px;
+    right: 0px;
     font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+.intro-label .badge{
+    background-color: rgb(18, 48, 51)  !important;
+    border-color: #123033  !important;
 }
 .label-new {
     background: #f32929;
@@ -7478,4 +7496,16 @@ section:hover .small-item-carousel .owl-next {
     .full-wrapper {
         margin: 5px 2%  !important;
     }
+}
+.badge{
+    padding: 0.35em 0.65em;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0;
+    text-transform: capitalize;
 }
