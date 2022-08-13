@@ -1,10 +1,10 @@
-<div class="col-sm-4 col-md-3 offset-md-1 sidebar">
+<div class="col-sm-3 sidebar">
 
 
     <!-- Widget -->
     <div class="widget">
 
-        <h5 class="widget-title font-alt">Categories</h5>
+        <h5 class="widget-title font-alt dark">Filter By</h5>
 
         <div class="widget-body">
             <ul class="clearlist widget-menu">
@@ -59,7 +59,7 @@
     <!-- End Widget -->
 
     <!-- Widget -->
-    <div class="widget">
+    <div class="widget " style="display:none">
 
         <h5 class="widget-title font-alt">Bestsellers</h5>
 
@@ -94,7 +94,7 @@
             </ul>
         </div>
     </div>
-    <div class="widget">
+    <div class="widget"  style="display:none">
         <h5 class="widget-title font-alt">Manufacturer</h5>
         <div class="widget-body">
             <div class="tags">

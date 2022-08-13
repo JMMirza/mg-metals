@@ -1,21 +1,16 @@
-<section class="small-section bg-dark-lighter" data-background="{{ asset('frontend/images/banner1.png') }}">
+
+
+<section class="small-section bg-dark-alfa-brown-3" style="height: 298px; padding-top: 135px;" data-background="{{ asset('frontend/images/shop-bg.png') }}">
     <div class="relative container align-left">
 
         <div class="row">
 
-            <div class="col-md-8">
-                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">{{ __('home_page.Rental Shop') }}</h1>
-                {{-- <div class="hs-line-4 font-alt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                </div> --}}
+            <div class="col-md-12 text-center">
+                <h1 class="hs-line-11 font-alt mb-0 mb-xs-0 playfare white"  style="font-size:26px;text-align:center;text-transform:capitalize;letter-spacing:0.15em">Our Retail Shop</h1>
+               
             </div>
 
-            <div class="col-md-4 mt-30">
-                <div class="mod-breadcrumbs font-alt align-right">
-                    <a
-                        href="{{ route('home') }}">{{ __('home_page.home') }}</a>&nbsp;/&nbsp;<span>{{ __('home_page.Rental Shop') }}</span>
-                </div>
-            </div>
+            
         </div>
 
     </div>
