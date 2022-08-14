@@ -11,6 +11,7 @@ use App\Models\Manufacturer;
 use App\Models\User;
 use App\Models\CustomerShareholder;
 use App\Models\AuthorizedTradingRepresentative;
+use App\Models\Nationality;
 use App\Models\Order;
 use App\Models\ProductCommission;
 use App\Models\UserVerify;
@@ -230,8 +231,9 @@ class HomeController extends Controller
 
         $shareholders = CustomerShareholder::with('customer')->where('customer_id', $customer->id)->latest()->get();
         $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $customer->id)->latest()->get();
+        $nationalities = Nationality::all();
 
-        return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer]);
+        return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer, 'nationalities' => $nationalities]);
     }
 
     public function switch_language($locale)

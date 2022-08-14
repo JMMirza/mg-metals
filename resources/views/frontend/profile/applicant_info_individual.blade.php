@@ -61,7 +61,7 @@
                 {{-- <div class="form-group"> --}}
                 <input type="text" class="form-control @if ($errors->has('occupation')) is-invalid @endif"
                     name="occupation" id="occupation"
-                    value="@if ($customer->occupation) {{ $customer->occupation }}@else{{ old('occupation') }}@endif"
+                    value="@if ($customer->occupation) {{ $customer->occupation }}@else{{ old('occupation') }} @endif"
                     placeholder="{{ __('individual.Occupation & Business Background') }}" required>
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('occupation') }}</strong>
@@ -72,7 +72,8 @@
                 <label class="form-label">{{ __('individual.HKID No. / Passport No.') }} *</label>
                 {{-- <div class="form-group"> --}}
                 <input type="text" class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                    id="passport_no" name="passport_no" value="@if ($customer->passport_no) {{ $customer->passport_no }}@else{{ old('passport_no') }}@endif"
+                    id="passport_no" name="passport_no"
+                    value="@if ($customer->passport_no) {{ $customer->passport_no }}@else{{ old('passport_no') }} @endif"
                     placeholder="{{ __('individual.HKID No. / Passport No.') }}" required>
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('passport_no') }}</strong>
@@ -82,7 +83,8 @@
             <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('individual.PHONE NUMBER') }} *</label>
                 {{-- <div class="form-group"> --}}
-                <input type="text" id="phone_number" name="phone_number" value="@if ($customer->phone_number) {{ $customer->phone_number }}@else{{ old('phone_number') }}@endif"
+                <input type="text" id="phone_number" name="phone_number"
+                    value="@if ($customer->phone_number) {{ $customer->phone_number }}@else{{ old('phone_number') }} @endif"
                     class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
                     placeholder="{{ __('individual.PHONE NUMBER') }}" required>
                 <div class="invalid-feedback">
@@ -93,22 +95,19 @@
             <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('individual.Nationality') }} *</label>
                 {{-- <div class="form-group"> --}}
-                <select class="form-select form-control @if ($errors->has('nationality')) is-invalid @endif" name="nationality" required>
+                <select class="form-select form-control @if ($errors->has('nationality')) is-invalid @endif"
+                    name="nationality" required>
                     <option value="" @if ($customer->nationality == '') {{ 'selected' }} @endif disabled>
                         {{ __('individual.Nationality') }}
                     </option>
-                    <option value="pakistan" @if ($customer->nationality) @if ($customer->nationality == 'pakistan') {{ 'selected' }} @endif @else
-                            @if (old('nationality') == 'pakistan') {{ 'selected' }} @endif @endif>
-                        Pakistan
-                    </option>
-                    <option value="china" @if ($customer->nationality) @if ($customer->nationality == 'china') {{ 'selected' }} @endif @else
-                            @if (old('nationality') == 'china') {{ 'selected' }} @endif @endif>
-                        China
-                    </option>
-                    <option value="other" @if ($customer->nationality) @if ($customer->nationality == 'other') {{ 'selected' }} @endif @else
-                            @if (old('nationality') == 'other') {{ 'selected' }} @endif @endif>
-                        Other
-                    </option>
+
+                    @foreach ($nationalities as $nationality)
+                        <option value="{{ $nationality->name }}"
+                            @if ($customer->nationality) @if ($customer->nationality == $nationality->name) {{ 'selected' }} @endif
+                        @else @if (old('nationality') == $nationality->name) {{ 'selected' }} @endif @endif>
+                            {{ $nationality->name }}
+                        </option>
+                    @endforeach
                 </select>
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('nationality') }}</strong>
@@ -119,7 +118,9 @@
                 <label class="form-label">{{ __('individual.ADDRESS') }} *</label>
                 {{-- <div class="form-group"> --}}
                 <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
-                    placeholder="{{ __('individual.ADDRESS') }}">@if ($customer->address) {{ $customer->address }}@else{{ old('address') }}@endif</textarea>
+                    placeholder="{{ __('individual.ADDRESS') }}">
+                    @if ($customer->address) {{ $customer->address }}@else{{ old('address') }}@endif
+                </textarea>
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('address') }}</strong>
                 </div>
@@ -153,8 +154,7 @@
                 {{-- <button class="btn btn-default" type="reset"></button> --}}
                 <div class="footer text-end" style="display: block;">
                     <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
-                    <button class="btn btn-custom" type="submit"
-                        id="next">{{ __('home_page.save') }}</button>
+                    <button class="btn btn-custom" type="submit" id="next">{{ __('home_page.save') }}</button>
                 </div>
             @endif
         </form>

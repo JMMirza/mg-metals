@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Nationality;
 use App\Models\User;
 use App\Models\UserVerify;
 use Illuminate\Http\Request;
@@ -53,7 +54,6 @@ class CustomerController extends Controller
                 ->make(true);
         }
         $users = User::all();
-
         return view('customers.customers', ['users' => $users]);
     }
 
@@ -64,7 +64,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customers.add_new_customer');
+        $nationalities = Nationality::all();
+        return view('customers.add_new_customer', ['nationalities' => $nationalities]);
     }
 
     /**
@@ -170,7 +171,8 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         $user = User::find($customer->user_id);
-        return view('customers.edit_customer', ['customer' => $customer, 'user' => $user]);
+        $nationalities = Nationality::all();
+        return view('customers.edit_customer', ['customer' => $customer, 'user' => $user, 'nationalities' => $nationalities]);
     }
 
     /**

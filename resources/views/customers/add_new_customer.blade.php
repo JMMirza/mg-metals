@@ -148,18 +148,12 @@
                                                             disabled>
                                                             {{ __('individual.Nationality') }}
                                                         </option>
-                                                        <option value="pakistan"
-                                                            @if (old('nationality') == 'pakistan') {{ 'selected' }} @endif>
-                                                            Pakistan
-                                                        </option>
-                                                        <option value="china"
-                                                            @if (old('nationality') == 'china') {{ 'selected' }} @endif>
-                                                            China
-                                                        </option>
-                                                        <option value="other"
-                                                            @if (old('nationality') == 'other') {{ 'selected' }} @endif>
-                                                            Other
-                                                        </option>
+                                                        @foreach ($nationalities as $nationality)
+                                                            <option value="{{ $nationality->name }}"
+                                                                @if (old('nationality') == $nationality->name) {{ 'selected' }} @endif>
+                                                                {{ $nationality->name }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
 
                                                 </div>
