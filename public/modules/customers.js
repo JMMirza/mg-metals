@@ -62,6 +62,50 @@ $(document).ready(function () {
         ],
     });
 
+    $(document).on("click", "#shareholders", function (e) {
+        const customer_id = $(this).val();
+        var target = $(this).data("target");
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                customer_id: customer_id,
+            },
+            cache: false,
+            success: function (data) {
+                $("#modal-div").html(data);
+                $(target).modal("show");
+            },
+            error: function () { },
+        });
+    });
+
+    $(document).on("click", "#trading", function (e) {
+        const customer_id = $(this).val();
+        var target = $(this).data("target");
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                customer_id: customer_id,
+            },
+            cache: false,
+            success: function (data) {
+                $("#modal-div").html(data);
+                $(target).modal("show");
+            },
+            error: function () { },
+        });
+    });
+
     $(document).on("click", "#unverified", function (e) {
         const user_id = $(this).val();
         var url = $(this).data("url");
