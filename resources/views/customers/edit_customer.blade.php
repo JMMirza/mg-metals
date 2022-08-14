@@ -17,6 +17,15 @@
                                 data-target="#tradingModel">Authorized
                                 Trading Representative</button>
                         @endif
+                        @if ($user->is_verified == 1)
+                            <button id="verified" value="{{ $user->id }}" data-url="{{ route('verify-user') }}"
+                                class="btn btn-sm btn-success btn-label waves-effect waves-light"><i
+                                    class="ri-check-double-line label-icon align-middle fs-16 me-2"></i> Active</button>
+                        @else
+                            <button id="unverified" value="{{ $user->id }}" data-url="{{ route('verify-user') }}"
+                                class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
+                                    class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i> In-Active</button>
+                        @endif
                     </div>
                 </div>
 
@@ -434,8 +443,7 @@
                                                     <div class="form-group">
                                                         <label for="passport_no" class="form-label">Years In
                                                             Business</label>
-                                                        <input type="text"
-                                                            value="{{ $customer->years_in_business }}"
+                                                        <input type="text" value="{{ $customer->years_in_business }}"
                                                             class="form-control @if ($errors->has('years_in_business')) is-invalid @endif"
                                                             name="years_in_business" id="years_in_business"
                                                             placeholder="{{ __('corporate.YEARS IN BUSINESS') }}">

@@ -1,5 +1,5 @@
 {{-- @permission('edit-course') --}}
-<a class="btn btn-sm btn-primary" href="{{ route('load-single-product-logs', $row['id']) }}">Logs</button>
+<a class="btn btn-sm btn-primary" href="{{ route('load-single-product-logs', $row['id']) }}">Details</button>
 
     {{-- <a href="{{ route('inventories.edit', $row['id']) }}" class="btn btn-sm btn-success btn-icon waves-effect waves-light">
     <i class="mdi mdi-lead-pencil"></i>

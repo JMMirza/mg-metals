@@ -40,7 +40,8 @@
                 </li>
                 @if (\Auth::user())
                     <li>
-                        <a href="#" class="mn-has-sub">{{ \Auth::user()->customer->full_name }}
+                        <a href="#"
+                            class="mn-has-sub">{{ isset(\Auth::user()->customer->full_name) ? \Auth::user()->customer->full_name : \Auth::user()->name }}
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="mn-sub">

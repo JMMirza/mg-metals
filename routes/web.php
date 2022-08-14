@@ -16,10 +16,13 @@ use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\NationalityController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductCommissionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SetupController;
 use App\Http\Controllers\ShopCartController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -102,4 +105,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/applicant-info-individual', [HomeCtrl::class, 'applicant_information_individual'])->name('applicant-info-individual');
     Route::post('/applicant-info-corporate', [HomeCtrl::class, 'applicant_information_corporate'])->name('applicant-info-corporate');
     Route::get('/customer-profile', [HomeCtrl::class, 'profile'])->name('customer_profile');
+
+    Route::resources(['roles' => RoleController::class]);
+    Route::resources(['permissions' => PermissionController::class]);
+    Route::resources(['staffs' => UserController::class]);
+    Route::get('/staff-profile/{id}', [UserController::class, 'edit'])->name('staff-profile');
+    Route::get('/roles-permission-assignment-list', [UserController::class, 'userRolesPermissionList'])->name('roles-permission-assignment-list');
+    Route::get('edit-with-role-permissions/{id}', [UserController::class, 'editUserRolesPermissions'])->name('edit-with-role-permissions');
+    Route::post('assign-role-permissions/{id}', [UserController::class, 'updateUserRolesPermissions'])->name('assign-role-permissions');
 });

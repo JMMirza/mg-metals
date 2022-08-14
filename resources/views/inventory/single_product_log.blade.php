@@ -23,7 +23,7 @@
                                     <th scope="col">Total Quantity</th>
                                     <th scope="col">Minmum Quantity</th>
                                     {{-- <th scope="col">Markup</th> --}}
-                                    <th scope="col" class="text-end">Product Price</th>
+                                    {{-- <th scope="col" class="text-end">Product Price</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,9 +52,9 @@
                                     <td>{{ $total_units }}</td>
                                     <td>{{ $product->on_hold }} </td>
                                     {{-- <td>{{ $product->mark_up }}</td> --}}
-                                    <td class="fw-medium text-end">
+                                    {{-- <td class="fw-medium text-end">
                                         {{ $product->getProductPrice() }} USD
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             </tbody>
                         </table>
@@ -67,7 +67,7 @@
                 <div class="card-body">
                     <form class="row  needs-validation" action="{{ route('inventories.store') }}" method="POST" novalidate>
                         @csrf
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-label-group in-border">
                                 <label for="user_id" class="form-label">Products</label>
                                 <input type="text"
@@ -79,7 +79,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <div class="form-label-group in-border">
                                 <label for="user_id" class="form-label">Units</label>
                                 <input type="number"
@@ -91,6 +91,30 @@
                             </div>
                         </div>
 
+                        <div class="col-md-4 mb-3">
+                            <div class="form-label-group in-border">
+                                <label for="user_id" class="form-label">Added By</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('user_id')) is-invalid @endif"
+                                    value="{{ \Auth::user()->name }}" readonly>
+                                <input type="number" name="user_id" value="{{ \Auth::user()->id }}" hidden>
+                                <div class="invalid-tooltip">
+                                    {{ $errors->first('user_id') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="form-label-group in-border">
+                                <label for="remarks" class="form-label">Remarks</label>
+
+                                <textarea name="remarks" class="form-control @if ($errors->has('remarks')) is-invalid @endif" id="remarks"
+                                    id="" cols="30" rows="10">{{ old('remarks') }}</textarea>
+                                <div class="invalid-tooltip">
+                                    {{ $errors->first('remarks') }}
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="col-12 text-end">
                             <button class="btn btn-primary" type="submit">Save Changes</button>
@@ -113,6 +137,7 @@
                                 <th>Inventory ID</th>
                                 <th>SKU</th>
                                 <th>Product Name</th>
+                                <th>Added By</th>
                                 <th>Units</th>
                                 <th>Action</th>
                                 <th>Order ID</th>
@@ -128,6 +153,11 @@
                                     <td>{{ $inventories->id }}</td>
                                     <td>{{ $inventories->product->sku }}</td>
                                     <td>{{ $inventories->product->name }}</td>
+                                    @if (isset($inventories->user))
+                                        <td>{{ $inventories->user->name }}</td>
+                                    @else
+                                        <td>N/A</td>
+                                    @endif
                                     <td>{{ $inventories->units }}</td>
                                     @if ($inventories->order != null)
                                         <td><span class="badge bg-warning">Sold</span></td>

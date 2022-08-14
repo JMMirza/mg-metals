@@ -25,10 +25,16 @@ class InventoryController extends Controller
             // Inventory::with(['product', 'order'])->get();
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('units', function ($row) {
+                    if ($row['units'] <= $row['min_quantity']) {
+                        return $row['units'] . '!';
+                    }
+                    return $row['units'];
+                })
                 ->addColumn('action', function ($row) {
                     return view('inventory.action', ['row' => $row]);
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'units'])
                 ->make(true);
         }
         // dd($agents->toArray());
@@ -56,7 +62,9 @@ class InventoryController extends Controller
     {
         $request->validate([
             'product_id' => 'required|integer|max:255',
-            'units' => 'required|integer|max:255'
+            'user_id' => 'required|integer|max:255',
+            'units' => 'required|integer|max:255',
+            'remarks' => 'required|string|max:2048'
         ]);
 
         Inventory::create($request->all());

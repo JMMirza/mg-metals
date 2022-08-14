@@ -6,7 +6,7 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
         scrollX: true,
-       "order": [[ 10, "desc" ]],
+        // order: [[10, "desc"]],
         // scrollY: "300px",
         scrollCollapse: true,
         language: {
@@ -27,22 +27,8 @@ $(document).ready(function () {
                 name: "user.email",
             },
             {
-                data: "gender",
-                name: "gender",
-            },
-            {
                 data: "phone_number",
                 name: "phone_number",
-                width: "15%",
-            },
-            {
-                data: "passport_no",
-                name: "passport_no",
-                width: "15%",
-            },
-            {
-                data: "nationality",
-                name: "nationality",
                 width: "15%",
             },
             {
@@ -76,50 +62,6 @@ $(document).ready(function () {
         ],
     });
 
-    $(document).on("click", "#shareholders", function (e) {
-        const customer_id = $(this).val();
-        var target = $(this).data("target");
-        var url = $(this).data("url");
-        $.ajax({
-            url: url,
-            headers: {
-                "X-CSRF-Token": "{{ csrf_token() }}",
-            },
-            type: "GET",
-            data: {
-                customer_id: customer_id,
-            },
-            cache: false,
-            success: function (data) {
-                $("#modal-div").html(data);
-                $(target).modal("show");
-            },
-            error: function () {},
-        });
-    });
-
-    $(document).on("click", "#trading", function (e) {
-        const customer_id = $(this).val();
-        var target = $(this).data("target");
-        var url = $(this).data("url");
-        $.ajax({
-            url: url,
-            headers: {
-                "X-CSRF-Token": "{{ csrf_token() }}",
-            },
-            type: "GET",
-            data: {
-                customer_id: customer_id,
-            },
-            cache: false,
-            success: function (data) {
-                $("#modal-div").html(data);
-                $(target).modal("show");
-            },
-            error: function () {},
-        });
-    });
-
     $(document).on("click", "#unverified", function (e) {
         const user_id = $(this).val();
         var url = $(this).data("url");
@@ -135,9 +77,10 @@ $(document).ready(function () {
             cache: false,
             success: function (data) {
                 // alert(data);
-                $("#customers-data-table").DataTable().ajax.reload();
+                // $("#customers-data-table").DataTable().ajax.reload();
+                location.reload(true);
             },
-            error: function () {},
+            error: function () { },
         });
     });
 
@@ -156,9 +99,10 @@ $(document).ready(function () {
             cache: false,
             success: function (data) {
                 // alert(data);
-                $("#customers-data-table").DataTable().ajax.reload();
+                // $("#customers-data-table").DataTable().ajax.reload();
+                location.reload(true);
             },
-            error: function () {},
+            error: function () { },
         });
     });
 
@@ -196,11 +140,11 @@ $(document).ready(function () {
                             $("#modal-div").html(data);
                             $(target).modal("show");
                         },
-                        error: function () {},
+                        error: function () { },
                     });
                 }
             },
-            error: function () {},
+            error: function () { },
         });
     });
 
@@ -238,11 +182,11 @@ $(document).ready(function () {
                             $("#modal-div").html(data);
                             $(target).modal("show");
                         },
-                        error: function () {},
+                        error: function () { },
                     });
                 }
             },
-            error: function () {},
+            error: function () { },
         });
     });
 });
