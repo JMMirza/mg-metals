@@ -230,10 +230,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
+        $logged_user = User::findorfail($request->user_id);
+        // dd($logged_user->toArray());
         $request->validate([
             'name' => 'required',
-            'email' => 'required | email | unique:users' . $user->id,
+            'email' => 'required | email | unique:users,email,' . $logged_user->id,
             'password' => 'required | min:8',
         ]);
 
@@ -251,7 +252,7 @@ class UserController extends Controller
             $input['password'] = bcrypt($request->password);
         }
 
-        $user->update($input);
+        $logged_user->update($input);
 
 
         return redirect(route('staffs.index'))->with('success', 'Staff updated successfully');

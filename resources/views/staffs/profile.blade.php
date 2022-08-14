@@ -28,7 +28,7 @@
                     @csrf
 
 
-
+                    <input type="hidden" name="user_id" value="{{ $user_info->id }}">
                     <div class="col-md-6 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="investorName" class="form-label">Name <span class="text-danger">*</span></label>

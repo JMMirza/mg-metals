@@ -123,7 +123,7 @@ class HomeController extends Controller
         }
         auth()->login($user);
         if (isset($request->url)) {
-            return redirect($request->url);
+            return redirect($request->url)->with('success', 'Logged in successfully');
         }
         return redirect()->back('home');
     }
