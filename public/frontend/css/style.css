@@ -210,7 +210,7 @@ Section Text:       15px/1.7 "Open Sans", arial, sans-serif;
 }
 
 .full-wrapper {
-    margin: 5px 8%;
+    margin: 0px 8%;
 }
 @media (min-width: 768px) {
     .container {
@@ -4026,9 +4026,9 @@ hr:not([size]){
 .post-grid {
 }
 .post-prev-img {
-    margin-bottom: 23px;
+    margin-bottom: 10px;
     position: relative;
-    height:200px;
+    height:255px;
     background-color: #bfbfbf;
     overflow: hidden;
 }
@@ -4057,14 +4057,33 @@ hr:not([size]){
 .post-prev-img a:hover img{
     transform: scale(1.2);
 }
+.post-prev-img .quick-view{
+    position: absolute;
+    bottom: 0px;
+    background: rgba(255,255,255,.5);
+    z-index: 999;
+    left: 0;
+    right: 0;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    transform: translateY(70px);
+}
+.post-prev-img:hover .quick-view{
+    transform: translateY(0px);
+    opacity: 1 !important;
+}
 .post-prev-title {
     margin-bottom: 6px;
     font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    text-transform: capitalize;
+    letter-spacing: normal;
+
 }
 .post-prev-title a {
-    color: #777;
+    color: rgb(13, 33, 35);
     text-decoration: none;
 
     -webkit-transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
@@ -5868,8 +5887,8 @@ section:hover .small-item-carousel .owl-next {
 }
 .intro-label {
     position: absolute;
-    top: -4px;
-    right: 0px;
+    top: -3px;
+    left: 0px;
     font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -5877,6 +5896,10 @@ section:hover .small-item-carousel .owl-next {
 .intro-label .badge{
     background-color: rgb(18, 48, 51)  !important;
     border-color: #123033  !important;
+    text-transform: capitalize;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: normal;
 }
 .label-new {
     background: #f32929;
@@ -7494,7 +7517,7 @@ section:hover .small-item-carousel .owl-next {
         margin: 0px 2% !important;
     }
     .full-wrapper {
-        margin: 5px 2%  !important;
+        margin: 0px 2%  !important;
     }
 }
 .badge{
@@ -7508,4 +7531,26 @@ section:hover .small-item-carousel .owl-next {
     vertical-align: baseline;
     border-radius: 0;
     text-transform: capitalize;
+}
+.form-control{
+    border-width: 0px 0px 0px 0px;
+    border-color: rgb(13, 33, 35);
+    border-radius: 0px;
+    background: #fff;
+    font-size: 14px;
+    color: rgb(13, 33, 35);
+    padding: 14px 11px;
+}
+
+.invalid-feedback strong{
+    font-weight: 500 !important;
+}
+.alert{
+    position: absolute;
+    z-index: 9999999;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    margin: 0px !important;
 }
