@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="small-section bg-dark-lighter" data-background="{{ asset('frontend/images/banner1.png') }}">
+    <!-- <section class="small-section bg-dark-lighter" data-background="{{ asset('frontend/images/banner1.png') }}">
         <div class="relative container align-left">
 
             <div class="row">
@@ -23,14 +23,14 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
     @include('layouts.flash_message')
 
-    <div class="container center-aligned">
+    <div class="container center-aligned" >
 
         <div class="row">
 
-            <div class="col-md-12">
+            <div class="col-md-12" style="padding-top:150px" >
 
                 <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0" role="tablist">
 

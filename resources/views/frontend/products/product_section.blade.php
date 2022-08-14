@@ -1,4 +1,4 @@
-<div class="col-md-4 col-lg-4 mb-60 mb-xs-40">
+<div class="col-sm-12 col-md-3 col-lg-3 mb-60 mb-xs-40">
 
     <div class="post-prev-img">
         <a href="{{ route('single-product', $product->id) }}"><img src="{{ $product->product_picture_url }}"
@@ -10,13 +10,15 @@
             </div>
         @else
             <div class="intro-label">
-                <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
+                <span class="badge badge-danger bg-red">Not Available</span>
             </div>
         @endif
         {{-- @endif --}}
         {{-- <div class="intro-label">
             <span class="badge badge-danger bg-red">Sale</span>
         </div> --}}
+        <a href="{{ route('single-product', $product->id) }}" class="quick-view"> Quick View</a>
+        
     </div>
 
     @if (Config::get('app.locale') == 'en')
@@ -42,8 +44,5 @@
         </div>
     @endif
 
-    <div class="post-prev-more align-center">
-        <a href="{{ route('single-product', $product->id) }}" class="btn btn-mod btn-gray btn-round"><i
-                class="fa fa-shopping-cart" aria-hidden="true"></i>{{ __('home_page.purchase') }}</a>
-    </div>
+    
 </div>

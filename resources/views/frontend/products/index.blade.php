@@ -8,13 +8,13 @@
         <div class="container relative">
             <div class="row">
                 @include('frontend.products.sidebar')
-                <div class="col-sm-9">
+                <div class="col">
 
                     <div class="clearfix mb-40">
 
-                        <div class="left section-text mt-10">
+                        <!-- <div class="left section-text mt-10">
                             Showing 1–{{ $products->count() }} of {{ $products->total() }} results
-                        </div>
+                        </div> -->
 
                         <div class="right">
                             <form method="post" action="#" class="form">

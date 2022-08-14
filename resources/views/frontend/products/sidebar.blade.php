@@ -1,4 +1,4 @@
-<div class="col-sm-3 sidebar">
+<div class="col sidebar" style="max-width:240px">
 
 
     <!-- Widget -->
