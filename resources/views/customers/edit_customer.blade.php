@@ -922,18 +922,12 @@
                                                 @if ($customer->nationality == '') {{ 'selected' }} @endif disabled>
                                                 {{ __('individual.Nationality') }}
                                             </option>
-                                            <option value="pakistan"
-                                                @if ($customer->nationality == 'pakistan') {{ 'selected' }} @endif>
-                                                Pakistan
-                                            </option>
-                                            <option value="china"
-                                                @if ($customer->nationality == 'china') {{ 'selected' }} @endif>
-                                                China
-                                            </option>
-                                            <option value="other"
-                                                @if ($customer->nationality == 'other') {{ 'selected' }} @endif>
-                                                Other
-                                            </option>
+                                            @foreach ($nationalities as $nationality)
+                                                <option value="{{ $nationality->name }}"
+                                                    @if ($customer->nationality == $nationality->name) {{ 'selected' }} @endif>
+                                                    {{ $nationality->name }}
+                                                </option>
+                                            @endforeach
                                         </select>
 
                                     </div>

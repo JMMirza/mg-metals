@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var route = $("#ajaxRoute").val();
     console.log(route);
-    $("#setup-data-table").DataTable({
+    $("#payment-methods-data-table").DataTable({
         processing: true,
         serverSide: true,
         responsive: true,

@@ -12,10 +12,10 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Customer ID</th>
+                                {{-- <th>Customer ID</th> --}}
                                 <th>Customer name</th>
                                 <th>Tier Type</th>
-                                <th>Product ID</th>
+                                <th>Product SKU</th>
                                 <th>Product name</th>
                                 <th>Product Price</th>
                                 <th>Product Mark up</th>

@@ -197,7 +197,7 @@
 
 
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
                                 <select id="pricing_type" class="form-select form-control mb-3" name="pricing_type"
@@ -225,30 +225,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="session_duration" class="form-label">Session Duration</label>
-                                <div class="input-group">
-                                    <input type="decimal" step="0.001"
-                                        class="form-control @if ($errors->has('session_duration')) is-invalid @endif"
-                                        id="session_duration" name="session_duration"
-                                        placeholder="Please enter Session Duration"
-                                        value="{{ old('session_duration') }}">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Mins</span>
-                                    </div>
-                                </div>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('session_duration'))
-                                        {{ $errors->first('session_duration') }}
-                                    @else
-                                        Session Duration is empty or incorrect!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <div class="input-group">
@@ -405,7 +382,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 mb-3">
+                        <div class="col-md-8 col-sm-12 mb-3">
                             <div class="form-label-group in-border">
                                 <label for="product_picture" class="form-label">Product Picture (產品圖片)</label>
                                 <input type="file"
@@ -417,6 +394,29 @@
                                         {{ $errors->first('product_picture') }}
                                     @else
                                         Product Picture is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="session_duration" class="form-label">Session Duration</label>
+                                <div class="input-group">
+                                    <input type="decimal" step="0.001"
+                                        class="form-control @if ($errors->has('session_duration')) is-invalid @endif"
+                                        id="session_duration" name="session_duration"
+                                        placeholder="Please enter Session Duration"
+                                        value="{{ old('session_duration') }}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Mins</span>
+                                    </div>
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('session_duration'))
+                                        {{ $errors->first('session_duration') }}
+                                    @else
+                                        Session Duration is empty or incorrect!
                                     @endif
                                 </div>
                             </div>

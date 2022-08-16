@@ -187,7 +187,7 @@
 
 
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="pricing_type" class="form-label">Pricing Type (價格類別)</label>
                                 <select class="form-select form-control mb-3" name="pricing_type" id="pricing_type"
@@ -215,31 +215,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
-                            <div class="form-label-group in-border">
-                                <label for="session_duration" class="form-label">Session Duration</label>
-                                <div class="input-group">
-
-                                    <input type="decimal" step="0.001"
-                                        class="form-control @if ($errors->has('session_duration')) is-invalid @endif"
-                                        id="session_duration" name="session_duration"
-                                        placeholder="Please enter Session Duration"
-                                        value="{{ $product->session_duration }}">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Mins</span>
-                                    </div>
-                                </div>
-                                <div class="invalid-tooltip">
-                                    @if ($errors->has('session_duration'))
-                                        {{ $errors->first('session_duration') }}
-                                    @else
-                                        Session Duration is empty or incorrect!
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="fixed_amount" class="form-label">Fixed Amount (固定金額)</label>
                                 <div class="input-group">
@@ -249,7 +225,9 @@
                                     <input type="decimal" step="any"
                                         class="form-control @if ($errors->has('fixed_amount')) is-invalid @endif"
                                         id="fixed_amount" name="fixed_amount" placeholder="Please enter Fixed Amount"
-                                        value="{{ $product->fixed_amount }}"
+                                        value="@if ($product->pricing_type == 'use_feed') 0
+                                            @else
+                                            {{ $product->fixed_amount }} @endif"
                                         @if ($product->pricing_type == 'use_feed') disabled @endif>
                                 </div>
                                 <div class="invalid-tooltip">
@@ -296,7 +274,8 @@
                                 <input type="decimal"
                                     class="form-control @if ($errors->has('weight')) is-invalid @endif"
                                     id="weight_in_grams" name="weight_in_grams"
-                                    placeholder="Please enter Weight of Product" value="{{ $product->weight_in_grams }}"
+                                    placeholder="Please enter Weight of Product"
+                                    value="@if ($product->weight_unit == 'ounces') 0 @else {{ $product->weight_in_grams }} @endif"
                                     @if ($product->weight_unit == 'ounces') readonly @endif>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('weight'))
@@ -398,7 +377,7 @@
 
 
 
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="product_picture" class="form-label">Product Picture</label>
                                 <input type="file"
@@ -416,6 +395,30 @@
                                         data-bs-target="#domicile-modal" href="" title="Domicile"
                                         data-gallery=""><i class="ri-picture-in-picture-exit-fill"></i> Preview Product
                                         Picture</a></small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="session_duration" class="form-label">Session Duration</label>
+                                <div class="input-group">
+
+                                    <input type="decimal" step="0.001"
+                                        class="form-control @if ($errors->has('session_duration')) is-invalid @endif"
+                                        id="session_duration" name="session_duration"
+                                        placeholder="Please enter Session Duration"
+                                        value="{{ $product->session_duration }}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Mins</span>
+                                    </div>
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('session_duration'))
+                                        {{ $errors->first('session_duration') }}
+                                    @else
+                                        Session Duration is empty or incorrect!
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
