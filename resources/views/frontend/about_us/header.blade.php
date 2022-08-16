@@ -1,11 +1,11 @@
-<section class="small-section bg-dark-alfa-20" style="height: 319px; padding-top: 130px;" data-background="{{ asset('frontend/images/about-bg.png') }}">
+<section class="small-section bg-dark-alfa-20 page-header-global" style="" data-background="{{ asset('frontend/images/about-bg.png') }}">
     <div class="relative container align-left">
 
         <div class="row">
 
             <div class="col-md-8">
-                <h1 class="hs-line-11 font-alt mb-0 mb-xs-0 playfare white" style="font-size:28px;margin-left:90px">{{ __('home_page.about_us') }}</h1>
-                <div class="hs-line-4 font-alt white" style="font-size:16px;">
+                <h1 class="hs-line-11 font-alt mb-0 mb-xs-0 playfare white" >{{ __('home_page.about_us') }}</h1>
+                <div class="hs-line-4 font-alt white" >
                     WE HANDLE EACH DEAL WITH PASSION
                 </div> 
             </div>

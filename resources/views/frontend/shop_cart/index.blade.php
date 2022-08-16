@@ -3,13 +3,13 @@
 @section('content')
     @include('frontend.shop_cart.header')
     @include('layouts.flash_message')
-    <section class="page-section">
+    <section class="page-section pt-5">
         <div class="container">
             <div class="row">
                 <form id="customer_products_store" method="post" action="{{ route('customer-products.store') }}"
                     class="form">
                     @csrf
-                    <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                    <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
                         <div class="table-responsive">
                             <table class="table table-striped shopping-cart-table">
                                 <tr>
@@ -49,7 +49,7 @@
                                         <td>
                                             <a class="delete-cart" href="{{ route('shop-cart.destroy', $cart->id) }}"><i
                                                     class="fa fa-times"></i>
-                                                <span class="d-none d-sm-inline-block">Remove</span></a>
+                                                <span class="d-none d-sm-inline-block"></span></a>
                                         </td>
                                     </tr>
                                 @empty
@@ -63,7 +63,7 @@
                         {{-- <hr /> --}}
 
                         <div class="row mt-10 mb-60">
-                            <div class="col-sm-12 text align-right">
+                            <div class="col-sm-12  align-right">
                                 <div>
                                     <a href="{{ route('shop') }}" class="btn btn-mod btn-gray btn-round">Continue
                                         Shopping</a>
@@ -100,11 +100,15 @@
                                                     id="company_courier">
                                                 Quote me Courier Charges
                                             </label>
+                                        </div>
+                                        <div class="form-group ht-70">
                                             <label class="radio-inline">
                                                 <input type="radio" name="courier_type" value="self_courier"
                                                     id="self_courier">
                                                 I will arrange Courier
                                             </label>
+                                        </div>
+                                        <div class="form-group ht-70">
                                             <div class="invalid-feedback">
                                                 <strong>{{ $errors->first('gender') }}</strong>
                                             </div>

@@ -3,17 +3,19 @@
 
     <!-- Slide Item -->
     <div>
-        <div class="container relative">
+        <div class="container relative testimonial">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 align-center">
+                <div class="col-12 col-md-6 align-center align-self-center">
+                    <h3 class="small-title font-alt  gold">What people say?</h3>
+                </div>
+                <div class="col-12 col-md-6 align-center">
                     <!-- Section Icon -->
                     <div class="section-icon">
                         <span class="icon-quote"></span>
                     </div>
                     <!-- Section Title -->
-                    <h3 class="small-title font-22 font-alt gold">{{ __('home_page.What people say?') }}</h3>
-                    <blockquote class="testimonial white">
-                        <p>
+                    <blockquote class=" white">
+                        <p class="white">
                             Buying and selling gold has never been easier from this trusted brand. Excellent service
                             rendered with quick response.
                         </p>
@@ -29,17 +31,19 @@
 
     <!-- Slide Item -->
     <div>
-        <div class="container relative">
+        <div class="container relative testimonial">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 align-center">
+                <div class="col-12 col-md-6 align-center align-self-center">
+                    <h3 class="small-title font-alt  gold">What people say?</h3>
+                </div>
+                <div class="col-12 col-md-6 align-center">
                     <!-- Section Icon -->
                     <div class="section-icon">
                         <span class="icon-quote"></span>
                     </div>
                     <!-- Section Title -->
-                    <h3 class="small-title font-alt playfare white">What people say?</h3>
-                    <blockquote class="testimonial white">
-                        <p>
+                    <blockquote class=" white">
+                        <p class="white">
                             Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
                             risus utaliquam dapibus. Thanks!
                         </p>
@@ -55,17 +59,20 @@
 
     <!-- Slide Item -->
     <div>
-        <div class="container relative">
+        <div class="container relative testimonial">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 align-center">
+                <div class="col-12 col-md-6 align-center align-self-center">
+                    <h3 class="small-title font-alt  gold">What people say?</h3>
+                </div>
+                <div class="col-12 col-md-6 align-center">
                     <!-- Section Icon -->
                     <div class="section-icon">
-                        <span class="icon-quote"></span>
+                        <span class="icon-quote white"></span>
                     </div>
                     <!-- Section Title -->
-                    <h3 class="small-title font-alt playfare white">What people say?</h3>
-                    <blockquote class="testimonial white">
-                        <p>
+                    
+                    <blockquote class=" white">
+                        <p class="white">
                             Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
                             risus utaliquam dapibus. Thanks!
                         </p>

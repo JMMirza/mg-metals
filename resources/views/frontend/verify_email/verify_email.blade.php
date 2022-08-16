@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="small-section bg-dark-lighter" data-background="{{ asset('frontend/images/banner1.png') }}">
+    <section class="small-section bg-dark-lighter page-header-global" data-background="{{ asset('frontend/images/banner1.png') }}">
         <div class="relative container align-left">
 
             <div class="row">
@@ -14,12 +14,12 @@
                     </div> --}}
                 </div>
 
-                <div class="col-md-4 mt-30">
+                <!-- <div class="col-md-4 mt-30">
                     <div class="mod-breadcrumbs font-alt align-right">
                         <a
                             href="{{ route('home') }}">{{ __('home_page.home') }}</a>&nbsp;/&nbsp;<span>{{ __('home_page.login') }}</span>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>

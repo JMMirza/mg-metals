@@ -16,7 +16,7 @@
             
                 <div class="row interested-in ">
 
-                    <div class="col-12 col-md-7 align-self-center p-0">
+                    <div class="col-12 col-md-8 align-self-center p-0">
 
                         <div class="">
                             <div class="banner-content text-center">
@@ -33,7 +33,7 @@
                         </div>
 
                     </div>
-                    <div class="col-12 col-md-5">
+                    <div class="col-12 col-md-4">
                             <div class="card card-default">
                                 <div class="card-body">
                                     <h3 class="playfare mb-2">Discover EZgold App</h3>

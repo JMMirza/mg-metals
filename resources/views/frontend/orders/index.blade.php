@@ -3,11 +3,11 @@
 @section('content')
     @include('frontend.orders.header')
 
-    <section class="page-section" id="about">
+    <section class="page-section pt-5" id="about">
         <div class="container relative">
-            <div class="section-text mb-60 mb-sm-40">
-                <h2>My Orders</h2>
-                <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
+            <div class="section-text mb-40 mb-sm-20">
+                <h2 class="dark font-alt">My Orders</h2>
+                <table class="table table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
                     <thead>
                         <tr>
                             <th>Order ID</th>

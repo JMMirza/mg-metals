@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-3 col-lg-3 mb-60 mb-xs-40">
 
-    <div class="post-prev-img">
+    <div class="post-prev-img boxed">
         <a href="{{ route('single-product', $product->id) }}"><img src="{{ $product->product_picture_url }}"
                 alt=""></a>
         {{-- @if ($product->productsInventory($product->id) != null) --}}

@@ -14,8 +14,8 @@
         -<span id="err_span"></span>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <section class="page-section">
-        <div class="container relative">
+    <section class="page-section pt-5">
+        <div class="container relative mt-2">
 
             <div class="row mb-60 mb-xs-30">
 
@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-8 mb-xs-40">
+                <div class="col-sm-12 col-md-8 mb-xs-20">
                     @if (Config::get('app.locale') == 'en')
                         <h3 class="mt-0">{{ $product->name }}</h3>
                     @elseif (Config::get('app.locale') == 'ch')
@@ -47,16 +47,27 @@
                         <h3 class="mt-0">{{ $product->name_s_ch }}</h3>
                     @endif
 
+                    <p class="mt-0">
+                        @if (Config::get('app.locale') == 'en')
+                            {{ $product->description }}
+                        @elseif (Config::get('app.locale') == 'ch')
+                            {{ $product->description_t_ch }}
+                        @else
+                            {{ $product->description_s_ch }}
+                        @endif
+                    </p>
 
-                    <hr class="mt-0 mb-30" />
+
+                    
                     @if (\Auth::user())
+                        <hr class="mt-0 mb-30" />
                         <div class="row">
                             <div class="col-6 lead mt-0 mb-20">
                                 <strong>{{ $product->getProductPrice() }}</strong>
                             </div>
                         </div>
                     @endif
-                    <hr class="mt-0 mb-30" />
+                    
 
                     <div class="section-text mb-30">
                         @if (Config::get('app.locale') == 'en')
@@ -68,38 +79,7 @@
                         @endif
 
                     </div>
-
-                    <hr class="mt-0 mb-30" />
-
-                    <div class="mb-30">
-
-                        @if (\Auth::user())
-                            <form method="post" action="{{ route('shop-cart.store') }}" class="form" id="shor_cart_form">
-                                {{-- <form method="post" action="{{ route('customer-products.store') }}" class="form"> --}}
-                                @csrf
-                                <input name="quantity" id="quantity" type="number" class="input-lg round" min="1"
-                                    max="5" value="1" />
-                                <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id" hidden>
-                                <input type="text" id="product_id" value="{{ $product->id }}" name="product_id" hidden>
-                                <input type="text" id="status" value="pending" name="status" hidden>
-                                <input type="text" id="spot_price"
-                                    value="{{ $product->getProductPrice($type = 'number') }}" name="spot_price" hidden>
-                                <input type="text" id="referral_code" value="{{ \Auth::user()->referred_by }}"
-                                    name="referral_code" hidden>
-                                <button type="submit" class="btn btn-mod btn-large btn-round">ADD TO CART</button>
-                            </form>
-                            {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
-                                class="btn btn-mod btn-large btn-round">Buy
-                                Now</button> --}}
-                        @else
-                            <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy
-                                Now</a>
-                        @endif
-
-                    </div>
-
-                    <hr class="mt-0 mb-30" />
-
+                      
                     <div class="section-text small">
                         <div>SKU: {{ $product->sku }}</div>
                         <div>Category:
@@ -126,31 +106,41 @@
                             @endif
                         </div>
                     </div>
-                </div>
-            </div>
+                    
 
-            <ul role="tablist" class="nav nav-tabs tpl-tabs animate">
-                <li>
-                    <a href="#one" aria-controls="one" class="nav-link active" data-bs-toggle="tab" role="tab"
-                        aria-selected="true">Description</a>
-                </li>
-            </ul>
+                    <div class="mb-30">
 
-
-
-            <div class="tab-content tpl-tabs-cont">
-                <div role="tabpanel" class="tab-pane fade show active" id="one">
-                    <p>
-                        @if (Config::get('app.locale') == 'en')
-                            {{ $product->description }}
-                        @elseif (Config::get('app.locale') == 'ch')
-                            {{ $product->description_t_ch }}
+                        @if (\Auth::user())
+                        <hr class="mt-0 mb-30" />
+                            <form method="post" action="{{ route('shop-cart.store') }}" class="form" id="shor_cart_form">
+                                {{-- <form method="post" action="{{ route('customer-products.store') }}" class="form"> --}}
+                                @csrf
+                                <input name="quantity" id="quantity" type="number" class="input-lg round" min="1"
+                                    max="5" value="1" />
+                                <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id" hidden>
+                                <input type="text" id="product_id" value="{{ $product->id }}" name="product_id" hidden>
+                                <input type="text" id="status" value="pending" name="status" hidden>
+                                <input type="text" id="spot_price"
+                                    value="{{ $product->getProductPrice($type = 'number') }}" name="spot_price" hidden>
+                                <input type="text" id="referral_code" value="{{ \Auth::user()->referred_by }}"
+                                    name="referral_code" hidden>
+                                <button type="submit" class="btn btn-mod btn-large btn-round">ADD TO CART</button>
+                            </form>
+                            {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
+                                class="btn btn-mod btn-large btn-round">Buy
+                                Now</button> --}}
                         @else
-                            {{ $product->description_s_ch }}
+                            <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy
+                                Now</a>
                         @endif
-                    </p>
+
+                    </div>
+
+                    
                 </div>
             </div>
+
+            
             <!-- End Tab panes -->
         </div>
     </section>
