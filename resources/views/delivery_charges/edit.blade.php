@@ -13,10 +13,24 @@
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="delivery_method" class="form-label">Delivery Method</label>
-                            <input type="text"
-                                class="form-control @if ($errors->has('delivery_method')) is-invalid @endif"
-                                id="delivery_method" name="delivery_method" placeholder="delivery_method"
-                                value="{{ $deliveryCharges->delivery_method }}">
+                            <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
+                                name="delivery_method" required>
+                                <option value="" selected disabled
+                                    @if (old('delivery_method') == '') {{ 'selected' }} @endif>
+                                    Select One
+                                </option>
+                                <option value="Pick up" @if (old('delivery_method') == 'Pick up') {{ 'selected' }} @endif>
+                                    Self Pick
+                                </option>
+                                <option value="Home Delivery"
+                                    @if (old('delivery_method') == 'Home Delivery') {{ 'selected' }} @endif>
+                                    Home Delivery
+                                </option>
+                                <option value="Keep with MG"
+                                    @if (old('delivery_method') == 'Keep with MG') {{ 'selected' }} @endif>
+                                    Keep with MG
+                                </option>
+                            </select>
                             <div class="invalid-tooltip">
                                 {{ $errors->first('delivery_method') }}
                             </div>

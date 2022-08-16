@@ -20,14 +20,15 @@
                                     disabled>
                                     Select One
                                 </option>
-                                <option value="pickup" @if ($setup->delivery_method == 'pickup') {{ 'selected' }} @endif>
+                                <option value="Pick up" @if ($setup->delivery_method == 'Pick up') {{ 'selected' }} @endif>
                                     Pick up
                                 </option>
-                                <option value="home_delivery"
-                                    @if ($setup->delivery_method == 'home_delivery') {{ 'selected' }} @endif>
+                                <option value="Home Delivery"
+                                    @if ($setup->delivery_method == 'Home Delivery') {{ 'selected' }} @endif>
                                     Home Delivery
                                 </option>
-                                <option value="hold" @if ($setup->delivery_method == 'hold') {{ 'selected' }} @endif>
+                                <option value="Keep with MG"
+                                    @if ($setup->delivery_method == 'Keep with MG') {{ 'selected' }} @endif>
                                     Keep with MG
                                 </option>
                             </select>

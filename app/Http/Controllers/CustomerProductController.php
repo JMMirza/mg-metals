@@ -13,6 +13,8 @@ use App\Models\ShopCart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
+use Error;
+use ErrorException;
 
 class CustomerProductController extends Controller
 {
@@ -257,10 +259,10 @@ class CustomerProductController extends Controller
                     'units' => -1 * abs($quantities[$key])
                 ]);
             }
-
+            // dd($order);
             return ['url' => route('order-delivery-details', $order->id)];
         } else {
-            return back()->with('error', 'User not verified');
+            return throw new ErrorException('User is not verified');
         }
     }
 

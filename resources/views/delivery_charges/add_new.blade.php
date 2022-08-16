@@ -11,9 +11,22 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="form-label-group in-border">
                         <label for="delivery_method" class="form-label">Delivery Method</label>
-                        <input type="text" class="form-control @if ($errors->has('delivery_method')) is-invalid @endif"
-                            id="delivery_method" name="delivery_method" placeholder="Delivery Method"
-                            value="{{ old('delivery_method') }}">
+                        <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
+                            name="delivery_method" required>
+                            <option value="" selected disabled
+                                @if (old('delivery_method') == '') {{ 'selected' }} @endif>
+                                Select One
+                            </option>
+                            <option value="Pick up" @if (old('delivery_method') == 'Pick up') {{ 'selected' }} @endif>
+                                Self Pick
+                            </option>
+                            <option value="Home Delivery" @if (old('delivery_method') == 'Home Delivery') {{ 'selected' }} @endif>
+                                Home Delivery
+                            </option>
+                            <option value="Keep with MG" @if (old('delivery_method') == 'Keep with MG') {{ 'selected' }} @endif>
+                                Keep with MG
+                            </option>
+                        </select>
                         <div class="invalid-tooltip">
                             {{ $errors->first('delivery_method') }}
                         </div>
@@ -54,8 +67,8 @@
                     <div class="form-label-group in-border">
                         <label for="time_duration" class="form-label">Time Duration</label>
                         <select class="form-select form-control mb-3" name="time_duration" required>
-                            <option value="" @if (old('time_duration') == '') {{ 'selected' }} @endif selected
-                                disabled>
+                            <option value="" @if (old('time_duration') == '') {{ 'selected' }} @endif
+                                selected disabled>
                                 Select One
                             </option>
                             <option value="daily" @if (old('time_duration') == 'daily') {{ 'selected' }} @endif>

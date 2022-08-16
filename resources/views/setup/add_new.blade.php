@@ -15,16 +15,19 @@
                             <label for="delivery_method" class="form-label">Delivery Method</label>
                             <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
                                 name="delivery_method" required>
-                                <option value="" selected disabled>
+                                <option value="" selected disabled
+                                    @if (old('delivery_method') == '') {{ 'selected' }} @endif>
                                     Select One
                                 </option>
-                                <option value="pickup">
+                                <option value="Pick up" @if (old('delivery_method') == 'Pick up') {{ 'selected' }} @endif>
                                     Self Pick
                                 </option>
-                                <option value="home_delivery">
+                                <option value="Home Delivery"
+                                    @if (old('delivery_method') == 'Home Delivery') {{ 'selected' }} @endif>
                                     Home Delivery
                                 </option>
-                                <option value="hold">
+                                <option value="Keep with MG"
+                                    @if (old('delivery_method') == 'Keep with MG') {{ 'selected' }} @endif>
                                     Keep with MG
                                 </option>
                             </select>

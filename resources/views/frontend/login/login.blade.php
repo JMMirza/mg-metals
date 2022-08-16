@@ -3,9 +3,9 @@
 
 @section('content')
     @include('frontend.login.header')
+    @include('layouts.flash_message')
 
     <div class="container center-aligned">
-        @include('layouts.flash_message')
 
         <div class="row">
 
