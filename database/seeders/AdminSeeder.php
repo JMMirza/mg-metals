@@ -19,6 +19,7 @@ class AdminSeeder extends Seeder
             array(
                 'name' => 'MG Metals Administrator',
                 'email' => 'admin@mg-metals.com',
+                'customer_type' => 'corporate',
                 'password' => bcrypt('password'),
             )
         );

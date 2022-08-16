@@ -184,7 +184,6 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        // dd($request->all());
         if ($request->customer_type == 'individual') {
             $request->validate([
                 'full_name' => 'required|string|max:255',

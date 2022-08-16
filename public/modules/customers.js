@@ -6,7 +6,7 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
         scrollX: true,
-        // order: [[10, "desc"]],
+        order: [7, 'desc'],
         // scrollY: "300px",
         scrollCollapse: true,
         language: {

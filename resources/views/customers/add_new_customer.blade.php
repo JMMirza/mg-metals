@@ -234,7 +234,7 @@
                                                         class="form-control @if ($errors->has('business_name')) is-invalid @endif"
                                                         id="business_name" name="business_name"
                                                         placeholder="{{ __('corporate.FULL LEGAL NAME OF BUSINESS') }}"
-                                                        value="{{ old('business_name') }}" required>
+                                                        value="{{ old('business_name') }}">
 
                                                 </div>
                                             </div>
@@ -284,7 +284,7 @@
                                                         class="form-control @if ($errors->has('business_phone_num')) is-invalid @endif"
                                                         id="business_phone_num" name="business_phone_num"
                                                         placeholder="{{ __('corporate.BUSINESS PHONE') }}"
-                                                        value="{{ old('business_phone_num') }}" required>
+                                                        value="{{ old('business_phone_num') }}">
 
                                                 </div>
                                             </div>
@@ -296,7 +296,7 @@
                                                         class="form-control @if ($errors->has('business_fax')) is-invalid @endif"
                                                         id="business_fax" name="business_fax"
                                                         value="{{ old('business_fax') }}"
-                                                        placeholder="{{ __('corporate.BUSINESS FAX') }}" required>
+                                                        placeholder="{{ __('corporate.BUSINESS FAX') }}">
 
                                                 </div>
                                             </div>
@@ -306,7 +306,7 @@
                                                     <input type="email" id="business_email" name="business_email"
                                                         class="form-control @if ($errors->has('business_email')) is-invalid @endif"
                                                         value="{{ old('business_email') }}"
-                                                        placeholder="{{ __('corporate.BUSINESS EMAIL') }}" required>
+                                                        placeholder="{{ __('corporate.BUSINESS EMAIL') }}">
 
                                                 </div>
                                             </div>
@@ -317,7 +317,7 @@
                                                     <label for="passport_no" class="form-label">Business
                                                         Address</label>
                                                     <textarea type="text" class="form-control @if ($errors->has('business_address')) is-invalid @endif"
-                                                        id="business_address" name="business_address" placeholder="{{ __('corporate.BUSINESS ADDRESS') }}" required>{{ old('business_address') }}</textarea>
+                                                        id="business_address" name="business_address" placeholder="{{ __('corporate.BUSINESS ADDRESS') }}">{{ old('business_address') }}</textarea>
 
                                                 </div>
                                             </div>
@@ -330,7 +330,7 @@
                                                     <input type="text" id="city" name="city"
                                                         class="form-control @if ($errors->has('city')) is-invalid @endif"
                                                         value="{{ old('city') }}"
-                                                        placeholder="{{ __('corporate.CITY') }}" required>
+                                                        placeholder="{{ __('corporate.CITY') }}">
 
                                                 </div>
                                             </div>
@@ -492,7 +492,7 @@
                                                     <input type="text" value="{{ old('name') }}"
                                                         id="shareholder_full_name"
                                                         class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.full_name') }}" required>
+                                                        placeholder="{{ __('shareholder.full_name') }}">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
@@ -501,7 +501,7 @@
                                                     <input type="text" id="shareholder_title"
                                                         value="{{ old('title') }}"
                                                         class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.title') }}" required>
+                                                        placeholder="{{ __('shareholder.title') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -512,7 +512,7 @@
                                                     <input type="text" value="{{ old('email') }}"
                                                         id="shareholder_email"
                                                         class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.email') }}" required>
+                                                        placeholder="{{ __('shareholder.email') }}">
                                                 </div>
                                             </div>
 
@@ -522,7 +522,7 @@
                                                     <input type="text" id="shareholder_phone_number"
                                                         value="{{ old('phone_number') }}"
                                                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.phone_number') }}" required>
+                                                        placeholder="{{ __('shareholder.phone_number') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -534,7 +534,7 @@
                                                     <input type="text" id="shareholder_passport_no"
                                                         value="{{ old('passort_no') }}"
                                                         class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.passport_no') }}" required>
+                                                        placeholder="{{ __('shareholder.passport_no') }}">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
@@ -543,7 +543,7 @@
                                                     <input type="text" id="shareholder_nationality"
                                                         value="{{ old('nationality') }}"
                                                         class="form-control @if ($errors->has('nationality')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.nationality') }}" required>
+                                                        placeholder="{{ __('shareholder.nationality') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -554,7 +554,7 @@
                                                     <input type="text" id="shareholder_address"
                                                         value="{{ old('address') }}"
                                                         class="form-control @if ($errors->has('address')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.address') }}" required>
+                                                        placeholder="{{ __('shareholder.address') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -605,7 +605,7 @@
                                                     <input type="text" id="trading_full_name"
                                                         value="{{ old('name') }}"
                                                         class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.full_name') }}" required>
+                                                        placeholder="{{ __('trading.full_name') }}">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
@@ -614,7 +614,7 @@
                                                     <input type="text" id="trading_title"
                                                         value="{{ old('title') }}"
                                                         class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.title') }}" required>
+                                                        placeholder="{{ __('trading.title') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -625,7 +625,7 @@
                                                     <input type="text" value="{{ old('email') }}"
                                                         id="trading_email"
                                                         class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.email') }}" required>
+                                                        placeholder="{{ __('trading.email') }}">
                                                 </div>
                                             </div>
 
@@ -635,7 +635,7 @@
                                                     <input type="text" id="trading_phone_number"
                                                         value="{{ old('phone_number') }}"
                                                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.phone_number') }}" required>
+                                                        placeholder="{{ __('trading.phone_number') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -646,7 +646,7 @@
                                                     <input type="text" id="trading_signature"
                                                         value="{{ old('signature') }}"
                                                         class="form-control @if ($errors->has('signature')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.signature') }}" required>
+                                                        placeholder="{{ __('trading.signature') }}">
                                                 </div>
                                             </div>
                                         </div>

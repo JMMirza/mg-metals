@@ -34,6 +34,7 @@
                         method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         @method('PUT')
+                        <input type="hidden" name="customer_type" value="{{ $user->customer_type }}">
                         @if ($user->customer_type == 'corporate')
                             <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-primary"
                                 id="accordionBordered">
@@ -898,14 +899,14 @@
 
                                 <div class="col-md-4 col-sm-12">
                                     <div class="form-label-group in-border">
-                                        <label for="passport_no" class="form-label">Phone No.</label>
+                                        <label for="phone_number" class="form-label">Phone No.</label>
                                         <input type="text"
-                                            class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                            id="passport_no" name="passport_no" placeholder="Phone No."
-                                            value="{{ $customer->passport_no }}">
+                                            class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                                            id="phone_number" name="phone_number" placeholder="Phone No."
+                                            value="{{ $customer->phone_number }}">
                                         <div class="invalid-tooltip">
-                                            @if ($errors->has('passport_no'))
-                                                {{ $errors->first('passport_no') }}
+                                            @if ($errors->has('phone_number'))
+                                                {{ $errors->first('phone_number') }}
                                             @else
                                                 Phone No. is required!
                                             @endif
