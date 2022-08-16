@@ -658,7 +658,7 @@
 
             $("#weight_in_grams").change(function() {
                 var value = $("#weight_in_grams").val();
-                value = parseInt(value)
+                value = parseFloat(value)
                 $("#weight_in_ounces").val(value * 0.035274);
             });
 
