@@ -1,5 +1,5 @@
-<section class="page-section">
-    <div class="container relative">
+<section class="page-section" >
+    <div class="container relative" style="min-height:540px !important">
         
         <h2 class="section-title font-alt align-left mt-50 mb-50 mb-sm-40">
             {{ __('home_page.BEST SELLERS') }}
@@ -30,14 +30,14 @@
                 <img src="https://static.wixstatic.com/media/942665_880c29284c0e4612a82ddd27f838b703~mv2.png/v1/fill/w_506,h_314,al_c,q_80,usm_0.66_1.00_0.01/942665_880c29284c0e4612a82ddd27f838b703~mv2.png" alt="">
                
                 </figure>
-                <figure>
+                <!-- <figure>
                 <img src="https://static.wixstatic.com/media/942665_4c4369947bde4d4bae4c03f2d7016f5e~mv2.png/v1/fill/w_506,h_314,al_c,q_80,usm_0.66_1.00_0.01/942665_4c4369947bde4d4bae4c03f2d7016f5e~mv2.png" alt="">
                 
                 </figure>
                 <figure>
                     <img src="https://static.wixstatic.com/media/942665_0df93f07b4c64809854f38f33b5ab6d0~mv2.png/v1/fill/w_506,h_314,al_c,q_80,usm_0.66_1.00_0.01/942665_0df93f07b4c64809854f38f33b5ab6d0~mv2.png" alt="">
                 
-                </figure>
+                </figure> -->
             </div>                          
             <span  class="ss-icon left" onclick="galleryspin('-')">&lt;</span>
             <span  class="ss-icon right" onclick="galleryspin('')">&gt;</span>

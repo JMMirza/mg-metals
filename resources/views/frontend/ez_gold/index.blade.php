@@ -4,17 +4,16 @@
     @include('frontend.ez_gold.header')
 
     <section class="page-section pad-100">
-        <div class="container relative">
+        <div class="container relative " style="padding:0px 10% !important">
 
             <div class="row">
 
-                <div class="col-md-6 align-self-center  mb-sm-40">
+                <div class="col-md-7 align-self-center  mb-sm-40">
 
                     <!-- About Project -->
                     <div class="text">
 
-                        <h3 class="font-alt mb-10 mb-xxs-10 playfare gold">Manage your gold reserve,<br>
-Whenever & Where you want.</h3>
+                        <h3 class="font-alt mb-10 mb-xxs-10 playfare gold">Manage your gold reserve,<br>Whenever & Where you want.</h3>
                         <p class="dark font-17">
                         EZgold is a fully owned subsidiary of MG Group.<br> EZgold APP provides a simple operation interface for personal and corporate accounts. Within the APP, members can buy, sell, specialize and extract gold wherever and whenever they want.
                         </p>
@@ -33,7 +32,7 @@ Whenever & Where you want.</h3>
 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5">
 
                     <!-- Work Gallery -->
                     <div class="work-full-media mt-0 white-shadow">

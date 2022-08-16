@@ -1,6 +1,6 @@
 
 
-<section class="small-section bg-dark-alfa-brown-3" style="height: 298px; padding-top: 135px;" data-background="{{ asset('frontend/images/shop-bg.png') }}">
+<section class="small-section bg-dark-alfa-brown-3 page-header-global" data-background="{{ asset('frontend/images/shop-bg.png') }}">
     <div class="relative container align-left">
 
         <div class="row">
