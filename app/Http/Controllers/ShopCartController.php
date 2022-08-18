@@ -53,15 +53,19 @@ class ShopCartController extends Controller
             'quantity' => ['required'],
             // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
-        $product = Product::find($request->product_id);
-        $result = $product->productsInventory($request->quantity);
-        if ($result != null) {
-            $input = $request->all();
-            $input['total_price'] = $request->quantity * $request->spot_price;
-            ShopCart::create($input);
-            return ['success' => 'Item Added to Cart Successfully'];
+
+        if (\Auth::user()->is_verified == 1) {
+            $product = Product::find($request->product_id);
+            $result = $product->productsInventory($request->quantity);
+            if ($result != null) {
+                $input = $request->all();
+                $input['total_price'] = $request->quantity * $request->spot_price;
+                ShopCart::create($input);
+                return ['success' => 'Item Added to Cart Successfully'];
+            }
+            return ['error' => 'Product is not in stock'];
         }
-        return ['error' => 'Product is not in stock'];
+        return ['error' => 'User is not verified'];
     }
 
     /**

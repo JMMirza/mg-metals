@@ -21,6 +21,7 @@
                                     <th scope="col">Product Details</th>
                                     <th scope="col" class="text-center">Spot Price</th>
                                     <th scope="col" class="text-center">Markup</th>
+                                    <th scope="col" class="text-center">Total Markup</th>
                                     <th scope="col" class="text-center">Total Price</th>
                                     <th scope="col" class="text-center">Quantity</th>
                                     <th scope="col" class="text-center">Total Amount</th>
@@ -58,6 +59,8 @@
                                                 USD
                                             @endif
                                         </td>
+                                        {{-- {{ dd($product->toArray()) }} --}}
+                                        <td class="fw-medium text-center">{{ $product->product_commissions }} USD</td>
                                         <td class="fw-medium text-center">{{ $product->price_with_markup }} USD</td>
                                         <td class="fw-medium text-center">{{ $product->quantity }}</td>
                                         <td class="fw-medium text-center">
@@ -75,10 +78,10 @@
                 <div class="card-header">
                     <div class="d-sm-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
-                        <div class="flex-shrink-0 mt-2 mt-sm-0">
+                        {{-- <div class="flex-shrink-0 mt-2 mt-sm-0">
                             <a href="javasccript:void(0;)" class="btn btn-soft-danger btn-sm mt-2 mt-sm-0"><i
                                     class="mdi mdi-archive-remove-outline align-middle me-1"></i> Cancel Order</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="card-body">
@@ -214,7 +217,7 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col">Customer ID</th>
+                                    <th scope="col" class="text-center">Customer ID</th>
                                     <th scope="col" class="text-center">Customer Name</th>
                                     <th scope="col" class="text-center">Tier Type</th>
                                     <th scope="col" class="text-center">Product ID</th>
@@ -227,10 +230,10 @@
                                 {{-- @foreach ($order->order_products as $product) --}}
                                 @foreach ($order->product_commissions as $commission)
                                     <tr>
-                                        <td>
+                                        <td class="fw-medium text-center">
                                             {{ $order->customer_id }}
                                         </td>
-                                        <td>
+                                        <td class="fw-medium text-center">
                                             {{ $order->customer->full_name }}
                                         </td>
                                         <td class="fw-medium text-center">{{ $commission->tier_type }}</td>

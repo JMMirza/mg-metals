@@ -6,6 +6,12 @@
             <div class="card">
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">Add Products</h4>
+
+                    <div class="flex-shrink-0">
+                        <a href="{{ route('products.index') }}" class="btn btn-success btn-label btn-sm">
+                            <i class="bx bx-arrow-back label-icon align-middle fs-16 me-2"></i> Back
+                        </a>
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -654,7 +660,7 @@
             $("#weight_in_grams").change(function() {
                 var value = $("#weight_in_grams").val();
                 value = parseFloat(value)
-                $("#weight_in_ounces").val(value * 0.035274);
+                $("#weight_in_ounces").val(value * 0.0321507);
             });
 
             $("#surcharge_at_product").change(function() {

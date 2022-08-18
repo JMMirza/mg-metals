@@ -90,7 +90,7 @@ class OrderController extends Controller
             'zip_code' => 'required|string',
             'shipping_address' => 'required|string',
         ]);
-        $order->delivery_method = $request->delivery_method;
+        // $order->delivery_method = $request->delivery_method;
         $order->shipping_address = $request->shipping_address;
         $order->full_name = $request->full_name;
         $order->phone_number = $request->phone_number;

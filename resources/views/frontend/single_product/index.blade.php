@@ -58,7 +58,7 @@
                     </p>
 
 
-                    
+
                     @if (\Auth::user())
                         <hr class="mt-0 mb-30" />
                         <div class="row">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     @endif
-                    
+
 
                     <div class="section-text mb-30">
                         @if (Config::get('app.locale') == 'en')
@@ -79,7 +79,7 @@
                         @endif
 
                     </div>
-                      
+
                     <div class="section-text small">
                         <div>SKU: {{ $product->sku }}</div>
                         <div>Category:
@@ -106,13 +106,14 @@
                             @endif
                         </div>
                     </div>
-                    
+
 
                     <div class="mb-30">
 
                         @if (\Auth::user())
-                        <hr class="mt-0 mb-30" />
-                            <form method="post" action="{{ route('shop-cart.store') }}" class="form" id="shor_cart_form">
+                            <hr class="mt-0 mb-30" />
+                            <form method="post" action="{{ route('shop-cart.store') }}" class="form"
+                                id="shor_cart_form">
                                 {{-- <form method="post" action="{{ route('customer-products.store') }}" class="form"> --}}
                                 @csrf
                                 <input name="quantity" id="quantity" type="number" class="input-lg round" min="1"
@@ -136,11 +137,11 @@
 
                     </div>
 
-                    
+
                 </div>
             </div>
 
-            
+
             <!-- End Tab panes -->
         </div>
     </section>

@@ -21,12 +21,12 @@
                         @forelse ($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->total_quantity }}</td>
+                                <td>{{ $order->quantity }}</td>
                                 <td>{{ $order->delivery_method }}</td>
-                                @if ($order->total_order_price == null)
+                                @if ($order->total_price == null)
                                     <td>0 USD</td>
                                 @else
-                                    <td>{{ $order->total_order_price }} USD</td>
+                                    <td>{{ $order->total_price }} USD</td>
                                 @endif
                                 <td>{{ $order->shipping_address }}</td>
                             </tr>

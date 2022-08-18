@@ -26,6 +26,9 @@
                                 class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
                                     class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i> In-Active</button>
                         @endif
+                        <a href="{{ route('customers.index') }}" class="btn btn-success btn-label btn-sm">
+                            <i class="bx bx-arrow-back label-icon align-middle fs-16 me-2"></i> Back
+                        </a>
                     </div>
                 </div>
 

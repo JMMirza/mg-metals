@@ -37,7 +37,7 @@ class PaymentMethodController extends Controller
      */
     public function create()
     {
-        //
+        return view('payment_methods.add_new');
     }
 
     /**

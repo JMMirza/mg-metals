@@ -7,16 +7,14 @@
 
 @section('content')
     <div class="row">
-        @if (isset($setup))
-            @include('setup.edit')
-        @else
-            {{-- @permission('add-country') --}}
-            @include('setup.add_new')
-            {{-- @endpermission --}}
-        @endif
         <div class="col-lg-12">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">Setups</h4>
+                <div class="flex-shrink-0">
+                    <a href="{{ route('setup.create') }}" class="btn btn-success btn-label btn-sm">
+                        <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Add New
+                    </a>
+                </div>
             </div>
             <div class="card">
                 <div class="card-body">

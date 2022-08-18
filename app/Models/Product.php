@@ -212,7 +212,6 @@ class Product extends Model
                 if (gettype($price) == 'double') {
                     $percentage = ($price / 100) * $this->mark_up;
                     return $percentage;
-                    // dd($percentage);
                 }
             }
         } else {
