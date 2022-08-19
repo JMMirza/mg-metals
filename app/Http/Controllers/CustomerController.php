@@ -12,6 +12,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use NextApps\VerificationCode\Models\VerificationCode;
 
 class CustomerController extends Controller
 {
@@ -124,24 +125,27 @@ class CustomerController extends Controller
                 'bank_swift_code' => 'required|string|max:255',
             ]);
         }
-
-        $user = User::create([
+        $input_user = [
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'customer_type' => $request->customer_type
-        ]);
-        $token = Str::random(64);
+            'customer_type' => $request->customer_type,
+        ];
+        $referral_code = strtoupper(Str::random(6));
+        $input_user['referral_code'] = $referral_code;
+        if ($request->has('hear_about_mg')) {
 
-        UserVerify::create([
-            'user_id' => $user->id,
-            'token' => $token
-        ]);
+            $agent = User::where('referred_by', $request->sales_rep_number)->first();
 
-        Mail::send('email.verification_email', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Email Verification Mail');
-        });
+
+            if ($agent) {
+                $input_user['referred_by'] = $request->sales_rep_number;
+            } else {
+                $input_user['referred_by'] = null;
+            }
+        }
+        $user = User::create($input_user);
+        // VerificationCode::send($user->email);
         $input = $request->all();
         $input['user_id'] = $user->id;
         $input['full_name'] = $request->name;

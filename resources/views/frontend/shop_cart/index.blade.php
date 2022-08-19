@@ -266,8 +266,7 @@
                     console.log(data.method.description);
                     method = data.method.payment_method.toLowerCase();
                     console.log(method)
-                    $('#payment_description').empty();
-                    $('#payment_description').append(data.method.description);
+                    $('#payment_description').html(data.method.description);
                     if (method.toLowerCase() == 'bank transfer') {
                         document.getElementById('total_price_usd').style.display = "none";
                         document.getElementById('total_price_hkd').style.display = "block";
@@ -311,8 +310,7 @@
                 success: function(data) {
                     console.log(data.method.description);
                     method = data.method.delivery_method;
-                    $('#delivery_description').empty();
-                    $('#delivery_description').append(data.method.description);
+                    $('#delivery_description').html(data.method.description);
                 },
                 error: function(error) {
                     // alert(error)

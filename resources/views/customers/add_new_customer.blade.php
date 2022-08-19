@@ -17,7 +17,7 @@
                     <form class="row  needs-validation" id="myForm" action="{{ route('customers.store') }}"
                         method="POST" novalidate>
                         @csrf
-                        <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-primary"
+                        <div class="accordion custom-accordionwithicon accordion-border-box accordion-primary"
                             id="accordionBordered">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="accordionborderedExample">
@@ -213,7 +213,58 @@
                                                     </label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-12">
+                                                <label class="form-label">{{ __('other_info.hear_about_mg') }}
+                                                </label>
+                                                <div class="form-group">
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="hear_about_mg" value="REFERRAL"
+                                                            @if (old('hear_about_mg') == 'REFERRAL') checked @endif>
+                                                        <span></span> {{ __('other_info.referral') }}
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="hear_about_mg"
+                                                            value="SALES REPRESENTATIVE"
+                                                            @if (old('hear_about_mg') == 'SALES REPRESENTATIVE') checked @endif>
+                                                        <span></span>{{ __('other_info.sale_rep') }}
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="hear_about_mg" value="INTERNET"
+                                                            @if (old('hear_about_mg') == 'INTERNET') checked @endif>
+                                                        <span></span> {{ __('other_info.internet') }}
+                                                    </label>
+                                                    <label class="radio-inline ">
+                                                        <input type="radio" name="hear_about_mg" value="ADVERTISEMENT"
+                                                            @if (old('hear_about_mg') == 'ADVERTISEMENT') checked @endif>
+                                                        <span></span>{{ __('other_info.add') }}
+                                                    </label>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="full_name" class="form-label">Sales Representative
+                                                        Name</label>
+                                                    <input type="text" name="sales_rep_name"
+                                                        value="{{ old('sales_rep_name') }}"
+                                                        class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
+                                                        placeholder="{{ __('other_info.name_of_sale_rep') }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="full_name" class="form-label">Sales Representative
+                                                        Number</label>
+                                                    <input type="text" name="sales_rep_number"
+                                                        value="{{ old('sales_rep_number') }}"
+                                                        class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
+                                                        placeholder="{{ __('other_info.code') }}">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -479,274 +530,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="accordion-item mt-2">
-                                <h2 class="accordion-header" id="accordionborderedExample3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#accor_borderedExamplecollapse3" aria-expanded="false"
-                                        aria-controls="accor_borderedExamplecollapse3">
-                                        Sec#2B Shareholders/Directors Info
-                                    </button>
-                                </h2>
-                                <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse"
-                                    aria-labelledby="accordionborderedExample3" data-bs-parent="#accordionBordered">
-                                    <div class="accordion-body">
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Full Name</label>
-                                                    <input type="text" value="{{ old('name') }}"
-                                                        id="shareholder_full_name"
-                                                        class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.full_name') }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Title</label>
-                                                    <input type="text" id="shareholder_title"
-                                                        value="{{ old('title') }}"
-                                                        class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.title') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Email</label>
-                                                    <input type="text" value="{{ old('email') }}"
-                                                        id="shareholder_email"
-                                                        class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.email') }}">
-                                                </div>
-                                            </div>
 
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Phone Number</label>
-                                                    <input type="text" id="shareholder_phone_number"
-                                                        value="{{ old('phone_number') }}"
-                                                        class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.phone_number') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">HKID NO. / PASSPORT
-                                                        NUMBER</label>
-                                                    <input type="text" id="shareholder_passport_no"
-                                                        value="{{ old('passort_no') }}"
-                                                        class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.passport_no') }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Nationality</label>
-                                                    <input type="text" id="shareholder_nationality"
-                                                        value="{{ old('nationality') }}"
-                                                        class="form-control @if ($errors->has('nationality')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.nationality') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Address</label>
-                                                    <input type="text" id="shareholder_address"
-                                                        value="{{ old('address') }}"
-                                                        class="form-control @if ($errors->has('address')) is-invalid @endif"
-                                                        placeholder="{{ __('shareholder.address') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-3 ">
-                                            <div class="col-md-12 text-end">
-                                                <button id="addShareholder" class="btn btn-success">
-                                                    Add Shareholder
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <table id="shareholders" class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Full Name</th>
-                                                        <th>Title</th>
-                                                        <th>Email</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Passport Number</th>
-                                                        <th>Nationality</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="accordion-item mt-2">
-                                <h2 class="accordion-header" id="accordionborderedExample4">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#accor_borderedExamplecollapse4" aria-expanded="false"
-                                        aria-controls="accor_borderedExamplecollapse4">
-                                        Sec#2C AUTHORIZED TRADING REPRESENTATIVE
-                                    </button>
-                                </h2>
-                                <div id="accor_borderedExamplecollapse4" class="accordion-collapse collapse"
-                                    aria-labelledby="accordionborderedExample4" data-bs-parent="#accordionBordered">
-                                    <div class="accordion-body">
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Full Name</label>
-                                                    <input type="text" id="trading_full_name"
-                                                        value="{{ old('name') }}"
-                                                        class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.full_name') }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Title</label>
-                                                    <input type="text" id="trading_title"
-                                                        value="{{ old('title') }}"
-                                                        class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.title') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Email</label>
-                                                    <input type="text" value="{{ old('email') }}"
-                                                        id="trading_email"
-                                                        class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.email') }}">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Phone Number</label>
-                                                    <input type="text" id="trading_phone_number"
-                                                        value="{{ old('phone_number') }}"
-                                                        class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.phone_number') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Signature</label>
-                                                    <input type="text" id="trading_signature"
-                                                        value="{{ old('signature') }}"
-                                                        class="form-control @if ($errors->has('signature')) is-invalid @endif"
-                                                        placeholder="{{ __('trading.signature') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3 ">
-                                            <div class="col-md-12 text-end">
-                                                <button id="addTradingRepresentative" class="btn btn-success">
-                                                    Add Authorized Trading Representative
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <table id="trading-representative" class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Full Name</th>
-                                                        <th>Title</th>
-                                                        <th>Email</th>
-                                                        <th>Phone Number</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <div class="accordion-item mt-2">
-                                <h2 class="accordion-header" id="accordionborderedExample5">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#accor_borderedExamplecollapse5" aria-expanded="false"
-                                        aria-controls="accor_borderedExamplecollapse5">
-                                        Sec#3 OTHER INFORMATION
-                                    </button>
-                                </h2>
-                                <div id="accor_borderedExamplecollapse5" class="accordion-collapse collapse"
-                                    aria-labelledby="accordionborderedExample5" data-bs-parent="#accordionBordered">
-                                    <div class="accordion-body">
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-12">
-                                                <label class="form-label">{{ __('other_info.hear_about_mg') }}
-                                                </label>
-                                                <div class="form-group">
-                                                    <label class="radio-inline ">
-                                                        <input type="radio" name="hear_about_mg" value="REFERRAL"
-                                                            @if (old('hear_about_mg') == 'REFERRAL') checked @endif>
-                                                        <span></span> {{ __('other_info.referral') }}
-                                                    </label>
-                                                    <label class="radio-inline ">
-                                                        <input type="radio" name="hear_about_mg"
-                                                            value="SALES REPRESENTATIVE"
-                                                            @if (old('hear_about_mg') == 'SALES REPRESENTATIVE') checked @endif>
-                                                        <span></span>{{ __('other_info.sale_rep') }}
-                                                    </label>
-                                                    <label class="radio-inline ">
-                                                        <input type="radio" name="hear_about_mg" value="INTERNET"
-                                                            @if (old('hear_about_mg') == 'INTERNET') checked @endif>
-                                                        <span></span> {{ __('other_info.internet') }}
-                                                    </label>
-                                                    <label class="radio-inline ">
-                                                        <input type="radio" name="hear_about_mg" value="ADVERTISEMENT"
-                                                            @if (old('hear_about_mg') == 'ADVERTISEMENT') checked @endif>
-                                                        <span></span>{{ __('other_info.add') }}
-                                                    </label>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Sales Representative
-                                                        Name</label>
-                                                    <input type="text" name="sales_rep_name"
-                                                        value="{{ old('sales_rep_name') }}"
-                                                        class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
-                                                        placeholder="{{ __('other_info.name_of_sale_rep') }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="full_name" class="form-label">Sales Representative
-                                                        Number</label>
-                                                    <input type="text" name="sales_rep_number"
-                                                        value="{{ old('sales_rep_number') }}"
-                                                        class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
-                                                        placeholder="{{ __('other_info.code') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="accordion-item mt-2">
                                 <h2 class="accordion-header" id="accordionborderedExample6">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
