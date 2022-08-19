@@ -22,24 +22,10 @@
                         <div class="col-md-6 col-sm-12  mb-3">
                             <div class="form-label-group in-border">
                                 <label for="delivery_method" class="form-label">Delivery Method</label>
-                                <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
-                                    name="delivery_method" required>
-                                    <option value="" @if ($setup->delivery_method == '') {{ 'selected' }} @endif
-                                        disabled>
-                                        Select One
-                                    </option>
-                                    <option value="Pick up" @if ($setup->delivery_method == 'Pick up') {{ 'selected' }} @endif>
-                                        Pick up
-                                    </option>
-                                    <option value="Home Delivery"
-                                        @if ($setup->delivery_method == 'Home Delivery') {{ 'selected' }} @endif>
-                                        Home Delivery
-                                    </option>
-                                    <option value="Keep with MG"
-                                        @if ($setup->delivery_method == 'Keep with MG') {{ 'selected' }} @endif>
-                                        Keep with MG
-                                    </option>
-                                </select>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('delivery_method')) is-invalid @endif"
+                                    id="delivery_method" name="delivery_method" placeholder="Enter Delivery Method"
+                                    value="{{ $setup->delivery_method }}" required>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('delivery_method'))
                                         {{ $errors->first('delivery_method') }}

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExchangeRate;
+use App\Models\PaymentMethod;
 use App\Models\Product;
+use App\Models\Setup;
 use App\Models\ShopCart;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -24,8 +26,10 @@ class ShopCartController extends Controller
             $total_price = $value->total_price + $total_price;
         }
         $hkd_price = ExchangeRate::latest()->first();
+        $delivery_methods = Setup::all();
+        $payment_methods = PaymentMethod::all();
         // dd($cart->toArray());
-        return view('frontend.shop_cart.index', ['carts' => $cart, 'total_price' => $total_price, 'hkd_price' => $hkd_price->rate]);
+        return view('frontend.shop_cart.index', ['delivery_methods' => $delivery_methods, 'payment_methods' => $payment_methods, 'carts' => $cart, 'total_price' => $total_price, 'hkd_price' => $hkd_price->rate]);
     }
 
     /**

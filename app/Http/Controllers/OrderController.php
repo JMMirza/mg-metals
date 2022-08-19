@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\PaymentMethod;
+use App\Models\Setup;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -115,8 +117,9 @@ class OrderController extends Controller
 
     public function order_details($id)
     {
-        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category', 'product_commissions'])->first();
+        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category', 'product_commissions', 'delivery_method', 'payment_method'])->first();
         $total_price = OrderProduct::where('order_id', $id)->sum('total_price');
+        // dd($order->toArray());
         return view('orders.order_details', ['order' => $order, 'total_price' => $total_price]);
     }
 
@@ -128,5 +131,17 @@ class OrderController extends Controller
             return view('frontend.shop_cart.delievery_method', ['order' => $order]);
         }
         return back()->with('error', 'No Order Found');
+    }
+
+    public function get_terms_and_conditions($method, $id)
+    {
+        $method;
+        if ($method == 'payment') {
+            $method = PaymentMethod::findOrFail($id);
+        } else {
+            $method = Setup::findOrFail($id);
+        }
+
+        return ['method' => $method];
     }
 }

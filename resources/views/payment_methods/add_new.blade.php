@@ -21,21 +21,10 @@
                         <div class="col-md-6 col-sm-12  mb-3">
                             <div class="form-label-group in-border">
                                 <label for="payment_method" class="form-label">Payment Method</label>
-                                <select class="form-select form-control @if ($errors->has('payment_method')) is-invalid @endif"
-                                    name="payment_method" required>
-                                    <option value="" @if (old('payment_method') == '') {{ 'selected' }} @endif
-                                        disabled>
-                                        Select One
-                                    </option>
-                                    <option value="bank_transfer"
-                                        @if (old('payment_method') == 'bank_transfer') {{ 'selected' }} @endif>
-                                        Bank Transfer
-                                    </option>
-                                    <option value="credit_card"
-                                        @if (old('payment_method') == 'credit_card') {{ 'selected' }} @endif>
-                                        Credit Card
-                                    </option>
-                                </select>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('payment_method')) is-invalid @endif"
+                                    id="payment_method" name="payment_method" placeholder="Enter Delivery Method"
+                                    value="{{ old('payment_method') }}" required>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('payment_method'))
                                         {{ $errors->first('payment_method') }}

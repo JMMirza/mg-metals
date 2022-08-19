@@ -59,8 +59,8 @@ class CustomerProductController extends Controller
         $request->validate([
             'cart_ids' => ['required'],
             'user_id' => ['required'],
-            'payment_method' => ['required'],
-            'delivery_method' => ['required'],
+            'payment_method_id' => ['required'],
+            'delivery_method_id' => ['required'],
             'currency' => ['required'],
         ]);
 
@@ -72,19 +72,25 @@ class CustomerProductController extends Controller
         $customer = Customer::where('user_id', $request->user_id)->first();
 
         if ($user->is_verified == 1) {
-            if ($request->courier_type) {
+            if (strtolower($request->payment_method) == 'bank transfer') {
                 $order = Order::create([
                     'customer_id' => $customer->id,
-                    'delivery_method' => $request->delivery_method,
-                    'payment_method' => $request->payment_method,
+                    'delivery_method_id' => $request->delivery_method_id,
+                    'payment_method_id' => $request->payment_method_id,
+                    'payment_status' => 'PENDING',
+                    'order_status' => 'PENDING',
+                    'delivery_status' => 'PENDING',
                     'currency' => $request->currency,
                     'courier_type' => $request->courier_type,
                 ]);
             } else {
                 $order = Order::create([
                     'customer_id' => $customer->id,
-                    'delivery_method' => $request->delivery_method,
-                    'payment_method' => $request->payment_method,
+                    'delivery_method_id' => $request->delivery_method_id,
+                    'payment_method_id' => $request->payment_method_id,
+                    'payment_status' => 'PAIED',
+                    'order_status' => 'PENDING',
+                    'delivery_status' => 'PENDING',
                     'currency' => $request->currency,
                 ]);
             }
@@ -115,21 +121,6 @@ class CustomerProductController extends Controller
                     $user_cart->status = 'purchased';
                     $user_cart->save();
                     if ($product->getProductCommission() != null) {
-                        $tier_5_commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
-
-                        $input_product_commission = [
-                            'customer_id' => $customer->id,
-                            'product_id' => $user_cart->product_id,
-                            'order_id' => $order->id,
-                            'product_price' => $product->getProductPriceWithoutMarkUp(),
-                            'product_mark_up' => $mark_up,
-                            'mark_up_type' => $markup_type,
-                            'tier_type' => 'tier_5',
-                            'tier_commission' => $tier_5_commission,
-                            'tier_commission_percentage' => $product->tier_commission_5,
-                        ];
-
-                        ProductCommission::create($input_product_commission);
                         if ($user->referred_by != null) {
 
                             $tier_4 = User::where('referral_code', $user->referred_by)->first();
@@ -151,6 +142,23 @@ class CustomerProductController extends Controller
                                 ];
 
                                 ProductCommission::create($input_product_commission);
+                            } else {
+                                // $product->tier_commission_5 = $product->tier_commission_5+$product->t;
+                                $tier_5_commission = $product->getProductCommission();
+
+                                $input_product_commission = [
+                                    'customer_id' => $customer->id,
+                                    'product_id' => $user_cart->product_id,
+                                    'order_id' => $order->id,
+                                    'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                    'product_mark_up' => $mark_up,
+                                    'mark_up_type' => $markup_type,
+                                    'tier_type' => 'tier_5',
+                                    'tier_commission' => $tier_5_commission,
+                                    'tier_commission_percentage' => $product->tier_commission_5,
+                                ];
+
+                                ProductCommission::create($input_product_commission);
                             }
                             if ($tier_4->referred_by != null) {
                                 $tier_3 = User::where('referral_code', $tier_4->referred_by)->first();
@@ -168,6 +176,23 @@ class CustomerProductController extends Controller
                                         'tier_id' => $tier_3->id,
                                         'tier_commission' => $tier_3_commission,
                                         'tier_commission_percentage' => $product->tier_commission_3,
+                                    ];
+
+                                    ProductCommission::create($input_product_commission);
+                                } else {
+                                    $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3;
+                                    $tier_5_commission = $product->getProductCommission();
+
+                                    $input_product_commission = [
+                                        'customer_id' => $customer->id,
+                                        'product_id' => $user_cart->product_id,
+                                        'order_id' => $order->id,
+                                        'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                        'product_mark_up' => $mark_up,
+                                        'mark_up_type' => $markup_type,
+                                        'tier_type' => 'tier_5',
+                                        'tier_commission' => $tier_5_commission,
+                                        'tier_commission_percentage' => $tier_commission_5,
                                     ];
 
                                     ProductCommission::create($input_product_commission);
@@ -193,6 +218,23 @@ class CustomerProductController extends Controller
                                         ];
 
                                         ProductCommission::create($input_product_commission);
+                                    } else {
+                                        $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2;
+                                        $tier_5_commission = $product->getProductCommission();
+
+                                        $input_product_commission = [
+                                            'customer_id' => $customer->id,
+                                            'product_id' => $user_cart->product_id,
+                                            'order_id' => $order->id,
+                                            'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                            'product_mark_up' => $mark_up,
+                                            'mark_up_type' => $markup_type,
+                                            'tier_type' => 'tier_5',
+                                            'tier_commission' => $tier_5_commission,
+                                            'tier_commission_percentage' => $tier_commission_5,
+                                        ];
+
+                                        ProductCommission::create($input_product_commission);
                                     }
                                     if ($tier_2->referred_by != null) {
                                         $tier_1 = User::where('referral_code', $tier_2->referred_by)->first();
@@ -213,10 +255,110 @@ class CustomerProductController extends Controller
                                             ];
 
                                             ProductCommission::create($input_product_commission);
+
+                                            $tier_5_commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
+
+                                            $input_product_commission = [
+                                                'customer_id' => $customer->id,
+                                                'product_id' => $user_cart->product_id,
+                                                'order_id' => $order->id,
+                                                'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                                'product_mark_up' => $mark_up,
+                                                'mark_up_type' => $markup_type,
+                                                'tier_type' => 'tier_5',
+                                                'tier_commission' => $tier_5_commission,
+                                                'tier_commission_percentage' => $product->tier_commission_5,
+                                            ];
+
+                                            ProductCommission::create($input_product_commission);
+                                        } else {
+                                            $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1;
+                                            $tier_5_commission = $product->getProductCommission();
+
+                                            $input_product_commission = [
+                                                'customer_id' => $customer->id,
+                                                'product_id' => $user_cart->product_id,
+                                                'order_id' => $order->id,
+                                                'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                                'product_mark_up' => $mark_up,
+                                                'mark_up_type' => $markup_type,
+                                                'tier_type' => 'tier_5',
+                                                'tier_commission' => $tier_5_commission,
+                                                'tier_commission_percentage' => $tier_commission_5,
+                                            ];
+
+                                            ProductCommission::create($input_product_commission);
                                         }
+                                    } else {
+                                        $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1;
+                                        $tier_5_commission = $product->getProductCommission();
+
+                                        $input_product_commission = [
+                                            'customer_id' => $customer->id,
+                                            'product_id' => $user_cart->product_id,
+                                            'order_id' => $order->id,
+                                            'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                            'product_mark_up' => $mark_up,
+                                            'mark_up_type' => $markup_type,
+                                            'tier_type' => 'tier_5',
+                                            'tier_commission' => $tier_5_commission,
+                                            'tier_commission_percentage' => $tier_commission_5,
+                                        ];
+
+                                        ProductCommission::create($input_product_commission);
                                     }
+                                } else {
+                                    $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2;
+                                    $tier_5_commission = $product->getProductCommission();
+
+                                    $input_product_commission = [
+                                        'customer_id' => $customer->id,
+                                        'product_id' => $user_cart->product_id,
+                                        'order_id' => $order->id,
+                                        'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                        'product_mark_up' => $mark_up,
+                                        'mark_up_type' => $markup_type,
+                                        'tier_type' => 'tier_5',
+                                        'tier_commission' => $tier_5_commission,
+                                        'tier_commission_percentage' => $tier_commission_5,
+                                    ];
+
+                                    ProductCommission::create($input_product_commission);
                                 }
+                            } else {
+                                $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3;
+                                $tier_5_commission = $product->getProductCommission();
+
+                                $input_product_commission = [
+                                    'customer_id' => $customer->id,
+                                    'product_id' => $user_cart->product_id,
+                                    'order_id' => $order->id,
+                                    'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                    'product_mark_up' => $mark_up,
+                                    'mark_up_type' => $markup_type,
+                                    'tier_type' => 'tier_5',
+                                    'tier_commission' => $tier_5_commission,
+                                    'tier_commission_percentage' => $tier_commission_5,
+                                ];
+
+                                ProductCommission::create($input_product_commission);
                             }
+                        } else {
+                            $tier_5_commission = $product->getProductCommission();
+
+                            $input_product_commission = [
+                                'customer_id' => $customer->id,
+                                'product_id' => $user_cart->product_id,
+                                'order_id' => $order->id,
+                                'product_price' => $product->getProductPriceWithoutMarkUp(),
+                                'product_mark_up' => $mark_up,
+                                'mark_up_type' => $markup_type,
+                                'tier_type' => 'tier_5',
+                                'tier_commission' => $tier_5_commission,
+                                'tier_commission_percentage' => $product->tier_commission_5,
+                            ];
+
+                            ProductCommission::create($input_product_commission);
                         }
                     }
                     $input = $user_cart->toArray();

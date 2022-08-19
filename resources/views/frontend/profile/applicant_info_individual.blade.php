@@ -126,17 +126,17 @@
                 </div>
                 {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-4 mb-3">
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('individual.verified') }}</label>
                 <input type="text" id="is_verified" class="form-control"
                     placeholder=@if (Auth::user()->is_verified == 0) 'UnVerified' @else 'Verified' @endif disabled>
             </div>
-            <div class="col-12 col-md-4 mb-3">
+            {{-- <div class="col-12 col-md-4 mb-3">
                 <label class="form-label">{{ __('individual.referral_code') }}</label>
                 <input type="text" id="is_verified" class="form-control"
                     placeholder='{{ Auth::user()->referral_code }}' disabled>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
+            </div> --}}
+            <div class="col-12 col-md-6 mb-3">
                 <label class="form-label">{{ __('individual.referred_by') }}</label>
                 <input type="text" id="is_verified" class="form-control"
                     placeholder='{{ Auth::user()->referred_by }}' disabled>

@@ -7,10 +7,12 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order #{{ $order->id }}</h5>
-                        {{-- <div class="flex-shrink-0">
-                            <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i
-                                    class="ri-download-2-fill align-middle me-1"></i> Invoice</a>
-                        </div> --}}
+                        <div class="flex-shrink-0">
+                            <span class="badge bg-info p-2" style="font-size: 15px">Order Status:
+                                {{ $order->order_status }}</span>
+                            {{-- <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i
+                                    class="ri-download-2-fill align-middle me-1"></i> Invoice</a> --}}
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -74,6 +76,90 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
+                        <div class="flex-shrink-0">
+                            <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
+                                {{ $order->payment_status }}</span>
+                            {{-- <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i
+                                    class="ri-download-2-fill align-middle me-1"></i> Invoice</a> --}}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive table-card">
+                        <table class="table table-nowrap align-middle table-borderless mb-0">
+                            <thead class="table-light text-muted">
+                                <tr>
+                                    <th scope="col" class="text-center">Payment Amount</th>
+                                    <th scope="col" class="text-center">Payment Method</th>
+                                    <th scope="col" class="text-center">Payment Status</th>
+                                    <th scope="col" class="text-center">Payment Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="fw-medium text-center">{{ $total_price }} USD</td>
+                                    <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
+                                    <td class="fw-medium text-center">{{ $order->payment_status }}</td>
+                                    <td class="fw-medium text-center">
+                                        {{ $order->payment_due_date == null ? 'N/A' : $order->payment_due_date }} </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0">Order Commision</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive table-card">
+                        <table class="table table-nowrap align-middle table-borderless mb-0">
+                            <thead class="table-light text-muted">
+                                <tr>
+                                    <th scope="col" class="text-center">Customer ID</th>
+                                    <th scope="col" class="text-center">Customer Name</th>
+                                    <th scope="col" class="text-center">Tier Type</th>
+                                    <th scope="col" class="text-center">Product ID</th>
+                                    <th scope="col" class="text-center">Product Name</th>
+                                    <th scope="col" class="text-center">Product Tier Commission</th>
+                                    <th scope="col" class="text-center">Tier Commission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($order->order_products as $product) --}}
+                                @foreach ($order->product_commissions as $commission)
+                                    <tr>
+                                        <td class="fw-medium text-center">
+                                            {{ $order->customer_id }}
+                                        </td>
+                                        <td class="fw-medium text-center">
+                                            {{ $order->customer->full_name }}
+                                        </td>
+                                        <td class="fw-medium text-center">{{ $commission->tier_type }}</td>
+                                        <td class="fw-medium text-center">{{ $commission->product_id }} </td>
+                                        <td class="fw-medium text-center">{{ $commission->product->name }}</td>
+                                        <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
+                                        </td>
+                                        <td class="fw-medium text-center">{{ $commission->tier_commission }} USD</td>
+                                    </tr>
+                                @endforeach
+                                {{-- @endforeach --}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <div class="d-sm-flex align-items-center">
@@ -105,8 +191,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                    data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body ms-2 ps-5 pt-0">
                                         <h6 class="mb-1">An order has been placed.</h6>
                                         <p class="text-muted">{{ $order->created_at->format('D, M d, Y - h:m A') }}</p>
@@ -206,51 +292,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Order Commision</h5>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive table-card">
-                        <table class="table table-nowrap align-middle table-borderless mb-0">
-                            <thead class="table-light text-muted">
-                                <tr>
-                                    <th scope="col" class="text-center">Customer ID</th>
-                                    <th scope="col" class="text-center">Customer Name</th>
-                                    <th scope="col" class="text-center">Tier Type</th>
-                                    <th scope="col" class="text-center">Product ID</th>
-                                    <th scope="col" class="text-center">Product Name</th>
-                                    <th scope="col" class="text-center">Product Tier Commission</th>
-                                    <th scope="col" class="text-center">Tier Commission</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @foreach ($order->order_products as $product) --}}
-                                @foreach ($order->product_commissions as $commission)
-                                    <tr>
-                                        <td class="fw-medium text-center">
-                                            {{ $order->customer_id }}
-                                        </td>
-                                        <td class="fw-medium text-center">
-                                            {{ $order->customer->full_name }}
-                                        </td>
-                                        <td class="fw-medium text-center">{{ $commission->tier_type }}</td>
-                                        <td class="fw-medium text-center">{{ $commission->product_id }} </td>
-                                        <td class="fw-medium text-center">{{ $commission->product->name }}</td>
-                                        <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
-                                        </td>
-                                        <td class="fw-medium text-center">{{ $commission->tier_commission }} USD</td>
-                                    </tr>
-                                @endforeach
-                                {{-- @endforeach --}}
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="col-xl-3">
             <div class="card">
@@ -291,7 +333,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0"><i class="ri-secure-payment-line align-bottom me-1 text-muted"></i>
                         Payment Details</h5>
@@ -344,11 +386,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Shipping
-                        Address</h5>
+                    <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
+                        Information</h5>
+                    <span class="badge bg-info p-2">Delivery Status:
+                        {{ $order->delivery_status }}</span>
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled vstack gap-2 fs-13 mb-0">

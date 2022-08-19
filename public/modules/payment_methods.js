@@ -19,14 +19,14 @@ $(document).ready(function () {
                 width: "5%",
             },
             {
-                data: "delivery_method",
-                name: "delivery_method",
-                // width: "15%",
+                data: "payment_method",
+                name: "payment_method",
+                width: "15%",
             },
-            // {
-            //     data: "description",
-            //     name: "description",
-            // },
+            {
+                data: "description",
+                name: "description",
+            },
             {
                 data: "created_at",
                 name: "created_at",

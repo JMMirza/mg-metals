@@ -15,7 +15,12 @@ class Order extends Model
         'total_order_price',
         'total_quantity',
         'delivery_method',
+        'delivery_method_id',
         'payment_method',
+        'payment_method_id',
+        'order_status',
+        'delivery_status',
+        'payment_status',
         'courier_type',
         'currency',
         'full_name',
@@ -50,5 +55,15 @@ class Order extends Model
     public function order_products()
     {
         return $this->hasMany(OrderProduct::class);
+    }
+
+    public function delivery_method()
+    {
+        return $this->belongsTo(Setup::class, 'delivery_method_id', 'id');
+    }
+
+    public function payment_method()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'payment_method_id', 'id');
     }
 }

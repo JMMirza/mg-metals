@@ -30,8 +30,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Delivery Method</th>
-                                {{-- <th>Description</th> --}}
+                                <th>Payment Method</th>
+                                <th>Description</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

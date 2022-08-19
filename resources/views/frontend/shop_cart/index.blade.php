@@ -1,5 +1,4 @@
 @extends('frontend.layouts.master')
-
 @section('content')
     @include('frontend.shop_cart.header')
     @include('layouts.flash_message')
@@ -19,6 +18,11 @@
                                     <th> Item Price </th>
                                     <th> Total </th>
                                     <th> &nbsp;</th>
+                                    <th>
+                                        <div class="Timer">
+
+                                        </div>
+                                    </th>
                                 </tr>
                                 @forelse ($carts as $cart)
                                     <input type="text" id="cart_ids" name="cart_ids[]" value="{{ $cart->id }}"
@@ -51,6 +55,7 @@
                                                     class="fa fa-times"></i>
                                                 <span class="d-none d-sm-inline-block"></span></a>
                                         </td>
+                                        <td></td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -78,63 +83,53 @@
                                     {{-- <form action="#" class="form"> --}}
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Delivery Method</label>
-                                        <select class="input-md form-control" name="delivery_method" id="delivery_method"
+                                        <select class="input-md form-control" name="delivery_method_id" id="delivery_method"
                                             required>
                                             <option value="" selected disabled>Select One</option>
-                                            <option value="pickup">
-                                                Self Pick
-                                            </option>
-                                            <option value="courier">
-                                                Courier
-                                            </option>
-                                            <option value="hold">
-                                                Keep With MG
-                                            </option>
+                                            @foreach ($delivery_methods as $delivery_method)
+                                                <option value="{{ $delivery_method->id }}"
+                                                    @if (old('delivery_method_id') == $delivery_method->id) {{ 'selected' }} @endif>
+                                                    {{ $delivery_method->delivery_method }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
-
-                                    <div id="courier_div" class="mb-10" style="display: none">
-                                        <div class="form-group ht-70">
-                                            <label class="radio-inline @if ($errors->has('gender')) is-invalid @endif">
-                                                <input type="radio" name="courier_type" value="company_courier"
-                                                    id="company_courier">
-                                                Quote me Courier Charges
-                                            </label>
-                                        </div>
-                                        <div class="form-group ht-70">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="courier_type" value="self_courier"
-                                                    id="self_courier">
-                                                I will arrange Courier
-                                            </label>
-                                        </div>
-                                        <div class="form-group ht-70">
-                                            <div class="invalid-feedback">
-                                                <strong>{{ $errors->first('gender') }}</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    <div id="delivery_description"></div>
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Payment Method</label>
-                                        <select id="payment_method" name="payment_method" class="input-md form-control">
+                                        <select id="payment_method" name="payment_method_id" class="input-md form-control">
                                             <option value="" selected disabled>Select One</option>
-                                            <option value="bank_transfer">Bank Transfer</option>
-                                            <option value="credit_card">Credit Card</option>
+                                            @foreach ($payment_methods as $payment_method)
+                                                <option value="{{ $payment_method->id }}"
+                                                    data-payment="{{ $payment_method->payment_method }}"
+                                                    @if (old('payment_method_id') == $payment_method->id) {{ 'selected' }} @endif>
+                                                    {{ $payment_method->payment_method }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
-
+                                    <div id="payment_description"></div>
+                                    <div class="mb-10">
+                                        <div class="form-group ht-70">
+                                            <label class="radio-inline @if ($errors->has('gender')) is-invalid @endif">
+                                                <input type="checkbox" name="termsAndConditions" value=""
+                                                    id="termsAndConditions">
+                                                I accept the Terms & Conditions & Payment Policy
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 {{-- </form> --}}
                                 <div class="col-sm-6 pt-4 text-end">
                                     <div class="lead mt-0 mb-30">
-                                        Order Total: <span id="total_price_usd"><strong>{{ $total_price }}
-                                                USD</strong></span><span id="total_price_hkd"
-                                            style="display: none"><strong>{{ $total_price * $hkd_price }}
-                                                HKD</strong></span>
+                                        Order Total: <span id="total_price_usd"><strong>USD {{ $total_price }}
+                                            </strong></span><span id="total_price_hkd" style="display: none"><strong>HKD
+                                                {{ $total_price * $hkd_price }}
+                                            </strong></span>
                                     </div>
                                     <div>
-                                        <button type="submit" class="btn btn-mod btn-round btn-large">Proceed to
+                                        <button type="submit" id="proceed_to_checkout"
+                                            class="btn btn-mod btn-round btn-large" disabled>Proceed to
                                             Checkout</button>
                                     </div>
                                 </div>
@@ -258,32 +253,118 @@
 
         $(document).on('change', '#payment_method', function(e) {
             var payment_method = $('#payment_method').val();
-            if (payment_method == 'bank_transfer') {
-                document.getElementById('total_price_usd').style.display = "none";
-                document.getElementById('total_price_hkd').style.display = "block";
-                $('.spot_price_usd').css("display", "none");
-                $('.spot_price_hkd').css("display", "block");
-                $('.price_usd').css("display", "none");
-                $('.price_hkd').css("display", "block");
-            } else {
-                document.getElementById('total_price_usd').style.display = "block";
-                document.getElementById('total_price_hkd').style.display = "none";
-                $('.spot_price_usd').css("display", "block");
-                $('.spot_price_hkd').css("display", "none");
-                $('.price_usd').css("display", "block");
-                $('.price_hkd').css("display", "none");
-            }
+            var method;
+            $.ajax({
+
+                url: '/get-terms-and-condition/payment/' + payment_method,
+                type: "GET",
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}',
+                },
+                cache: false,
+                success: function(data) {
+                    console.log(data.method.description);
+                    method = data.method.payment_method.toLowerCase();
+                    console.log(method)
+                    $('#payment_description').empty();
+                    $('#payment_description').append(data.method.description);
+                    if (method.toLowerCase() == 'bank transfer') {
+                        document.getElementById('total_price_usd').style.display = "none";
+                        document.getElementById('total_price_hkd').style.display = "block";
+                        $('.spot_price_usd').css("display", "none");
+                        $('.spot_price_hkd').css("display", "block");
+                        $('.price_usd').css("display", "none");
+                        $('.price_hkd').css("display", "block");
+                    } else {
+                        document.getElementById('total_price_usd').style.display = "block";
+                        document.getElementById('total_price_hkd').style.display = "none";
+                        $('.spot_price_usd').css("display", "block");
+                        $('.spot_price_hkd').css("display", "none");
+                        $('.price_usd').css("display", "block");
+                        $('.price_hkd').css("display", "none");
+                    }
+                },
+                error: function(error) {
+                    // alert(error)
+                },
+                beforeSend: function() {
+
+                },
+                complete: function() {
+
+                }
+            });
+
+        });
+
+        $(document).on('change', '#delivery_method', function(e) {
+            var delivery_method = $('#delivery_method').val();
+            var method;
+            $.ajax({
+
+                url: '/get-terms-and-condition/delivery/' + delivery_method,
+                type: "GET",
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}',
+                },
+                cache: false,
+                success: function(data) {
+                    console.log(data.method.description);
+                    method = data.method.delivery_method;
+                    $('#delivery_description').empty();
+                    $('#delivery_description').append(data.method.description);
+                },
+                error: function(error) {
+                    // alert(error)
+                },
+                beforeSend: function() {
+
+                },
+                complete: function() {
+
+                }
+            });
         });
 
         $(document).ready(function() {
-            $('#delivery_method').on('change', function(e) {
-                const delivery_method = $('#delivery_method').val();
-                if (delivery_method == 'courier') {
-                    document.getElementById('courier_div').style.display = 'block';
+            $("#termsAndConditions").on('click', function(e) {
+                if ($("#termsAndConditions").is(':checked')) {
+                    // alert('checked')
+                    $("#proceed_to_checkout").prop('disabled', false); // checked
                 } else {
-                    document.getElementById('courier_div').style.display = 'none';
+                    $("#proceed_to_checkout").prop('disabled', true); // unchecked}
                 }
-            });
+            })
+
+            var countDownDate = new Date().getTime() + 15 * 60 * 1000;
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for hours, minutes and seconds
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                $('.Timer').text(minutes + ":" + seconds);
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    $('.Timer').text("EXPIRED");
+                }
+            }, 1000);
+            // var start = new Date;
+
+            // setInterval(function() {
+            //     $('.Timer').text(new Date().getTime() + 15 * 60 * 1000 + " Seconds");
+            // }, 1000);
 
             $('#customer_products_store').on('submit', function(e) {
                 e.preventDefault();
@@ -293,8 +374,8 @@
                     return $(this).val();
                 }).get());
 
-                let payment_method = $('#payment_method').val();
-                let delivery_method = $('#delivery_method').val();
+                let payment_method_id = $('#payment_method_id').val();
+                let delivery_method_id = $('#delivery_method_id').val();
                 let user_id = $('#user_id').val();
 
                 let currency = 'USD';
@@ -302,15 +383,6 @@
                     currency = 'HKD';
                 }
 
-                let courier_type = '';
-
-                if ($('#company_courier').is(':checked')) {
-                    courier_type = $('#company_courier').val();
-                }
-
-                if ($('#self_courier').is(':checked')) {
-                    courier_type = $('#self_courier').val();
-                }
                 const url = $('#customer_products_store').attr('action');
                 $.ajax({
                     url: url,
@@ -319,16 +391,15 @@
                         "_token": "{{ csrf_token() }}",
                         cart_ids: arrp[0],
                         user_id: user_id,
-                        delivery_method: delivery_method,
-                        payment_method: payment_method,
+                        delivery_method_id: delivery_method_id,
+                        payment_method_id: payment_method_id,
                         currency: currency,
-                        courier_type: courier_type,
                     },
                     success: function(response) {
                         // alert('hello')
                         console.log(response);
                         if (response.url) {
-                            if (payment_method == 'bank_transfer') {
+                            if (payment_method == '1') {
                                 window.location = response.url;
                             } else {
                                 $('#exampleModalCenter').modal('show');
