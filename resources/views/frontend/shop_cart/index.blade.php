@@ -83,8 +83,8 @@
                                     {{-- <form action="#" class="form"> --}}
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Delivery Method</label>
-                                        <select class="input-md form-control" name="delivery_method_id" id="delivery_method"
-                                            required>
+                                        <select class="input-md form-control" name="delivery_method_id"
+                                            id="delivery_method_id" required>
                                             <option value="" selected disabled>Select One</option>
                                             @foreach ($delivery_methods as $delivery_method)
                                                 <option value="{{ $delivery_method->id }}"
@@ -97,7 +97,8 @@
                                     <div id="delivery_description"></div>
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Payment Method</label>
-                                        <select id="payment_method" name="payment_method_id" class="input-md form-control">
+                                        <select id="payment_method_id" name="payment_method_id"
+                                            class="input-md form-control">
                                             <option value="" selected disabled>Select One</option>
                                             @foreach ($payment_methods as $payment_method)
                                                 <option value="{{ $payment_method->id }}"
@@ -221,110 +222,9 @@
 @endsection
 @push('frontend.layouts.footer_scripts')
     <script type="text/javascript">
-        $(document).on('click', '.delete-cart', function(e) {
-            e.preventDefault();
-
-            var url = $(this).attr('href');
-
-            $.ajax({
-
-                url: url,
-                type: "DELETE",
-                // data : filters,
-                headers: {
-                    'X-CSRF-Token': '{{ csrf_token() }}',
-                },
-                cache: false,
-                success: function(data) {
-                    // alert('deleted')
-                    location.reload(true);
-                },
-                error: function(error) {
-                    // alert(error)
-                },
-                beforeSend: function() {
-
-                },
-                complete: function() {
-
-                }
-            });
-        });
-
-        $(document).on('change', '#payment_method', function(e) {
-            var payment_method = $('#payment_method').val();
-            var method;
-            $.ajax({
-
-                url: '/get-terms-and-condition/payment/' + payment_method,
-                type: "GET",
-                headers: {
-                    'X-CSRF-Token': '{{ csrf_token() }}',
-                },
-                cache: false,
-                success: function(data) {
-                    console.log(data.method.description);
-                    method = data.method.payment_method.toLowerCase();
-                    console.log(method)
-                    $('#payment_description').html(data.method.description);
-                    if (method.toLowerCase() == 'bank transfer') {
-                        document.getElementById('total_price_usd').style.display = "none";
-                        document.getElementById('total_price_hkd').style.display = "block";
-                        $('.spot_price_usd').css("display", "none");
-                        $('.spot_price_hkd').css("display", "block");
-                        $('.price_usd').css("display", "none");
-                        $('.price_hkd').css("display", "block");
-                    } else {
-                        document.getElementById('total_price_usd').style.display = "block";
-                        document.getElementById('total_price_hkd').style.display = "none";
-                        $('.spot_price_usd').css("display", "block");
-                        $('.spot_price_hkd').css("display", "none");
-                        $('.price_usd').css("display", "block");
-                        $('.price_hkd').css("display", "none");
-                    }
-                },
-                error: function(error) {
-                    // alert(error)
-                },
-                beforeSend: function() {
-
-                },
-                complete: function() {
-
-                }
-            });
-
-        });
-
-        $(document).on('change', '#delivery_method', function(e) {
-            var delivery_method = $('#delivery_method').val();
-            var method;
-            $.ajax({
-
-                url: '/get-terms-and-condition/delivery/' + delivery_method,
-                type: "GET",
-                headers: {
-                    'X-CSRF-Token': '{{ csrf_token() }}',
-                },
-                cache: false,
-                success: function(data) {
-                    console.log(data.method.description);
-                    method = data.method.delivery_method;
-                    $('#delivery_description').html(data.method.description);
-                },
-                error: function(error) {
-                    // alert(error)
-                },
-                beforeSend: function() {
-
-                },
-                complete: function() {
-
-                }
-            });
-        });
-
         $(document).ready(function() {
+            var method;
+
             $("#termsAndConditions").on('click', function(e) {
                 if ($("#termsAndConditions").is(':checked')) {
                     // alert('checked')
@@ -377,7 +277,8 @@
                 let user_id = $('#user_id').val();
 
                 let currency = 'USD';
-                if (payment_method == 'bank_transfer') {
+
+                if (method == 'bank transfer') {
                     currency = 'HKD';
                 }
 
@@ -397,7 +298,7 @@
                         // alert('hello')
                         console.log(response);
                         if (response.url) {
-                            if (payment_method == '1') {
+                            if (method == 'bank transfer') {
                                 window.location = response.url;
                             } else {
                                 $('#exampleModalCenter').modal('show');
@@ -418,6 +319,50 @@
                 });
             });
 
+            $(document).on('change', '#payment_method_id', function(e) {
+                var payment_method = $('#payment_method_id').val();
+                $.ajax({
+
+                    url: '/get-terms-and-condition/payment/' + payment_method,
+                    type: "GET",
+                    headers: {
+                        'X-CSRF-Token': '{{ csrf_token() }}',
+                    },
+                    cache: false,
+                    success: function(data) {
+                        console.log(data.method.description);
+                        method = data.method.payment_method.toLowerCase();
+                        console.log(method)
+                        $('#payment_description').html(data.method.description);
+                        if (method.toLowerCase() == 'bank transfer') {
+                            document.getElementById('total_price_usd').style.display = "none";
+                            document.getElementById('total_price_hkd').style.display = "block";
+                            $('.spot_price_usd').css("display", "none");
+                            $('.spot_price_hkd').css("display", "block");
+                            $('.price_usd').css("display", "none");
+                            $('.price_hkd').css("display", "block");
+                        } else {
+                            document.getElementById('total_price_usd').style.display = "block";
+                            document.getElementById('total_price_hkd').style.display = "none";
+                            $('.spot_price_usd').css("display", "block");
+                            $('.spot_price_hkd').css("display", "none");
+                            $('.price_usd').css("display", "block");
+                            $('.price_hkd').css("display", "none");
+                        }
+                    },
+                    error: function(error) {
+                        // alert(error)
+                    },
+                    beforeSend: function() {
+
+                    },
+                    complete: function() {
+
+                    }
+                });
+
+            });
+
             $('#modal_submit_btn').on('click', function(e) {
                 window.location = $('#url').val();
             })
@@ -426,6 +371,64 @@
                 e.preventDefault()
                 $('#exampleModalCenter').modal('hide')
             })
+        });
+
+        $(document).on('change', '#delivery_method_id', function(e) {
+            var delivery_method = $('#delivery_method_id').val();
+            var method;
+            $.ajax({
+
+                url: '/get-terms-and-condition/delivery/' + delivery_method,
+                type: "GET",
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}',
+                },
+                cache: false,
+                success: function(data) {
+                    console.log(data.method.description);
+                    method = data.method.delivery_method;
+                    $('#delivery_description').html(data.method.description);
+                },
+                error: function(error) {
+                    // alert(error)
+                },
+                beforeSend: function() {
+
+                },
+                complete: function() {
+
+                }
+            });
+        });
+
+        $(document).on('click', '.delete-cart', function(e) {
+            e.preventDefault();
+
+            var url = $(this).attr('href');
+
+            $.ajax({
+
+                url: url,
+                type: "DELETE",
+                // data : filters,
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}',
+                },
+                cache: false,
+                success: function(data) {
+                    // alert('deleted')
+                    location.reload(true);
+                },
+                error: function(error) {
+                    // alert(error)
+                },
+                beforeSend: function() {
+
+                },
+                complete: function() {
+
+                }
+            });
         });
     </script>
 @endpush

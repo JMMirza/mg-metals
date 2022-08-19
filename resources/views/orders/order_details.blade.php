@@ -62,7 +62,8 @@
                                             @endif
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
-                                        <td class="fw-medium text-center">{{ $product->product_commissions }} USD</td>
+                                        <td class="fw-medium text-center">{{ $product->product->getProductCommission() }}
+                                            USD</td>
                                         <td class="fw-medium text-center">{{ $product->price_with_markup }} USD</td>
                                         <td class="fw-medium text-center">{{ $product->quantity }}</td>
                                         <td class="fw-medium text-center">
