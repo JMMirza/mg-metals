@@ -76,7 +76,7 @@ class PaymentMethodController extends Controller
      */
     public function edit(PaymentMethod $paymentMethod)
     {
-        return view('payment_methods.index', ['paymentMethod' => $paymentMethod]);
+        return view('payment_methods.edit', ['paymentMethod' => $paymentMethod]);
     }
 
     /**
