@@ -189,21 +189,14 @@
                                                     </div>
                                                 </div>
 
-                                                {{-- <div class="col-12 col-md-6 mt-3">
-                                                    <label for="">Customer Type</label>
-                                                    <div class="form-group">
-                                                        <label class="radio-inline mr-3">
-                                                            <input type="radio" name="customer_type" value="individual"
-                                                                @if ($customer->user->customer_type == 'individual') checked @endif>
-                                                            <span></span>{{ __('login.individual') }}
-                                                        </label>
-                                                        <label class="radio-inline mr-3">
-                                                            <input type="radio" name="customer_type" value="corporate"
-                                                                @if ($customer->user->customer_type == 'corporate') checked @endif>
-                                                            <span></span>{{ __('login.corporate') }}
-                                                        </label>
+                                                <div class="col-md-6 col-sm-12 mt-3">
+                                                    <div class="form-label-group in-border">
+                                                        <label for="passport_no" class="form-label">Referral Code</label>
+                                                        <input type="text" class="form-control" id=""
+                                                            name="" placeholder=""
+                                                            value="{{ $customer->user->referral_code }}" readonly>
                                                     </div>
-                                                </div> --}}
+                                                </div>
 
                                                 <div class="col-12 col-md-12 mt-3">
                                                     <div class="form-group">
@@ -917,7 +910,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-md-4 mt-3">
+                                <div class="col-12 col-md-6 mt-3">
                                     <label for="">Nationality</label>
                                     <div class="form-group">
                                         <select class="form-select" name="nationality" required>
@@ -936,21 +929,14 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="col-12 col-md-6 mt-3">
-                                                    <label for="">Customer Type</label>
-                                                    <div class="form-group">
-                                                        <label class="radio-inline mr-3">
-                                                            <input type="radio" name="customer_type" value="individual"
-                                                                @if ($customer->user->customer_type == 'individual') checked @endif>
-                                                            <span></span>{{ __('login.individual') }}
-                                                        </label>
-                                                        <label class="radio-inline mr-3">
-                                                            <input type="radio" name="customer_type" value="corporate"
-                                                                @if ($customer->user->customer_type == 'corporate') checked @endif>
-                                                            <span></span>{{ __('login.corporate') }}
-                                                        </label>
-                                                    </div>
-                                                </div> --}}
+                                <div class="col-md-6 col-sm-12 mt-3">
+                                    <div class="form-label-group in-border">
+                                        <label for="passport_no" class="form-label">Referral Code</label>
+                                        <input type="text" class="form-control" id="" name=""
+                                            placeholder="" value="{{ $customer->user->referral_code }}" readonly>
+                                    </div>
+                                </div>
+
 
                                 <div class="col-12 col-md-12 mt-3">
                                     <div class="form-group">
