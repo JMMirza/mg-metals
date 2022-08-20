@@ -5,7 +5,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         responsive: true,
-        "order": [[ 7, "desc" ]],
+        "order": [[7, "desc"]],
         scrollX: true,
         scrollCollapse: true,
         // fixedColumns: {
@@ -18,8 +18,8 @@ $(document).ready(function () {
         ajax: route,
         columns: [
             {
-                data:'id',
-                name:'id',
+                data: 'id',
+                name: 'id',
                 orderable: false,
                 searchable: false,
                 width: "5%",
@@ -36,18 +36,18 @@ $(document).ready(function () {
                 defaultContent: '<span>N / A</span>'
             },
             {
-                data: "delivery_method",
-                name: "delivery_method",
+                data: "delivery_method.delivery_method",
+                name: "delivery_method.delivery_method",
                 defaultContent: '<span>N / A</span>'
             },
             {
-                data: "payment_method",
-                name: "payment_method",
+                data: "payment_method.payment_method",
+                name: "payment_method.payment_method",
                 defaultContent: '<span>N / A</span>'
             },
             {
-                data: "total_order_price",
-                name: "total_order_price",
+                data: "total_price",
+                name: "total_price",
                 defaultContent: '<span>N / A</span>'
             },
             {

@@ -77,7 +77,7 @@ class SetupController extends Controller
      */
     public function edit(Setup $setup)
     {
-        return view('setup.index', ['setup' => $setup]);
+        return view('setup.edit', ['setup' => $setup]);
     }
 
     /**

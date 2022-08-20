@@ -19,7 +19,7 @@
                     @csrf
                     @method('PUT')
                     <div class="row">
-                        <div class="col-md-6 col-sm-12  mb-3">
+                        <div class="col-md-4 col-sm-12  mb-3">
                             <div class="form-label-group in-border">
                                 <label for="delivery_method" class="form-label">Delivery Method</label>
                                 <input type="text"
@@ -35,6 +35,43 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Delivery Method (Simplified Chinese)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('delivery_method_s_ch')) is-invalid @endif"
+                                    id="delivery_method_s_ch" name="delivery_method_s_ch"
+                                    placeholder="Delivery Method (Simplified Chinese)"
+                                    value="{{ $setup->delivery_method_s_ch }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('delivery_method_s_ch'))
+                                        {{ $errors->first('delivery_method_s_ch') }}
+                                    @else
+                                        Name (Simplified Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Delivery Method (Traditional Chinese)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('delivery_method_ch')) is-invalid @endif"
+                                    id="delivery_method_ch" name="delivery_method_ch"
+                                    placeholder="Delivery Method (Traditional Chinese)"
+                                    value="{{ $setup->delivery_method_ch }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('delivery_method_ch'))
+                                        {{ $errors->first('delivery_method_ch') }}
+                                    @else
+                                        Name (Traditional Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-12">
                             <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                 <li class="nav-item">
@@ -68,7 +105,7 @@
                                         value="{{ $setup->description }}">
                                     {{-- <div class="form-label-group in-border">
                                     <label for="description" class="form-label">Description (物品描述)</label>
-                                    <textarea class="form-control mb-3" name="description" id="description" placeholder="Enter product description here...">{{ old('description') }}</textarea>
+                                    <textarea class="form-control mb-3" name="description" id="description" placeholder="Enter product description here...">{{ $setup->description') }}</textarea>
                                 </div> --}}
                                 </div>
                             </div>
@@ -83,7 +120,7 @@
                                     <label for="description" class="form-label">Description (Simplified
                                         Chinese)</label>
                                     <textarea class="form-control mb-3" name="description_s_ch" id="description"
-                                        placeholder="Enter product description here...">{{ old('description_s_ch') }}</textarea>
+                                        placeholder="Enter product description here...">{{ $setup->description_s_ch') }}</textarea>
                                 </div> --}}
                                 </div>
                             </div>
@@ -98,7 +135,7 @@
                                     <label for="description" class="form-label">Description (Traditional
                                         Chinese)</label>
                                     <textarea class="form-control mb-3" name="description_t_ch" id="description"
-                                        placeholder="Enter product description here...">{{ old('description_t_ch') }}</textarea>
+                                        placeholder="Enter product description here...">{{ $setup->description_t_ch') }}</textarea>
                                 </div> --}}
                                 </div>
                             </div>

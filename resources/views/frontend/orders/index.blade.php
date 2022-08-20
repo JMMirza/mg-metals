@@ -22,7 +22,8 @@
                             <tr>
                                 <td>{{ $order->id }}</td>
                                 <td>{{ $order->quantity }}</td>
-                                <td>{{ $order->delivery_method }}</td>
+                                <td>{{ isset($order->delivery_method->delivery_method) ? $order->delivery_method->delivery_method : 'N / A' }}
+                                </td>
                                 @if ($order->total_price == null)
                                     <td>0 USD</td>
                                 @else

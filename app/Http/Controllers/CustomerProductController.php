@@ -81,15 +81,14 @@ class CustomerProductController extends Controller
                     'order_status' => 'PENDING',
                     'delivery_status' => 'PENDING',
                     'currency' => $request->currency,
-                    'courier_type' => $request->courier_type,
                 ]);
             } else {
                 $order = Order::create([
                     'customer_id' => $customer->id,
                     'delivery_method_id' => $request->delivery_method_id,
                     'payment_method_id' => $request->payment_method_id,
-                    'payment_status' => 'PAIED',
-                    'order_status' => 'PENDING',
+                    'payment_status' => 'PAID',
+                    'order_status' => 'CONFIRMED',
                     'delivery_status' => 'PENDING',
                     'currency' => $request->currency,
                 ]);

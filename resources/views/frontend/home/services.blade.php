@@ -10,9 +10,10 @@
                     aria-selected="true">
 
                     <div class="alt-tabs-icon">
-                        
+
                         <img src="{{ asset('frontend/images/icons/phy-gold.png') }}" alt="image" class="icon">
-                        <img src="{{ asset('frontend/images/icons/phy-gold-h.png') }}" alt="image" class="icon hover">
+                        <img src="{{ asset('frontend/images/icons/phy-gold-h.png') }}" alt="image"
+                            class="icon hover">
                     </div>
 
                     {{ __('home_page.service_title_1') }}
@@ -23,7 +24,7 @@
                     aria-selected="false">
 
                     <div class="alt-tabs-icon">
-                        
+
                         <img src="{{ asset('frontend/images/icons/casting.png') }}" alt="image" class="icon">
                         <img src="{{ asset('frontend/images/icons/casting-h.png') }}" alt="image" class="icon hover">
                     </div>
@@ -35,7 +36,7 @@
                 <a href="#service-graphic" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">
 
                     <div class="alt-tabs-icon">
-                        
+
                         <img src="{{ asset('frontend/images/icons/ex-sol.png') }}" alt="image" class="icon">
                         <img src="{{ asset('frontend/images/icons/ex-sol-h.png') }}" alt="image" class="icon hover">
                     </div>
@@ -49,25 +50,32 @@
 
                     <div class="alt-tabs-icon">
                         <img src="{{ asset('frontend/images/icons/network.png') }}" alt="image" class="icon">
-                        <img src="{{ asset('frontend/images/icons/network-h.png') }}" alt="image" class="icon hover">
+                        <img src="{{ asset('frontend/images/icons/network-h.png') }}" alt="image"
+                            class="icon hover">
                     </div>
 
                     {{ __('home_page.service_title_3') }}
                 </a>
             </li>
-           
+
         </ul>
         <!-- End Nav tabs -->
         <div class="row section-text mb-30">
             <div class="col-12 col-md-4 pr-0">
-                <h3 class="playfare bold dark-light" style="font-size: 26px;line-height: 1.88em;">Every decade or so, dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
+                <h3 class="playfare bold dark-light" style="font-size: 26px;line-height: 1.88em;">Every decade or so,
+                    dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
                 <p style="letter-spacing:0.1em;">Warren Buffett</p>
             </div>
             <div class="col-12 col-md-4">
-                <p>MG Group was established in 2001. Within 10 years, our company has developed into a diversified business conglomerate-wide range of businesses from a real estate investment company. Our core businesses include a variety of financial services, real estate, entertainment, publishing, arts and cultures, education and training, multimedia and environmental protection. </p>
+                <p>MG Group was established in 2001. Within 10 years, our company has developed into a diversified
+                    business conglomerate-wide range of businesses from a real estate investment company. Our core
+                    businesses include a variety of financial services, real estate, entertainment, publishing, arts and
+                    cultures, education and training, multimedia and environmental protection. </p>
             </div>
             <div class="col-12 col-md-4">
-                <p>As a portfolio company of MG Metals, Marigold International Bullion Dealers Limited (A member of The Chinese Gold and Silver Exchange Society, Hong Kong (CGSE)* and Gold Bullion Group Member**, License number: 023) was established in 2007. </p>
+                <p>As a portfolio company of MG Metals, Marigold International Bullion Dealers Limited (A member of The
+                    Chinese Gold and Silver Exchange Society, Hong Kong (CGSE)* and Gold Bullion Group Member**, License
+                    number: 023) was established in 2007. </p>
             </div>
         </div>
 

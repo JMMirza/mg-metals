@@ -18,12 +18,12 @@
                     enctype='multipart/form-data' novalidate>
                     @csrf
                     <div class="row">
-                        <div class="col-md-6 col-sm-12  mb-3">
+                        <div class="col-md-4 col-sm-12  mb-3">
                             <div class="form-label-group in-border">
                                 <label for="payment_method" class="form-label">Payment Method</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('payment_method')) is-invalid @endif"
-                                    id="payment_method" name="payment_method" placeholder="Enter Delivery Method"
+                                    id="payment_method" name="payment_method" placeholder="Enter Payment Method"
                                     value="{{ old('payment_method') }}" required>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('payment_method'))
@@ -34,6 +34,43 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Payment Method (Simplified Chinese)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('payment_method_s_ch')) is-invalid @endif"
+                                    id="payment_method_s_ch" name="payment_method_s_ch"
+                                    placeholder="Payment Method (Simplified Chinese)"
+                                    value="{{ old('payment_method_s_ch') }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('payment_method_s_ch'))
+                                        {{ $errors->first('payment_method_s_ch') }}
+                                    @else
+                                        Name (Simplified Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Payment Method (Traditional Chinese)</label>
+                                <input type="text"
+                                    class="form-control @if ($errors->has('payment_method_ch')) is-invalid @endif"
+                                    id="payment_method_ch" name="payment_method_ch"
+                                    placeholder="Payment Method (Traditional Chinese)"
+                                    value="{{ old('payment_method_ch') }}">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('payment_method_ch'))
+                                        {{ $errors->first('payment_method_ch') }}
+                                    @else
+                                        Name (Traditional Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-12">
                             <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                 <li class="nav-item">

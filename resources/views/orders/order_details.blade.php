@@ -54,20 +54,22 @@
                                             </div>
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
-                                        <td class="fw-medium text-center">{{ $product->spot_price }} USD</td>
-                                        <td class="fw-medium text-center">{{ $product->mark_up }} @if ($product->markup_type == 'percentage')
-                                                %
+                                        <td class="fw-medium text-center">USD {{ $product->spot_price }}</td>
+                                        <td class="fw-medium text-center">
+                                            @if ($product->markup_type == 'percentage')
+                                                {{ $product->mark_up }} %
                                             @else
-                                                USD
+                                                USD {{ $product->mark_up }}
                                             @endif
+
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
                                         <td class="fw-medium text-center">{{ $product->product->getProductCommission() }}
                                             USD</td>
-                                        <td class="fw-medium text-center">{{ $product->price_with_markup }} USD</td>
+                                        <td class="fw-medium text-center">USD {{ $product->price_with_markup }}</td>
                                         <td class="fw-medium text-center">{{ $product->quantity }}</td>
                                         <td class="fw-medium text-center">
-                                            {{ $product->total_price }} USD
+                                            USD {{ $product->total_price }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -104,7 +106,7 @@
                             <tbody>
 
                                 <tr>
-                                    <td class="fw-medium text-center">{{ $total_price }} USD</td>
+                                    <td class="fw-medium text-center">USD {{ $total_price }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_status }}</td>
                                     <td class="fw-medium text-center">
@@ -119,7 +121,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Order Commision</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">Order Commission</h5>
                     </div>
                 </div>
                 <div class="card-body">
@@ -151,7 +153,7 @@
                                         <td class="fw-medium text-center">{{ $commission->product->name }}</td>
                                         <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
                                         </td>
-                                        <td class="fw-medium text-center">{{ $commission->tier_commission }} USD</td>
+                                        <td class="fw-medium text-center">USD {{ $commission->tier_commission }}</td>
                                     </tr>
                                 @endforeach
                                 {{-- @endforeach --}}

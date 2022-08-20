@@ -3,21 +3,21 @@
 @section('content')
     @include('frontend.contact_us.header')
 
-    
+
     <section class="page-section" id="about">
         <div class="container relative">
 
             <div class="section-text mb-60 mb-sm-40 " style="padding:20px 10%">
                 <div class="row">
-        
+
                     <!-- Phone -->
                     <div class="col-12 col-lg-4 pt-30 pb-40 ">
                         <div class="contact-item" style="padding-left:0px">
-                            <div class="ci-title font-alt gold pb-20"  style="letter-spacing:0.15em;font-size:26px">
+                            <div class="ci-title font-alt gold pb-20" style="letter-spacing:0.15em;font-size:26px">
                                 Address
                             </div>
                             <div class="ci-text" style="font-size:16px; line-height:1.8em;color:rgb(13, 33, 35)">
-                            Unit F, 18F, MG Tower, 133 Hoi Bun Road, Kwun Tong, Kowloon, Hong Kong
+                                Unit F, 18F, MG Tower, 133 Hoi Bun Road, Kwun Tong, Kowloon, Hong Kong
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                     <!-- Address -->
                     <div class="col-12 col-lg-4 pt-30 pb-40 ">
                         <div class="contact-item">
-                            <div class="ci-title font-alt gold pb-20"  style="letter-spacing:0.15em;font-size:26px">
+                            <div class="ci-title font-alt gold pb-20" style="letter-spacing:0.15em;font-size:26px">
                                 Contact
                             </div>
                             <div class="ci-text" style="font-size:16px; line-height:1.8em;color:rgb(13, 33, 35)">
@@ -40,7 +40,7 @@
                     <!-- Email -->
                     <div class="col-12 col-lg-4 pt-30 pb-40 ">
                         <div class="contact-item">
-                    
+
                             <div class="ci-title font-alt gold pb-20" style="letter-spacing:0.15em;font-size:26px">
                                 Opening Hours
                             </div>
@@ -66,40 +66,40 @@
                     </div>
                     <!-- End Email -->
 
-                </div>              
+                </div>
                 <div class="row mt-40">
                     <div class="col-12 col-md-6">
-                        
-                            <div class="contact-form row ">
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-12">
-                                    <div class="form-group">
-                                        <label>Email <span>*</span></label>
-                                        <input class="form-control" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-12">
-                                    <div class="form-group">
-                                        <label>Message</label>
-                                        <input class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-12">
-                                    <button class="btn btn-mod btn-w btn-medium">Send</button>
+
+                        <div class="contact-form row ">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input class="form-control" type="text">
                                 </div>
                             </div>
-                        
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Email <span>*</span></label>
+                                    <input class="form-control" type="email">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <button class="btn btn-mod btn-w btn-medium">Send</button>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="col-12 col-md-1"></div>
                     <div class="col-12 col-md-5">

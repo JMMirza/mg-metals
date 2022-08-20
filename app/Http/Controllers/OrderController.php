@@ -19,12 +19,16 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Order::with(['customer.user', 'order_products'])->latest('updated_at')->get();
+            $data = Order::with(['customer.user', 'order_products', 'delivery_method', 'payment_method'])->latest('updated_at')->get();
             return Datatables::of($data)
                 ->addColumn('action', function ($row) {
                     return view('orders.actions', ['row' => $row]);
                 })
-                ->rawColumns(['action'])
+                ->addColumn('total_price', function ($row) {
+                    $total_price = OrderProduct::where('order_id', $row->id)->sum('total_price');
+                    return 'USD ' . $total_price;
+                })
+                ->rawColumns(['action', 'total_price'])
                 ->make(true);
         }
         return view('orders.index');

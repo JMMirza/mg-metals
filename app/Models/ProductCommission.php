@@ -19,6 +19,8 @@ class ProductCommission extends Model
         'tier_type',
         'tier_id',
         'tier_commission',
+        'commission_got_percentage',
+        'commission_got',
         'tier_commission_percentage',
     ];
 
