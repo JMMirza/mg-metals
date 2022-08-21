@@ -75,7 +75,8 @@
                         <div class="flex-shrink-0">
                             <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
                                 {{ $order->payment_status }}</span>
-                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:</span>
+                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
+                                {{ $order->payment_due_date }}</span>
                         </div>
                     </div>
                 </div>
@@ -106,14 +107,15 @@
                 </div>
             </div>
 
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order Commission</h5>
                         <div class="flex-shrink-0">
                             <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
                                 {{ $order->delivery_status }}</span>
-                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:</span>
+                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
+                                {{ $order->delivery_due_date }}</span>
                         </div>
                     </div>
                 </div>
@@ -161,7 +163,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection
