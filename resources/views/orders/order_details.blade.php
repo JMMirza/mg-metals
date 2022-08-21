@@ -408,12 +408,14 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
+                        <li>Delivery Method - {{ $order->delivery_method->delivery_method }}</li>
                         <li class="fw-medium fs-14">{{ $order->shipping_address }}</li>
                         <li>{{ $order->full_name }}</li>
                         <li>{{ $order->phone_number }}</li>
                         <li>{{ $order->email }}</li>
                         <li>{{ $order->city }}-{{ $order->zip_code }}</li>
                         <li>{{ $order->country }}</li>
+                        <li>Due Date - {{ $order->delivery_due_date }}</li>
                     </ul>
                 </div>
             </div>

@@ -7,8 +7,10 @@ use App\Models\CustomerProduct;
 use App\Models\Inventory;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\PaymentMethod;
 use App\Models\Product;
 use App\Models\ProductCommission;
+use App\Models\Setup;
 use App\Models\ShopCart;
 use App\Models\User;
 use App\Notifications\OrderCreated;
@@ -71,6 +73,8 @@ class CustomerProductController extends Controller
         $total_quantity = 0;
         $user = User::find($request->user_id);
         $customer = Customer::where('user_id', $request->user_id)->first();
+        $payment_method = PaymentMethod::findOrFail($request->payment_method_id);
+        $delivery_method = Setup::findOrFail($request->delivery_method_id);
 
         if ($user->is_verified == 1) {
             if (strtolower($request->payment_method) == 'bank transfer') {
@@ -94,6 +98,27 @@ class CustomerProductController extends Controller
                     'currency' => $request->currency,
                 ]);
             }
+
+            if (isset($payment_method->due_date)) {
+                if ($payment_method->due_date_type == 'hour') {
+                    $payment_due_date = $order->created_at->addHours($payment_method->due_date);
+                } else {
+                    $payment_due_date = $order->created_at->addDays($payment_method->due_date);
+                }
+                $order->payment_due_date = $payment_due_date;
+                $order->save();
+            }
+
+            if (isset($delivery_method->due_date)) {
+                if ($delivery_method->due_date_type == 'hour') {
+                    $delivery_due_date = $order->created_at->addHours($delivery_method->due_date);
+                } else {
+                    $delivery_due_date = $order->created_at->addDays($delivery_method->due_date);
+                }
+                $order->delivery_due_date = $delivery_due_date;
+                $order->save();
+            }
+            // dd($payment_due_date);
             Notification::send($user, new OrderCreated);
             foreach ($request->cart_ids as $key => $cart) {
                 $user_cart = ShopCart::find($cart);

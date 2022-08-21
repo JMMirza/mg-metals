@@ -75,29 +75,39 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="name" class="form-label">Due Date</label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        class="form-control @if ($errors->has('due_date')) is-invalid @endif"
-                                        id="due_date" name="due_date" placeholder="Due Date"
-                                        value="{{ $setup->due_date }}">
-                                    <select class="form-select form-control mb-3" name="due_date_type" required>
-                                        <option value="" @if ($setup->due_date_type == '') {{ 'selected' }} @endif
-                                            selected disabled>
-                                            Due Date Type
-                                        </option>
-                                        <option value="hour"
-                                            @if ($setup->due_date_type == 'hour') {{ 'selected' }} @endif>
-                                            Hour
-                                        </option>
-                                        <option value="day"
-                                            @if ($setup->due_date_type == 'day') {{ 'selected' }} @endif>
-                                            Day
-                                        </option>
-                                    </select>
-                                </div>
+                                <input type="number"
+                                    class="form-control @if ($errors->has('due_date')) is-invalid @endif" id="due_date"
+                                    name="due_date" placeholder="Due Date" value="{{ $setup->due_date }}">
                                 <div class="invalid-tooltip">
-                                    @if ($errors->has('delivery_method_ch'))
-                                        {{ $errors->first('delivery_method_ch') }}
+                                    @if ($errors->has('due_date'))
+                                        {{ $errors->first('due_date') }}
+                                    @else
+                                        Name (Traditional Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Due Date Type</label>
+                                <select
+                                    class="form-select form-control mb-3 @if ($errors->has('due_date_type')) is-invalid @endif"
+                                    name="due_date_type">
+                                    <option value="" @if ($setup->due_date_type == '') {{ 'selected' }} @endif
+                                        selected disabled>
+                                        Due Date Type
+                                    </option>
+                                    <option value="hour" @if ($setup->due_date_type == 'hour') {{ 'selected' }} @endif>
+                                        Hour
+                                    </option>
+                                    <option value="day" @if ($setup->due_date_type == 'day') {{ 'selected' }} @endif>
+                                        Day
+                                    </option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('due_date_type'))
+                                        {{ $errors->first('due_date') }}
                                     @else
                                         Name (Traditional Chinese) is required!
                                     @endif
