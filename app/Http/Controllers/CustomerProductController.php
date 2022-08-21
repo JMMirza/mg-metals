@@ -143,7 +143,9 @@ class CustomerProductController extends Controller
                                 ProductCommission::create($input_product_commission);
                             } else {
                                 // $product->tier_commission_5 = $product->tier_commission_5+$product->t;
-                                $tier_5_commission = $product->getProductCommission();
+                                $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3 + $product->tier_commission_4;
+                                $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                 $input_product_commission = [
                                     'customer_id' => $customer->id,
@@ -153,7 +155,9 @@ class CustomerProductController extends Controller
                                     'product_mark_up' => $mark_up,
                                     'mark_up_type' => $markup_type,
                                     'tier_type' => 'tier_5',
-                                    'tier_commission' => $tier_5_commission,
+                                    'tier_commission' => $tier5commission,
+                                    'commission_got_percentage' => $tier_commission_5,
+                                    'commission_got' => $tier_5_commission,
                                     'tier_commission_percentage' => $product->tier_commission_5,
                                 ];
 
@@ -180,7 +184,8 @@ class CustomerProductController extends Controller
                                     ProductCommission::create($input_product_commission);
                                 } else {
                                     $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3;
-                                    $tier_5_commission = $product->getProductCommission();
+                                    $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                    $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                     $input_product_commission = [
                                         'customer_id' => $customer->id,
@@ -190,8 +195,10 @@ class CustomerProductController extends Controller
                                         'product_mark_up' => $mark_up,
                                         'mark_up_type' => $markup_type,
                                         'tier_type' => 'tier_5',
-                                        'tier_commission' => $tier_5_commission,
-                                        'tier_commission_percentage' => $tier_commission_5,
+                                        'tier_commission' => $tier5commission,
+                                        'commission_got_percentage' => $tier_commission_5,
+                                        'commission_got' => $tier_5_commission,
+                                        'tier_commission_percentage' => $product->tier_commission_5,
                                     ];
 
                                     ProductCommission::create($input_product_commission);
@@ -219,7 +226,8 @@ class CustomerProductController extends Controller
                                         ProductCommission::create($input_product_commission);
                                     } else {
                                         $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2;
-                                        $tier_5_commission = $product->getProductCommission();
+                                        $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                        $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                         $input_product_commission = [
                                             'customer_id' => $customer->id,
@@ -229,8 +237,10 @@ class CustomerProductController extends Controller
                                             'product_mark_up' => $mark_up,
                                             'mark_up_type' => $markup_type,
                                             'tier_type' => 'tier_5',
-                                            'tier_commission' => $tier_5_commission,
-                                            'tier_commission_percentage' => $tier_commission_5,
+                                            'tier_commission' => $tier5commission,
+                                            'commission_got_percentage' => $tier_commission_5,
+                                            'commission_got' => $tier_5_commission,
+                                            'tier_commission_percentage' => $product->tier_commission_5,
                                         ];
 
                                         ProductCommission::create($input_product_commission);
@@ -255,7 +265,9 @@ class CustomerProductController extends Controller
 
                                             ProductCommission::create($input_product_commission);
 
-                                            $tier_5_commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
+                                            $tier_commission_5 = $product->tier_commission_5;
+                                            $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                            $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                             $input_product_commission = [
                                                 'customer_id' => $customer->id,
@@ -265,14 +277,17 @@ class CustomerProductController extends Controller
                                                 'product_mark_up' => $mark_up,
                                                 'mark_up_type' => $markup_type,
                                                 'tier_type' => 'tier_5',
-                                                'tier_commission' => $tier_5_commission,
+                                                'tier_commission' => $tier5commission,
+                                                'commission_got_percentage' => $tier_commission_5,
+                                                'commission_got' => $tier_5_commission,
                                                 'tier_commission_percentage' => $product->tier_commission_5,
                                             ];
 
                                             ProductCommission::create($input_product_commission);
                                         } else {
                                             $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1;
-                                            $tier_5_commission = $product->getProductCommission();
+                                            $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                            $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                             $input_product_commission = [
                                                 'customer_id' => $customer->id,
@@ -282,15 +297,18 @@ class CustomerProductController extends Controller
                                                 'product_mark_up' => $mark_up,
                                                 'mark_up_type' => $markup_type,
                                                 'tier_type' => 'tier_5',
-                                                'tier_commission' => $tier_5_commission,
-                                                'tier_commission_percentage' => $tier_commission_5,
+                                                'tier_commission' => $tier5commission,
+                                                'commission_got_percentage' => $tier_commission_5,
+                                                'commission_got' => $tier_5_commission,
+                                                'tier_commission_percentage' => $product->tier_commission_5,
                                             ];
 
                                             ProductCommission::create($input_product_commission);
                                         }
                                     } else {
                                         $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1;
-                                        $tier_5_commission = $product->getProductCommission();
+                                        $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                        $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                         $input_product_commission = [
                                             'customer_id' => $customer->id,
@@ -300,15 +318,18 @@ class CustomerProductController extends Controller
                                             'product_mark_up' => $mark_up,
                                             'mark_up_type' => $markup_type,
                                             'tier_type' => 'tier_5',
-                                            'tier_commission' => $tier_5_commission,
-                                            'tier_commission_percentage' => $tier_commission_5,
+                                            'tier_commission' => $tier5commission,
+                                            'commission_got_percentage' => $tier_commission_5,
+                                            'commission_got' => $tier_5_commission,
+                                            'tier_commission_percentage' => $product->tier_commission_5,
                                         ];
 
                                         ProductCommission::create($input_product_commission);
                                     }
                                 } else {
                                     $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2;
-                                    $tier_5_commission = $product->getProductCommission();
+                                    $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                    $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                     $input_product_commission = [
                                         'customer_id' => $customer->id,
@@ -318,15 +339,18 @@ class CustomerProductController extends Controller
                                         'product_mark_up' => $mark_up,
                                         'mark_up_type' => $markup_type,
                                         'tier_type' => 'tier_5',
-                                        'tier_commission' => $tier_5_commission,
-                                        'tier_commission_percentage' => $tier_commission_5,
+                                        'tier_commission' => $tier5commission,
+                                        'commission_got_percentage' => $tier_commission_5,
+                                        'commission_got' => $tier_5_commission,
+                                        'tier_commission_percentage' => $product->tier_commission_5,
                                     ];
 
                                     ProductCommission::create($input_product_commission);
                                 }
                             } else {
                                 $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3;
-                                $tier_5_commission = $product->getProductCommission();
+                                $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                                $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                                 $input_product_commission = [
                                     'customer_id' => $customer->id,
@@ -336,14 +360,20 @@ class CustomerProductController extends Controller
                                     'product_mark_up' => $mark_up,
                                     'mark_up_type' => $markup_type,
                                     'tier_type' => 'tier_5',
-                                    'tier_commission' => $tier_5_commission,
-                                    'tier_commission_percentage' => $tier_commission_5,
+                                    'tier_commission' => $tier5commission,
+                                    'commission_got_percentage' => $tier_commission_5,
+                                    'commission_got' => $tier_5_commission,
+                                    'tier_commission_percentage' => $product->tier_commission_5,
                                 ];
 
                                 ProductCommission::create($input_product_commission);
                             }
                         } else {
-                            $tier_5_commission = $product->getProductCommission();
+                            // $tier_5_commission = $product->getProductCommission();
+
+                            $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3 + $product->tier_commission_4;
+                            $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
+                            $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
                             $input_product_commission = [
                                 'customer_id' => $customer->id,
@@ -353,10 +383,11 @@ class CustomerProductController extends Controller
                                 'product_mark_up' => $mark_up,
                                 'mark_up_type' => $markup_type,
                                 'tier_type' => 'tier_5',
-                                'tier_commission' => $tier_5_commission,
+                                'tier_commission' => $tier5commission,
+                                'commission_got_percentage' => $tier_commission_5,
+                                'commission_got' => $tier_5_commission,
                                 'tier_commission_percentage' => $product->tier_commission_5,
                             ];
-
                             ProductCommission::create($input_product_commission);
                         }
                     }

@@ -152,8 +152,15 @@
                                         <td class="fw-medium text-center">{{ $commission->product_id }} </td>
                                         <td class="fw-medium text-center">{{ $commission->product->name }}</td>
                                         <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
+                                            @if (isset($commission->commission_got_percentage))
+                                                | {{ $commission->commission_got_percentage }} %
+                                            @endif
                                         </td>
-                                        <td class="fw-medium text-center">USD {{ $commission->tier_commission }}</td>
+                                        <td class="fw-medium text-center">USD {{ $commission->tier_commission }}
+                                            @if (isset($commission->commission_got))
+                                                | USD {{ $commission->commission_got }}
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 {{-- @endforeach --}}
