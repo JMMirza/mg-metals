@@ -105,7 +105,8 @@ class OrderController extends Controller
         $order->country = $request->country;
         $order->zip_code = $request->zip_code;
         $order->save();
-        return redirect(route('home'))->with('success', 'order placed successfully');
+        return ['url' => route('home')];
+        // return redirect(route('home'))->with('success', 'order placed successfully');
     }
 
     /**
@@ -137,6 +138,14 @@ class OrderController extends Controller
         return back()->with('error', 'No Order Found');
     }
 
+    public function customer_order_details($id)
+    {
+        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category', 'product_commissions', 'delivery_method', 'payment_method'])->first();
+        $total_price = OrderProduct::where('order_id', $id)->sum('total_price');
+        // dd($order->toArray());
+        return view('frontend.orders.order_details', ['order' => $order, 'total_price' => $total_price]);
+    }
+
     public function get_terms_and_conditions($method, $id)
     {
         $method;
@@ -147,5 +156,17 @@ class OrderController extends Controller
         }
 
         return ['method' => $method];
+    }
+
+    public function change_payment_status($id)
+    {
+        $order = Order::findOrFail($id);
+
+        if ($order) {
+            $order->payment_status = 'PAID';
+            $order->save();
+            return ['success' => 'PAYMENT STATUS UPDATED SUCCESSFULLY'];
+        }
+        return ['error' => 'NO ORDER FOUND'];
     }
 }

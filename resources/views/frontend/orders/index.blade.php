@@ -15,6 +15,7 @@
                             <th>Delivery Method</th>
                             <th>Total Price</th>
                             <th>Shipping Address</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,11 +26,16 @@
                                 <td>{{ isset($order->delivery_method->delivery_method) ? $order->delivery_method->delivery_method : 'N / A' }}
                                 </td>
                                 @if ($order->total_price == null)
-                                    <td>0 USD</td>
+                                    <td>USD 0 </td>
                                 @else
-                                    <td>{{ $order->total_price }} USD</td>
+                                    <td>USD {{ $order->total_price }} </td>
                                 @endif
                                 <td>{{ $order->shipping_address }}</td>
+
+                                <td><a href="{{ route('get-customer-order-details', $order->id) }}"
+                                        class="btn btn-sm btn-icon waves-effect waves-light">
+                                        Details
+                                    </a></td>
                             </tr>
                         @empty
                             <tr>

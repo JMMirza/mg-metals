@@ -85,10 +85,12 @@
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
                         <div class="flex-shrink-0">
+                            @if ($order->payment_status == 'UNPAID')
+                                <button id="change_payment_status" data-value="{{ $order->id }}"
+                                    class="btn btn-warning btn-sm">UN-PAID</button>
+                            @endif
                             <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
                                 {{ $order->payment_status }}</span>
-                            {{-- <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i
-                                    class="ri-download-2-fill align-middle me-1"></i> Invoice</a> --}}
                         </div>
                     </div>
                 </div>
@@ -424,4 +426,39 @@
 @endpush
 
 @push('footer_scripts')
+    <script>
+        $(document).on("click", "#change_payment_status", function(e) {
+            var order_id = $(this).data("value");
+
+            e.preventDefault();
+
+            Swal.fire({
+                title: "Change Payment Status",
+                text: "Are you sure to Change status",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-primary w-xs me-2 mb-1',
+                confirmButtonText: "Yes, I'm sure!",
+                cancelButtonClass: 'btn btn-danger w-xs mb-1',
+                buttonsStyling: false,
+                showCloseButton: true
+            }).then(function(response) {
+
+                $.ajax({
+                    url: '/change-payment-status/' + order_id,
+                    headers: {
+                        "X-CSRF-Token": "{{ csrf_token() }}",
+                    },
+                    type: "GET",
+                    cache: false,
+                    success: function(data) {
+                        // alert(data);
+                        // $("#customers-data-table").DataTable().ajax.reload();
+                        location.reload(true);
+                    },
+                    error: function() {},
+                });
+            })
+        });
+    </script>
 @endpush

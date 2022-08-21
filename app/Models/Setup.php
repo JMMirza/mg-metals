@@ -11,6 +11,8 @@ class Setup extends Model
 
     protected $fillable = [
         'delivery_method',
+        'due_date',
+        'due_date_type',
         'delivery_method_s_ch',
         'delivery_method_ch',
         'description',

@@ -72,6 +72,39 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="name" class="form-label">Due Date</label>
+                                <div class="input-group">
+                                    <input type="text"
+                                        class="form-control @if ($errors->has('due_date')) is-invalid @endif"
+                                        id="due_date" name="due_date" placeholder="Due Date"
+                                        value="{{ $paymentMethod->due_date }}">
+                                    <select class="form-select form-control mb-3" name="due_date_type" required>
+                                        <option value="" @if ($paymentMethod->due_date_type == '') {{ 'selected' }} @endif
+                                            selected disabled>
+                                            Due Date Type
+                                        </option>
+                                        <option value="hour"
+                                            @if ($paymentMethod->due_date_type == 'hour') {{ 'selected' }} @endif>
+                                            Hour
+                                        </option>
+                                        <option value="day"
+                                            @if ($paymentMethod->due_date_type == 'day') {{ 'selected' }} @endif>
+                                            Day
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('delivery_method_ch'))
+                                        {{ $errors->first('delivery_method_ch') }}
+                                    @else
+                                        Name (Traditional Chinese) is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-12">
                             <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                 <li class="nav-item">

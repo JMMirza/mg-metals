@@ -114,4 +114,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('edit-with-role-permissions/{id}', [UserController::class, 'editUserRolesPermissions'])->name('edit-with-role-permissions');
     Route::post('assign-role-permissions/{id}', [UserController::class, 'updateUserRolesPermissions'])->name('assign-role-permissions');
     Route::get('get-terms-and-condition/{method}/{id}', [OrderController::class, 'get_terms_and_conditions'])->name('get-terms-and-condition');
+    Route::get('change-payment-status/{id}', [OrderController::class, 'change_payment_status'])->name('change-payment-status');
+    Route::get('get-customer-order-details/{id}', [OrderController::class, 'customer_order_details'])->name('get-customer-order-details');
 });
