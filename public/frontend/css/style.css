@@ -1747,6 +1747,13 @@ a.logo:hover {
     font-family: 'Montserrat', sans-serif !important;
     text-transform: capitalize !important;
 }
+@media only screen and (max-width: 1400px) {
+    .inner-nav ul li{
+    }
+    .inner-nav ul li a{
+        font-size: 12px;
+    }
+}
 .inner-nav ul li a:hover {
     font-weight: normal;
     color: #D6A650 !important;
@@ -5894,6 +5901,7 @@ section:hover .small-item-carousel .owl-next {
         width: 50%;
     }
 }
+
 @media only screen and (max-width: 480px) {
     .et-examples .box1 {
         width: 100%;
