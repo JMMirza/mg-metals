@@ -64,8 +64,9 @@
 
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
-                                        <td class="fw-medium text-center">{{ $product->product->getProductCommission() }}
-                                            USD</td>
+                                        <td class="fw-medium text-center">
+                                            USD {{ round($product->product->getProductCommission(), 2) }}
+                                        </td>
                                         <td class="fw-medium text-center">USD {{ $product->price_with_markup }}</td>
                                         <td class="fw-medium text-center">{{ $product->quantity }}</td>
                                         <td class="fw-medium text-center">
