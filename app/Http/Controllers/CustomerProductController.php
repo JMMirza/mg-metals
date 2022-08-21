@@ -11,10 +11,11 @@ use App\Models\Product;
 use App\Models\ProductCommission;
 use App\Models\ShopCart;
 use App\Models\User;
+use App\Notifications\OrderCreated;
 use Illuminate\Http\Request;
 use DataTables;
-use Error;
 use ErrorException;
+use Illuminate\Support\Facades\Notification;
 
 class CustomerProductController extends Controller
 {
@@ -93,6 +94,7 @@ class CustomerProductController extends Controller
                     'currency' => $request->currency,
                 ]);
             }
+            Notification::send($user, new OrderCreated);
             foreach ($request->cart_ids as $key => $cart) {
                 $user_cart = ShopCart::find($cart);
 

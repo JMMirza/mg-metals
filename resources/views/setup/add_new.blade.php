@@ -75,7 +75,7 @@
                             <div class="form-label-group in-border">
                                 <label for="name" class="form-label">Due Date</label>
                                 <div class="input-group">
-                                    <input type="text"
+                                    <input type="number"
                                         class="form-control @if ($errors->has('due_date')) is-invalid @endif"
                                         id="due_date" name="due_date" placeholder="Due Date" value="{{ old('due_date') }}">
                                     <select class="form-select form-control mb-3" name="due_date_type" required>

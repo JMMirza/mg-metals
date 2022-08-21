@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            //
+            $table->date('delivery_due_date')->nullable()->after('payment_due_date');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            //
+            $table->dropColumn('delivery_due_date');
         });
     }
 };
