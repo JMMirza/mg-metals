@@ -7656,3 +7656,32 @@ footer.bg-gray-lighter{
     font-size:14px ;
     border:0px solid #d7d7d7 !important
 }
+.time-block{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.time-block .Timer{
+    background: #0D2123;
+    color:#fff;
+    padding:4px 10px;
+}
+#customer_products_store p{
+    margin-bottom: 10px !important;
+    color: #000;
+}
+.delivery_form{
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}
+.delivery_form form{
+    border:1px solid #d7d7d7;
+    border-radius: 5px;
+    padding:20px;
+    background: #fff;
+    max-width: 60%;
+}
+.delivery_form form .form-control{
+    border-width: 1px !important;
+}

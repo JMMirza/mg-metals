@@ -9,6 +9,9 @@
                     class="form">
                     @csrf
                     <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
+                        <div class="time-block">
+                            <div class="Timer"> </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped shopping-cart-table">
                                 <tr>
@@ -19,9 +22,7 @@
                                     <th> Total </th>
                                     <th> &nbsp;</th>
                                     <th>
-                                        <div class="Timer">
-
-                                        </div>
+                                        
                                     </th>
                                 </tr>
                                 @forelse ($carts as $cart)
@@ -84,7 +85,7 @@
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Delivery Method</label>
                                         <select class="input-md form-control" name="delivery_method_id"
-                                            id="delivery_method_id" required>
+                                            id="delivery_method_id" required style="display:flex;max-width:300px">
                                             <option value="" selected disabled>Select One</option>
                                             @foreach ($delivery_methods as $delivery_method)
                                                 <option value="{{ $delivery_method->id }}"
@@ -98,7 +99,7 @@
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Payment Method</label>
                                         <select id="payment_method_id" name="payment_method_id"
-                                            class="input-md form-control">
+                                            class="input-md form-control" style="display:flex;max-width:300px">
                                             <option value="" selected disabled>Select One</option>
                                             @foreach ($payment_methods as $payment_method)
                                                 <option value="{{ $payment_method->id }}"
@@ -110,15 +111,7 @@
                                         </select>
                                     </div>
                                     <div id="payment_description"></div>
-                                    <div class="mb-10">
-                                        <div class="form-group ht-70">
-                                            <label class="radio-inline @if ($errors->has('gender')) is-invalid @endif">
-                                                <input type="checkbox" name="termsAndConditions" value=""
-                                                    id="termsAndConditions">
-                                                I accept the Terms & Conditions & Payment Policy
-                                            </label>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 {{-- </form> --}}
                                 <div class="col-sm-6 pt-4 text-end">
@@ -129,6 +122,15 @@
                                             </strong></span>
                                     </div>
                                     <div>
+                                        <div class="mb-10">
+                                            <div class="form-group ht-70">
+                                                <label class="radio-inline @if ($errors->has('gender')) is-invalid @endif">
+                                                    <input type="checkbox" name="termsAndConditions" value=""
+                                                        id="termsAndConditions">
+                                                    I accept the Terms & Conditions & Payment Policy
+                                                </label> 
+                                            </div>
+                                        </div>
                                         <button type="submit" id="proceed_to_checkout"
                                             class="btn btn-mod btn-round btn-large" disabled>Proceed to
                                             Checkout</button>
