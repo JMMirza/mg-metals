@@ -82,7 +82,7 @@ class CustomerProductController extends Controller
                     'customer_id' => $customer->id,
                     'delivery_method_id' => $request->delivery_method_id,
                     'payment_method_id' => $request->payment_method_id,
-                    'payment_status' => 'PENDING',
+                    'payment_status' => 'UNPAID',
                     'order_status' => 'PENDING',
                     'delivery_status' => 'PENDING',
                     'currency' => $request->currency,

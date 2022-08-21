@@ -99,14 +99,56 @@
                                     <td class="fw-medium text-center">{{ $order->payment_status }}</td>
                                     <td class="fw-medium text-center">
                                         {{ $order->payment_due_date == null ? 'N/A' : $order->payment_due_date }} </td>
-                                </tr>
 
+                                </tr>
+                                @if (strtolower($order->payment_method->payment_method) == 'bank transfer')
+                                    <tr>
+                                        {!! $order->payment_method->description !!}
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0">Delivery Information</h5>
+                        <div class="flex-shrink-0">
+                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
+                                {{ $order->delivery_status }}</span>
+                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
+                                {{ $order->delivery_due_date }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive table-card">
+                        <table class="table table-nowrap align-middle table-borderless mb-0">
+                            <thead class="table-light text-muted">
+                                <tr>
+                                    <th scope="col" class="text-center">Delivery Method</th>
+                                    <th scope="col" class="text-center">Delivery Status</th>
+                                    <th scope="col" class="text-center">Delivery Address</th>
+                                    <th scope="col" class="text-center">Delivery Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="fw-medium text-center">{{ $order->delivery_method->delivery_method }}</td>
+                                    <td class="fw-medium text-center">{{ $order->delivery_status }}</td>
+                                    <td class="fw-medium text-center">{{ $order->shipping_address }}</td>
+                                    <td class="fw-medium text-center">
+                                        {{ $order->delivery_due_date == null ? 'N/A' : $order->delivery_due_date }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             {{-- <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">

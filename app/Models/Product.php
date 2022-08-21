@@ -199,7 +199,7 @@ class Product extends Model
         }
 
         if ($type == 'str') {
-            return number_format($final_price, 2) . ' USD';
+            return  'USD ' . number_format($final_price, 2);
         }
 
         return $final_price;

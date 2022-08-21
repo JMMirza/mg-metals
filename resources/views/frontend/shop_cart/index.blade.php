@@ -43,12 +43,12 @@
                                         <td>
                                             <span class="spot_price_usd"> ${{ $cart->spot_price }} </span> <span
                                                 class="spot_price_hkd" style="display: none">
-                                                HK$ {{ $cart->spot_price * $hkd_price }}</span>
+                                                HKD {{ number_format($cart->spot_price * $hkd_price, 2) }}</span>
                                         </td>
                                         <td>
                                             <span class="price_usd"> ${{ $cart->total_price }} </span> <span
                                                 class="price_hkd" style="display: none">
-                                                HK$ {{ $cart->total_price * $hkd_price }}</span>
+                                                HKD {{ number_format($cart->total_price * $hkd_price, 2) }}</span>
 
                                         </td>
                                         <td>
@@ -80,12 +80,12 @@
 
                         @if (count($carts) > 0)
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-md-6">
                                     {{-- <form action="#" class="form"> --}}
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Delivery Method</label>
                                         <select class="input-md form-control" name="delivery_method_id"
-                                            id="delivery_method_id" required style="display:flex;max-width:300px">
+                                            id="delivery_method_id" required style="display:flex">
                                             <option value="" selected disabled>Select One</option>
                                             @foreach ($delivery_methods as $delivery_method)
                                                 <option value="{{ $delivery_method->id }}"
@@ -96,10 +96,14 @@
                                         </select>
                                     </div>
                                     <div id="delivery_description"></div>
+
+
+                                </div>
+                                <div class="col-md-6">
                                     <div class="mb-10">
                                         <label for="" class="font-alt">Payment Method</label>
                                         <select id="payment_method_id" name="payment_method_id"
-                                            class="input-md form-control" style="display:flex;max-width:300px">
+                                            class="input-md form-control" style="display:flex">
                                             <option value="" selected disabled>Select One</option>
                                             @foreach ($payment_methods as $payment_method)
                                                 <option value="{{ $payment_method->id }}"
@@ -111,14 +115,15 @@
                                         </select>
                                     </div>
                                     <div id="payment_description"></div>
-
                                 </div>
+                            </div>
+                            <div class="row">
                                 {{-- </form> --}}
-                                <div class="col-sm-6 pt-4 text-end">
+                                <div class="col-md-12 pt-4 text-end">
                                     <div class="lead mt-0 mb-30">
                                         Order Total: <span id="total_price_usd"><strong>USD {{ $total_price }}
                                             </strong></span><span id="total_price_hkd" style="display: none"><strong>HKD
-                                                {{ $total_price * $hkd_price }}
+                                                {{ number_format($total_price * $hkd_price, 2) }}
                                             </strong></span>
                                     </div>
                                     <div>
