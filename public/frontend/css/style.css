@@ -1174,6 +1174,10 @@ a.btn-mod:focus {
 .btn{
     height:42px !important;
 }
+table tr td .btn{
+    height:auto !important;
+    text-decoration: underline !important;
+}
 .home-text .btn-mod{
     border:2px solid #fff !important;
     background-color: transparent !important;

@@ -131,7 +131,7 @@
                                 class="btn btn-mod btn-large btn-round">Buy
                                 Now</button> --}}
                         @else
-                            <a href="{{ route('customer_login') }}" class="btn btn-mod btn-large btn-round">Buy
+                            <a href="{{ route('customer_login') }}" class=" mt-20 btn btn-mod btn-large btn-round">Buy
                                 Now</a>
                         @endif
 

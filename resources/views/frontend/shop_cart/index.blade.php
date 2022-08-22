@@ -96,8 +96,6 @@
                                         </select>
                                     </div>
                                     <div id="delivery_description"></div>
-
-
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-10">
