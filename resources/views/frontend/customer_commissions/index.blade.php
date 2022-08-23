@@ -5,43 +5,47 @@
 
     <section class="page-section pt-5" id="about">
         <div class="container relative">
-            <div class="section-text mb-40 mb-sm-20">
-                <h2 class="dark font-alt">My Commissions</h2>
-                <table class="table  table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Tier Type</th>
-                            <th>Product Name</th>
-                            <th>Product Price</th>
-                            <th>Product Mark Up</th>
-                            <th>Product Tier Commission</th>
-                            <th>Tier Commission</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($commissions as $commission)
+            <div class="card mt-30 mb-30">
+                <div class="card-header">
+                    <h5 class="card-title flex-grow-1 mb-0">My Commissions</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table  table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{ ucfirst($commission->tier_type) }}</td>
-                                <td>{{ $commission->product->name }}</td>
-                                <td>{{ $commission->product_price }}</td>
-                                @if ($commission->product->markup_type == 'flat')
-                                    <td>{{ $commission->product_mark_up }} USD</td>
-                                @else
-                                    <td>{{ $commission->product_mark_up }} %</td>
-                                @endif
-                                <td>{{ $commission->tier_commission_percentage }} %</td>
-                                <td>{{ $commission->tier_commission }} USD</td>
+                                <th>Tier Type</th>
+                                <th>Product Name</th>
+                                <th>Product Price</th>
+                                <th>Product Mark Up</th>
+                                <th>Product Tier Commission</th>
+                                <th>Tier Commission</th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6">No Record Found!</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                    <tbody>
+                        </thead>
+                        <tbody>
+                            @forelse ($commissions as $commission)
+                                <tr>
+                                    <td>{{ ucfirst($commission->tier_type) }}</td>
+                                    <td>{{ $commission->product->name }}</td>
+                                    <td>{{ $commission->product_price }}</td>
+                                    @if ($commission->product->markup_type == 'flat')
+                                        <td>{{ $commission->product_mark_up }} USD</td>
+                                    @else
+                                        <td>{{ $commission->product_mark_up }} %</td>
+                                    @endif
+                                    <td>{{ $commission->tier_commission_percentage }} %</td>
+                                    <td>{{ $commission->tier_commission }} USD</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6">No Record Found!</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                        <tbody>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>

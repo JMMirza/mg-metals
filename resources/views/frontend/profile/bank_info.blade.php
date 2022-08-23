@@ -1,4 +1,4 @@
- <div class="card card-default form-card">
+ <div class="card card-default ">
      <div class="card-header">
          {{ __('bank_info.SECTION 4') }}<span>{{ __('bank_info.BANK ACCOUNT FOR RECEIVING PAYMENTS') }}</span>
      </div>

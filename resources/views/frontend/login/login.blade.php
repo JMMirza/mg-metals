@@ -29,12 +29,11 @@
 
                     <div class="tab-pane fade active show" role="tabpanel" id="item-1" role="tabpanel">
                         <div class="card card-default form-card">
-                            <div class="card-header">
-                                <span>Welcome back to Login</span>
-                            </div>
+                            
 
 
                             <div class="card-body">
+                                <h3 class="gold playfare mb-20">Welcome back to Login</h3>
                                 <form method="POST" action="{{ route('login-customer') }}" class="needs-validation"
                                     novalidate>
                                     @csrf
@@ -97,10 +96,9 @@
 
                     <div class="tab-pane fade" id="item-2" role="tabpanel">
                         <div class="card card-default form-card">
-                            <div class="card-header">
-                                <span>Create your account</span>
-                            </div>
+                  
                             <div class="card-body">
+                            <h3 class="gold playfare mb-20">Create your account</h3>
                                 <form method="POST" action="{{ route('customer-register-account') }}">
                                     @csrf
                                     <div class="row">

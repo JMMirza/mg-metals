@@ -1,4 +1,4 @@
-<div class="card card-default form-card">
+<div class="card card-default ">
     <div class="card-header">
         {{ __('trading.SECTION 2C') }}<span>{{ __('trading.AUTHORIZED TRADING REPRESENTATIVE') }}</span>
     </div>
