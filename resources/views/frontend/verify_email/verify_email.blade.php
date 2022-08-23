@@ -2,36 +2,14 @@
 
 
 @section('content')
-    <section class="small-section bg-dark-lighter page-header-global" data-background="{{ asset('frontend/images/banner1.png') }}">
-        <div class="relative container align-left">
 
-            <div class="row">
-
-                <div class="col-md-8">
-                    <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">{{ __('home_page.login') }}</h1>
-                    {{-- <div class="hs-line-4 font-alt">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </div> --}}
-                </div>
-
-                <!-- <div class="col-md-4 mt-30">
-                    <div class="mod-breadcrumbs font-alt align-right">
-                        <a
-                            href="{{ route('home') }}">{{ __('home_page.home') }}</a>&nbsp;/&nbsp;<span>{{ __('home_page.login') }}</span>
-                    </div>
-                </div> -->
-            </div>
-
-        </div>
-    </section>
     @include('layouts.flash_message')
 
-    <div class="container center-aligned">
+    <div class="container center-aligned  vert-center">
         <div class="card card-default form-card">
-            <div class="card-header">
-                <span>Account Verification</span>
-            </div>
+          
             <div class="card-body">
+                <h3 class="dark playfare mb-20">Account Verification</h3>
                 <form method="POST" action="{{ route('verify-code') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="row">

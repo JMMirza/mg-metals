@@ -17,11 +17,11 @@
         <main id="main">
             @include('layouts.flash_message')
 
-            <div class="container center-aligned">
+            <div class="container center-aligned vert-center" >
 
                 <div class="row">
 
-                    <div class="col-md-12" style="padding-top:150px">
+                    <div class="col-md-12" >
 
                         <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0" role="tablist">
 
@@ -41,12 +41,11 @@
 
                             <div class="tab-pane fade active show" role="tabpanel" id="item-1" role="tabpanel">
                                 <div class="card card-default form-card">
-                                    <div class="card-header">
-                                        <span>Welcome back to Login</span>
-                                    </div>
+                                 
 
 
                                     <div class="card-body">
+                                        <h3 class="dark playfare mb-20">Welcome back to Login</h3>
                                         <form method="POST" action="{{ route('login-customer') }}"
                                             class="needs-validation" novalidate>
                                             @csrf
@@ -113,10 +112,9 @@
 
                             <div class="tab-pane fade" id="item-2" role="tabpanel">
                                 <div class="card card-default form-card">
-                                    <div class="card-header">
-                                        <span>Create your account</span>
-                                    </div>
+                                   
                                     <div class="card-body">
+                                        <h3 class="dark playfare mb-20">Create your account</h3>
                                         <form method="POST" action="{{ route('customer-register-account') }}">
                                             @csrf
                                             <div class="row">

@@ -7757,3 +7757,9 @@ footer.bg-gray-lighter{
     border-color: #0d2123;
     min-width: 100px !important;
 }
+.vert-center{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
