@@ -7775,7 +7775,7 @@ footer.bg-gray-lighter{
 @media only screen and (max-width: 600px) {
     .container {
        
-        padding: 0px  !important;
+        padding: 0px 15px  !important;
     }
     body {
       
@@ -7833,14 +7833,74 @@ footer.bg-gray-lighter{
         font-weight: normal;
         letter-spacing: 1px;
     }
+    
+    .home-section-banner{
+        height: 400px !important;
+    }
+    .home-section-banner .bg-video{
+        height: 400px !important;
+    }
+    .home-section-banner .js-height-full{
+        height: 400px !important;
+    }
+    .home-section-banner .js-height-full .home-content .home-text.pt-450 {
+        padding-top:70px !important;
+    }
+    .home-section-banner .js-height-full .home-content .home-text .hs-line-8 {
+        font-size: 12px !important;
+        letter-spacing: normal;
+        margin-bottom: 15px !important;
+    }
+    .home-section-banner .js-height-full .home-content .home-text .banner-heading {
+        font-size: 30px !important;
+        line-height: 1.5em  !important;
+        text-align: center;
+        color: #fffef8 !important;
+        letter-spacing: 0.1em !important;
+    }
+    .home-section-banner .js-height-full .home-content .home-text .btn {
+        font-size: 12px !important;
+        height: auto !important;
+        opacity: 1 !important;
+        font-weight: normal !important;
+    }
     .page-section{
-        padding:30px 0px !important;
+        padding:20px 0px !important;
     }
-    .section-title {
-        font-size: 20px !important;
+    
+   
+    
+    .page-section .section-title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px !important;
+        color:#cf8e1b !important
     }
-    .section-text p {
+    .page-section .section-title.align-left{
+        justify-content: flex-start;
+    }
+    .page-section .section-text p {
         font-size: 14px !important;
         line-height: 1.6em !important;
+        color: #000 !important;
+    }
+    .page-section .section-title .section-more{
+        font-size: 12px !important;
+        margin-top: 0px !important;
+        margin-left: auto !important;
+        color: #000;
+        font-weight: normal;
+        font-family: 'Montserrat';
+        letter-spacing: normal !important;
+    }
+    .page-section .tpl-alt-tabs{
+        display: block !important;
+        white-space: nowrap  !important;
+        overflow: auto !important;
+    }
+    .page-section .tpl-alt-tabs li{
+        width:300px !important;
+        white-space: break-spaces;
     }
 }
