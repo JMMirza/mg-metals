@@ -5,9 +5,12 @@
 
     <section class="page-section pt-5" id="about">
         <div class="container relative">
-            <div class="section-text mb-40 mb-sm-20">
-                <h2 class="dark font-alt">My Orders</h2>
-                <table class="table table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
+            <div class="card mt-30 mb-30">
+                <div class="card-header">
+                    <h5 class="card-title flex-grow-1 mb-0">My Orders</h5>
+                </div>
+                <div class="card-body">
+                <table class="table table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
                     <thead>
                         <tr>
                             <th>Order ID</th>
@@ -47,6 +50,7 @@
 
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </section>

@@ -578,6 +578,7 @@ strong {
     margin: 1em 0 2em 0;
     font-size: 140%;
     line-height: 1.6;
+    color: #000;
 }
 .text {
     font-size: 16px;
@@ -6967,8 +6968,14 @@ section:hover .small-item-carousel .owl-next {
 .form-card .card-body .form-group .form-control {
     padding: 10px;
     font-size: 12px;
-    border-radius: 4px !important;
+    border-radius: 0px !important;
     color: #000;
+}
+.form-label {
+    font-size: 14px;
+    color: #444;
+    font-weight: 500 !important;
+    margin-bottom: 10px;
 }
 .form-card .card-body .form-label {
     font-size: 14px;
@@ -7612,13 +7619,12 @@ section:hover .small-item-carousel .owl-next {
     text-transform: capitalize;
 }
 .form-control{
-    border-width: 0px 0px 0px 0px;
-    border-color: rgb(13, 33, 35);
-    border-radius: 0px;
+
     background: #fff;
     font-size: 14px;
     color: rgb(13, 33, 35);
     padding: 14px 11px;
+    border-radius: 0px !important;
 }
 
 .invalid-feedback strong{
@@ -7674,6 +7680,10 @@ footer.bg-gray-lighter{
     margin-bottom: 10px !important;
     color: #000;
 }
+#customer_products_store p *{
+    background: transparent !important;
+    font-family: 'Montserrat', sans-serif;
+}
 .delivery_form{
     display: flex;
     justify-content: center;
@@ -7688,4 +7698,68 @@ footer.bg-gray-lighter{
 }
 .delivery_form form .form-control{
     border-width: 1px !important;
+}
+.card .card-header{
+    border-color:#efefef;
+    background-color: #fff;
+    margin:0px 15px;
+    padding: 15px 0px;;
+    color: #0D2123;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card .card-header .card-title{
+    color: #0D2123;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.badge{
+    border-radius: 4px;
+    font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px !important;
+}
+.bg-info {
+    background-color: #297ad3 !important;
+}
+.bg-warning{
+    background-color:#e98d07 !important;
+}
+.card .card-body p{
+    margin-bottom: 10px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+.card .card-body p *{
+    background:transparent  !important;
+
+}
+.card .card-body table tr *{
+    text-align: left  !important;
+
+}
+.btn-custom{
+    border-radius: 0px;;
+    color: #fff;
+    background-color: #bf8a00;
+    border-color:#bf8a00;
+    min-width: 100px !important;
+}
+.btn-custom:hover{
+    color: #fff !important;
+}
+.btn-default{
+    border-radius: 0px;;
+    color: #0d2123;
+    background-color: transparent;
+    border-color: #0d2123;
+    min-width: 100px !important;
+}
+.vert-center{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

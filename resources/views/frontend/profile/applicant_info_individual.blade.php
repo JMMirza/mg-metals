@@ -1,4 +1,4 @@
-<div class="card card-default form-card">
+<div class="card card-default ">
     <div class="card-header">
         {{ __('individual.SECTION 1') }} <span>{{ __('individual.APPLICANT INFORMATION (INDIVIDUAL)') }}
         </span>
@@ -28,13 +28,13 @@
                 <label class="form-label">{{ __('individual.gender') }}
                     *</label>
                 <div class="form-group ht-70">
-                    <label class="radio-inline mr-3 @if ($errors->has('gender')) is-invalid @endif">
+                    <label class="radio-inline mr-3 me-3 @if ($errors->has('gender')) is-invalid @endif">
                         <input type="radio" name="gender" value="male"
                         @if ($customer->gender) @if ($customer->gender == 'male') checked @endif @else
                             @if (old('gender') == 'male') checked @endif @endif>
                         <span></span>{{ __('individual.MALE') }}
                     </label>
-                    <label class="radio-inline mr-3 ">
+                    <label class="radio-inline mr-3 me-3 ">
                         <input type="radio" name="gender" value="female"
                         @if ($customer->gender) @if ($customer->gender == 'female') checked @endif @else
                             @if (old('gender') == 'female') checked @endif @endif>
@@ -152,9 +152,9 @@
                 </div>
             @else
                 {{-- <button class="btn btn-default" type="reset"></button> --}}
-                <div class="footer text-end" style="display: block;">
+                <div class="footer mt-20 text-end" style="display: block;">
                     <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
-                    <button class="btn btn-custom" type="submit" id="next">{{ __('home_page.save') }}</button>
+                    <button class="btn btn-custom ml-3 ms-3" type="submit" id="next">{{ __('home_page.save') }}</button>
                 </div>
             @endif
         </form>

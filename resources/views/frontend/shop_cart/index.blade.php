@@ -116,10 +116,10 @@
                                     <div id="payment_description"></div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-10">
                                 {{-- </form> --}}
                                 <div class="col-md-12 pt-4 text-end">
-                                    <div class="lead mt-0 mb-30">
+                                    <div class="lead mt-0 mb-10">
                                         Order Total:
                                         <span id="total_price_usd"><strong>USD {{ $total_price }}</strong></span>
                                         <span id="total_price_hkd" style="display: none"><strong>HKD
@@ -145,9 +145,9 @@
                             </div>
                         @endif
                     </div>
-                </form>
             </div>
-
+        </div>
+        </form>
         </div>
     </section>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -355,17 +355,19 @@
                         $('#payment_description').html(data.method.description);
                         if (method.toLowerCase() != 'credit card') {
                             document.getElementById('total_price_usd').style.display = "none";
-                            document.getElementById('total_price_hkd').style.display = "block";
+                            document.getElementById('total_price_hkd').style.display =
+                                "inline-block";
                             $('.spot_price_usd').css("display", "none");
-                            $('.spot_price_hkd').css("display", "block");
+                            $('.spot_price_hkd').css("display", "inline-block");
                             $('.price_usd').css("display", "none");
-                            $('.price_hkd').css("display", "block");
+                            $('.price_hkd').css("display", "inline-block");
                         } else {
-                            document.getElementById('total_price_usd').style.display = "block";
+                            document.getElementById('total_price_usd').style.display =
+                                "inline-block";
                             document.getElementById('total_price_hkd').style.display = "none";
-                            $('.spot_price_usd').css("display", "block");
+                            $('.spot_price_usd').css("display", "inline-block");
                             $('.spot_price_hkd').css("display", "none");
-                            $('.price_usd').css("display", "block");
+                            $('.price_usd').css("display", "inline-block");
                             $('.price_hkd').css("display", "none");
                         }
                     },

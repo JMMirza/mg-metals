@@ -1,4 +1,4 @@
-<div class="card card-default form-card">
+<div class="card card-default">
     <div class="card-header">
         {{ __('shareholder.SECTION 2B') }} <span>{{ __('shareholder.SHAREHOLDER/DIRECTOR INFORMATION') }}</span>
     </div>

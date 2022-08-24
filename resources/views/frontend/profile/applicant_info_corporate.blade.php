@@ -1,4 +1,4 @@
- <div class="card card-default form-card">
+ <div class="card card-default ">
      <div class="card-header">
          {{ __('corporate.SECTION 2A') }} <span>{{ __('corporate.APPLICANT INFORMATION (CORPORATE)') }}
          </span>
@@ -235,12 +235,12 @@
                  </div>
                  {{-- </div> --}}
              </div>
-             <div class="footer">
+             <div class="footer mt-20">
                  <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=individual' }}"
                      class="btn btn-custom">{{ __('home_page.previous') }}</a>
                  <div class="ml-auto">
                      <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
-                     <button class="btn btn-custom" type="submit">{{ __('home_page.next') }}</button>
+                     <button class="btn btn-custom ml-3 ms-3" type="submit">{{ __('home_page.next') }}</button>
                  </div>
              </div>
          </form>

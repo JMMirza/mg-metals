@@ -1,4 +1,4 @@
-<div class="card card-default form-card">
+<div class="card card-default ">
     <div class="card-header">
         {{ __('other_info.SECTION 3') }}<span>{{ __('other_info.OTHER INFORMATION') }} </span>
     </div>

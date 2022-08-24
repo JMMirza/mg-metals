@@ -5,7 +5,7 @@
 
     <section class="page-section">
         <div class="container">
-            <div class="card">
+            <div class="card mt-30 mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order #{{ $order->id }}</h5>
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Delivery Information</h5>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="card">
+            {{-- <div class="card mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order Commission</h5>

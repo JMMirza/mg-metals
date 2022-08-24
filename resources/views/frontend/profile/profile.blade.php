@@ -7,7 +7,7 @@
 
     <div class="main-content">
         <div class="page-content">
-            <div class="container center-aligned">
+            <div class="container center-aligned mt-5">
                 <div class="row">
                     @if (\Auth::user()->customer_type == 'corporate')
                         <div class="col-md-3">
