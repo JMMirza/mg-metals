@@ -7,6 +7,7 @@ use App\Models\PaymentMethod;
 use App\Models\Product;
 use App\Models\Setup;
 use App\Models\ShopCart;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ShopCartController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        $cart = ShopCart::where(['user_id' => $user->id, 'status' => 'pending'])->latest()->get();
+        $cart = ShopCart::where(['user_id' => $user->id, 'status' => 'pending'])->get();
         $total_price = 0;
         foreach ($cart as $key => $value) {
             $total_price = $value->total_price + $total_price;
@@ -120,5 +121,12 @@ class ShopCartController extends Controller
         } catch (QueryException $e) {
             print_r($e->errorInfo);
         }
+    }
+
+    public function delete_shop_carts($id)
+    {
+        $user = User::findOrFail($id);
+        ShopCart::where('user_id', $user->id)->delete();
+        return ['success', 'Records deleted'];
     }
 }

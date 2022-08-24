@@ -309,7 +309,7 @@ class HomeController extends Controller
         $order_quantity = 0;
         $customer = Customer::where('user_id', $user->id)->first();
         if ($customer) {
-            $orders = Order::where('customer_id', $customer->id)->with(['order_products.product'])->get();
+            $orders = Order::where('customer_id', $customer->id)->with(['order_products.product'])->latest();
             foreach ($orders as $key => $order) {
                 $order_price = OrderProduct::where('order_id', $order->id)->sum('total_price');
                 $order_quantity = OrderProduct::where('order_id', $order->id)->sum('quantity');

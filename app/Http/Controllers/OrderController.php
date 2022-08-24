@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\PaymentMethod;
 use App\Models\Setup;
+use App\Models\User;
+use App\Notifications\OrderConfirmed;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Facades\Notification;
 
 class OrderController extends Controller
 {
@@ -161,10 +165,13 @@ class OrderController extends Controller
     public function change_payment_status($id)
     {
         $order = Order::findOrFail($id);
-
+        $customer = Customer::findOrFail($order->customer_id);
+        $user = User::findOrFail($customer->user_id);
         if ($order) {
             $order->payment_status = 'PAID';
+            $order->order_status = 'CONFIRMED';
             $order->save();
+            Notification::send($user, new OrderConfirmed);
             return ['success' => 'PAYMENT STATUS UPDATED SUCCESSFULLY'];
         }
         return ['error' => 'NO ORDER FOUND'];

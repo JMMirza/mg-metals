@@ -116,4 +116,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('get-terms-and-condition/{method}/{id}', [OrderController::class, 'get_terms_and_conditions'])->name('get-terms-and-condition');
     Route::get('change-payment-status/{id}', [OrderController::class, 'change_payment_status'])->name('change-payment-status');
     Route::get('get-customer-order-details/{id}', [OrderController::class, 'customer_order_details'])->name('get-customer-order-details');
+    Route::get('remove-shop-cart/{id}', [ShopCartController::class, 'delete_shop_carts'])->name('remove-shop-cart');
 });

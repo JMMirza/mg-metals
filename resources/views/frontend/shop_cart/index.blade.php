@@ -9,7 +9,7 @@
                     class="form">
                     @csrf
                     <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
-                        <div class="time-block">
+                        <div class="time-block" id="time_block" style="display: none">
                             <div class="Timer"> </div>
                         </div>
                         <div class="table-responsive">
@@ -26,6 +26,7 @@
                                     </th>
                                 </tr>
                                 @forelse ($carts as $cart)
+                                    <input type="hidden" id="created_at" value="{{ $cart->created_at }}">
                                     <input type="text" id="cart_ids" name="cart_ids[]" value="{{ $cart->id }}"
                                         hidden>
                                     <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id"
@@ -119,10 +120,11 @@
                                 {{-- </form> --}}
                                 <div class="col-md-12 pt-4 text-end">
                                     <div class="lead mt-0 mb-30">
-                                        Order Total: <span id="total_price_usd"><strong>USD {{ $total_price }}
-                                            </strong></span><span id="total_price_hkd" style="display: none"><strong>HKD
+                                        Order Total:
+                                        <span id="total_price_usd"><strong>USD {{ $total_price }}</strong></span>
+                                        <span id="total_price_hkd" style="display: none"><strong>HKD
                                                 {{ number_format($total_price * $hkd_price, 2) }}
-                                            </strong></span>
+                                            </strong> <br><strong>USD {{ $total_price }}</strong></span>
                                     </div>
                                     <div>
                                         <div class="mb-10">
@@ -214,47 +216,6 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- <div aria-labelledby="swal2-title" aria-describedby="swal2-html-container"
-                        class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive"
-                        aria-modal="true" style="display: grid;"><button type="button" class="swal2-close"
-                            aria-label="Close this dialog" style="display: flex;">×</button>
-                        <ul class="swal2-progress-steps" style="display: none;"></ul>
-                        <div class="swal2-icon" style="display: none;"></div><img class="swal2-image"
-                            style="display: none;">
-                        <h2 class="swal2-title" id="swal2-title" style="display: none;"></h2>
-                        <div class="swal2-html-container" id="swal2-html-container" style="display: block;">
-                            <div class="mt-3">
-                                <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop"
-                                    colors="primary:#0ab39c,secondary:#405189" style="width:120px;height:120px">
-                                </lord-icon>
-                                <div class="mt-4 pt-2 fs-15">
-                                    <h4>Well done !</h4>
-                                    <p class="text-muted mx-4 mb-0">Aww yeah, you successfully read this important message.
-                                    </p>
-                                </div>
-                            </div>
-                        </div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file"
-                            style="display: none;">
-                        <div class="swal2-range" style="display: none;"><input type="range"><output></output></div>
-                        <select class="swal2-select" style="display: none;"></select>
-                        <div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox"
-                            class="swal2-checkbox" style="display: none;"><input type="checkbox"><span
-                                class="swal2-label"></span></label>
-                        <textarea class="swal2-textarea" style="display: none;"></textarea>
-                        <div class="swal2-validation-message" id="swal2-validation-message" style="display: none;"></div>
-                        <div class="swal2-actions" style="display: flex;">
-                            <div class="swal2-loader"></div><button type="button" class="swal2-confirm" aria-label=""
-                                style="display: none;">OK</button><button type="button" class="swal2-deny"
-                                aria-label="" style="display: none;">No</button><button type="button"
-                                class="swal2-cancel btn btn-primary w-xs mb-1" aria-label=""
-                                style="display: inline-block;">Back</button>
-                        </div>
-                        <div class="swal2-footer" style="display: none;"></div>
-                        <div class="swal2-timer-progress-bar-container">
-                            <div class="swal2-timer-progress-bar" style="display: none;"></div>
-                        </div>
-                    </div> --}}
                 </div>
                 <input type="hidden" value="" id="url">
                 <div class="modal-footer">
@@ -268,6 +229,7 @@
     </div>
 @endsection
 @push('frontend.layouts.footer_scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var method;
@@ -281,36 +243,46 @@
                 }
             })
 
-            var countDownDate = new Date().getTime() + 15 * 60 * 1000;
+            if ($('#created_at').val() != undefined) {
+                console.log($('#created_at').val());
+                document.getElementById('time_block').style.display = "flex";
+                var countDownDate = moment.utc($('#created_at').val()).add(15, 'minutes');
+                let user_id = $('#user_id').val();
+                var x = setInterval(function() {
 
-            // Update the count down every 1 second
-            var x = setInterval(function() {
+                    var now = moment();
+                    var minutes = countDownDate.diff(now, 'minutes');
+                    var seconds = countDownDate.diff(now, 'seconds');
 
-                // Get today's date and time
-                var now = new Date().getTime();
+                    var time_format = countDownDate.diff(now, 'time');
 
-                // Find the distance between now and the count down date
-                var distance = countDownDate - now;
+                    var time = moment(time_format).format('mm:ss');
 
-                // Time calculations for hours, minutes and seconds
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    $('.Timer').text(time);
 
-                // Display the result in the element with id="demo"
-                $('.Timer').text(minutes + ":" + seconds);
-
-                // If the count down is finished, write some text
-                if (distance < 0) {
-                    clearInterval(x);
-                    $('.Timer').text("EXPIRED");
-                }
-            }, 1000);
-            // var start = new Date;
-
-            // setInterval(function() {
-            //     $('.Timer').text(new Date().getTime() + 15 * 60 * 1000 + " Seconds");
-            // }, 1000);
-
+                    if (minutes < 0 || seconds < 0) {
+                        clearInterval(x);
+                        $('.Timer').text("EXPIRED");
+                        $.ajax({
+                            url: '/remove-shop-cart/' + user_id,
+                            type: "GET",
+                            data: {
+                                "_token": "{{ csrf_token() }}",
+                            },
+                            success: function(response) {
+                                // alert('hello')
+                                console.log(response);
+                                if (response) {
+                                    location.reload();
+                                }
+                            },
+                            error: function(error) {
+                                console.log(error)
+                            }
+                        });
+                    }
+                }, 1000);
+            }
             $('#customer_products_store').on('submit', function(e) {
                 e.preventDefault();
 
@@ -321,11 +293,10 @@
 
                 let payment_method_id = $('#payment_method_id').val();
                 let delivery_method_id = $('#delivery_method_id').val();
-                let user_id = $('#user_id').val();
 
                 let currency = 'USD';
 
-                if (method == 'bank transfer') {
+                if (method != 'credit card') {
                     currency = 'HKD';
                 }
 
@@ -346,7 +317,7 @@
                         // alert('hello')
                         console.log(response);
                         if (response.url) {
-                            if (method == 'bank transfer') {
+                            if (method != 'credit card') {
                                 window.location = response.url;
                             } else {
                                 $('#exampleModalCenter').modal('show');
@@ -382,7 +353,7 @@
                         method = data.method.payment_method.toLowerCase();
                         console.log(method)
                         $('#payment_description').html(data.method.description);
-                        if (method.toLowerCase() == 'bank transfer') {
+                        if (method.toLowerCase() != 'credit card') {
                             document.getElementById('total_price_usd').style.display = "none";
                             document.getElementById('total_price_hkd').style.display = "block";
                             $('.spot_price_usd').css("display", "none");

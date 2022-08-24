@@ -11,10 +11,10 @@
                     <thead>
                         <tr>
                             <th>Order ID</th>
-                            <th>Quantity</th>
-                            <th>Delivery Method</th>
-                            <th>Total Price</th>
-                            <th>Shipping Address</th>
+                            {{-- <th>Product Title</th> --}}
+                            <th>Sales Amount</th>
+                            <th>Payment Status</th>
+                            <th>Delivery Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -22,15 +22,15 @@
                         @forelse ($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->quantity }}</td>
-                                <td>{{ isset($order->delivery_method->delivery_method) ? $order->delivery_method->delivery_method : 'N / A' }}
-                                </td>
+                                {{-- <td>{{ $order->quantity }}</td> --}}
                                 @if ($order->total_price == null)
                                     <td>USD 0 </td>
                                 @else
-                                    <td>USD {{ $order->total_price }} </td>
+                                    <td>{{ $order->total_price }} </td>
                                 @endif
-                                <td>{{ $order->shipping_address }}</td>
+                                <td>{{ $order->payment_status }}
+                                </td>
+                                <td>{{ $order->delivery_status }}</td>
 
                                 <td><a href="{{ route('get-customer-order-details', $order->id) }}"
                                         class="btn btn-sm btn-icon waves-effect waves-light">
