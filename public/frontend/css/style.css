@@ -6976,6 +6976,7 @@ section:hover .small-item-carousel .owl-next {
     color: #444;
     font-weight: 500 !important;
     margin-bottom: 10px;
+    opacity: .7;
 }
 .form-card .card-body .form-label {
     font-size: 14px;
@@ -7863,6 +7864,7 @@ footer.bg-gray-lighter{
         height: auto !important;
         opacity: 1 !important;
         font-weight: normal !important;
+        display: inline-block !important;
     }
     .page-section{
         padding:20px 0px !important;
@@ -7874,7 +7876,7 @@ footer.bg-gray-lighter{
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px !important;
+        font-size: 18px !important;
         color:#cf8e1b !important
     }
     .page-section .section-title.align-left{
@@ -7885,7 +7887,7 @@ footer.bg-gray-lighter{
         line-height: 1.6em !important;
         color: #000 !important;
     }
-    .page-section .section-title .section-more{
+    .page-section .section-more{
         font-size: 12px !important;
         margin-top: 0px !important;
         margin-left: auto !important;
@@ -7898,9 +7900,127 @@ footer.bg-gray-lighter{
         display: block !important;
         white-space: nowrap  !important;
         overflow: auto !important;
+        height: 230px;
     }
     .page-section .tpl-alt-tabs li{
-        width:300px !important;
-        white-space: break-spaces;
+        width:280px !important;
+        margin-right: 10px !important;
+    }
+    .page-section .tpl-alt-tabs li a{
+        border-radius: 6px;
+        padding: 20px 10px;
+        display: flex;
+        white-space: normal;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 14px !important;
+        background-color: #f5f5e3 !important;
+    }
+    .page-section .tpl-alt-tabs li a .alt-tabs-icon{
+        height: auto !important;
+        width: 80px !important;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .page-section .tpl-alt-tabs li a .alt-tabs-icon img{
+        height: auto !important;
+        width: 100% !important;
+        opacity: 1;
+    }
+    .page-section .tpl-alt-tabs li a  .title{
+        min-height: 70px;
+    }
+    .page-section .quote{
+        text-align: center;
+    }
+    .page-section .quote h3{
+        font-size: 20px !important;
+        color: #222 !important;
+        line-height: 30px !important;
+        margin-top: 20px;
+    }
+    .interested-in .banner-heading{
+        font-size: 18px !important;
+    }
+    .interested-in .banner-decription{
+        font-size: 14px !important;
+        margin-bottom: 20px !important;
+    }
+    .interested-in .card{
+        margin-top: 20px;
+        padding:0px !important;
+    }
+    .interested-in .card .card-body h3{
+        font-size: 18px !important;
+        margin-bottom: 10px !important;
+    }
+    .interested-in .card .card-body p{
+        font-size: 14px !important;
+    }
+    .alt-features-item .alt-features-descr{
+        text-align: center !important;
+        padding:0px !important;
+    }
+    .alt-features-item .alt-features-descr .heading {
+        margin:0px auto 10px !important;
+    }
+    .alt-features-item .alt-features-descr p{
+        color: #222 !important;
+        line-height: 20px !important;
+        font-size: 14px !important;
+    }
+    .testimonial{
+        padding:10px 15px 20px !important
+    }
+    .testimonial .font-alt{
+        font-size: 18px !important;
+        letter-spacing: .3em !important;
+    }
+    .testimonial p {
+        font-size: 14px !important;
+        line-height: 1.3em !important;
+        text-align: center !important;
+    }
+    .testimonial .testimonial-author{
+        text-align: center !important;
+        font-size: 12px !important;
+    }
+    .testimonial .section-icon{
+        text-align: center !important;
+    }
+    .testimonial .section-icon .icon-quote{
+        margin:20px auto !important;
+    }
+    .home-shop-web{
+        display: none !important;
+    }
+    .contact-footer{
+        padding-top: 0px !important;
+
+    }
+    .contact-item{
+        padding-left: 0px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+    .contact-item .ci-icon{
+        width: 30px !important;
+        height: 30px !important;
+        position: relative !important;
+        top: 0px !important;
+        left: auto  !important;
+        margin-bottom: 10px !important;
+    }
+    .contact-item .ci-title{
+        margin-bottom: 0px !important;
+    }
+    .contact-item .ci-text {
+        font-size: 14px !important;
+        line-height: 18px !important;
     }
 }
