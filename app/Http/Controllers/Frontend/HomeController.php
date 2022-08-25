@@ -16,10 +16,12 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\ProductCommission;
 use App\Models\UserVerify;
+use App\Notifications\AccountVerified;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -199,6 +201,7 @@ class HomeController extends Controller
             $user->is_email_verified = 1;
             $user->email_verified_at = Carbon::now();
             $user->save();
+            Notification::send($user, new AccountVerified);
             auth()->login($user);
             return redirect(route('customer_profile'))
                 ->with('success', 'Account created successfully.');

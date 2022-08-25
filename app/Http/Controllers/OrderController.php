@@ -9,6 +9,7 @@ use App\Models\PaymentMethod;
 use App\Models\Setup;
 use App\Models\User;
 use App\Notifications\OrderConfirmed;
+use App\Notifications\PaymentRecevied;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Notification;
@@ -172,6 +173,7 @@ class OrderController extends Controller
             $order->order_status = 'CONFIRMED';
             $order->save();
             Notification::send($user, new OrderConfirmed);
+            Notification::send($user, new PaymentRecevied);
             return ['success' => 'PAYMENT STATUS UPDATED SUCCESSFULLY'];
         }
         return ['error' => 'NO ORDER FOUND'];

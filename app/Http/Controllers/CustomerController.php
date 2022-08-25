@@ -6,11 +6,13 @@ use App\Models\Customer;
 use App\Models\Nationality;
 use App\Models\User;
 use App\Models\UserVerify;
+use App\Notifications\AccountActivated;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use NextApps\VerificationCode\Models\VerificationCode;
 
@@ -262,6 +264,7 @@ class CustomerController extends Controller
             if ($user->is_verified == 0) {
                 $user->is_verified = 1;
                 $user->save();
+                Notification::send($user, new AccountActivated);
                 return true;
             } else {
                 $user->is_verified = 0;
