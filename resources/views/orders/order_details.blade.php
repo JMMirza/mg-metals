@@ -413,10 +413,11 @@
                 </div>
             </div> --}}
             <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
+                <div class="card-header row">
+                    <h5 class="card-title mb-0 col-md-6"><i class="ri-map-pin-line align-middle me-1 text-muted"></i>
+                        Delivery
                         Information</h5>
-                    <span class="badge bg-info p-2">Delivery Status:
+                    <span class="badge bg-info p-2 col-md-6">Delivery Status:
                         {{ $order->delivery_status }}</span>
                 </div>
                 <div class="card-body">
