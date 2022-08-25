@@ -243,11 +243,11 @@
                 }
             })
 
+            let user_id = $('#user_id').val();
             if ($('#created_at').val() != undefined) {
                 console.log($('#created_at').val());
                 document.getElementById('time_block').style.display = "flex";
                 var countDownDate = moment.utc($('#created_at').val()).add(15, 'minutes');
-                let user_id = $('#user_id').val();
                 var x = setInterval(function() {
 
                     var now = moment();
