@@ -1715,12 +1715,11 @@ a.logo:hover {
 .small-height .inner-nav ul li a:hover {
     color: #000 !important;
 }
-.small-height .inner-nav ul li form {
-    height: 70px !important;
-    line-height: 70px !important;
+
+
+.ml-auto{
+    margin-left:auto !important;
 }
-
-
 .inner-nav {
     display: inline-block;
     position: relative;
@@ -7114,7 +7113,7 @@ section:hover .small-item-carousel .owl-next {
     width: 100% !important;
 }
 .left-nav-pills .nav-tabs .nav-item .nav-link {
-    height: 50px !important;
+    min-height: 50px !important;
     display: flex;
     align-items: center;
     padding: 5px 10px;
@@ -7710,6 +7709,10 @@ footer.bg-gray-lighter{
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
 }
+.card .card-header span{
+    display: inline-block;
+    margin-left: 10px;
+}
 
 .card .card-header .card-title{
     color: #0D2123;
@@ -7744,12 +7747,14 @@ footer.bg-gray-lighter{
 .btn-custom{
     border-radius: 0px;;
     color: #fff;
-    background-color: #bf8a00;
-    border-color:#bf8a00;
+    background-color: #bf8a00 !important;
+    border-color:#bf8a00 !important;
     min-width: 100px !important;
+
 }
 .btn-custom:hover{
     color: #fff !important;
+    text-decoration: none !important;
 }
 .btn-default{
     border-radius: 0px;;

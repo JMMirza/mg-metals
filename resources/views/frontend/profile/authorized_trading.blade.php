@@ -64,7 +64,7 @@
                 </div>
                 {{-- </div> --}}
             </div>
-            <div class="footer">
+            <div class="footer d-flex">
                 <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=shareholder' }}"
                     class="btn btn-custom">{{ __('home_page.previous') }}</a>
                 <div class="ml-auto">
