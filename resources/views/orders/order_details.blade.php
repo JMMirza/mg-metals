@@ -221,6 +221,10 @@
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}
                                             </p>
                                         @endif
+                                        <h6 class="mb-1">Staff has confirmed your order.</h6>
+                                        <p class="text-muted mb-0">
+                                            {{ $order->updated_at->format('D, M d, Y - h:m A') }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
