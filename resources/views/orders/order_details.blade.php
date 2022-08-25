@@ -80,7 +80,49 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex">
+                        <h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0 vstack gap-3">
+                        <li>
+                            <span class="d-flex align-items-center">
+                                <img class="rounded-circle header-profile-user"
+                                    src="{{ asset('theme/dist/default/assets/images/users/user-dummy-img.jpg') }}"
+                                    alt="Header Avatar">
+                                <span class="text-start ms-xl-2">
+                                    <h6 class="fs-14 mb-1">{{ $order->customer->full_name }}</h6>
+                                    <p class="text-muted mb-0">Customer</p>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="d-flex align-items-center">
+                                <i class="ri-mail-line me-2 align-middle text-muted fs-16"></i>
+                                <span class="text-start ms-xl-2">
+                                    {{ $order->customer->user->email }}
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="d-flex align-items-center">
+                                <i class="ri-phone-line me-2 align-middle text-muted fs-16"></i>
+                                <span class="text-start ms-xl-2">
+                                    {{ $order->phone_number }}
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
@@ -317,48 +359,30 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="col-xl-3">
             <div class="card">
                 <div class="card-header">
-                    <div class="d-flex">
-                        <h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
-                    </div>
+                    <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
+                        Information</h5>
+                    <span class="badge bg-info p-2">Delivery Status:
+                        {{ $order->delivery_status }}</span>
                 </div>
                 <div class="card-body">
-                    <ul class="list-unstyled mb-0 vstack gap-3">
-                        <li>
-                            <span class="d-flex align-items-center">
-                                <img class="rounded-circle header-profile-user"
-                                    src="{{ asset('theme/dist/default/assets/images/users/user-dummy-img.jpg') }}"
-                                    alt="Header Avatar">
-                                <span class="text-start ms-xl-2">
-                                    <h6 class="fs-14 mb-1">{{ $order->customer->full_name }}</h6>
-                                    <p class="text-muted mb-0">Customer</p>
-                                </span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="d-flex align-items-center">
-                                <i class="ri-mail-line me-2 align-middle text-muted fs-16"></i>
-                                <span class="text-start ms-xl-2">
-                                    {{ $order->customer->user->email }}
-                                </span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="d-flex align-items-center">
-                                <i class="ri-phone-line me-2 align-middle text-muted fs-16"></i>
-                                <span class="text-start ms-xl-2">
-                                    {{ $order->phone_number }}
-                                </span>
-                            </span>
-                        </li>
+                    <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
+                        <li>Delivery Method - {{ $order->delivery_method->delivery_method }}</li>
+                        <li class="fw-medium fs-14">{{ $order->shipping_address }}</li>
+                        <li>{{ $order->full_name }}</li>
+                        <li>{{ $order->phone_number }}</li>
+                        <li>{{ $order->email }}</li>
+                        <li>{{ $order->city }}-{{ $order->zip_code }}</li>
+                        <li>{{ $order->country }}</li>
+                        <li>Due Date - {{ $order->delivery_due_date }}</li>
                     </ul>
                 </div>
             </div>
-            {{-- <div class="card">
+        </div>
+        {{-- <div class="col-xl-3"> --}}
+
+        {{-- <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0"><i class="ri-secure-payment-line align-bottom me-1 text-muted"></i>
                         Payment Details</h5>
@@ -412,28 +436,8 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="card">
-                <div class="card-header row">
-                    <h5 class="card-title mb-0 col-md-6"><i class="ri-map-pin-line align-middle me-1 text-muted"></i>
-                        Delivery
-                        Information</h5>
-                    <span class="badge bg-info p-2 col-md-6">Delivery Status:
-                        {{ $order->delivery_status }}</span>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
-                        <li>Delivery Method - {{ $order->delivery_method->delivery_method }}</li>
-                        <li class="fw-medium fs-14">{{ $order->shipping_address }}</li>
-                        <li>{{ $order->full_name }}</li>
-                        <li>{{ $order->phone_number }}</li>
-                        <li>{{ $order->email }}</li>
-                        <li>{{ $order->city }}-{{ $order->zip_code }}</li>
-                        <li>{{ $order->country }}</li>
-                        <li>Due Date - {{ $order->delivery_due_date }}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+        {{-- </div> --}}
     </div>
 @endsection
 
