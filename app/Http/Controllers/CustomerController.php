@@ -42,7 +42,7 @@ class CustomerController extends Controller
                     }
                 })
                 ->addColumn('email_verified', function ($row) {
-                    if ($row->user->email_verified_at == 0) {
+                    if ($row->user->is_email_verified == 0) {
                         return '<span class="badge bg-danger">UnVerified</span>';
                     } else {
                         return '<span class="badge bg-info">Verified</span>';

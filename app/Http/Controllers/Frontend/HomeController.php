@@ -197,6 +197,7 @@ class HomeController extends Controller
 
         if ($verified == true) {
             $user->is_email_verified = 1;
+            $user->email_verified_at = Carbon::now();
             $user->save();
             auth()->login($user);
             return redirect(route('customer_profile'))
