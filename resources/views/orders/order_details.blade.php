@@ -373,14 +373,46 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
-                        <li>Delivery Method - {{ $order->delivery_method->delivery_method }}</li>
-                        <li class="fw-medium fs-14">{{ $order->shipping_address }}</li>
-                        <li>{{ $order->full_name }}</li>
-                        <li>{{ $order->phone_number }}</li>
-                        <li>{{ $order->email }}</li>
-                        <li>{{ $order->city }}-{{ $order->zip_code }}</li>
-                        <li>{{ $order->country }}</li>
-                        <li>Due Date - {{ $order->delivery_due_date }}</li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Method - <span
+                                    class="fw-normal">{{ $order->delivery_method->delivery_method }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Address - <span
+                                    class="fw-medium fs-14">{{ $order->shipping_address }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Name - <span
+                                    class="fw-normal">{{ $order->full_name }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Mobile Number - <span
+                                    class="fw-normal">{{ $order->phone_number }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Email - <span
+                                    class="fw-normal">{{ $order->email }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> City - <span
+                                    class="fw-normal">{{ $order->city }}-{{ $order->zip_code }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Country - <span
+                                    class="fw-normal">{{ $order->country }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Due Date - <span
+                                    class="fw-normal">{{ $order->delivery_due_date }}</span>
+                            </h6>
+                        </li>
                     </ul>
                 </div>
             </div>
