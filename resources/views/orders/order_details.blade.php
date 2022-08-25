@@ -361,10 +361,15 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
-                        Information</h5>
-                    <span class="badge bg-info p-2">Delivery Status:
-                        {{ $order->delivery_status }}</span>
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0"><i
+                                class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
+                            Information</h5>
+                        <div class="flex-shrink-0">
+                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
+                                {{ $order->delivery_status }}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
