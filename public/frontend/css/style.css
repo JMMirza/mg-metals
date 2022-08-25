@@ -6971,17 +6971,18 @@ section:hover .small-item-carousel .owl-next {
     color: #000;
 }
 .form-label {
-    font-size: 14px;
+    font-size: 12px;
     color: #444;
     font-weight: 500 !important;
     margin-bottom: 10px;
     opacity: .7;
 }
 .form-card .card-body .form-label {
-    font-size: 14px;
+    font-size: 12px;
     color: #444;
-    font-weight: bold !important;
-    margin-bottom: 15px;
+    font-weight: 500 !important;
+    margin-bottom: 10px;
+    opacity: .7;
 }
 .form-card .card-body .form-group a {
     font-size: 12px !important;
@@ -6992,6 +6993,16 @@ section:hover .small-item-carousel .owl-next {
     display: inline-flex;
     align-items: center;
     margin-right: 20px;
+}
+.radio-inline{
+    margin-right: 20px;
+    font-size: 12px;
+    color: #6a6a6a;
+    display: inline-flex;
+    align-items: center;
+}
+.radio-inline input{
+    margin-right: 5px;
 }
 .form-card .card-body .form-group .radio-inline.align-top {
     align-items: flex-start;
@@ -7120,9 +7131,12 @@ section:hover .small-item-carousel .owl-next {
 
     width: 100%;
     border-bottom: 1px solid #dedede !important;
+    letter-spacing: normal !important;
 }
 .left-nav-pills .nav-tabs .nav-item:last-child .nav-link {
     border-bottom: none !important;
+    font-size: 12px;
+    letter-spacing: normal !important;
 }
 .left-nav-pills .nav-tabs .nav-item .nav-link:hover {
     background: #dedede !important;
@@ -7623,7 +7637,7 @@ section:hover .small-item-carousel .owl-next {
     background: #fff;
     font-size: 14px;
     color: rgb(13, 33, 35);
-    padding: 14px 11px;
+    padding: 10px;
     border-radius: 0px !important;
 }
 
@@ -7746,7 +7760,7 @@ footer.bg-gray-lighter{
 }
 .btn-custom{
     border-radius: 0px;;
-    color: #fff;
+    color: #fff !important;
     background-color: #bf8a00 !important;
     border-color:#bf8a00 !important;
     min-width: 100px !important;
@@ -7754,7 +7768,7 @@ footer.bg-gray-lighter{
 }
 .btn-custom:hover{
     color: #fff !important;
-    text-decoration: none !important;
+    text-decoration: none !important ;
 }
 .btn-default{
     border-radius: 0px;;

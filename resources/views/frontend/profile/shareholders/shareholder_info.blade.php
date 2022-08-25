@@ -92,7 +92,7 @@
                 {{-- </div> --}}
             </div>
 
-            <div class="footer">
+            <div class="footer d-flex mt-20">
                 <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=corporate' }}"
                     class="btn btn-custom">{{ __('home_page.previous') }}</a>
                 <div class="ml-auto">
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </form>
-        <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
+        <table class="table table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
             <thead>
                 <tr>
                     <th>{{ __('shareholder.full_name') }}</th>

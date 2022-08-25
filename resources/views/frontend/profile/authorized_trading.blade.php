@@ -77,7 +77,7 @@
             </div>
         </form>
 
-        <table class="table table-bordered table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
+        <table class="table table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
             <thead>
                 <tr>
                     {{-- <th>ID</th> --}}

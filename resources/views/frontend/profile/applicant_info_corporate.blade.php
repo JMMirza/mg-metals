@@ -26,7 +26,7 @@
              </div>
 
              <div class="col-12 col-md-12 mb-3">
-                 <label class="form-label">{{ __('corporate.TYPE OR ORGANIZATION') }}</label>
+                 <label class="form-label w-100">{{ __('corporate.TYPE OR ORGANIZATION') }}</label>
                  {{-- <div class="form-group "> --}}
                  <label class="radio-inline ">
                      <input type="radio" name="type_of_organization" value="Corporation"
@@ -135,7 +135,7 @@
              </div>
 
              <div class="col-12 col-md-12 mb-3">
-                 <label class="form-label">{{ __('corporate.TYPE OF BUSINESS') }}</label>
+                 <label class="form-label w-100">{{ __('corporate.TYPE OF BUSINESS') }}</label>
                  {{-- <div class="form-group"> --}}
                  <label class="radio-inline ">
                      <input type="radio" name="type_of_business" value="Coin Dealer"
@@ -155,7 +155,7 @@
                  {{-- </div> --}}
              </div>
              <div class="col-12 col-md-12 mb-3">
-                 <label class="form-label">{{ __('corporate.JEWELLERY RETAIL') }}</label>
+                 <label class="form-label w-100">{{ __('corporate.JEWELLERY RETAIL') }}</label>
                  {{-- <div class="form-group"> --}}
                  <label class="radio-inline ">
                      <input type="radio" name="retails" value="Goldy/Precious Metal Trading"
