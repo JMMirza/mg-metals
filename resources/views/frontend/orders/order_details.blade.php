@@ -101,7 +101,7 @@
                                         {{ $order->payment_due_date == null ? 'N/A' : $order->payment_due_date }} </td>
 
                                 </tr>
-                                @if (strtolower($order->payment_method->payment_method) == 'bank transfer')
+                                @if (strtolower($order->payment_method->payment_method) != 'credit card')
                                     <tr>
                                         {!! $order->payment_method->description !!}
                                     </tr>
@@ -149,63 +149,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="card mb-30">
-                <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Order Commission</h5>
-                        <div class="flex-shrink-0">
-                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
-                                {{ $order->delivery_status }}</span>
-                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
-                                {{ $order->delivery_due_date }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive table-card">
-                        <table class="table table-nowrap align-middle table-borderless mb-0">
-                            <thead class="table-light text-muted">
-                                <tr>
-                                    <th scope="col" class="text-center">Customer ID</th>
-                                    <th scope="col" class="text-center">Customer Name</th>
-                                    <th scope="col" class="text-center">Tier Type</th>
-                                    <th scope="col" class="text-center">Product ID</th>
-                                    <th scope="col" class="text-center">Product Name</th>
-                                    <th scope="col" class="text-center">Product Tier Commission</th>
-                                    <th scope="col" class="text-center">Tier Commission</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($order->product_commissions as $commission)
-                                    <tr>
-                                        <td class="fw-medium text-center">
-                                            {{ $order->customer_id }}
-                                        </td>
-                                        <td class="fw-medium text-center">
-                                            {{ $order->customer->full_name }}
-                                        </td>
-                                        <td class="fw-medium text-center">{{ $commission->tier_type }}</td>
-                                        <td class="fw-medium text-center">{{ $commission->product_id }} </td>
-                                        <td class="fw-medium text-center">{{ $commission->product->name }}</td>
-                                        <td class="fw-medium text-center">
-                                            {{ $commission->tier_commission_percentage }} %
-                                            @if (isset($commission->commission_got_percentage))
-                                                | {{ $commission->commission_got_percentage }} %
-                                            @endif
-                                        </td>
-                                        <td class="fw-medium text-center">USD {{ $commission->tier_commission }}
-                                            @if (isset($commission->commission_got))
-                                                | USD {{ $commission->commission_got }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </section>
 @endsection
