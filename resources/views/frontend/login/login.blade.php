@@ -17,11 +17,11 @@
         <main id="main">
             @include('layouts.flash_message')
 
-            <div class="container center-aligned vert-center" >
+            <div class="container center-aligned vert-center">
 
                 <div class="row">
 
-                    <div class="col-md-12" >
+                    <div class="col-md-12">
 
                         <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0" role="tablist">
 
@@ -41,7 +41,7 @@
 
                             <div class="tab-pane fade active show" role="tabpanel" id="item-1" role="tabpanel">
                                 <div class="card card-default form-card">
-                                 
+
 
 
                                     <div class="card-body">
@@ -112,7 +112,7 @@
 
                             <div class="tab-pane fade" id="item-2" role="tabpanel">
                                 <div class="card card-default form-card">
-                                   
+
                                     <div class="card-body">
                                         <h3 class="dark playfare mb-20">Create your account</h3>
                                         <form method="POST" action="{{ route('customer-register-account') }}">
@@ -169,7 +169,7 @@
                                                 <div class="col-12 mb-3">
                                                     <label class="radio-inline mr-3">
                                                         <input type="radio" name="customer_type" value="individual"
-                                                            @if (old('customer_type') == 'individual') checked @endif>
+                                                            @if (old('customer_type') == 'individual') checked @endif checked>
                                                         <span></span>{{ __('login.individual') }}
                                                     </label>
                                                     <label class="radio-inline mr-3">

@@ -31,11 +31,13 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::with(['roles', 'permissions'])->get();
-        // dd($data->toArray());
-        //dd($data[5]->employee->user_id);
         if ($request->ajax()) {
-            $data = User::with(['roles', 'permissions'])->get();
+            $data = User::with(['roles', 'permissions'])->whereHas(
+                'roles',
+                function ($q) {
+                    $q->where('name', 'staff');
+                }
+            )->get();
 
             return Datatables::of($data)
                 ->addIndexColumn()
@@ -154,7 +156,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('staffs.profile');
+        return view('staffs.add_new_profile');
     }
 
     /**
@@ -168,25 +170,18 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required | email | unique:users',
-            'password' => 'required | min:8',
+            'password' => 'required | min:8|confirmed',
+            'customer_type' => 'required|string|max:255'
         ]);
 
         $input = $request->all();
-
-        if ($request->is_verified == 1) {
-            $input['is_verified'] = 1;
-        }
-
-        if ($request->is_verified == 0) {
-            $input['is_verified'] = 0;
-        }
 
         if ($request->password) {
             $input['password'] = bcrypt($request->password);
         }
 
-        User::create($input);
-
+        $user = User::create($input);
+        $user->attachRole('staff');
         return redirect(route('staffs.index'))->with('success', 'Staff created successfully');
     }
 
@@ -218,7 +213,7 @@ class UserController extends Controller
         ];
 
 
-        return view('staffs.profile', $data);
+        return view('staffs.edit_profile', $data);
     }
 
     /**
@@ -232,30 +227,23 @@ class UserController extends Controller
     {
         $logged_user = User::findorfail($request->user_id);
         // dd($logged_user->toArray());
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required | email | unique:users,email,' . $logged_user->id,
-            'password' => 'required | min:8',
-        ]);
-
-        $input = $request->all();
-
-        if ($request->is_verified == 1) {
-            $input['is_verified'] = 1;
-        }
-
-        if ($request->is_verified == 0) {
-            $input['is_verified'] = 0;
-        }
-
         if ($request->password) {
-            $input['password'] = bcrypt($request->password);
+            $request->validate([
+                'password' => 'required | min:8 | confirmed',
+            ]);
+            $password = bcrypt($request->password);
+            $logged_user->password = $password;
+            $logged_user->save();
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required | email | unique:users,email,' . $logged_user->id,
+            ]);
+
+            $input = $request->all();
+            $logged_user->update($input);
         }
-
-        $logged_user->update($input);
-
-
-        return redirect(route('staffs.index'))->with('success', 'Staff updated successfully');
+        return redirect(route('dashboard'))->with('success', 'Staff updated successfully');
     }
 
     public function uploadCropImage(Request $request)

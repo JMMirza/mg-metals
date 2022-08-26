@@ -11,7 +11,6 @@
                 <div class="row">
                     @if (\Auth::user()->customer_type == 'corporate')
                         <div class="col-md-3">
-
                             <div class=" left-nav-pills">
                                 <ul class="nav nav-tabs tpl-tabs animate" role="tablist">
                                     <li class="nav-item">
@@ -21,7 +20,6 @@
                                             aria-selected="true">{{ __('individual.APPLICANT INFORMATION (INDIVIDUAL)') }}
                                         </a>
                                     </li>
-
 
                                     <li class="nav-item">
                                         <a href="#item-2" aria-controls="item-2"

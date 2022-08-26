@@ -7,6 +7,17 @@
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">Update Customer</h4>
                     <div class="flex-shrink-0">
+                        @if ($user->show_referral_code == 1)
+                            <button id="hide" value="{{ $user->id }}" data-url="{{ route('show-referral-code') }}"
+                                class="btn btn-sm btn-success btn-label waves-effect waves-light"><i
+                                    class="ri-check-double-line label-icon align-middle fs-16 me-2"></i> Hide Referral
+                                Code</button>
+                        @else
+                            <button id="show" value="{{ $user->id }}" data-url="{{ route('show-referral-code') }}"
+                                class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
+                                    class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i> Show Referral
+                                Code</button>
+                        @endif
                         @if ($user->customer_type == 'corporate')
                             <button type="button" class="btn btn-sm btn-success " data-bs-toggle="modal"
                                 value="{{ $customer->id }}" id="shareholders" data-url="{{ route('load-shareholders') }}"

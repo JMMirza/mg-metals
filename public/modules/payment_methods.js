@@ -26,6 +26,7 @@ $(document).ready(function () {
             {
                 data: "description",
                 name: "description",
+                width: "35%"
             },
             {
                 data: "created_at",

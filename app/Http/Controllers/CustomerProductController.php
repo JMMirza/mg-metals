@@ -77,7 +77,7 @@ class CustomerProductController extends Controller
         $delivery_method = Setup::findOrFail($request->delivery_method_id);
 
         if ($user->is_verified == 1) {
-            if (strtolower($request->payment_method) == 'bank transfer') {
+            if (strtolower($request->payment_method) != 'credit card') {
                 $order = Order::create([
                     'customer_id' => $customer->id,
                     'delivery_method_id' => $request->delivery_method_id,

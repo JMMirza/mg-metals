@@ -89,6 +89,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources(['payment-methods' => PaymentMethodController::class]);
     Route::resources(['nationalities' => NationalityController::class]);
     Route::get('verify-user', [CustomerController::class, 'verify_user'])->name('verify-user');
+    Route::get('show-referral-code', [CustomerController::class, 'show_referral_code'])->name('show-referral-code');
 
     Route::get('customer-orders', [HomeCtrl::class, 'customer_orders'])->name('customer-orders');
     Route::get('customer-referrals', [HomeCtrl::class, 'customer_referrals'])->name('customer-referrals');

@@ -21,7 +21,7 @@
                         <thead>
                             <tr>
                                 <th>Full name</th>
-                                <th>Email</th>
+                                {{-- <th>Email</th> --}}
                                 <th>Phone Number</th>
                                 <th>User Type</th>
                                 <th>Status</th>

@@ -252,21 +252,21 @@
                                         <h6 class="mb-1">An order has been placed.</h6>
                                         <p class="text-muted">{{ $order->created_at->format('D, M d, Y - h:m A') }}</p>
 
-                                        @if ($order->payment_method != 'credit card')
-                                            <h6 class="mb-1">Staff has received your payment.</h6>
+                                        @if ($order->payment_status == 'PENDIND')
+                                            <h6 class="mb-1">Customer payment is pending</h6>
                                             <p class="text-muted">
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}
                                             </p>
                                         @else
-                                            <h6 class="mb-1">Staff has confirmed your payment.</h6>
+                                            <h6 class="mb-1">Customer payment has been received</h6>
                                             <p class="text-muted">
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}
                                             </p>
                                         @endif
-                                        <h6 class="mb-1">Staff has confirmed your order.</h6>
+                                        {{-- <h6 class="mb-1">Staff has confirmed your order.</h6>
                                         <p class="text-muted mb-0">
                                             {{ $order->updated_at->format('D, M d, Y - h:m A') }}
-                                        </p>
+                                        </p> --}}
                                     </div>
                                 </div>
                             </div>

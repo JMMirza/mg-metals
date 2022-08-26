@@ -22,10 +22,10 @@ $(document).ready(function () {
                 data: "full_name",
                 name: "full_name",
             },
-            {
-                data: "user.email",
-                name: "user.email",
-            },
+            // {
+            //     data: "user.email",
+            //     name: "user.email",
+            // },
             {
                 data: "phone_number",
                 name: "phone_number",
@@ -129,6 +129,50 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#verified", function (e) {
+        const user_id = $(this).val();
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                user_id: user_id,
+            },
+            cache: false,
+            success: function (data) {
+                // alert(data);
+                // $("#customers-data-table").DataTable().ajax.reload();
+                location.reload(true);
+            },
+            error: function () { },
+        });
+    });
+
+    $(document).on("click", "#hide", function (e) {
+        const user_id = $(this).val();
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                user_id: user_id,
+            },
+            cache: false,
+            success: function (data) {
+                // alert(data);
+                // $("#customers-data-table").DataTable().ajax.reload();
+                location.reload(true);
+            },
+            error: function () { },
+        });
+    });
+
+    $(document).on("click", "#show", function (e) {
         const user_id = $(this).val();
         var url = $(this).data("url");
         $.ajax({

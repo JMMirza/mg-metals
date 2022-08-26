@@ -7,8 +7,8 @@ return [
     'our_service' => '我們的服務',
     'contact_us' => '聯繫我們',
     'login' => '登錄',
-    'logout' => '登出',
-    'register' => '登記',
+    'logout' => '退出系統',
+    'register' => '註冊',
 
     'since_2001' => '成立於2001',
     'mg_metals' => '萬兆豐',
@@ -81,8 +81,20 @@ return [
     'Name' => '全名',
     'profile' => '帳戶',
 
-    'next' => '下一頁',
-    'previous' => '上一頁',
+    'next' => 'Next',
+    'previous' => 'Previous',
     'cancel' => 'Cancel',
     'save' => 'Save',
+    'orders' => 'ORDERS',
+    'product_commission' => 'My COMMISSION',
+    'products' => 'Products',
+    'referrals' => 'MY REFERRALS',
+    'shop_cart' => 'SHOP CART',
+    'delivery_method' => 'DELIVERY METHOD',
+    'ez_gold' => 'EZgold',
+    'coming_soon' => 'MGPay Coming Soon',
+    'notify_signup' => 'Sign up to be the first to know when we go live.',
+    'enter_email' => 'Enter your email here*',
+    'mg_pay' => 'MGPay',
+    'admin_panel' => 'Admin Panel'
 ];

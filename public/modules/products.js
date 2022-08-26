@@ -14,8 +14,8 @@ $(document).ready(function () {
         ajax: route,
         columns: [
             {
-                data: "id",
-                name: "id",
+                data: "sku",
+                name: "sku",
             },
             {
                 data: "name",

@@ -20,7 +20,7 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>SKU</th>
                                 <th>Name</th>
                                 <th>Product Type</th>
                                 <th>Status</th>
