@@ -126,46 +126,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
-                        <div class="flex-shrink-0">
-                            @if ($order->payment_status == 'UNPAID')
-                                <button id="change_payment_status" data-value="{{ $order->id }}"
-                                    class="btn btn-warning btn-sm">UN-PAID</button>
-                            @endif
-                            <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
-                                {{ $order->payment_status }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive table-card">
-                        <table class="table table-nowrap align-middle table-borderless mb-0">
-                            <thead class="table-light text-muted">
-                                <tr>
-                                    <th scope="col" class="text-center">Payment Amount</th>
-                                    <th scope="col" class="text-center">Payment Method</th>
-                                    <th scope="col" class="text-center">Payment Status</th>
-                                    <th scope="col" class="text-center">Payment Due Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td class="fw-medium text-center">USD {{ $total_price }}</td>
-                                    <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
-                                    <td class="fw-medium text-center">{{ $order->payment_status }}</td>
-                                    <td class="fw-medium text-center">
-                                        {{ $order->payment_due_date == null ? 'N/A' : $order->payment_due_date }} </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order Commission</h5>
                     </div>
                 </div>
@@ -193,7 +153,8 @@
                                         <td class="fw-medium text-center">
                                             {{ $order->customer->full_name }}
                                         </td>
-                                        <td class="fw-medium text-center">{{ $commission->tier_type }}</td>
+                                        <td class="fw-medium text-center">
+                                            {{ str_replace('_', ' ', ucwords($commission->tier_type)) }}</td>
                                         <td class="fw-medium text-center">{{ $commission->product_id }} </td>
                                         <td class="fw-medium text-center">{{ $commission->product->name }}</td>
                                         <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
@@ -215,6 +176,127 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
+                        <div class="flex-shrink-0">
+                            @if ($order->payment_status == 'UNPAID')
+                                <button id="change_payment_status" data-value="{{ $order->id }}"
+                                    class="btn btn-warning btn-sm">UN-PAID</button>
+                            @endif
+                            <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
+                                {{ $order->payment_status }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive table-card">
+                        <table class="table table-nowrap align-middle table-borderless mb-0">
+                            <thead class="table-light text-muted">
+                                <tr>
+                                    <th scope="col" class="text-center">Payment Amount</th>
+                                    <th scope="col" class="text-center">Payment Method</th>
+                                    <th scope="col" class="text-center">Payment Status</th>
+                                    <th scope="col" class="text-center">Payment Due Date</th>
+                                    <th scope="col" class="text-center">Remarks</th>
+                                    <th scope="col" class="text-center">Status Updated By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="fw-medium text-center">USD {{ $total_price }}</td>
+                                    <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
+                                    <td class="fw-medium text-center">{{ $order->payment_status }}</td>
+                                    <td class="fw-medium text-center">
+                                        {{ $order->payment_due_date == null ? 'N/A' : $order->payment_due_date }} </td>
+                                    <td class="fw-medium text-center">
+                                        {{ $order->payment_remarks == null ? 'N/A' : $order->payment_remarks }} </td>
+                                    <td class="fw-medium text-center">
+                                        {{ $order->payment_status_updated_by == null ? 'N/A' : $order->payment_status_updated_by_relation->name }}
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h5 class="card-title flex-grow-1 mb-0"><i
+                                class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
+                            Information</h5>
+                        <div class="flex-shrink-0">
+                            @if ($order->delivery_status == 'PENDING')
+                                <button id="change_delivery_status" data-value="{{ $order->id }}"
+                                    class="btn btn-warning btn-sm">PENDING</button>
+                            @endif
+                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
+                                {{ $order->delivery_status }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Method - <span
+                                    class="fw-normal">{{ ucwords($order->delivery_method->delivery_method) }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Address - <span
+                                    class="fw-medium fs-14">{{ $order->shipping_address }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Name - <span
+                                    class="fw-normal">{{ $order->full_name }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Mobile Number - <span
+                                    class="fw-normal">{{ $order->phone_number }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Email - <span
+                                    class="fw-normal">{{ $order->email }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> City - <span
+                                    class="fw-normal">{{ $order->city }}-{{ $order->zip_code }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Country - <span
+                                    class="fw-normal">{{ $order->country }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Due Date - <span
+                                    class="fw-normal">{{ $order->delivery_due_date }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Remarks - <span
+                                    class="fw-normal">{{ $order->delivery_remarks == null ? 'N/A' : ucwords($order->delivery_remarks) }}</span>
+                            </h6>
+                        </li>
+                        <li>
+                            <h6 class="fs-15 mb-0 fw-semibold"> Updated By - <span
+                                    class="fw-normal">{{ $order->delivery_status_updated_by == null ? 'N/A' : $order->delivery_status_updated_by_relation->name }}</span>
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     <div class="d-sm-flex align-items-center">
@@ -359,122 +441,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0"><i
-                                class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
-                            Information</h5>
-                        <div class="flex-shrink-0">
-                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
-                                {{ $order->delivery_status }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Method - <span
-                                    class="fw-normal">{{ $order->delivery_method->delivery_method }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Address - <span
-                                    class="fw-medium fs-14">{{ $order->shipping_address }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Name - <span
-                                    class="fw-normal">{{ $order->full_name }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Mobile Number - <span
-                                    class="fw-normal">{{ $order->phone_number }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Email - <span
-                                    class="fw-normal">{{ $order->email }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> City - <span
-                                    class="fw-normal">{{ $order->city }}-{{ $order->zip_code }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Country - <span
-                                    class="fw-normal">{{ $order->country }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Due Date - <span
-                                    class="fw-normal">{{ $order->delivery_due_date }}</span>
-                            </h6>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
-        {{-- <div class="col-xl-3"> --}}
-
-        {{-- <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0"><i class="ri-secure-payment-line align-bottom me-1 text-muted"></i>
-                        Payment Details</h5>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="flex-shrink-0">
-                            <p class="text-muted mb-0">Transactions:</p>
-                        </div>
-                        <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">#VLZ124561278124</h6>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="flex-shrink-0">
-                            <p class="text-muted mb-0">Payment Method:</p>
-                        </div>
-                        <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">
-                                @if ($order->payment_method == 'bank_transfer')
-                                    Bank Transfer
-                                @else
-                                    Credit Card
-                                @endif
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="flex-shrink-0">
-                            <p class="text-muted mb-0">Card Holder Name:</p>
-                        </div>
-                        <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">{{ $order->full_name }}</h6>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="flex-shrink-0">
-                            <p class="text-muted mb-0">Card Number:</p>
-                        </div>
-                        <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">xxxx xxxx xxxx 2456</h6>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <p class="text-muted mb-0">Total Amount:</p>
-                        </div>
-                        <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">${{ $total_price }}</h6>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-        {{-- </div> --}}
     </div>
 @endsection
 
@@ -486,35 +454,85 @@
     <script>
         $(document).on("click", "#change_payment_status", function(e) {
             var order_id = $(this).data("value");
-
             e.preventDefault();
 
             Swal.fire({
                 title: "Change Payment Status",
-                text: "Are you sure to Change status",
+                input: 'text',
+                inputLabel: 'Payment Status Remarks',
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonClass: 'btn btn-primary w-xs me-2 mb-1',
-                confirmButtonText: "Yes, I'm sure!",
+                confirmButtonText: "Change Status",
                 cancelButtonClass: 'btn btn-danger w-xs mb-1',
                 buttonsStyling: false,
-                showCloseButton: true
+                showCloseButton: true,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'You need to write remarks!'
+                    }
+                }
             }).then(function(response) {
+                if (response.value) {
+                    $.ajax({
+                        url: '/change-payment-state',
+                        headers: {
+                            "X-CSRF-Token": "{{ csrf_token() }}",
+                        },
+                        type: "POST",
+                        data: {
+                            order_id: order_id,
+                            remarks: response.value,
+                        },
+                        cache: false,
+                        success: function(data) {
+                            location.reload(true);
+                        },
+                        error: function() {},
+                    });
+                }
+            })
+        });
 
-                $.ajax({
-                    url: '/change-payment-status/' + order_id,
-                    headers: {
-                        "X-CSRF-Token": "{{ csrf_token() }}",
-                    },
-                    type: "GET",
-                    cache: false,
-                    success: function(data) {
-                        // alert(data);
-                        // $("#customers-data-table").DataTable().ajax.reload();
-                        location.reload(true);
-                    },
-                    error: function() {},
-                });
+        $(document).on("click", "#change_delivery_status", function(e) {
+            var order_id = $(this).data("value");
+            e.preventDefault();
+
+            Swal.fire({
+                title: "Change Delivery Status",
+                input: 'text',
+                inputLabel: 'Delivery Status Remarks',
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-primary w-xs me-2 mb-1',
+                confirmButtonText: "Change Status",
+                cancelButtonClass: 'btn btn-danger w-xs mb-1',
+                buttonsStyling: false,
+                showCloseButton: true,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'You need to write remarks!'
+                    }
+                }
+            }).then(function(response) {
+                if (response.value) {
+                    $.ajax({
+                        url: '/change-delivery-state',
+                        headers: {
+                            "X-CSRF-Token": "{{ csrf_token() }}",
+                        },
+                        type: "POST",
+                        data: {
+                            order_id: order_id,
+                            remarks: response.value,
+                        },
+                        cache: false,
+                        success: function(data) {
+                            location.reload(true);
+                        },
+                        error: function() {},
+                    });
+                }
             })
         });
     </script>

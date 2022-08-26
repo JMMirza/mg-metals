@@ -137,7 +137,6 @@ class HomeController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'referred_by' => ['required', 'string', 'min:6', 'max:6'],
             'customer_type' => ['required']
         ]);
 
@@ -163,26 +162,10 @@ class HomeController extends Controller
             }
         }
 
-        // return back()->withErrors('Referral code not found');
         $user = User::create($input);
         VerificationCode::send($user->email);
         auth()->login($user);
-        //return view('frontend.verify_email.verify_email', ['email' => $request->email]);
         return redirect(route('verify-code-view'));
-        // $token = Str::random(64);
-
-        // UserVerify::create([
-        //     'user_id' => $user->id,
-        //     'token' => $token
-        // ]);
-
-        // Mail::send('email.verification_email', ['token' => $token], function ($message) use ($request) {
-        //     $message->to($request->email);
-        //     $message->subject('Email Verification Mail');
-        // });
-        // auth()->login($user);
-        // return redirect(route('customer_profile'))
-        //     ->with('success', 'Account created successfully.');
     }
 
     public function verify_code(Request $request)

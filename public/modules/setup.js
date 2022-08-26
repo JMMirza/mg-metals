@@ -21,16 +21,15 @@ $(document).ready(function () {
             {
                 data: "delivery_method",
                 name: "delivery_method",
-                width: "15%",
             },
             {
                 data: "description",
                 name: "description",
+                width: "20%"
             },
             {
                 data: "created_at",
                 name: "created_at",
-                width: "15%",
             },
             {
                 data: "action",

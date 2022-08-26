@@ -30,6 +30,10 @@ class Order extends Model
         'country',
         'zip_code',
         'shipping_address',
+        'payment_remarks',
+        'payment_status_updated_by',
+        'delivery_remarks',
+        'delivery_status_updated_by'
     ];
 
     protected $dates = [
@@ -65,5 +69,15 @@ class Order extends Model
     public function payment_method()
     {
         return $this->belongsTo(PaymentMethod::class, 'payment_method_id', 'id');
+    }
+
+    public function payment_status_updated_by_relation()
+    {
+        return $this->belongsTo(User::class, 'payment_status_updated_by', 'id');
+    }
+
+    public function delivery_status_updated_by_relation()
+    {
+        return $this->belongsTo(User::class, 'delivery_status_updated_by', 'id');
     }
 }

@@ -27,9 +27,9 @@ class InventoryController extends Controller
                 ->addIndexColumn()
                 ->addColumn('units', function ($row) {
                     if ($row['units'] <= $row['min_quantity']) {
-                        return $row['units'] . '!';
+                        return '<span class="badge bg-danger">' . $row['units'] . '! </span>';
                     }
-                    return $row['units'];
+                    return '<span class="badge bg-info">' . $row['units'] . ' </span>';
                 })
                 ->addColumn('action', function ($row) {
                     return view('inventory.action', ['row' => $row]);

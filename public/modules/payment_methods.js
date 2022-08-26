@@ -5,7 +5,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         responsive: true,
-
+        autoWidth: false,
         scrollX: true,
         language: {
             search: "",
@@ -20,18 +20,16 @@ $(document).ready(function () {
             },
             {
                 data: "payment_method",
-                name: "payment_method",
-                width: "15%",
+                name: "payment_method"
             },
             {
                 data: "description",
                 name: "description",
-                width: "35%"
+                width: "15%",
             },
             {
                 data: "created_at",
-                name: "created_at",
-                width: "15%",
+                name: "created_at"
             },
             {
                 data: "action",

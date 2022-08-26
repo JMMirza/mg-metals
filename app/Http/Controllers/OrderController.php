@@ -127,7 +127,9 @@ class OrderController extends Controller
 
     public function order_details($id)
     {
-        $order = Order::where('id', $id)->with(['customer', 'order_products.product.category', 'product_commissions', 'delivery_method', 'payment_method'])->first();
+        $order = Order::where('id', $id)
+            ->with(['customer', 'order_products.product.category', 'product_commissions', 'delivery_method', 'payment_method', 'payment_status_updated_by_relation', 'delivery_status_updated_by_relation'])
+            ->first();
         $total_price = OrderProduct::where('order_id', $id)->sum('total_price');
         // dd($order->toArray());
         return view('orders.order_details', ['order' => $order, 'total_price' => $total_price]);
@@ -163,14 +165,44 @@ class OrderController extends Controller
         return ['method' => $method];
     }
 
-    public function change_payment_status($id)
+    public function change_delivery_status(Request $request)
     {
+        $request->validate([
+            'order_id' => 'required',
+            'remarks' => 'required|string|max:255',
+        ]);
+        $id = $request->order_id;
+        $order = Order::findOrFail($id);
+        $customer = Customer::findOrFail($order->customer_id);
+        $user = User::findOrFail($customer->user_id);
+        if ($order) {
+            $order->delivery_status = 'CONFIRMED';
+            $order->order_status = 'COMPLETE';
+            $order->delivery_remarks = $request->remarks;
+            $order->delivery_status_updated_by = \Auth::user()->id;
+            $order->save();
+            // Notification::send($user, new OrderConfirmed);
+            // Notification::send($user, new PaymentRecevied);
+            return ['success' => 'Delivery STATUS UPDATED SUCCESSFULLY'];
+        }
+        return ['error' => 'NO ORDER FOUND'];
+    }
+
+    public function change_status(Request $request)
+    {
+        $request->validate([
+            'order_id' => 'required',
+            'remarks' => 'required|string|max:255',
+        ]);
+        $id = $request->order_id;
         $order = Order::findOrFail($id);
         $customer = Customer::findOrFail($order->customer_id);
         $user = User::findOrFail($customer->user_id);
         if ($order) {
             $order->payment_status = 'PAID';
             $order->order_status = 'CONFIRMED';
+            $order->payment_remarks = $request->remarks;
+            $order->payment_status_updated_by = \Auth::user()->id;
             $order->save();
             Notification::send($user, new OrderConfirmed);
             Notification::send($user, new PaymentRecevied);
