@@ -118,9 +118,7 @@
                 <label class="form-label">{{ __('individual.ADDRESS') }} *</label>
                 {{-- <div class="form-group"> --}}
                 <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
-                    placeholder="{{ __('individual.ADDRESS') }}">
-                    @if ($customer->address) {{ $customer->address }}@else{{ old('address') }}@endif
-                </textarea>
+                    placeholder="{{ __('individual.ADDRESS') }}">{{ $customer->address ? $customer->address : old('address') }}</textarea>
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('address') }}</strong>
                 </div>

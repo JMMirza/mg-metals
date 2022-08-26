@@ -72,7 +72,7 @@
                         <div class="col-12 col-md-12 mb-3">
                             <label class="form-label">Shipping Address *</label>
                             <textarea id="shipping_address" name="shipping_address"
-                                class="form-control  @if ($errors->has('shipping_address')) is-invalid @endif" placeholder="Shipping Address"></textarea>
+                                class="form-control  @if ($errors->has('shipping_address')) is-invalid @endif" placeholder="Shipping Address">{{ $order->customer->address }}</textarea>
                             <div class="invalid-feedback">
                                 <strong>{{ $errors->first('shipping_address') }}</strong>
                             </div>
