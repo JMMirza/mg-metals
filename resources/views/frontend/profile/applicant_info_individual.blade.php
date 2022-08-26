@@ -126,21 +126,23 @@
                 </div>
                 {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-12 col-md-4 mb-3">
                 <label class="form-label">{{ __('individual.verified') }}</label>
                 <input type="text" id="is_verified" class="form-control"
                     placeholder=@if (Auth::user()->is_verified == 0) 'UnVerified' @else 'Verified' @endif disabled>
             </div>
-            {{-- <div class="col-12 col-md-4 mb-3">
-                <label class="form-label">{{ __('individual.referral_code') }}</label>
-                <input type="text" id="is_verified" class="form-control"
-                    placeholder='{{ Auth::user()->referral_code }}' disabled>
-            </div> --}}
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-12 col-md-4 mb-3">
                 <label class="form-label">{{ __('individual.referred_by') }}</label>
                 <input type="text" id="is_verified" class="form-control"
                     placeholder='{{ Auth::user()->referred_by }}' disabled>
             </div>
+            @if (\Auth::user()->show_referral_code == 1)
+                <div class="col-12 col-md-4 mb-3">
+                    <label class="form-label">{{ __('individual.referral_code') }}</label>
+                    <input type="text" id="is_verified" class="form-control"
+                        placeholder='{{ Auth::user()->referral_code }}' disabled>
+                </div>
+            @endif
             @if (\Auth::user()->customer_type == 'corporate')
                 <div class="footer mt-20  d-flex">
                     <button class="btn btn-custom" disabled="true">{{ __('home_page.previous') }}</button>
@@ -154,7 +156,8 @@
                 {{-- <button class="btn btn-default" type="reset"></button> --}}
                 <div class="footer mt-20 text-end" style="display: block;">
                     <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>
-                    <button class="btn btn-custom ml-3 ms-3" type="submit" id="next">{{ __('home_page.save') }}</button>
+                    <button class="btn btn-custom ml-3 ms-3" type="submit"
+                        id="next">{{ __('home_page.save') }}</button>
                 </div>
             @endif
         </form>
