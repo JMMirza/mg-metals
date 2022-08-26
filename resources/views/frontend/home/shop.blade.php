@@ -1,4 +1,4 @@
-<section class="page-section" >
+<section class="page-section home-shop-web" >
     <div class="container relative" style="min-height:540px !important">
         
         <h2 class="section-title font-alt align-left mt-50 mb-50 mb-sm-40">

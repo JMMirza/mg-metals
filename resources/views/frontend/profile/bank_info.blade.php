@@ -77,7 +77,7 @@
                  {{-- </div> --}}
              </div>
 
-             <div class="footer">
+             <div class="footer mt-20 d-flex">
                  <a href="{{ route('customer-profile-data.edit', $customer->id) . '?tab=other_info' }}"
                      class="btn btn-custom">{{ __('home_page.previous') }}</a>
                  <div class="ml-auto">

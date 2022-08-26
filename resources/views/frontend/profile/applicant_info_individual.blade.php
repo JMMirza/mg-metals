@@ -142,7 +142,7 @@
                     placeholder='{{ Auth::user()->referred_by }}' disabled>
             </div>
             @if (\Auth::user()->customer_type == 'corporate')
-                <div class="footer">
+                <div class="footer mt-20  d-flex">
                     <button class="btn btn-custom" disabled="true">{{ __('home_page.previous') }}</button>
                     <div class="ml-auto">
                         <button class="btn btn-default" type="reset">{{ __('home_page.cancel') }}</button>

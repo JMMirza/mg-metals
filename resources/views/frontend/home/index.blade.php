@@ -52,7 +52,7 @@
 
     <section class="page-section">
         <div class="container relative">
-            <h2 class="section-title font-alt mb-80 mt-50 mb-sm-40">{{ __('home_page.why_choose_us') }}</h2>
+            <h2 class="section-title font-alt mb-80 mt-50 mt-sm-40 mb-sm-50">{{ __('home_page.why_choose_us') }}</h2>
             <div class="row alt-features-grid mb-50">
 
                 <div class="col-md-4">
@@ -106,7 +106,7 @@
     @include('frontend.home.newsletter')
 
 
-    <section class="page-section" id="contact" style="padding:50px 0px !important">
+    <section class="page-section contact-footer" id="contact" style="padding:50px 0px ">
         <div class="container relative">
 
             <h2 class="section-title font-alt mt-50 mb-50 mb-sm-40">

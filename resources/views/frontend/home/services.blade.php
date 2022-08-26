@@ -15,8 +15,9 @@
                         <img src="{{ asset('frontend/images/icons/phy-gold-h.png') }}" alt="image"
                             class="icon hover">
                     </div>
-
+                    <div class="title">
                     {{ __('home_page.service_title_1') }}
+                    </div>
                 </a>
             </li>
             <li>
@@ -29,7 +30,9 @@
                         <img src="{{ asset('frontend/images/icons/casting-h.png') }}" alt="image" class="icon hover">
                     </div>
 
+                    <div class="title">
                     {{ __('home_page.service_title_2') }}
+                    </div>
                 </a>
             </li>
             <li>
@@ -41,7 +44,9 @@
                         <img src="{{ asset('frontend/images/icons/ex-sol-h.png') }}" alt="image" class="icon hover">
                     </div>
 
+                    <div class="title">
                     {{ __('home_page.service_title_4') }}
+                    </div>
                 </a>
             </li>
             <li>
@@ -54,15 +59,17 @@
                             class="icon hover">
                     </div>
 
+                    <div class="title">
                     {{ __('home_page.service_title_3') }}
+                    </div>
                 </a>
             </li>
 
         </ul>
         <!-- End Nav tabs -->
-        <div class="row section-text mb-30">
-            <div class="col-12 col-md-4 pr-0">
-                <h3 class="playfare bold dark-light" style="font-size: 26px;line-height: 1.88em;">Every decade or so,
+        <div class="row section-text mb-md-30 mb-sm-10">
+            <div class="col-12 col-md-4 pr-0 quote">
+                <h3 class="playfare bold dark-light " style="font-size: 26px;line-height: 1.88em;">Every decade or so,
                     dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
                 <p style="letter-spacing:0.1em;">Warren Buffett</p>
             </div>
@@ -175,7 +182,7 @@
         </div>
         <!-- End Tab panes -->
 
-        <div class="align-center mb-40">
+        <div class="align-center mb-md-40 mb-sm-20">
             <a href="{{ route('services') }}"
                 class="section-more font-alt playfare">{{ __('home_page.VIEW ALL SERVICES') }}
                 <i class="fa fa-angle-right"></i></a>
