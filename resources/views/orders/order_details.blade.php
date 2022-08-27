@@ -344,6 +344,17 @@
                                             <p class="text-muted">
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}
                                             </p>
+
+                                            <h6 class="mb-1">Customer Order is being Confirmed</h6>
+                                            <p class="text-muted">
+                                                {{ $order->updated_at->format('D, M d, Y - h:m A') }}
+                                            </p>
+                                        @endif
+                                        @if ($order->delivery_status != 'PENDIND')
+                                            <h6 class="mb-1">Customer delivery is confirmed</h6>
+                                            <p class="text-muted">
+                                                {{ $order->updated_at->format('D, M d, Y - h:m A') }}
+                                            </p>
                                         @endif
                                         {{-- <h6 class="mb-1">Staff has confirmed your order.</h6>
                                         <p class="text-muted mb-0">
