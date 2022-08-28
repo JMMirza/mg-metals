@@ -2,23 +2,32 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NextApps\VerificationCode\Notifications\VerificationCodeCreatedInterface;
+// use App\User;
 
-class AccountActivated extends Notification
+
+class EmailVerificationCodeNotification extends Notification implements ShouldQueue, VerificationCodeCreatedInterface
 {
     use Queueable;
+
+    /**
+     * @var string
+     */
+    public $code;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(string $code)
     {
-        //
+        $this->code = $code;
     }
 
     /**
@@ -40,11 +49,15 @@ class AccountActivated extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-            ->greeting(__('Dear ,'))
-            ->line('Thank you for registering with MG Metals, Hongkong')
-            ->line('We are pleased to inform you that your account has been activated. You can use your credentials to log-in below')
-            ->action('login', route('login-customer'))
+        $user = User::where('email', $notifiable->routes['mail'])->first();
+
+        return (new MailMessage())
+            ->subject(__('Authentication Required'))
+            ->greeting(__('Dear ' . $user->name . ','))
+            ->line(__("Thank you for registering with MG Metals, Hongkong"))
+            ->line(__("Your email verification code is "))
+            ->line($this->code)
+            ->line(__('Feel free to contact us for any inquiries,'))
             ->line(__('Regards,'))
             ->salutation(__('MG Customer Support Team'));
     }

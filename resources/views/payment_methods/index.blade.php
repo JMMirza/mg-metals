@@ -31,7 +31,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Payment Method</th>
-                                <th style="width: 5%">Description</th>
+                                {{-- <th style="width: 5%">Description</th> --}}
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

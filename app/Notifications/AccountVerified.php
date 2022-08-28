@@ -41,8 +41,12 @@ class AccountVerified extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Your account has been verified.')
-            ->line('Thank you for using our application!');
+            ->greeting(__('Dear ,'))
+            ->line('Thank you for registering with MG Metals, Hongkong')
+            ->line('Your Account has been created and our team will be verifying it. You will receive an activation mail shortly.')
+            ->line(__('Feel free to contact us for any inquiries,'))
+            ->line(__('Regards,'))
+            ->salutation(__('MG Customer Support Team'));
     }
 
     /**

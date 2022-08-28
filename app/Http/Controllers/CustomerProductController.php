@@ -138,7 +138,7 @@ class CustomerProductController extends Controller
                         $mark_up = $product->category->mark_up;
                         $markup_type = $product->category->markup_type;
                     } else {
-                        $mark_up = $product->markup;
+                        $mark_up = $product->mark_up;
                         $markup_type = $product->markup_type;
                     }
                     array_push($products, $product);

@@ -22,11 +22,11 @@ $(document).ready(function () {
                 data: "delivery_method",
                 name: "delivery_method",
             },
-            {
-                data: "description",
-                name: "description",
-                width: "20%"
-            },
+            // {
+            //     data: "description",
+            //     name: "description",
+            //     width: "20%"
+            // },
             {
                 data: "created_at",
                 name: "created_at",

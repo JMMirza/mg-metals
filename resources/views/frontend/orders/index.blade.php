@@ -10,46 +10,46 @@
                     <h5 class="card-title flex-grow-1 mb-0">My Orders</h5>
                 </div>
                 <div class="card-body">
-                <table class="table table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            {{-- <th>Product Title</th> --}}
-                            <th>Sales Amount</th>
-                            <th>Payment Status</th>
-                            <th>Delivery Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($orders as $order)
+                    <table class="table table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{ $order->id }}</td>
-                                {{-- <td>{{ $order->quantity }}</td> --}}
-                                @if ($order->total_price == null)
-                                    <td>USD 0 </td>
-                                @else
-                                    <td>{{ $order->total_price }} </td>
-                                @endif
-                                <td>{{ $order->payment_status }}
-                                </td>
-                                <td>{{ $order->delivery_status }}</td>
-
-                                <td><a href="{{ route('get-customer-order-details', $order->id) }}"
-                                        class="btn btn-sm btn-icon waves-effect waves-light">
-                                        Details
-                                    </a></td>
+                                <th>Order ID</th>
+                                {{-- <th>Product Title</th> --}}
+                                <th>Payment Status</th>
+                                <th>Delivery Status</th>
+                                <th>Sales Amount</th>
+                                <th>Action</th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6">No Record Found!</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                    <tbody>
+                        </thead>
+                        <tbody>
+                            @forelse ($orders as $order)
+                                <tr>
+                                    <td>{{ $order->id }}</td>
+                                    {{-- <td>{{ $order->quantity }}</td> --}}
+                                    @if ($order->total_price == null)
+                                        <td>USD 0 </td>
+                                    @else
+                                        <td>USD {{ number_format($order->total_price, 2) }} </td>
+                                    @endif
+                                    <td>{{ $order->payment_status }}
+                                    </td>
+                                    <td>{{ $order->delivery_status }}</td>
 
-                    </tbody>
-                </table>
+                                    <td><a href="{{ route('get-customer-order-details', $order->id) }}"
+                                            class="btn btn-sm btn-icon waves-effect waves-light">
+                                            Details
+                                        </a></td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6">No Record Found!</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

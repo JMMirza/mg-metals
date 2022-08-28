@@ -22,11 +22,11 @@ $(document).ready(function () {
                 data: "payment_method",
                 name: "payment_method"
             },
-            {
-                data: "description",
-                name: "description",
-                width: "15%",
-            },
+            // {
+            //     data: "description",
+            //     name: "description",
+            //     width: "15%",
+            // },
             {
                 data: "created_at",
                 name: "created_at"

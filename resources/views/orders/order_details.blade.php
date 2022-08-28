@@ -54,23 +54,25 @@
                                             </div>
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
-                                        <td class="fw-medium text-center">USD {{ $product->spot_price }}</td>
+                                        <td class="fw-medium text-center">USD {{ number_format($product->spot_price, 2) }}
+                                        </td>
                                         <td class="fw-medium text-center">
                                             @if ($product->markup_type == 'percentage')
                                                 {{ $product->mark_up }} %
                                             @else
-                                                USD {{ $product->mark_up }}
+                                                USD {{ number_format($product->mark_up, 2) }}
                                             @endif
 
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
                                         <td class="fw-medium text-center">
-                                            USD {{ round($product->product->getProductCommission(), 2) }}
+                                            USD {{ number_format($product->product->getProductCommission(), 2) }}
                                         </td>
-                                        <td class="fw-medium text-center">USD {{ $product->price_with_markup }}</td>
+                                        <td class="fw-medium text-center">USD
+                                            {{ number_format($product->price_with_markup, 2) }}</td>
                                         <td class="fw-medium text-center">{{ $product->quantity }}</td>
                                         <td class="fw-medium text-center">
-                                            USD {{ $product->total_price }}
+                                            USD {{ number_format($product->total_price, 2) }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -162,9 +164,10 @@
                                                 | {{ $commission->commission_got_percentage }} %
                                             @endif
                                         </td>
-                                        <td class="fw-medium text-center">USD {{ $commission->tier_commission }}
+                                        <td class="fw-medium text-center">USD
+                                            {{ number_format($commission->tier_commission, 2) }}
                                             @if (isset($commission->commission_got))
-                                                | USD {{ $commission->commission_got }}
+                                                | USD {{ number_format($commission->commission_got, 2) }}
                                             @endif
                                         </td>
                                     </tr>
@@ -207,7 +210,7 @@
                             <tbody>
 
                                 <tr>
-                                    <td class="fw-medium text-center">USD {{ $total_price }}</td>
+                                    <td class="fw-medium text-center">USD {{ number_format($total_price, 2) }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_status }}</td>
                                     <td class="fw-medium text-center">
@@ -334,7 +337,7 @@
                                         <h6 class="mb-1">An order has been placed.</h6>
                                         <p class="text-muted">{{ $order->created_at->format('D, M d, Y - h:m A') }}</p>
 
-                                        @if ($order->payment_status == 'PENDIND')
+                                        @if ($order->payment_status == 'UNPAID')
                                             <h6 class="mb-1">Customer payment is pending</h6>
                                             <p class="text-muted">
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}
@@ -350,7 +353,7 @@
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}
                                             </p>
                                         @endif
-                                        @if ($order->delivery_status != 'PENDIND')
+                                        @if ($order->delivery_status != 'PENDING')
                                             <h6 class="mb-1">Customer delivery is confirmed</h6>
                                             <p class="text-muted">
                                                 {{ $order->updated_at->format('D, M d, Y - h:m A') }}

@@ -9,7 +9,7 @@ return [
     | This value defines the length of every generated verification code.
     |
     */
-    'length' => 6,
+    'length' => 4,
 
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,8 @@ return [
     | they look too similar.
     |
     */
-    'characters' => '123456789ABCDEFGHJKMNPQRSTUVWXYZ',
+    // 'characters' => '123456789ABCDEFGHJKMNPQRSTUVWXYZ',
+    'characters' => '123456789',
 
     /*
     |--------------------------------------------------------------------------
@@ -59,7 +60,8 @@ return [
     |   - \NextApps\VerificationCode\Notifications\VerificationCodeCreatedInterface
     |
     */
-    'notification' => \NextApps\VerificationCode\Notifications\VerificationCodeCreated::class,
+    // 'notification' => \NextApps\VerificationCode\Notifications\VerificationCodeCreated::class,
+    'notification' => \App\Notifications\EmailVerificationCodeNotification::class,
 
     /*
     |--------------------------------------------------------------------------

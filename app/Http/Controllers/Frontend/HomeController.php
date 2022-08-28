@@ -20,12 +20,10 @@ use App\Notifications\AccountVerified;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Validation\Validator as ValidationValidator;
 use NextApps\VerificationCode\VerificationCode;
 
 class HomeController extends Controller
@@ -175,7 +173,7 @@ class HomeController extends Controller
         // dd($request->all());
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255'],
-            'code' => ['required', 'string', 'min:6', 'max:6'],
+            'code' => ['required', 'string', 'min:4', 'max:4'],
         ]);
         $user = User::where(['email' => $request->email])->first();
         $verified = VerificationCode::verify($request->code, $request->email);

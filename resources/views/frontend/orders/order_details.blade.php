@@ -54,10 +54,11 @@
                                             </div>
                                         </td>
                                         {{-- {{ dd($product->toArray()) }} --}}
-                                        <td class="fw-medium text-center">USD {{ $product->price_with_markup }}</td>
+                                        <td class="fw-medium text-center">USD
+                                            {{ number_format($product->price_with_markup, 2) }}</td>
                                         <td class="fw-medium text-center">{{ $product->quantity }}</td>
                                         <td class="fw-medium text-center">
-                                            USD {{ $product->total_price }}
+                                            USD {{ number_format($product->total_price, 2) }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -94,7 +95,7 @@
                             <tbody>
 
                                 <tr>
-                                    <td class="fw-medium text-center">USD {{ $total_price }}</td>
+                                    <td class="fw-medium text-center">USD {{ number_format($total_price, 2) }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_status }}</td>
                                     <td class="fw-medium text-center">

@@ -26,14 +26,14 @@
                                 <tr>
                                     <td>{{ ucfirst($commission->tier_type) }}</td>
                                     <td>{{ $commission->product->name }}</td>
-                                    <td>{{ $commission->product_price }}</td>
+                                    <td>USD {{ number_format($commission->product_price, 2) }}</td>
                                     @if ($commission->product->markup_type == 'flat')
-                                        <td>{{ $commission->product_mark_up }} USD</td>
+                                        <td>USD {{ number_format($commission->product_mark_up, 2) }}</td>
                                     @else
                                         <td>{{ $commission->product_mark_up }} %</td>
                                     @endif
                                     <td>{{ $commission->tier_commission_percentage }} %</td>
-                                    <td>{{ $commission->tier_commission }} USD</td>
+                                    <td>USD {{ number_format($commission->tier_commission, 2) }} </td>
                                 </tr>
                             @empty
                                 <tr>
