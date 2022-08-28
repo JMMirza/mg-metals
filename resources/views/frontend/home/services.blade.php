@@ -16,7 +16,7 @@
                             class="icon hover">
                     </div>
                     <div class="title">
-                    {{ __('home_page.service_title_1') }}
+                        {{ __('home_page.service_title_1') }}
                     </div>
                 </a>
             </li>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="title">
-                    {{ __('home_page.service_title_2') }}
+                        {{ __('home_page.service_title_2') }}
                     </div>
                 </a>
             </li>
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="title">
-                    {{ __('home_page.service_title_4') }}
+                        {{ __('home_page.service_title_4') }}
                     </div>
                 </a>
             </li>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="title">
-                    {{ __('home_page.service_title_3') }}
+                        {{ __('home_page.service_title_3') }}
                     </div>
                 </a>
             </li>
@@ -69,20 +69,15 @@
         <!-- End Nav tabs -->
         <div class="row section-text mb-md-30 mb-sm-10">
             <div class="col-12 col-md-4 pr-0 quote">
-                <h3 class="playfare bold dark-light " style="font-size: 26px;line-height: 1.88em;">Every decade or so,
-                    dark clouds will fill the economic skies, and they will briefly rain gold.</h3>
-                <p style="letter-spacing:0.1em;">Warren Buffett</p>
+                <h3 class="playfare bold dark-light " style="font-size: 26px;line-height: 1.88em;">
+                    {{ __('home_page.service_para_1') }}</h3>
+                <p style="letter-spacing:0.1em;">{{ __('home_page.Warren Buffett') }}</p>
             </div>
             <div class="col-12 col-md-4">
-                <p>MG Group was established in 2001. Within 10 years, our company has developed into a diversified
-                    business conglomerate-wide range of businesses from a real estate investment company. Our core
-                    businesses include a variety of financial services, real estate, entertainment, publishing, arts and
-                    cultures, education and training, multimedia and environmental protection. </p>
+                <p>{{ __('home_page.service_col_1') }} </p>
             </div>
             <div class="col-12 col-md-4">
-                <p>As a portfolio company of MG Metals, Marigold International Bullion Dealers Limited (A member of The
-                    Chinese Gold and Silver Exchange Society, Hong Kong (CGSE)* and Gold Bullion Group Member**, License
-                    number: 023) was established in 2007. </p>
+                <p>{{ __('home_page.service_col_2') }} </p>
             </div>
         </div>
 
@@ -93,16 +88,6 @@
             <div role="tabpanel" class="tab-pane fade show active" id="service-branding">
                 <div class="section-text">
                     <div class="row">
-                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
-                            <blockquote class="mb-0">
-                                <p>
-                                    {{ __('home_page.service_desc_01') }}
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_02') }}
-                        </div> --}}
                         <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
                             {{ __('home_page.service_desc_01') }}
                         </div>
@@ -114,17 +99,6 @@
 
                 <div class="section-text">
                     <div class="row">
-                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
-                            <blockquote class="mb-0">
-                                <p>
-                                    {{ __('home_page.service_desc_11') }}
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_12') }}
-                        </div> --}}
-
                         <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
                             {{ __('home_page.service_desc_11') }}
                         </div>
@@ -139,16 +113,6 @@
 
                 <div class="section-text">
                     <div class="row">
-                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
-                            <blockquote class="mb-0">
-                                <p>
-                                    {{ __('home_page.service_desc_21') }}
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_22') }}
-                        </div> --}}
                         <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
                             {{ __('home_page.service_desc_21') }}
                         </div>
@@ -161,16 +125,6 @@
 
                 <div class="section-text">
                     <div class="row">
-                        {{-- <div class="col-md-4 mb-md-40 mb-xs-30">
-                            <blockquote class="mb-0">
-                                <p>
-                                    {{ __('home_page.service_desc_31') }}
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                            {{ __('home_page.service_desc_32') }}
-                        </div> --}}
                         <div class="col-md-12 col-sm-12 mb-sm-50 mb-xs-30 text-center">
                             {{ __('home_page.service_desc_31') }}
                         </div>

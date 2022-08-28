@@ -6,7 +6,7 @@
         <div class="container relative testimonial">
             <div class="row">
                 <div class="col-12 col-md-6 align-center align-self-center">
-                    <h3 class="small-title font-alt  gold">What people say?</h3>
+                    <h3 class="small-title font-alt  gold">{{ __('home_page.What_people_say') }}</h3>
                 </div>
                 <div class="col-12 col-md-6 align-center">
                     <!-- Section Icon -->
@@ -34,7 +34,7 @@
         <div class="container relative testimonial">
             <div class="row">
                 <div class="col-12 col-md-6 align-center align-self-center">
-                    <h3 class="small-title font-alt  gold">What people say?</h3>
+                    <h3 class="small-title font-alt  gold">{{ __('home_page.What_people_say') }}</h3>
                 </div>
                 <div class="col-12 col-md-6 align-center">
                     <!-- Section Icon -->
@@ -62,7 +62,7 @@
         <div class="container relative testimonial">
             <div class="row">
                 <div class="col-12 col-md-6 align-center align-self-center">
-                    <h3 class="small-title font-alt  gold">What people say?</h3>
+                    <h3 class="small-title font-alt  gold">{{ __('home_page.What_people_say') }}</h3>
                 </div>
                 <div class="col-12 col-md-6 align-center">
                     <!-- Section Icon -->
@@ -70,7 +70,7 @@
                         <span class="icon-quote white"></span>
                     </div>
                     <!-- Section Title -->
-                    
+
                     <blockquote class=" white">
                         <p class="white">
                             Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
@@ -83,5 +83,5 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </section>

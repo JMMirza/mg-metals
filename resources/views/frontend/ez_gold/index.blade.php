@@ -13,12 +13,9 @@
                     <!-- About Project -->
                     <div class="text">
 
-                        <h3 class="font-alt mb-10 mb-xxs-10 playfare gold">Manage your gold reserve,<br>Whenever & Where you
-                            want.</h3>
-                        <p class="dark font-17">
-                            EZgold is a fully owned subsidiary of MG Group.<br> EZgold APP provides a simple operation
-                            interface for personal and corporate accounts. Within the APP, members can buy, sell, specialize
-                            and extract gold wherever and whenever they want.
+                        <h3 class="font-alt mb-10 mb-xxs-10 playfare gold">
+                            {!! __('ez_gold.h1_01') !!}</h3>
+                        <p class="dark font-17"> {{ __('ez_gold.p_01') }} <br> {{ __('ez_gold.p_02') }}
                         </p>
 
                         <div class="mt-40">
@@ -72,8 +69,8 @@
 
             <h2 style="font-size:38px;line-height:1em !important;font-weight:normal !important"
                 class="section-title normal font-alt playfare dark mb-10  capitalize ls-none text-center">
-                What can EZgold App do?<br>
-                <span style="font-size:24px;">Join over a million happy users!</span>
+                {{ __('ez_gold.h1_03') }}<br>
+                <span style="font-size:24px;">{{ __('ez_gold.h1_04') }}</span>
             </h2>
 
             <!-- Features Grid -->
@@ -83,9 +80,9 @@
                 <!-- Features Item -->
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
-                        <h3 class="alt-features-title font-alt playfare">Purchase</h3>
+                        <h3 class="alt-features-title font-alt playfare">{{ __('ez_gold.h1_05') }}</h3>
                         <div class="alt-features-descr align-left bg-light">
-                            Purchases are made easy through your EZgold wallet.
+                            {{ __('ez_gold.p_03') }}
                         </div>
                     </div>
                 </div>
@@ -93,9 +90,9 @@
                 <!-- Features Item -->
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
-                        <h3 class="alt-features-title font-alt playfare">Cash-Out</h3>
+                        <h3 class="alt-features-title font-alt playfare">{{ __('ez_gold.h1_06') }}</h3>
                         <div class="alt-features-descr align-left bg-light">
-                            Sell your gold through EZgold App & receive cash in your EZgold wallet.
+                            {{ __('ez_gold.p_04') }}
                         </div>
                     </div>
                 </div>
@@ -103,9 +100,9 @@
                 <!-- Features Item -->
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
-                        <h3 class="alt-features-title font-alt playfare">Transfer</h3>
+                        <h3 class="alt-features-title font-alt playfare">{{ __('ez_gold.h1_07') }}</h3>
                         <div class="alt-features-descr align-left bg-light">
-                            Transfer gold reserves to another EZgold user.
+                            {{ __('ez_gold.p_05') }}
                         </div>
                     </div>
                 </div>
@@ -113,9 +110,9 @@
                 <!-- Features Item -->
                 <div class="col-sm-6 col-md-3">
                     <div class="alt-features-item align-center">
-                        <h3 class="alt-features-title font-alt playfare">Extract</h3>
+                        <h3 class="alt-features-title font-alt playfare">{{ __('ez_gold.h1_08') }}</h3>
                         <div class="alt-features-descr align-left bg-light">
-                            A number of exquisite solid gold products for you to choose from.
+                            {{ __('ez_gold.p_06') }}
                         </div>
                     </div>
                 </div>
@@ -145,25 +142,27 @@
                         <div class="row m-0">
 
                             <div class="col-md-12 text-center">
-                                <h2 class="playfare dark bold" style="font-size:30px; line-height:normal;"><span>Download
-                                        the app now!</span></h2>
+                                <h2 class="playfare dark bold" style="font-size:30px; line-height:normal;">
+                                    <span>{{ __('ez_gold.h1_09') }}</span>
+                                </h2>
                                 <img src="{{ asset('frontend/images/download-scan.png') }}" alt="" />
-                                <h3 class="playfare dark" style="font-size:22px;margin-top:10px;">Join EZgold community</h3>
+                                <h3 class="playfare dark" style="font-size:22px;margin-top:10px;">{{ __('ez_gold.h1_10') }}
+                                </h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/whatsapp-scan.png') }}"
                                     style="height: 115px; margin-bottom: 10px;" alt="" />
-                                <h3 class="playfare gold" style="font-size:16px;">Whatsapp</h3>
+                                <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_11') }} </h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/wechat-scan.png') }}"
                                     style="height: 115px; margin-bottom: 10px;" alt="" />
-                                <h3 class="playfare gold" style="font-size:16px;">We Chat</h3>
+                                <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_12') }}</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/line-scan.png') }}"
                                     style="height: 115px; margin-bottom: 10px;" alt="" />
-                                <h3 class="playfare gold" style="font-size:16px;">Line</h3>
+                                <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_13') }}</h3>
                             </div>
                         </div>
 
