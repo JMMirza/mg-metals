@@ -85,13 +85,13 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <div class="form-group mb-2">
+                                                    {{-- <div class="form-group mb-2">
                                                         <label class="checkbox-inline">
                                                             <input type="checkbox" value=""
                                                                 id="auth-remember-check" name="remember"
                                                                 {{ old('remember') ? 'checked' : '' }}>
                                                             <span></span> Remember me</label>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group mb-2 justify-content-end">
