@@ -42,13 +42,13 @@
                                             {{ $cart->quantity }}
                                         </td>
                                         <td>
-                                            <span class="spot_price_usd"> ${{ $cart->spot_price }} </span> <span
-                                                class="spot_price_hkd" style="display: none">
+                                            <span class="spot_price_usd"> ${{ number_format($cart->spot_price, 2) }} </span>
+                                            <span class="spot_price_hkd" style="display: none">
                                                 HKD {{ number_format($cart->spot_price * $hkd_price, 2) }}</span>
                                         </td>
                                         <td>
-                                            <span class="price_usd"> ${{ $cart->total_price }} </span> <span
-                                                class="price_hkd" style="display: none">
+                                            <span class="price_usd"> ${{ number_format($cart->total_price, 2) }} </span>
+                                            <span class="price_hkd" style="display: none">
                                                 HKD {{ number_format($cart->total_price * $hkd_price, 2) }}</span>
 
                                         </td>
@@ -121,10 +121,11 @@
                                 <div class="col-md-12 pt-4 text-end">
                                     <div class="lead mt-0 mb-10">
                                         Order Total:
-                                        <span id="total_price_usd"><strong>USD {{ $total_price }}</strong></span>
+                                        <span id="total_price_usd"><strong>USD
+                                                {{ number_format($total_price, 2) }}</strong></span>
                                         <span id="total_price_hkd" style="display: none"><strong>HKD
                                                 {{ number_format($total_price * $hkd_price, 2) }}
-                                            </strong> <br><strong>USD {{ $total_price }}</strong></span>
+                                            </strong> <br><strong>USD {{ number_format($total_price, 2) }}</strong></span>
                                     </div>
                                     <div>
                                         <div class="mb-10">
