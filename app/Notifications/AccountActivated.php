@@ -44,7 +44,7 @@ class AccountActivated extends Notification
             ->greeting(__('Dear ,'))
             ->line('Thank you for registering with MG Metals, Hongkong')
             ->line('We are pleased to inform you that your account has been activated. You can use your credentials to log-in below')
-            ->action('login', route('login-customer'))
+            // ->action('login', route('login-customer'))
             ->line(__('Regards,'))
             ->salutation(__('MG Customer Support Team'));
     }
