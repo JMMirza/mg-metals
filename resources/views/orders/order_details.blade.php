@@ -136,10 +136,9 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col" class="text-center">Customer ID</th>
-                                    <th scope="col" class="text-center">Customer Name</th>
+                                    <th scope="col" class="text-center">Tier ID</th>
+                                    <th scope="col" class="text-center">Tier Name</th>
                                     <th scope="col" class="text-center">Tier Type</th>
-                                    <th scope="col" class="text-center">Product ID</th>
                                     <th scope="col" class="text-center">Product Name</th>
                                     <th scope="col" class="text-center">Product Tier Commission</th>
                                     <th scope="col" class="text-center">Tier Commission</th>
@@ -150,14 +149,13 @@
                                 @foreach ($order->product_commissions as $commission)
                                     <tr>
                                         <td class="fw-medium text-center">
-                                            {{ $order->customer_id }}
+                                            {{ isset($commission->tier_id) ? $commission->tier_id : 0 }}
                                         </td>
                                         <td class="fw-medium text-center">
-                                            {{ $order->customer->full_name }}
+                                            {{ isset($commission->tier->name) ? $commission->tier->name : 'MG Metals' }}
                                         </td>
                                         <td class="fw-medium text-center">
                                             {{ str_replace('_', ' ', ucwords($commission->tier_type)) }}</td>
-                                        <td class="fw-medium text-center">{{ $commission->product_id }} </td>
                                         <td class="fw-medium text-center">{{ $commission->product->name }}</td>
                                         <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
                                             @if (isset($commission->commission_got_percentage))

@@ -211,7 +211,7 @@ class CustomerProductController extends Controller
 
                                     ProductCommission::create($input_product_commission);
                                 } else {
-                                    $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3;
+                                    $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_4 + $product->tier_commission_2 + $product->tier_commission_3;
                                     $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
                                     $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
@@ -253,7 +253,7 @@ class CustomerProductController extends Controller
 
                                         ProductCommission::create($input_product_commission);
                                     } else {
-                                        $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2;
+                                        $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_4 + $product->tier_commission_3;
                                         $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
                                         $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
@@ -313,7 +313,7 @@ class CustomerProductController extends Controller
 
                                             ProductCommission::create($input_product_commission);
                                         } else {
-                                            $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1;
+                                            $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_4;
                                             $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
                                             $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
@@ -334,7 +334,7 @@ class CustomerProductController extends Controller
                                             ProductCommission::create($input_product_commission);
                                         }
                                     } else {
-                                        $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1;
+                                        $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_4;
                                         $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
                                         $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
@@ -355,7 +355,7 @@ class CustomerProductController extends Controller
                                         ProductCommission::create($input_product_commission);
                                     }
                                 } else {
-                                    $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2;
+                                    $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_4 + $product->tier_commission_3;
                                     $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
                                     $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 
@@ -376,7 +376,8 @@ class CustomerProductController extends Controller
                                     ProductCommission::create($input_product_commission);
                                 }
                             } else {
-                                $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_1 + $product->tier_commission_2 + $product->tier_commission_3;
+                                $tier_commission_5 = $product->tier_commission_5 + $product->tier_commission_4 + $product->tier_commission_2 + $product->tier_commission_3;
+
                                 $tier_5_commission = ($product->getProductCommission() / 100) * $tier_commission_5;
                                 $tier5commission = ($product->getProductCommission() / 100) * $product->tier_commission_5;
 

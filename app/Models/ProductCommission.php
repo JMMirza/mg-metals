@@ -47,4 +47,9 @@ class ProductCommission extends Model
     {
         return $this->belongsTo(Order::class, 'order_id', 'id');
     }
+
+    public function tier()
+    {
+        return $this->belongsTo(User::class, 'tier_id', 'id');
+    }
 }
