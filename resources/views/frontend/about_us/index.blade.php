@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-sm-6 px-5">
                         <p style="color:#254345">{{ __('about_us.para_01') }}</p>
-                        <p style="color:#254345" class="mb-0">{{ __('about_us.para_02') }}</p>
+                        {{-- <p style="color:#254345" class="mb-0">{{ __('about_us.para_02') }}</p> --}}
                         {{-- <p style="color:#254345">{{ __('about_us.para_03') }}</p> --}}
                     </div>
                     <div class="col-sm-6 px-5">

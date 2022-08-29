@@ -5,9 +5,8 @@ return [
     'h2' => 'OUR STORY',
     'h3' => 'OUR HISTORY',
     'h4' => 'MILESTONES',
-    'para_1' => 'MG Group was established in 2001. Within 10 years, our company has
-                            developed into a diversified business conglomerate wide range of businesses from a real estate
-                            investment company.',
+    'para_1' => 'MG Group was established in 2001. Within 10 years, our company has developed into a diversified business conglomerate wide range of businesses from a real estate investment company. Our core businesses include a variety of financial services, real estate, entertainment, publishing, arts and cultures, education and training, multimedia and environmental protection. As a portfolio company of MG Metals, Marigold International Bullion Dealers Limited (A member of The Chinese Gold and Silver Exchange Society, Hong Kong (CGSE)* and Gold Bullion Group Member**, License number: 023) was established in 2007. We officially became an authorized precious metal dealer after obtaining membership license in 2008.',
+
     'para_2' => 'Our core businesses include a variety of financial services, real estate,
                             entertainment, publishing, arts and cultures, education and training, multimedia and
                             environmental protection. As a portfolio company of MG Metals, Marigold International Bullion
