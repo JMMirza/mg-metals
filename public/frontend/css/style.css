@@ -7783,7 +7783,18 @@ footer.bg-gray-lighter{
     align-items: center;
     justify-content: center;
 }
-
+.ez-gold{
+    padding:0px 10% !important;
+}
+.heading-two{
+    font-size:38px;line-height:1em !important;font-weight:normal !important
+}
+.scan-info .app-scan{
+    height: 115px; margin-bottom: 10px;
+}
+.contact-us{
+    padding:20px 10% ;
+}
 @media only screen and (max-width: 767px) {
     .mt-40 {
         margin-top: 20px !important;
@@ -7889,7 +7900,9 @@ footer.bg-gray-lighter{
         padding:20px 0px !important;
     }
     
-   
+    .page-section.pad-100{
+        padding:40px 0px !important;
+    }
     
     .page-section .section-title{
         display: flex;
@@ -7919,7 +7932,7 @@ footer.bg-gray-lighter{
         display: block !important;
         white-space: nowrap  !important;
         overflow: auto !important;
-        height: 230px;
+        min-height: 230px;
     }
     .page-section .tpl-alt-tabs li{
         width:280px !important;
@@ -7946,6 +7959,10 @@ footer.bg-gray-lighter{
         height: auto !important;
         width: 100% !important;
         opacity: 1;
+    }
+    .page-section .tpl-alt-tabs li a p{
+        font-size: 14px !important;
+        color: #000 !important;
     }
     .page-section .tpl-alt-tabs li a  .title{
         min-height: 70px;
@@ -8041,5 +8058,88 @@ footer.bg-gray-lighter{
     .contact-item .ci-text {
         font-size: 14px !important;
         line-height: 18px !important;
+    }
+    .interested-in h2{
+        transform: translate(0,0) !important;margin-bottom: 10px !important;
+        color:#333 !important;
+    }
+    .ez-gold{
+        padding:0px 15px !important;
+    }
+    .ez-gold .text{
+        width: 100% !important;
+    }
+    .ez-gold .text h3{
+        font-size: 20px !important;
+        text-align: center;
+    }
+    .ez-gold .text p{
+        font-size: 12px !important;
+        text-align: center;
+    }
+    .ez-gold .apps{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .heading-two{
+        font-size:20px;flex-direction: column;line-height: 2rem !important;
+    }
+    .scan-info h2{
+        font-size: 20px !important;
+        line-height: normal;
+        margin-top: 20px !important;
+    }
+    .scan-info .app-scan{
+        width: 50% !important;
+        height: auto;
+    }
+    .scan-info h3{
+        font-size: 20px;
+    }
+    .mg-pay{
+        height: 100vh !important;
+    }
+    .mg-pay .js-height-full{
+        height: 100vh !important;
+    }
+    .mg-pay .bg-video {
+        height: 100vh !important;
+    }
+    .comming-soon h1{
+        font-size: 30px !important;
+    }
+    .contact-us{
+        padding:20px 2% !important
+    }
+    .contact-item .ci-title{
+        font-size: 20px !important;
+    }
+    .contact-item .ci-text{
+        width: 100% !important;
+        padding: 0px !important;
+    }
+    .google-map{
+        margin-top: 20px;
+    }
+    .vert-center{
+        padding-top:100px !important;
+        align-items: flex-start !important;
+        background-color: #f3f3f3 !important;
+    }
+    .login-tabs{
+        display: flex;
+    }
+    .login-tabs li{
+        width: 30% !important;
+    }
+    .login-tab-content{
+        width:100% !important;
+    }
+    .login-tab-content .form-card .card-body{
+        padding:20px 0px  !important
+    }
+    .post-prev-img.boxed{
+        width: 100% !important;
     }
 }

@@ -6,7 +6,7 @@
     <section class="page-section">
         <div class="container relative">
             <div class="row section-text mt-40 mb-30">
-                <div class="col-12 col-md-4 pr-0">
+                <div class="col-12 col-md-4 pr-0 quote">
                     <h3 class="playfare bold dark-light" style="font-size: 26px;line-height: 1.88em;">
                         {{ __('home_page.service_para_1') }}</h3>
                     <p style="letter-spacing:0.1em;">{{ __('home_page.Warren Buffett') }}</p>

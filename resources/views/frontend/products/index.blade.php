@@ -5,7 +5,7 @@
     @include('layouts.flash_message')
 
     <section class="page-section pt-5">
-        <div class="container relative">
+        <div class="container relative shop-page">
             <div class="row">
                 @include('frontend.products.sidebar')
                 <div class="col">

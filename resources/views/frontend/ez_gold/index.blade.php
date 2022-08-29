@@ -4,7 +4,7 @@
     @include('frontend.ez_gold.header')
 
     <section class="page-section pad-100">
-        <div class="container relative " style="padding:0px 10% !important">
+        <div class="container relative ez-gold" >
 
             <div class="row">
 
@@ -18,7 +18,7 @@
                         <p class="dark font-17"> {{ __('ez_gold.p_01') }} <br> {{ __('ez_gold.p_02') }}
                         </p>
 
-                        <div class="mt-40">
+                        <div class="mt-40 apps">
                             <a href="#" target="_blank">
                                 <img src="{{ asset('frontend/images/app-store.png') }}" class="mr-0"
                                     style="width:150px;margin-right:30px" alt="logo">
@@ -64,11 +64,11 @@
 
     {{-- <hr class="mt-0 mb-0" /> --}}
 
-    <section class="page-section pad-100" data-background="{{ asset('frontend/images/why-banner.png') }}">
+    <section class="page-section pad-100 why-section" data-background="{{ asset('frontend/images/why-banner.png') }}">
         <div class="container relative">
 
-            <h2 style="font-size:38px;line-height:1em !important;font-weight:normal !important"
-                class="section-title normal font-alt playfare dark mb-10  capitalize ls-none text-center">
+            <h2 style=""
+                class="section-title heading-two  normal font-alt playfare dark mb-10  capitalize ls-none text-center">
                 {{ __('ez_gold.h1_03') }}<br>
                 <span style="font-size:24px;">{{ __('ez_gold.h1_04') }}</span>
             </h2>
@@ -125,7 +125,7 @@
 
     {{-- <hr class="mt-0 mb-0" /> --}}
 
-    <section class="page-section pad-100">
+    <section class="page-section pad-100 scan-info">
         <div class="container relative">
             <div class="container relative">
 
@@ -151,17 +151,17 @@
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/whatsapp-scan.png') }}"
-                                    style="height: 115px; margin-bottom: 10px;" alt="" />
+                                    class="app-scan" alt="" />
                                 <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_11') }} </h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/wechat-scan.png') }}"
-                                    style="height: 115px; margin-bottom: 10px;" alt="" />
+                                class="app-scan" alt="" />
                                 <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_12') }}</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
                                 <img src="{{ asset('frontend/images/line-scan.png') }}"
-                                    style="height: 115px; margin-bottom: 10px;" alt="" />
+                                class="app-scan" alt="" />
                                 <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_13') }}</h3>
                             </div>
                         </div>

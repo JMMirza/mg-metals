@@ -23,7 +23,7 @@
 
                     <div class="col-md-12">
 
-                        <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0" role="tablist">
+                        <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0 " role="tablist">
 
                             <li class="nav-item">
                                 <a href="#item-1" aria-controls="item-1" class="nav-link active" data-bs-toggle="tab"

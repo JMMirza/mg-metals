@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <section class="home-section home-section-banner bg-gray parallax-2 web-banner" id="home">
+    <section class="home-section home-section-banner mg-pay bg-gray parallax-2 web-banner" id="home">
         <div class="js-height-full">
 
             <!-- Hero Content -->

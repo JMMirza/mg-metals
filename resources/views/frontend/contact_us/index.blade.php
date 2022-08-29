@@ -7,11 +7,11 @@
     <section class="page-section" id="about">
         <div class="container relative">
 
-            <div class="section-text mb-60 mb-sm-40 " style="padding:20px 10%">
+            <div class="section-text mb-60 mb-sm-40 contact-us " >
                 <div class="row">
 
                     <!-- Phone -->
-                    <div class="col-12 col-lg-4 pt-30 pb-40 ">
+                    <div class="col-12 col-lg-4 pt-sm-0 pt-md-30 pb-sm-20 pb-md-40 ">
                         <div class="contact-item" style="padding-left:0px">
                             <div class="ci-title font-alt gold pb-20" style="letter-spacing:0.15em;font-size:26px">
                                 {{ __('home_page.Address') }}
@@ -24,7 +24,7 @@
                     <!-- End Phone -->
 
                     <!-- Address -->
-                    <div class="col-12 col-lg-4 pt-30 pb-40 ">
+                    <div class="col-12 col-lg-4 pt-sm-0 pt-md-30 pb-sm-20 pb-md-40  ">
                         <div class="contact-item">
                             <div class="ci-title font-alt gold pb-20" style="letter-spacing:0.15em;font-size:26px">
                                 {{ __('home_page.contact_us') }}
@@ -38,7 +38,7 @@
                     <!-- End Address -->
 
                     <!-- Email -->
-                    <div class="col-12 col-lg-4 pt-30 pb-40 ">
+                    <div class="col-12 col-lg-4 pt-sm-0 pt-md-30 pb-sm-20 pb-md-40  ">
                         <div class="contact-item">
 
                             <div class="ci-title font-alt gold pb-20" style="letter-spacing:0.15em;font-size:26px">
