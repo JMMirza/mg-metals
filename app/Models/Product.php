@@ -116,10 +116,10 @@ class Product extends Model
                 if (Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
                     $gold_price = Session::get('gold_price');
                 } else {
-                    // $response = Http::get('http://150.242.218.15:3080/');
-                    // $resp = $response->object();
-                    // $gold_price = $resp->ask;
-                    $gold_price = 1747;
+                    $response = Http::get('http://150.242.218.15:3080/');
+                    $resp = $response->object();
+                    $gold_price = $resp->ask;
+                    // $gold_price = 1747;
                     Session::put('gold_price', $gold_price);
                     Session::put('gold_price_expires_at', Carbon::now()->addMinutes(10)->timestamp);
                 }
@@ -165,10 +165,10 @@ class Product extends Model
                 if (Session::get('gold_price') && Carbon::now()->timestamp < Session::get('gold_price_expires_at')) {
                     $gold_price = Session::get('gold_price');
                 } else {
-                    // $response = Http::get('http://150.242.218.15:3080/');
-                    // $resp = $response->object();
-                    // $gold_price = $resp->ask;
-                    $gold_price = 1747;
+                    $response = Http::get('http://150.242.218.15:3080/');
+                    $resp = $response->object();
+                    $gold_price = $resp->ask;
+                    // $gold_price = 1747;
 
                     Session::put('gold_price', $gold_price);
                     Session::put('gold_price_expires_at', Carbon::now()->addMinutes(10)->timestamp);
