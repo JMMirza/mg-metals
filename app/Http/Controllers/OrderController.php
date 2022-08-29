@@ -128,7 +128,7 @@ class OrderController extends Controller
     public function order_details($id)
     {
         $order = Order::where('id', $id)
-            ->with(['customer', 'order_products.product.category', 'product_commissions', 'delivery_method', 'payment_method', 'payment_status_updated_by_relation', 'delivery_status_updated_by_relation'])
+            ->with(['customer', 'order_products.product.category', 'product_commissions.tier', 'delivery_method', 'payment_method', 'payment_status_updated_by_relation', 'delivery_status_updated_by_relation'])
             ->first();
         $total_price = OrderProduct::where('order_id', $id)->sum('total_price');
         // dd($order->toArray());

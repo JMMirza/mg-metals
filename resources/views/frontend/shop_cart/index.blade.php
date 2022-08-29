@@ -246,12 +246,16 @@
 
             let user_id = $('#user_id').val();
             if ($('#created_at').val() != undefined) {
-                console.log($('#created_at').val());
+                // console.log($('#created_at').val());
                 document.getElementById('time_block').style.display = "flex";
                 var countDownDate = moment($('#created_at').val()).add(15, 'minutes');
+                console.log("CountDown Date", countDownDate);
+                console.log("Created At Date", countDownDate);
+
                 var x = setInterval(function() {
 
                     var now = moment();
+                    console.log("current time: ", now);
                     var minutes = countDownDate.diff(now, 'minutes');
                     var seconds = countDownDate.diff(now, 'seconds');
 
