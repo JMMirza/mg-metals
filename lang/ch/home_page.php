@@ -124,4 +124,5 @@ return [
     'Saturday' => '週六',
     'Sunday' => '週天',
     'WE HANDLE EACH DEAL WITH PASSION' => '我們用熱情完成每一筆交易',
+    'notify_me' => '通知我',
 ];

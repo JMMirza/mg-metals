@@ -67,7 +67,7 @@ return [
     'BEST SELLERS' => 'BEST SELLERS',
     'why_choose_us' => 'WHY CHOOSE US',
 
-    'What people say?' => 'What people say?',
+    // 'What people say?' => 'What people say?',
     'Stay informed with our newsletter' => 'Stay informed with our newsletter',
     'Enter your email' => 'Enter your email',
     'Subscribe' => 'Subscribe',
@@ -124,4 +124,5 @@ return [
     'Saturday' => 'Saturday',
     'Sunday' => 'Sunday',
     'WE HANDLE EACH DEAL WITH PASSION' => 'WE HANDLE EACH DEAL WITH PASSION',
+    'notify_me' => 'Notify Me',
 ];

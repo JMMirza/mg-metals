@@ -8,7 +8,7 @@
             <div class="col-md-8">
                 <img src="{{ asset('frontend/images/app-logo.png') }}" class="mb-3" alt="logo">
                 <div class="hs-line-4 font-alt " style="margin-top:10px;">
-                    {{ __('ez_gold.h1_14.ONE APP, MANY USES') }}
+                    {{ __('ez_gold.h1_14') }}
                 </div>
 
             </div>
