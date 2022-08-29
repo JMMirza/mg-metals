@@ -8129,6 +8129,7 @@ footer.bg-gray-lighter{
     }
     .login-tabs{
         display: flex;
+        border-color: transparent !important;
     }
     .login-tabs li{
         width: 30% !important;
