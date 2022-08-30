@@ -103,7 +103,11 @@
                 </div>
             </div>
         </form>
-        <table class="table table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
+    </div>
+</div>
+<div class="card card-default mt-20">
+    <div class="card-body">
+        <table class="table table-striped align-middle table-nowrap mb-0 mb-4" >
             <thead>
                 <tr>
                     <th>{{ __('shareholder.full_name') }}</th>

@@ -76,34 +76,38 @@
                 </div>
             </div>
         </form>
-
-        <table class="table table-striped align-middle table-nowrap mb-0 mt-5" style="width:100%">
-            <thead>
+    </div>
+</div>
+<div class="card card-default mt-20">
+    <div class="card-body">
+        <table class="table table-striped align-middle table-nowrap mb-0 mb-4"  >
+        <thead>
+            <tr>
+                {{-- <th>ID</th> --}}
+                <th>{{ __('trading.full_name') }}</th>
+                <th style="width:25%">{{ __('trading.title') }}</th>
+                <th style="width:25%">{{ __('trading.email') }}</th>
+                <th style="width:20%">{{ __('trading.phone_number') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($representatives as $representative)
                 <tr>
-                    {{-- <th>ID</th> --}}
-                    <th>{{ __('trading.full_name') }}</th>
-                    <th style="width:25%">{{ __('trading.title') }}</th>
-                    <th style="width:25%">{{ __('trading.email') }}</th>
-                    <th style="width:20%">{{ __('trading.phone_number') }}</th>
+                    <td>{{ $representative->name }}</td>
+                    <td>{{ $representative->title }}</td>
+                    <td>{{ $representative->email }}</td>
+                    <td>{{ $representative->phone_number }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                @forelse ($representatives as $representative)
-                    <tr>
-                        <td>{{ $representative->name }}</td>
-                        <td>{{ $representative->title }}</td>
-                        <td>{{ $representative->email }}</td>
-                        <td>{{ $representative->phone_number }}</td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="4">No Record Found!</td>
-                    </tr>
-                @endforelse
-            </tbody>
-            <tbody>
+            @empty
+                <tr>
+                    <td colspan="4">No Record Found!</td>
+                </tr>
+            @endforelse
+        </tbody>
+        <tbody>
 
-            </tbody>
+        </tbody>
         </table>
     </div>
+
 </div>
