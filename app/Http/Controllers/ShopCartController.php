@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Setup;
 use App\Models\ShopCart;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
@@ -31,8 +32,9 @@ class ShopCartController extends Controller
         $hkd_price = ExchangeRate::latest()->first();
         $delivery_methods = Setup::all();
         $payment_methods = PaymentMethod::all();
-        // dd($cart->toArray());
-        return view('frontend.shop_cart.index', ['delivery_methods' => $delivery_methods, 'payment_methods' => $payment_methods, 'carts' => $cart, 'total_price' => $total_price, 'hkd_price' => $hkd_price->rate]);
+        $now = Carbon::now();
+        // dd($now);
+        return view('frontend.shop_cart.index', ['delivery_methods' => $delivery_methods, 'payment_methods' => $payment_methods, 'now' => $now, 'carts' => $cart, 'total_price' => $total_price, 'hkd_price' => $hkd_price->rate]);
     }
 
     /**

@@ -12,6 +12,7 @@
                         <div class="time-block" id="time_block" style="display: none">
                             <div class="Timer"> </div>
                         </div>
+                        <input type="text" id="now" value="{{ $now }}">
                         <div class="card mt-10 mb-10">
                             <div class="card-header">
                                 <h5 class="card-title flex-grow-1 mb-0">Your Cart</h5>
@@ -31,11 +32,11 @@
                                             </th>
                                         </tr>
                                         @forelse ($carts as $cart)
-                                            <input type="hidden" id="created_at" value="{{ $cart->created_at_timestamp }}">
-                                            <input type="text" id="cart_ids" name="cart_ids[]" value="{{ $cart->id }}"
-                                                hidden>
-                                            <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id"
-                                                hidden>
+                                            <input type="text" id="created_at" value="{{ $cart->created_at_timestamp }}">
+                                            <input type="text" id="cart_ids" name="cart_ids[]"
+                                                value="{{ $cart->id }}" hidden>
+                                            <input type="text" id="user_id" value="{{ \Auth::user()->id }}"
+                                                name="user_id" hidden>
                                             <tr>
                                                 <td> <img src="{{ $cart->product->product_picture_url }}" alt=""
                                                         style="height: 100px;" /> </td>
@@ -47,18 +48,21 @@
                                                     {{ $cart->quantity }}
                                                 </td>
                                                 <td>
-                                                    <span class="spot_price_usd"> ${{ number_format($cart->spot_price, 2) }} </span>
+                                                    <span class="spot_price_usd"> ${{ number_format($cart->spot_price, 2) }}
+                                                    </span>
                                                     <span class="spot_price_hkd" style="display: none">
                                                         HKD {{ number_format($cart->spot_price * $hkd_price, 2) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="price_usd"> ${{ number_format($cart->total_price, 2) }} </span>
+                                                    <span class="price_usd"> ${{ number_format($cart->total_price, 2) }}
+                                                    </span>
                                                     <span class="price_hkd" style="display: none">
                                                         HKD {{ number_format($cart->total_price * $hkd_price, 2) }}</span>
 
                                                 </td>
                                                 <td>
-                                                    <a class="delete-cart" href="{{ route('shop-cart.destroy', $cart->id) }}"><i
+                                                    <a class="delete-cart"
+                                                        href="{{ route('shop-cart.destroy', $cart->id) }}"><i
                                                             class="fa fa-times"></i>
                                                         <span class="d-none d-sm-inline-block"></span></a>
                                                 </td>
@@ -238,6 +242,7 @@
 @endsection
 @push('frontend.layouts.footer_scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             var method;
@@ -258,16 +263,15 @@
 
                 document.getElementById('time_block').style.display = "flex";
 
-                var countDownDate = moment.unix($('#created_at').val()).add(15, 'minutes');
+                var countDownDate = moment.unix($('#created_at').val()).add(15, 'minutes').utc(8);
 
+                var now_backend = $('#now').val();
                 console.log("CountDown Date", countDownDate);
-                console.log("Created At Date", countDownDate);
+                console.log("Now: ", now_backend);
 
                 var x = setInterval(function() {
 
-                    var now = moment();
-                    console.log('Now', now);
-                    console.log("current time: ", now);
+                    var now = moment().utc(8);
                     var minutes = countDownDate.diff(now, 'minutes');
                     var seconds = countDownDate.diff(now, 'seconds');
 
