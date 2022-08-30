@@ -4,7 +4,7 @@
     <!-- Widget -->
     <div class="widget">
 
-        <h5 class="widget-title font-alt dark">Filter By  <i class="fa fa-chevron-down" ></i></h5>
+        <h5 class="widget-title font-alt dark">Filter By  <i class="filter-btn fa fa-chevron-down" ></i></h5>
 
 
         <div class="widget-body">
