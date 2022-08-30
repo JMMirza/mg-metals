@@ -12,59 +12,66 @@
                         <div class="time-block" id="time_block" style="display: none">
                             <div class="Timer"> </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped shopping-cart-table">
-                                <tr>
-                                    <th> Photo </th>
-                                    <th> Product </th>
-                                    <th> Quantity </th>
-                                    <th> Item Price </th>
-                                    <th> Total </th>
-                                    <th> &nbsp;</th>
-                                    <th>
+                        <div class="card mt-10 mb-10">
+                            <div class="card-header">
+                                <h5 class="card-title flex-grow-1 mb-0">Your Cart</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped shopping-cart-table">
+                                        <tr>
+                                            <th> Photo </th>
+                                            <th> Product </th>
+                                            <th> Quantity </th>
+                                            <th> Item Price </th>
+                                            <th> Total </th>
+                                            <th> &nbsp;</th>
+                                            <th>
 
-                                    </th>
-                                </tr>
-                                @forelse ($carts as $cart)
-                                    <input type="hidden" id="created_at" value="{{ $cart->created_at_timestamp }}">
-                                    <input type="text" id="cart_ids" name="cart_ids[]" value="{{ $cart->id }}"
-                                        hidden>
-                                    <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id"
-                                        hidden>
-                                    <tr>
-                                        <td> <img src="{{ $cart->product->product_picture_url }}" alt=""
-                                                style="height: 100px;" /> </td>
-                                        <td>
-                                            <a href="{{ route('single-product', $cart->product->id) }}"
-                                                title="">{{ $cart->product->name }}</a>
-                                        </td>
-                                        <td>
-                                            {{ $cart->quantity }}
-                                        </td>
-                                        <td>
-                                            <span class="spot_price_usd"> ${{ number_format($cart->spot_price, 2) }} </span>
-                                            <span class="spot_price_hkd" style="display: none">
-                                                HKD {{ number_format($cart->spot_price * $hkd_price, 2) }}</span>
-                                        </td>
-                                        <td>
-                                            <span class="price_usd"> ${{ number_format($cart->total_price, 2) }} </span>
-                                            <span class="price_hkd" style="display: none">
-                                                HKD {{ number_format($cart->total_price * $hkd_price, 2) }}</span>
+                                            </th>
+                                        </tr>
+                                        @forelse ($carts as $cart)
+                                            <input type="hidden" id="created_at" value="{{ $cart->created_at_timestamp }}">
+                                            <input type="text" id="cart_ids" name="cart_ids[]" value="{{ $cart->id }}"
+                                                hidden>
+                                            <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id"
+                                                hidden>
+                                            <tr>
+                                                <td> <img src="{{ $cart->product->product_picture_url }}" alt=""
+                                                        style="height: 100px;" /> </td>
+                                                <td>
+                                                    <a href="{{ route('single-product', $cart->product->id) }}"
+                                                        title="">{{ $cart->product->name }}</a>
+                                                </td>
+                                                <td>
+                                                    {{ $cart->quantity }}
+                                                </td>
+                                                <td>
+                                                    <span class="spot_price_usd"> ${{ number_format($cart->spot_price, 2) }} </span>
+                                                    <span class="spot_price_hkd" style="display: none">
+                                                        HKD {{ number_format($cart->spot_price * $hkd_price, 2) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="price_usd"> ${{ number_format($cart->total_price, 2) }} </span>
+                                                    <span class="price_hkd" style="display: none">
+                                                        HKD {{ number_format($cart->total_price * $hkd_price, 2) }}</span>
 
-                                        </td>
-                                        <td>
-                                            <a class="delete-cart" href="{{ route('shop-cart.destroy', $cart->id) }}"><i
-                                                    class="fa fa-times"></i>
-                                                <span class="d-none d-sm-inline-block"></span></a>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="6">No Record Found!</td>
-                                    </tr>
-                                @endforelse
-                            </table>
+                                                </td>
+                                                <td>
+                                                    <a class="delete-cart" href="{{ route('shop-cart.destroy', $cart->id) }}"><i
+                                                            class="fa fa-times"></i>
+                                                        <span class="d-none d-sm-inline-block"></span></a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="6">No Record Found!</td>
+                                            </tr>
+                                        @endforelse
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
                         {{-- <hr /> --}}

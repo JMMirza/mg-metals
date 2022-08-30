@@ -8144,4 +8144,31 @@ footer.bg-gray-lighter{
     .post-prev-img.boxed{
         width: 100% !important;
     }
+    .card .card-header{
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+    }
+    .card .card-header .d-flex{
+        flex-direction: column;
+    }
+    .card .card-header .d-flex .badge{
+        margin-top: 5px;;
+    }
+    .card .card-header .card-title{
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 10px !important;
+    }
+    .card .card-body{
+        overflow-y: auto !important;
+        min-height: 300px;
+    }
+    .card .card-body p{
+        font-size: 12px !important;
+    }
+    .table tr th{
+        min-width: 185px;
+    }
 }
