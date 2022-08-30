@@ -26,6 +26,11 @@ $(document).ready(function () {
                 name: "tier_type",
             },
             {
+                data: "tier.name",
+                name: "tier.name",
+                defaultContent: '<span>Admin</span>'
+            },
+            {
                 data: "product.sku",
                 name: "product.sku",
             },

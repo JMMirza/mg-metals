@@ -10,10 +10,11 @@
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order #{{ $order->id }}</h5>
                         <div class="flex-shrink-0">
+                            <span class=""> Total Price: USD
+                                {{ number_format($total_price, 2) }} </span>
                             <span class="badge bg-info p-2" style="font-size: 15px">Order Status:
                                 {{ $order->order_status }}</span>
-                            {{-- <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i
-                                    class="ri-download-2-fill align-middle me-1"></i> Invoice</a> --}}
+
                         </div>
                     </div>
                 </div>
@@ -76,8 +77,12 @@
                         <div class="flex-shrink-0">
                             <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
                                 {{ $order->payment_status }}</span>
-                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
-                                {{ $order->payment_due_date }}</span>
+                            @if ($order->payment_status == 'PAID')
+                                <span class="badge bg-success p-2" style="font-size: 15px">Received</span>
+                            @else
+                                <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
+                                    {{ $order->payment_due_date }}</span>
+                            @endif
                         </div>
                     </div>
                 </div>

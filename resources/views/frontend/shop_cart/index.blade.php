@@ -12,7 +12,7 @@
                         <div class="time-block" id="time_block" style="display: none">
                             <div class="Timer"> </div>
                         </div>
-                        <input type="text" id="now" value="{{ $now }}">
+                        <input type="hidden" id="now" value="{{ $now }}">
                         <div class="card mt-10 mb-10">
                             <div class="card-header">
                                 <h5 class="card-title flex-grow-1 mb-0">Your Cart</h5>
@@ -32,7 +32,7 @@
                                             </th>
                                         </tr>
                                         @forelse ($carts as $cart)
-                                            <input type="text" id="created_at" value="{{ $cart->created_at_timestamp }}">
+                                            <input type="hidden" id="created_at" value="{{ $cart->created_at_timestamp }}">
                                             <input type="text" id="cart_ids" name="cart_ids[]"
                                                 value="{{ $cart->id }}" hidden>
                                             <input type="text" id="user_id" value="{{ \Auth::user()->id }}"

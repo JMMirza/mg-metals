@@ -26,15 +26,15 @@
                                 <tr>
                                     <td>{{ $order->id }}</td>
                                     {{-- <td>{{ $order->quantity }}</td> --}}
+                                    <td>{{ $order->payment_status }}
+                                    </td>
+                                    <td>{{ $order->delivery_status }}</td>
+
                                     @if ($order->total_price == null)
                                         <td>USD 0 </td>
                                     @else
                                         <td>USD {{ number_format($order->total_price, 2) }} </td>
                                     @endif
-                                    <td>{{ $order->payment_status }}
-                                    </td>
-                                    <td>{{ $order->delivery_status }}</td>
-
                                     <td><a href="{{ route('get-customer-order-details', $order->id) }}"
                                             class="btn btn-sm btn-icon waves-effect waves-light">
                                             Details

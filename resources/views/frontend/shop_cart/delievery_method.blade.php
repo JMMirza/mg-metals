@@ -43,8 +43,8 @@
                         <div class="col-12 col-md-4 mb-3">
                             <label class="form-label">City *</label>
                             <input type="text" name="city" id="city" value="{{ $order->customer->city }}"
-                                placeholder="City"
-                                class="form-control  @if ($errors->has('city')) is-invalid @endif">
+                                placeholder="City" class="form-control  @if ($errors->has('city')) is-invalid @endif"
+                                required>
                             <div class="invalid-feedback">
                                 <strong>{{ $errors->first('city') }}</strong>
                             </div>
@@ -54,7 +54,7 @@
                             <label class="form-label">Country *</label>
                             <input type="text" name="country" id="country" value="{{ $order->customer->country }}"
                                 placeholder="Country"
-                                class="form-control  @if ($errors->has('country')) is-invalid @endif">
+                                class="form-control  @if ($errors->has('country')) is-invalid @endif" required>
                             <div class="invalid-feedback">
                                 <strong>{{ $errors->first('country') }}</strong>
                             </div>
@@ -64,7 +64,7 @@
                             <label class="form-label">Zip Code *</label>
                             <input type="text" name="zip_code" id="zip_code" value="{{ $order->customer->zip_code }}"
                                 placeholder="Zip Code"
-                                class="form-control  @if ($errors->has('zip_code')) is-invalid @endif">
+                                class="form-control  @if ($errors->has('zip_code')) is-invalid @endif" required>
                             <div class="invalid-feedback">
                                 <strong>{{ $errors->first('zip_code') }}</strong>
                             </div>

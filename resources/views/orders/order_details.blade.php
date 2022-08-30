@@ -8,10 +8,9 @@
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order #{{ $order->id }}</h5>
                         <div class="flex-shrink-0">
+                            <span class="badge bg-success p-2">{{ $total_price }}</span>
                             <span class="badge bg-info p-2" style="font-size: 15px">Order Status:
                                 {{ $order->order_status }}</span>
-                            {{-- <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i
-                                    class="ri-download-2-fill align-middle me-1"></i> Invoice</a> --}}
                         </div>
                     </div>
                 </div>
@@ -136,9 +135,9 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col" class="text-center">Tier ID</th>
-                                    <th scope="col" class="text-center">Tier Name</th>
+                                    {{-- <th scope="col" class="text-center">Tier ID</th> --}}
                                     <th scope="col" class="text-center">Tier Type</th>
+                                    <th scope="col" class="text-center">Tier Name</th>
                                     <th scope="col" class="text-center">Product Name</th>
                                     <th scope="col" class="text-center">Product Tier Commission</th>
                                     <th scope="col" class="text-center">Tier Commission</th>
@@ -148,14 +147,14 @@
                                 {{-- @foreach ($order->order_products as $product) --}}
                                 @foreach ($order->product_commissions as $commission)
                                     <tr>
-                                        <td class="fw-medium text-center">
+                                        {{-- <td class="fw-medium text-center">
                                             {{ isset($commission->tier_id) ? $commission->tier_id : 0 }}
-                                        </td>
+                                        </td> --}}
+                                        <td class="fw-medium text-center">
+                                            {{ str_replace('_', ' ', ucwords($commission->tier_type)) }}</td>
                                         <td class="fw-medium text-center">
                                             {{ isset($commission->tier->name) ? $commission->tier->name : 'MG Metals' }}
                                         </td>
-                                        <td class="fw-medium text-center">
-                                            {{ str_replace('_', ' ', ucwords($commission->tier_type)) }}</td>
                                         <td class="fw-medium text-center">{{ $commission->product->name }}</td>
                                         <td class="fw-medium text-center">{{ $commission->tier_commission_percentage }} %
                                             @if (isset($commission->commission_got_percentage))

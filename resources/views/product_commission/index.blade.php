@@ -15,6 +15,7 @@
                                 {{-- <th>Customer ID</th> --}}
                                 <th>Customer name</th>
                                 <th>Tier Type</th>
+                                <th>Tier Name</th>
                                 <th>Product SKU</th>
                                 <th>Product name</th>
                                 <th>Product Price</th>

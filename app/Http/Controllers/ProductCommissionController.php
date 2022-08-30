@@ -16,23 +16,23 @@ class ProductCommissionController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = ProductCommission::with(['product', 'customer'])->latest()->get();
+            $data = ProductCommission::with(['product', 'customer', 'tier'])->latest()->get();
             // dd($data->toArray());
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('tier_commission', function ($row) {
-                    // dd($row);
-                    return  $row->tier_commission . ' USD';
+                    // dd($row->toArray());
+                    return  'USD ' . $row->tier_commission;
                 })
                 ->addColumn('product_mark_up', function ($row) {
                     if (isset($row->product_mark_up)) {
                         if ($row->mark_up_type == 'flat') {
-                            return  $row->product_mark_up . ' USD';
+                            return  'USD ' . $row->product_mark_up;
                         } else {
                             // dd('hello');
                             $row->product_price = (int)$row->product_price;
                             $markup = ($row->product_price / 100) * $row->product_mark_up;
-                            return  $markup . ' USD';
+                            return  'USD ' . $markup;
                         }
                     } else {
                         return 'N / A';
@@ -44,6 +44,9 @@ class ProductCommissionController extends Controller
                     } else {
                         return 'N / A';
                     }
+                })
+                ->addColumn('tier_type', function ($row) {
+                    return str_replace('_', ' ', ucwords($row->tier_type));
                 })
                 ->make(true);
         }
