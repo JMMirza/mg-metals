@@ -6,7 +6,7 @@
 
     <section class="page-section pt-5">
         <div class="container relative shop-page">
-            <div class="row">
+            <div class="row data">
                 @include('frontend.products.sidebar')
                 <div class="col">
 
