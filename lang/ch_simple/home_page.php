@@ -125,4 +125,9 @@ return [
     'Sunday' => '周天',
     'WE HANDLE EACH DEAL WITH PASSION' => '我们用热情完成每一笔交易',
     'notify_me' => '通知我',
+    'filter_by' => '筛选',
+    'all_products' => '所有产品',
+    'manufacturer' => '制造商',
+    'in_stock' => '有现货',
+    'not_availabe' => '售罄'
 ];

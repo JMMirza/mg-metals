@@ -125,4 +125,9 @@ return [
     'Sunday' => 'Sunday',
     'WE HANDLE EACH DEAL WITH PASSION' => 'WE HANDLE EACH DEAL WITH PASSION',
     'notify_me' => 'Notify Me',
+    'filter_by' => 'Filter By',
+    'all_products' => 'All Products',
+    'manufacturer' => 'Manufacturer',
+    'in_stock' => 'In Stock',
+    'not_availabe' => 'Not Available'
 ];

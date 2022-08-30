@@ -6,11 +6,11 @@
         {{-- @if ($product->productsInventory($product->id) != null) --}}
         @if ($product->productsQuantity() != null)
             <div class="intro-label">
-                <span class="badge badge-primary bg-green">In Stock</span>
+                <span class="badge badge-primary bg-green">{{ __('home_page.in_stock') }}</span>
             </div>
         @else
             <div class="intro-label">
-                <span class="badge badge-danger bg-red">Not Available</span>
+                <span class="badge badge-danger bg-red">{{ __('home_page.not_availabe') }}</span>
             </div>
         @endif
         {{-- @endif --}}
@@ -18,7 +18,7 @@
             <span class="badge badge-danger bg-red">Sale</span>
         </div> --}}
         <a href="{{ route('single-product', $product->id) }}" class="quick-view"> Quick View</a>
-        
+
     </div>
 
     @if (Config::get('app.locale') == 'en')
@@ -44,5 +44,5 @@
         </div>
     @endif
 
-    
+
 </div>

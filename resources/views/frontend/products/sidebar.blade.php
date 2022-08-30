@@ -1,17 +1,18 @@
-<div class="col sidebar" >
+<div class="col sidebar">
 
 
     <!-- Widget -->
     <div class="widget">
 
-        <h5 class="widget-title font-alt dark">Filter By  <i class="filter-btn fa fa-chevron-down" ></i></h5>
+        <h5 class="widget-title font-alt dark">{{ __('home_page.filter_by') }} <i
+                class="filter-btn fa fa-chevron-down"></i></h5>
 
 
         <div class="widget-body">
             <ul class="clearlist widget-menu">
 
                 <li>
-                    <a href="{{ route('shop') }}" title="">All Products</a>
+                    <a href="{{ route('shop') }}" title="">{{ __('home_page.all_products') }}</a>
                 </li>
 
                 @forelse ($categories as $category)
@@ -95,8 +96,8 @@
             </ul>
         </div>
     </div>
-    <div class="widget"  style="display:none">
-        <h5 class="widget-title font-alt">Manufacturer</h5>
+    <div class="widget" style="display:none">
+        <h5 class="widget-title font-alt">{{ __('home_page.manufacturer') }}</h5>
         <div class="widget-body">
             <div class="tags">
                 @forelse ($manufacturers as $manufacturer)
