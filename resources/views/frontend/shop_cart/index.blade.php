@@ -26,7 +26,7 @@
                                     </th>
                                 </tr>
                                 @forelse ($carts as $cart)
-                                    <input type="hidden" id="created_at" value="{{ $cart->created_at }}">
+                                    <input type="text" id="created_at" value="{{ $cart->created_at_timestamp }}">
                                     <input type="text" id="cart_ids" name="cart_ids[]" value="{{ $cart->id }}"
                                         hidden>
                                     <input type="text" id="user_id" value="{{ \Auth::user()->id }}" name="user_id"
@@ -246,15 +246,20 @@
 
             let user_id = $('#user_id').val();
             if ($('#created_at').val() != undefined) {
-                // console.log($('#created_at').val());
+
+                console.log($('#created_at').val());
+
                 document.getElementById('time_block').style.display = "flex";
-                var countDownDate = moment($('#created_at').val()).add(15, 'minutes');
+
+                var countDownDate = moment.unix($('#created_at').val()).add(15, 'minutes');
+
                 console.log("CountDown Date", countDownDate);
                 console.log("Created At Date", countDownDate);
 
                 var x = setInterval(function() {
 
                     var now = moment();
+                    console.log('Now', now);
                     console.log("current time: ", now);
                     var minutes = countDownDate.diff(now, 'minutes');
                     var seconds = countDownDate.diff(now, 'seconds');
@@ -288,6 +293,7 @@
                     }
                 }, 1000);
             }
+
             $('#customer_products_store').on('submit', function(e) {
                 e.preventDefault();
 

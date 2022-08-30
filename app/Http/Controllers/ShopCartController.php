@@ -22,6 +22,8 @@ class ShopCartController extends Controller
     {
         $user = \Auth::user();
         $cart = ShopCart::where(['user_id' => $user->id, 'status' => 'pending'])->get();
+        $created_at = ShopCart::where(['user_id' => $user->id, 'status' => 'pending'])->get();
+
         $total_price = 0;
         foreach ($cart as $key => $value) {
             $total_price = $value->total_price + $total_price;
