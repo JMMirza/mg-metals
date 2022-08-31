@@ -37,14 +37,17 @@
         <div class="container relative mt-40">
             <div class="section-text mb-60 mb-sm-40">
                 <div class="row">
-                    <div class="col-sm-6 px-md-5">
+                    <div class="col-md-12 text-center">
                         <h2 class="section-title font-alt mb-50 mt-30 ">{{ __('about_us.h3') }}</h2>
+                    </div>
+                    <div class="col-sm-6 px-md-5">
+                        
                         <p style="color:#254345">{{ __('about_us.para_7') }}</p>
                         <p style="color:#254345">{{ __('about_us.para_8') }}</p>
                         <p style="color:#254345">{{ __('about_us.para_9') }}</p>
                     </div>
                     <div class="col-sm-6 px-md-5">
-                        <h2 class="section-title font-alt mb-50 mt-30 ">{{ __('about_us.h4') }}</h2>
+                       
                         <div class="d-flex">
                             <img src="{{ asset('frontend/images/milestone.png') }}"
                                 style="height: 26px;margin-right: 15px;" alt="logo">

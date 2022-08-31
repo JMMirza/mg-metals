@@ -7801,6 +7801,27 @@ footer.bg-gray-lighter{
 .sidebar .widget-title .fa{
     display: none !important;
 }
+.swal2-container .swal2-title{
+    font-family: 'Playfair Display', serif !important;
+    font-size: 22px !important;
+    color: #bf8a00 !important;
+}
+.swal2-container .swal2-html-container{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 14px !important;
+}
+.swal2-container  .swal2-actions button{
+
+    border-radius: 0px !important; 
+    color: #fff !important;
+    background-color: #bf8a00 !important;
+    border-color: #bf8a00 !important;
+    min-width: 100px !important;
+    height: 42px !important;
+    font-size: 14px !important;
+}
+
+
 @media only screen and (max-width: 767px) {
     .mt-40 {
         margin-top: 20px !important;
