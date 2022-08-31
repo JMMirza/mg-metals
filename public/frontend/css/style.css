@@ -7796,7 +7796,7 @@ footer.bg-gray-lighter{
     padding:20px 10% ;
 }
 .sidebar{
-    max-width: 240px;
+    max-width: 240px !important;
 }
 .sidebar .widget-title .fa{
     display: none !important;
