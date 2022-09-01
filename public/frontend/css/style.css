@@ -4225,10 +4225,11 @@ hr:not([size]){
 /* ==============================
    Contact section
    ============================== */
-
+.contact-footer .contact-item{
+    padding-left: 75px;
+}
 .contact-item {
     position: relative;
-    padding-left: 75px;
     color: #444;
 
     -webkit-transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
@@ -7469,7 +7470,7 @@ section:hover .small-item-carousel .owl-next {
   }
   .interested-in .card .card-body p{
     font-size: 16px;
-    line-height: 20px;
+    line-height: 1.88em;
     letter-spacing: 0em;
     color: rgb(50, 50, 50);
   }
