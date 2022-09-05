@@ -13,15 +13,15 @@
                     <div class="clearfix mb-40">
 
                         <!-- <div class="left section-text mt-10">
-                            Showing 1–{{ $products->count() }} of {{ $products->total() }} results
-                        </div> -->
+                                        Showing 1–{{ $products->count() }} of {{ $products->total() }} results
+                                    </div> -->
 
                         <div class="right">
                             <form method="post" action="#" class="form">
                                 <select class="input-md round">
-                                    <option>Sorting</option>
-                                    <option>Sort by price: low to high</option>
-                                    <option>Sort by price: high to low</option>
+                                    <option>{{ __('home_page.sorting') }}</option>
+                                    <option>{{ __('home_page.sorting_low_high') }}</option>
+                                    <option>{{ __('home_page.sorting_high_low') }}</option>
                                 </select>
                             </form>
                         </div>

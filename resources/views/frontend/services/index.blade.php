@@ -85,11 +85,11 @@
         <div class="container relative">
 
             <div class="row interested-in ">
-                <div class="col-12 col-md-6 align-self-center p-0">
+                {{-- <div class="col-12 col-md-6 align-self-center p-0">
                     <h2 class="font-alt text-center"
                         style="transform: translate(-30px, 70px);;color: #DCA674;font-weight:bold;font-size:38px">MG Metals
                     </h2>
-                </div>
+                </div> --}}
                 <div class="col-12 col-md-6 align-self-center p-0">
 
                     <div class="">

@@ -33,10 +33,11 @@
                     </div>
 
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4 align-self-center">
                     <div class="card card-default">
                         <div class="card-body">
-                            <h3 class="playfare mb-2">{{ __('home_page.discover_ez') }}</h3>
+                            <h3 class="playfare mb-4">{{ __('home_page.discover_ez') }}</h3>
+
                             <p>{{ __('home_page.invest_smartly') }} </p>
                             <a href="{{ route('contact_us') }}"
                                 class="btn btn-mod btn-w btn-medium btn-round">{{ __('home_page.learn_more') }}</a>

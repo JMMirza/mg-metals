@@ -129,5 +129,13 @@ return [
     'all_products' => '所有產品',
     'manufacturer' => '製造商',
     'in_stock' => '有現貨',
-    'not_availabe' => '售罄'
+    'not_availabe' => '售罄',
+    'retail_shop' => '零售店',
+    'quick_view' => '商品详情',
+    'my_orders' => '我的訂單',
+    'my_commission' => '我的佣金',
+    'my_referrals' => '我的推薦',
+    'sorting' => '綜合示例',
+    'sorting_low_high' => '價格從低到高',
+    'sorting_high_low' => '價格從到高到低',
 ];

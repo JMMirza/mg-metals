@@ -48,10 +48,13 @@
                             <li><a href="{{ route('customer_profile') . '?tab=individual' }}"
                                     class="text-center">{{ __('home_page.profile') }}</a></li>
                             <li>
-                            <li><a href="{{ route('customer-orders') }}" class="text-center">My Orders</a></li>
-                            <li><a href="{{ route('customer-commissions') }}" class="text-center">My Commission</a>
+                            <li><a href="{{ route('customer-orders') }}"
+                                    class="text-center">{{ __('home_page.my_orders') }}</a></li>
+                            <li><a href="{{ route('customer-commissions') }}"
+                                    class="text-center">{{ __('home_page.my_commission') }}</a>
                             </li>
-                            <li><a href="{{ route('customer-referrals') }}" class="text-center">My Referrals</a>
+                            <li><a href="{{ route('customer-referrals') }}"
+                                    class="text-center">{{ __('home_page.my_referrals') }}</a>
                             </li>
                             @if (\Auth::user()->hasRole('admin'))
                                 <li>

@@ -129,5 +129,13 @@ return [
     'all_products' => 'All Products',
     'manufacturer' => 'Manufacturer',
     'in_stock' => 'In Stock',
-    'not_availabe' => 'Not Available'
+    'not_availabe' => 'Not Available',
+    'retail_shop' => 'Our Retail Shop',
+    'quick_view' => 'Quick View',
+    'my_orders' => 'My Orders',
+    'my_commission' => 'My Commission',
+    'my_referrals' => 'My Referrals',
+    'sorting' => 'Sorting',
+    'sorting_low_high' => 'Sort by price: low to high',
+    'sorting_high_low' => 'Sort by price: high to low',
 ];

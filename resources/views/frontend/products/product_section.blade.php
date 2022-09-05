@@ -17,7 +17,7 @@
         {{-- <div class="intro-label">
             <span class="badge badge-danger bg-red">Sale</span>
         </div> --}}
-        <a href="{{ route('single-product', $product->id) }}" class="quick-view"> Quick View</a>
+        <a href="{{ route('single-product', $product->id) }}" class="quick-view"> {{ __('home_page.quick_view') }}</a>
 
     </div>
 
