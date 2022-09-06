@@ -88,8 +88,14 @@
 
                 <!-- Languages -->
                 <li>
-                    <a href="#"
-                        class="mn-has-sub">{{ (session()->get('locale') == 'ch_simple' ? '简体中文' : session()->get('locale') == 'ch') ? '繁體' : 'En' }}
+                    <a href="#" class="mn-has-sub">
+                        @if (session()->get('locale') == 'ch_simple')
+                            简体中文
+                        @elseif (session()->get('locale') == 'ch')
+                            繁體中文
+                        @else
+                            En
+                        @endif
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="mn-sub">
