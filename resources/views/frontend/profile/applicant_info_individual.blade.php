@@ -105,7 +105,13 @@
                         <option value="{{ $nationality->name }}"
                             @if ($customer->nationality) @if ($customer->nationality == $nationality->name) {{ 'selected' }} @endif
                         @else @if (old('nationality') == $nationality->name) {{ 'selected' }} @endif @endif>
-                            {{ $nationality->name }}
+                            @if (Config::get('app.locale') == 'en')
+                                {{ $nationality->name }}
+                            @elseif (Config::get('app.locale') == 'ch')
+                                {{ $nationality->name_ch }}
+                            @else
+                                {{ $nationality->name_s_ch }}
+                            @endif
                         </option>
                     @endforeach
                 </select>
@@ -125,9 +131,10 @@
                 {{-- </div> --}}
             </div>
             <div class="col-12 col-md-6 mb-3">
-                <label class="form-label">{{ __('individual.verified') }}</label>
+                <label class="form-label">{{ __('individual.status') }}</label>
                 <input type="text" id="is_verified" class="form-control"
-                    placeholder=@if (Auth::user()->is_verified == 0) 'UnVerified' @else 'Verified' @endif disabled>
+                    placeholder=@if (Auth::user()->is_verified == 0) {{ __('individual.unverified') }} @else {{ __('individual.verified') }} @endif
+                    disabled>
             </div>
             {{-- <div class="col-12 col-md-4 mb-3">
                 <label class="form-label">{{ __('individual.referred_by') }}</label>

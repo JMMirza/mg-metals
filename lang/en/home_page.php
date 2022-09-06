@@ -138,4 +138,5 @@ return [
     'sorting' => 'Sorting',
     'sorting_low_high' => 'Sort by price: low to high',
     'sorting_high_low' => 'Sort by price: high to low',
+    'no_record_found' => 'No Record Found!'
 ];

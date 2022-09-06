@@ -107,7 +107,7 @@
 </div>
 <div class="card card-default mt-20">
     <div class="card-body">
-        <table class="table table-striped align-middle table-nowrap mb-0 mb-4" >
+        <table class="table table-striped align-middle table-nowrap mb-0 mb-4">
             <thead>
                 <tr>
                     <th>{{ __('shareholder.full_name') }}</th>
@@ -130,7 +130,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6">No Record Found!</td>
+                        <td colspan="6">{{ __('home_page.no_record_found') }}</td>
                     </tr>
                 @endforelse
             </tbody>

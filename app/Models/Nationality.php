@@ -12,6 +12,8 @@ class Nationality extends Model
 
     protected $fillable = [
         'name',
+        'name_ch',
+        'name_s_ch',
         'abbreviation',
     ];
 

@@ -95,7 +95,7 @@
                     <ul class="mn-sub">
                         <li><a href="{{ route('language', 'en') }}">En</a></li>
                         <li><a href="{{ route('language', 'ch_simple') }}">简体中文</a></li>
-                        <li><a href="{{ route('language', 'ch') }}">繁體</a></li>
+                        <li><a href="{{ route('language', 'ch') }}">繁體中文 </a></li>
                     </ul>
                 </li>
                 <!-- End Languages -->

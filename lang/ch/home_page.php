@@ -138,4 +138,5 @@ return [
     'sorting' => '綜合示例',
     'sorting_low_high' => '價格從低到高',
     'sorting_high_low' => '價格從到高到低',
+    'no_record_found' => '沒有找到記錄'
 ];

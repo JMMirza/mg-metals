@@ -6,5 +6,5 @@ return [
     'title' => '職銜',
     'email' => '電郵',
     'phone_number' => '電話號碼',
-    'signature' => 'SIGNATURE',
+    'signature' => '簽名',
 ];

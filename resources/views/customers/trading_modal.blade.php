@@ -89,7 +89,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4">No Record Found!</td>
+                                    <td colspan="4">{{ __('home_page.no_record_found') }}</td>
                                 </tr>
                             @endforelse
                         </tbody>

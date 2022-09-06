@@ -138,4 +138,5 @@ return [
     'sorting' => '综合排序',
     'sorting_low_high' => '价格从低到高',
     'sorting_high_low' => '价格从高到低',
+    'no_record_found' => '没有找到记录'
 ];

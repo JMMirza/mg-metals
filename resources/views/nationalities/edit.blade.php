@@ -26,6 +26,43 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-label-group in-border">
+                            <label for="gamerTagName" class="form-label">Name (Traditional Chinese)</label>
+                            <input type="text"
+                                class="form-control @if ($errors->has('name_ch')) is-invalid @endif"
+                                id="gamerTagName" name="name_ch" placeholder="Please enter"
+                                value="{{ $nationality->name_ch }}" required>
+
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('name_ch'))
+                                    {{ $errors->first('name_ch') }}
+                                @else
+                                    Name is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-label-group in-border">
+                            <label for="gamerTagName" class="form-label">Name(Simplified Chinese)</label>
+                            <input type="text"
+                                class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif"
+                                id="gamerTagName" name="name_s_ch" placeholder="Please enter"
+                                value="{{ $nationality->name_s_ch }}" required>
+
+                            <div class="invalid-tooltip">
+                                @if ($errors->has('name_s_ch'))
+                                    {{ $errors->first('name_s_ch') }}
+                                @else
+                                    Name is required!
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-6 mb-3">
                         <div class="form-label-group in-border">
                             <label for="abbreviation" class="form-label">Abbreviation</label>

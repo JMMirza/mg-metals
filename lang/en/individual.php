@@ -7,12 +7,14 @@ return [
     'FEMALE' => 'FEMALE',
     'Email' => 'EMAIL',
     'Occupation & Business Background' => 'OCCUPATION & BUSINESS BACKGROUND',
-    'HKID No. / Passport No.' => 'HKID No. / Passport No.',
+    'HKID No. / Passport No.' => 'ID / Passport No.',
     'PHONE NUMBER' => 'PHONE NUMBER',
     'Nationality' => 'NATIONALITY',
     'ADDRESS' => 'ADDRESS',
     'gender' => 'GENDER',
-    'verified' => 'STATUS',
+    'status' => 'STATUS',
+    'verified' => 'Verified',
+    'unverified' => 'UnVerified',
     'referral_code' => 'REFERRAL CODE',
     'referred_by' => 'REFERRED BY'
 ];

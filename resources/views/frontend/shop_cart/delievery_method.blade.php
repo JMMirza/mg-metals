@@ -12,7 +12,8 @@
                     <div class="row">
                         <div class="col-12 col-md-12 mb-3">
                             <label class="form-label">Full Name *</label>
-                            <input type="text" name="full_name" id="full_name" value="{{ $order->customer->full_name }}"
+                            <input type="text" class="form-control @if ($errors->has('full_name')) is-invalid @endif"
+                                name="full_name" id="full_name" value="{{ $order->customer->full_name }}"
                                 placeholder="Full Name"
                                 class="form-control  @if ($errors->has('full_name')) is-invalid @endif">
                             <div class="invalid-feedback">
@@ -120,8 +121,6 @@
                         shipping_address: shipping_address
                     },
                     success: function(resp) {
-                        console.log(resp);
-                        // alert('hello')
                         Swal.fire({
                             title: "Order Confirmed",
                             text: "Your Order is being confirmed",
