@@ -194,11 +194,15 @@
 @endsection
 
 @push('frontend.layouts.footer_scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
 
             $('#shor_cart_form').on('submit', function(e) {
                 e.preventDefault();
+                var now = moment().toString();
+                console.log(now);
 
                 let spot_price = $('#spot_price').val();
                 let status = $('#status').val();
@@ -218,6 +222,7 @@
                         user_id: user_id,
                         quantity: quantity,
                         referral_code: referral_code,
+                        created_at: now
                     },
                     success: function(response) {
                         // alert('hello')

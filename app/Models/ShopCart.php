@@ -18,6 +18,7 @@ class ShopCart extends Model
         'total_price',
         'status',
         'quantity',
+        'created_at',
     ];
 
     protected $dates = [

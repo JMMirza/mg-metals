@@ -32,7 +32,7 @@
                                             </th>
                                         </tr>
                                         @forelse ($carts as $cart)
-                                            <input type="hidden" id="created_at" value="{{ $cart->created_at_timestamp }}">
+                                            <input type="hidden" id="created_at" value="{{ $cart->created_at }}">
                                             <input type="text" id="cart_ids" name="cart_ids[]"
                                                 value="{{ $cart->id }}" hidden>
                                             <input type="text" id="user_id" value="{{ \Auth::user()->id }}"
@@ -70,7 +70,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="6">{{ __('home_page.no_record_found') }}</td>
+                                                <td colspan="6">No Record Found!</td>
                                             </tr>
                                         @endforelse
                                     </table>
@@ -245,6 +245,10 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+
+            // var countDownDate = moment($('#created_at').val()).add(15, 'minutes');
+
+            // console.log('countDownDate', countDownDate.toString(), 'Now', moment().toString());
             var method;
 
             $("#termsAndConditions").on('click', function(e) {
@@ -257,13 +261,14 @@
             })
 
             let user_id = $('#user_id').val();
+
             if ($('#created_at').val() != undefined) {
 
                 console.log($('#created_at').val());
 
                 document.getElementById('time_block').style.display = "flex";
 
-                var countDownDate = moment.unix($('#created_at').val()).add(15, 'minutes').utc(8);
+                var countDownDate = moment($('#created_at').val()).add(15, 'minutes').toString();
 
                 var now_backend = $('#now').val();
                 console.log("CountDown Date", countDownDate);
@@ -271,19 +276,25 @@
 
                 var x = setInterval(function() {
 
-                    var now = moment().utc(8);
-                    var minutes = countDownDate.diff(now, 'minutes');
-                    var seconds = countDownDate.diff(now, 'seconds');
+                    var now = moment();
+                    var minutes = moment(countDownDate).diff(now, 'minutes');
+                    var seconds = moment(countDownDate).diff(now, 'seconds');
 
-                    var time_format = countDownDate.diff(now, 'time');
+                    // console.log('minutes', minutes, 'seconds', seconds);
 
-                    var time = moment(time_format).format('mm:ss');
 
-                    $('.Timer').text(time);
+                    var now_time = countDownDate;
+                    var then = now.toString();
+
+                    var hours = moment.utc(moment(now_time).diff(moment(then))).format("mm:ss")
+
+                    $('.Timer').text(hours);
 
                     if (minutes < 0 || seconds < 0) {
+
                         clearInterval(x);
                         $('.Timer').text("EXPIRED");
+
                         $.ajax({
                             url: '/remove-shop-cart/' + user_id,
                             type: "GET",

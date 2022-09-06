@@ -62,7 +62,7 @@ class ShopCartController extends Controller
             'quantity' => ['required'],
             // 'referral_code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
-
+        // dd($request->all());
         if (\Auth::user()->is_verified == 1) {
             $product = Product::find($request->product_id);
             $result = $product->productsInventory($request->quantity);
