@@ -25,12 +25,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="form-label-group in-border">
                         <label for="gamerTagName" class="form-label">Name (Traditional Chinese)</label>
                         <input type="text" class="form-control @if ($errors->has('name_ch')) is-invalid @endif"
-                            id="gamerTagName" name="name_ch" placeholder="Please enter" value="{{ old('name_ch') }}"
-                            required>
+                            id="gamerTagName" name="name_ch" placeholder="Please enter" value="{{ old('name_ch') }}">
 
                         <div class="invalid-tooltip">
                             @if ($errors->has('name_ch'))
@@ -42,12 +41,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="form-label-group in-border">
                         <label for="gamerTagName" class="form-label">Name(Simplified Chinese)</label>
                         <input type="text" class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif"
-                            id="gamerTagName" name="name_s_ch" placeholder="Please enter" value="{{ old('name_s_ch') }}"
-                            required>
+                            id="gamerTagName" name="name_s_ch" placeholder="Please enter"
+                            value="{{ old('name_s_ch') }}">
 
                         <div class="invalid-tooltip">
                             @if ($errors->has('name_s_ch'))

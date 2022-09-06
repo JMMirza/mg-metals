@@ -10,12 +10,12 @@
                     method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <div class="form-label-group in-border">
                             <label for="name" class="form-label">Name</label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
-                                name="name" placeholder="Please enter" value="{{ $nationality->name }}" required>
+                                name="name" placeholder="Please enter" value="{{ $nationality->name }}">
 
                             <div class="invalid-tooltip">
                                 @if ($errors->has('name'))
@@ -27,13 +27,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <div class="form-label-group in-border">
                             <label for="gamerTagName" class="form-label">Name (Traditional Chinese)</label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_ch')) is-invalid @endif"
                                 id="gamerTagName" name="name_ch" placeholder="Please enter"
-                                value="{{ $nationality->name_ch }}" required>
+                                value="{{ $nationality->name_ch }}">
 
                             <div class="invalid-tooltip">
                                 @if ($errors->has('name_ch'))
