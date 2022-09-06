@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\CustomerShareholder;
 use App\Models\AuthorizedTradingRepresentative;
+use App\Models\Nationality;
 use Illuminate\Http\Request;
 
 class FrontendCustomerController extends Controller
@@ -77,7 +78,8 @@ class FrontendCustomerController extends Controller
         $customer = Customer::find($id);
         $shareholders = CustomerShareholder::with('customer')->where('customer_id', $customer->id)->latest()->get();
         $representatives = AuthorizedTradingRepresentative::with('customer')->where('customer_id', $customer->id)->latest()->get();
-        return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer]);
+        $nationalities = Nationality::all();
+        return view('frontend.profile.profile', ['shareholders' => $shareholders, 'representatives' => $representatives, 'customer' => $customer, 'nationalities' => $nationalities]);
     }
 
     /**
