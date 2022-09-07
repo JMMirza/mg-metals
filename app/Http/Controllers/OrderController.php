@@ -180,6 +180,7 @@ class OrderController extends Controller
             $order->order_status = 'COMPLETE';
             $order->delivery_remarks = $request->remarks;
             $order->delivery_status_updated_by = \Auth::user()->id;
+            $order->delivery_status_updated_at = $request->updated_at;
             $order->save();
             // Notification::send($user, new OrderConfirmed);
             // Notification::send($user, new PaymentRecevied);
@@ -203,6 +204,7 @@ class OrderController extends Controller
             $order->order_status = 'CONFIRMED';
             $order->payment_remarks = $request->remarks;
             $order->payment_status_updated_by = \Auth::user()->id;
+            $order->payment_status_updated_at = $request->updated_at;
             $order->save();
             Notification::send($user, new OrderConfirmed);
             Notification::send($user, new PaymentRecevied);

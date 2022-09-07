@@ -194,6 +194,27 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on("click", "#verify_email", function (e) {
+        const user_id = $(this).val();
+
+        var url = $(this).data("url");
+        $.ajax({
+            url: url,
+            headers: {
+                "X-CSRF-Token": "{{ csrf_token() }}",
+            },
+            type: "GET",
+            data: {
+                user_id: user_id,
+            },
+            cache: false,
+            success: function (data) {
+                location.reload(true);
+            },
+            error: function () { },
+        });
+    });
+
     $(document).on("click", "#save_changes_shareholder", function (e) {
         e.preventDefault();
         var url = $("#shareholderForm").attr("action");

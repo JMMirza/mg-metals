@@ -345,6 +345,7 @@
                         payment_method_id: payment_method_id,
                         payment_method: method,
                         currency: currency,
+                        created_at: moment().format('YYYY-MM-DD HH:mm:ss')
                     },
                     success: function(response) {
                         // alert('hello')

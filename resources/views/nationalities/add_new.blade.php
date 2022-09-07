@@ -8,7 +8,7 @@
         <div class="card-body">
             <form class="row  needs-validation" action="{{ route('nationalities.store') }}" method="POST" novalidate>
                 @csrf
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-label-group in-border">
                         <label for="gamerTagName" class="form-label">Name</label>
                         <input type="text" class="form-control @if ($errors->has('name')) is-invalid @endif"
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                     <div class="form-label-group in-border">
                         <label for="gamerTagName" class="form-label">Name (Traditional Chinese)</label>
                         <input type="text" class="form-control @if ($errors->has('name_ch')) is-invalid @endif"
@@ -41,7 +41,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                     <div class="form-label-group in-border">
                         <label for="gamerTagName" class="form-label">Name(Simplified Chinese)</label>
                         <input type="text" class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif"
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                {{-- <div class="col-md-6 mb-3">
                     <div class="form-label-group in-border">
                         <label for="abbreviation" class="form-label">Abbreviation</label>
                         <input type="text" class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
@@ -73,7 +73,7 @@
                             @endif
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-12 text-end">
                     <button class="btn btn-primary" type="submit">Save Changes</button>
                     <a href="{{ route('nationalities.index') }}" type="button"

@@ -7,14 +7,14 @@ use App\Models\Nationality;
 use App\Models\User;
 use App\Models\UserVerify;
 use App\Notifications\AccountActivated;
+use App\Notifications\VerificationCode as NotificationsVerificationCode;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
-use NextApps\VerificationCode\Models\VerificationCode;
 
 class CustomerController extends Controller
 {
@@ -301,5 +301,32 @@ class CustomerController extends Controller
             }
         }
         return false;
+    }
+
+    public function send_verification_code(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
+        // dd($user->toArray());
+        $token = Str::random(30);
+        $user->notify(new NotificationsVerificationCode($token));
+
+        UserVerify::create([
+            'user_id' => $user->id,
+            'token' => $token
+        ]);
+
+        return true;
+    }
+
+    public function verify_email($code)
+    {
+        $user_code  = UserVerify::where('token', $code)->first();
+        if ($user_code) {
+            $user = User::findOrFail($user_code->user_id);
+            $user->is_email_verified = 1;
+            $user->email_verified_at = Carbon::now();
+            $user->save();
+        }
+        return redirect(route('home'))->with('success', 'Your email is verified');
     }
 }

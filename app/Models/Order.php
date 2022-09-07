@@ -32,8 +32,11 @@ class Order extends Model
         'shipping_address',
         'payment_remarks',
         'payment_status_updated_by',
+        'payment_status_updated_at',
         'delivery_remarks',
-        'delivery_status_updated_by'
+        'delivery_status_updated_by',
+        'delivery_status_updated_at',
+        'created_at'
     ];
 
     protected $dates = [

@@ -10,7 +10,7 @@
                     method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="form-label-group in-border">
                             <label for="name" class="form-label">Name</label>
                             <input type="text"
@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="form-label-group in-border">
                             <label for="gamerTagName" class="form-label">Name (Traditional Chinese)</label>
                             <input type="text"
@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-label-group in-border">
                             <label for="gamerTagName" class="form-label">Name(Simplified Chinese)</label>
                             <input type="text"
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <div class="form-label-group in-border">
                             <label for="abbreviation" class="form-label">Abbreviation</label>
                             <input type="text"
@@ -79,7 +79,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="col-12 text-end">
                         <button class="btn btn-primary" type="submit">Save Changes</button>

@@ -67,6 +67,7 @@ Route::get('/language/{locale}', [HomeCtrl::class, 'switch_language'])->name('la
 Route::get('account/verify/{token}', [HomeCtrl::class, 'verifyAccount'])->name('user.verify');
 Route::get('/ez-gold', [HomeCtrl::class, 'ez_gold'])->name('ez-gold');
 Route::get('/mg-pay', [HomeCtrl::class, 'mg_pay'])->name('mg-pay');
+Route::get('verify-email/{code}', [CustomerController::class, 'verify_email'])->name('verify-email');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
@@ -119,4 +120,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('remove-shop-cart/{id}', [ShopCartController::class, 'delete_shop_carts'])->name('remove-shop-cart');
     Route::post('change-payment-state', [OrderController::class, 'change_status'])->name('change-payment-state');
     Route::post('change-delivery-state', [OrderController::class, 'change_delivery_status'])->name('change-delivery-state');
+    Route::get('verification-email', [CustomerController::class, 'send_verification_code'])->name('verification-email');
 });

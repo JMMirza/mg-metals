@@ -7,17 +7,6 @@
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">Update Customer</h4>
                     <div class="flex-shrink-0">
-                        @if ($user->show_referral_code == 1)
-                            <button id="hide" value="{{ $user->id }}" data-url="{{ route('show-referral-code') }}"
-                                class="btn btn-sm btn-success btn-label waves-effect waves-light"><i
-                                    class="ri-check-double-line label-icon align-middle fs-16 me-2"></i> Hide Referral
-                                Code</button>
-                        @else
-                            <button id="show" value="{{ $user->id }}" data-url="{{ route('show-referral-code') }}"
-                                class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
-                                    class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i> Show Referral
-                                Code</button>
-                        @endif
                         @if ($user->customer_type == 'corporate')
                             <button type="button" class="btn btn-sm btn-success " data-bs-toggle="modal"
                                 value="{{ $customer->id }}" id="shareholders" data-url="{{ route('load-shareholders') }}"
@@ -108,7 +97,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4 col-sm-12">
+                                                <div class="col-md-3 col-sm-12">
                                                     <div class="form-label-group in-border">
                                                         <label for="email" class="form-label">Email</label>
                                                         <input type="text"
@@ -119,10 +108,19 @@
                                                             @if ($errors->has('email'))
                                                                 {{ $errors->first('email') }}
                                                             @else
-                                                                Full Name is required!
+                                                                Email is required!
                                                             @endif
                                                         </div>
                                                     </div>
+                                                </div>
+
+                                                <div class="col-md-1 mt-4">
+                                                    @if ($user->is_email_verified != 1)
+                                                        <button id="verify_email" value="{{ $user->id }}"
+                                                            data-url="{{ route('verification-email') }}"
+                                                            class="btn btn-success">
+                                                            Verify Email</button>
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-4 col-sm-12">
@@ -200,7 +198,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6 col-sm-12 mt-3">
+                                                <div class="col-md-4 col-sm-12 mt-3">
                                                     <div class="form-label-group in-border">
                                                         <label for="passport_no" class="form-label">Referral Code</label>
                                                         <input type="text" class="form-control" id=""
@@ -208,7 +206,23 @@
                                                             value="{{ $customer->user->referral_code }}" readonly>
                                                     </div>
                                                 </div>
-
+                                                <div class="col-md-2 col-sm-12 mt-5">
+                                                    @if ($user->show_referral_code == 1)
+                                                        <button id="hide" value="{{ $user->id }}"
+                                                            data-url="{{ route('show-referral-code') }}"
+                                                            class="btn btn-sm btn-success btn-label waves-effect waves-light"><i
+                                                                class="ri-check-double-line label-icon align-middle fs-16 me-2"></i>
+                                                            Hide Referral
+                                                            Code</button>
+                                                    @else
+                                                        <button id="show" value="{{ $user->id }}"
+                                                            data-url="{{ route('show-referral-code') }}"
+                                                            class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
+                                                                class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i>
+                                                            Show Referral
+                                                            Code</button>
+                                                    @endif
+                                                </div>
                                                 <div class="col-12 col-md-12 mt-3">
                                                     <div class="form-group">
                                                         <label for="">Address</label>
@@ -850,7 +864,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 col-sm-12">
+                                <div class="col-md-3 col-sm-12">
                                     <div class="form-label-group in-border">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="text"
@@ -865,6 +879,14 @@
                                             @endif
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-md-1 mt-4">
+                                    @if ($user->is_email_verified != 1)
+                                        <button id="verify_email" value="{{ $user->id }}"
+                                            data-url="{{ route('verification-email') }}" class="btn btn-success">
+                                            Verify Email</button>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-4 col-sm-12">
@@ -940,14 +962,30 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 col-sm-12 mt-3">
+                                <div class="col-md-4 col-sm-12 mt-3">
                                     <div class="form-label-group in-border">
                                         <label for="passport_no" class="form-label">Referral Code</label>
                                         <input type="text" class="form-control" id="" name=""
                                             placeholder="" value="{{ $customer->user->referral_code }}" readonly>
                                     </div>
                                 </div>
-
+                                <div class="col-md-2 col-sm-12 mt-5">
+                                    @if ($user->show_referral_code == 1)
+                                        <button id="hide" value="{{ $user->id }}"
+                                            data-url="{{ route('show-referral-code') }}"
+                                            class="btn btn-sm btn-success btn-label waves-effect waves-light"><i
+                                                class="ri-check-double-line label-icon align-middle fs-16 me-2"></i>
+                                            Hide Referral
+                                            Code</button>
+                                    @else
+                                        <button id="show" value="{{ $user->id }}"
+                                            data-url="{{ route('show-referral-code') }}"
+                                            class="btn btn-sm btn-warning btn-label waves-effect waves-light"><i
+                                                class="ri-error-warning-line label-icon align-middle fs-16 me-2"></i>
+                                            Show Referral
+                                            Code</button>
+                                    @endif
+                                </div>
 
                                 <div class="col-12 col-md-12 mt-3">
                                     <div class="form-group">

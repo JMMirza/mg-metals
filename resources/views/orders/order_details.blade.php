@@ -8,7 +8,8 @@
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0">Order #{{ $order->id }}</h5>
                         <div class="flex-shrink-0">
-                            <span class="badge bg-success p-2">{{ $total_price }}</span>
+                            <span class="badge bg-success p-2" style="font-size: 15px">Total Price: USD
+                                {{ number_format($total_price, 2) }}</span>
                             <span class="badge bg-info p-2" style="font-size: 15px">Order Status:
                                 {{ $order->order_status }}</span>
                         </div>
@@ -211,7 +212,8 @@
                                     <td class="fw-medium text-center">{{ $order->payment_method->payment_method }}</td>
                                     <td class="fw-medium text-center">{{ $order->payment_status }}</td>
                                     <td class="fw-medium text-center">
-                                        {{ $order->payment_due_date == null ? 'N/A' : $order->payment_due_date }} </td>
+                                        {{ $order->payment_due_date == null ? 'N/A' : Carbon\Carbon::parse($order->payment_due_date)->format('D, M d, Y - h:m A') }}
+                                    </td>
                                     <td class="fw-medium text-center">
                                         {{ $order->payment_remarks == null ? 'N/A' : $order->payment_remarks }} </td>
                                     <td class="fw-medium text-center">
@@ -280,7 +282,7 @@
                         </li>
                         <li>
                             <h6 class="fs-15 mb-0 fw-semibold"> Due Date - <span
-                                    class="fw-normal">{{ $order->delivery_due_date }}</span>
+                                    class="fw-normal">{{ Carbon\Carbon::parse($order->delivery_due_date)->format('D, M d, Y - h:m A') }}</span>
                             </h6>
                         </li>
                         <li>
@@ -342,18 +344,18 @@
                                         @else
                                             <h6 class="mb-1">Customer payment has been received</h6>
                                             <p class="text-muted">
-                                                {{ $order->updated_at->format('D, M d, Y - h:m A') }}
+                                                {{ Carbon\Carbon::parse($order->payment_status_updated_at)->format('D, M d, Y - h:m A') }}
                                             </p>
 
                                             <h6 class="mb-1">Customer Order is being Confirmed</h6>
                                             <p class="text-muted">
-                                                {{ $order->updated_at->format('D, M d, Y - h:m A') }}
+                                                {{ Carbon\Carbon::parse($order->payment_status_updated_at)->format('D, M d, Y - h:m A') }}
                                             </p>
                                         @endif
                                         @if ($order->delivery_status != 'PENDING')
                                             <h6 class="mb-1">Customer delivery is confirmed</h6>
                                             <p class="text-muted">
-                                                {{ $order->updated_at->format('D, M d, Y - h:m A') }}
+                                                {{ Carbon\Carbon::parse($order->delivery_status_updated_at)->format('D, M d, Y - h:m A') }}
                                             </p>
                                         @endif
                                         {{-- <h6 class="mb-1">Staff has confirmed your order.</h6>
@@ -462,6 +464,7 @@
 @endpush
 
 @push('footer_scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
         $(document).on("click", "#change_payment_status", function(e) {
             var order_id = $(this).data("value");
@@ -494,6 +497,7 @@
                         data: {
                             order_id: order_id,
                             remarks: response.value,
+                            updated_at: moment().format('YYYY-MM-DD HH:mm:ss')
                         },
                         cache: false,
                         success: function(data) {
@@ -536,6 +540,7 @@
                         data: {
                             order_id: order_id,
                             remarks: response.value,
+                            updated_at: moment().format('YYYY-MM-DD HH:mm:ss')
                         },
                         cache: false,
                         success: function(data) {

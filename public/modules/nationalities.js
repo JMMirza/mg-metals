@@ -21,10 +21,6 @@ $(document).ready(function () {
                 name: "name",
             },
             {
-                data: "abbreviation",
-                name: "abbreviation",
-            },
-            {
                 data: "created_at",
                 name: "created_at",
                 width: "15%",

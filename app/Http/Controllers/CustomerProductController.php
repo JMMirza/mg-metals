@@ -86,6 +86,7 @@ class CustomerProductController extends Controller
                     'order_status' => 'PENDING',
                     'delivery_status' => 'PENDING',
                     'currency' => $request->currency,
+                    'created_at' => $request->created_at
                 ]);
             } else {
                 $order = Order::create([
@@ -96,6 +97,7 @@ class CustomerProductController extends Controller
                     'order_status' => 'CONFIRMED',
                     'delivery_status' => 'PENDING',
                     'currency' => $request->currency,
+                    'created_at' => $request->created_at
                 ]);
             }
             if (strtolower($request->payment_method) != 'credit card') {

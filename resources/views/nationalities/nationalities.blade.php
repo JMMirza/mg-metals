@@ -21,7 +21,6 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Abbreviation</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>

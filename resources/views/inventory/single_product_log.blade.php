@@ -163,13 +163,11 @@
                                         <td><span class="badge bg-warning">Sold</span></td>
                                         <td>{{ $inventories->order->id }}</td>
                                         <td>{{ $inventories->order->customer->full_name }}</td>
-                                        {{-- <td>{{ $inventories->order->delivery_method }}</td> --}}
                                         <td>{{ $inventories->order->spot_price }} USD</td>
                                     @else
                                         <td><span class="badge bg-success">Added</span></td>
                                         <td>N /A</td>
                                         <td>N /A</td>
-                                        {{-- <td>N /A</td> --}}
                                         <td>N /A</td>
                                     @endif
                                     <td>{{ $inventories->created_at }}</td>

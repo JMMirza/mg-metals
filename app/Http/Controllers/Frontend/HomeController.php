@@ -190,12 +190,14 @@ class HomeController extends Controller
 
         return redirect(route('verify-code-view', ['email' => $request->email]))->with('error', 'Verification Failed');
     }
+
     public function verifyCode()
     {
         $user = \Auth::user();
 
         return view('frontend.verify_email.verify_email', ['email' => $user->email]);
     }
+
     public function profile()
     {
         $user = \Auth::user();
