@@ -5,18 +5,18 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         responsive: true,
+        searching: false,
+        lengthChange: false,
         scrollX: true,
         "order": [[0, "desc"]],
-        language: {
-            search: "",
-            searchPlaceholder: "Search...",
+        ajax: {
+            url: route,
+            data: function (d) {
+                d.user_id = $('#user_id').val();
+                d.date_range = $('#date_range').val();
+            }
         },
-        ajax: route,
         columns: [
-            // {
-            //     data: "customer_id",
-            //     name: "customer_id",
-            // },
             {
                 data: "customer.full_name",
                 name: "customer.full_name",
@@ -61,4 +61,12 @@ $(document).ready(function () {
             },
         ],
     });
+
+    $('#date_range').flatpickr({
+        mode: "range"
+    });
+});
+
+$(document).on('change', '.filter', function () {
+    $('#products-commission-data-table').DataTable().ajax.reload(null, false);
 });

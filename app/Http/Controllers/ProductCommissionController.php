@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\ProductCommission;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -16,7 +18,21 @@ class ProductCommissionController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = ProductCommission::with(['product', 'customer', 'tier'])->latest()->get();
+
+            $data = ProductCommission::with(['product', 'customer', 'tier'])->latest();
+            if (isset($request->date_range) && $request->date_range != '') {
+                $dates = explode(" to ", $request->date_range);
+                if (count($dates) > 1) {
+                    $data = $data->whereDate('created_at', '>=', $dates[0])
+                        ->whereDate('created_at', '<=', $dates[1]);
+                } else {
+                    $data = $data->whereDate('created_at', $dates[0]);
+                }
+            }
+            if (isset($request->user_id)) {
+                $data = $data->where('customer_id', $request->user_id);
+            }
+            $data = $data->get();
             // dd($data->toArray());
             return Datatables::of($data)
                 ->addIndexColumn()
@@ -50,7 +66,9 @@ class ProductCommissionController extends Controller
                 })
                 ->make(true);
         }
-        return view('product_commission.index');
+        $users = Customer::all();
+        // dd($users->toArray());
+        return view('product_commission.index', compact('users'));
     }
 
     /**

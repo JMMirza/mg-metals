@@ -8,6 +8,37 @@
             </div>
             <div class="card">
                 <div class="card-body">
+                    <div class="col-md-12">
+                        <form method="GET" id="filterForm" class="mt-3">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 mb-3">
+                                    <div class="form-group">
+                                        <label>Users</label>
+                                        <select class="form-control filter" id="user_id" name="user_id">
+                                            <option value="" selected disabled>Please Select</option>
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->full_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12 mb-3">
+                                    <div class="form-label-group in-border">
+                                        <label for="date_range" class="form-label">Date</label>
+                                        <input class="form-control filter" name="date_range" id="date_range">
+                                    </div>
+                                </div>
+                                {{-- <div class="col-md-4 col-sm-12 mb-3">
+                                    <div class="form-label-group in-border">
+                                        <label for="search" class="form-label">Search</label>
+                                        <input class="form-control filter" placeholder="Search" name="search"
+                                            id="search">
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </form>
+                    </div>
                     <table id="products-commission-data-table"
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
