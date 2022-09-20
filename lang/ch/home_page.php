@@ -88,7 +88,7 @@ return [
     'referrals' => '我的推薦人',
     'shop_cart' => '購物車',
     'delivery_method' => '產品交付方式',
-    'ez_gold' => '金富',
+    'ez_gold' => 'EZgold金富',
     'coming_soon' => 'MG支付即將上線',
     'notify_signup' => '註冊成為第一個知道我們何時上線的人吧。',
     'enter_email' => '輸入您的郵箱地址',
