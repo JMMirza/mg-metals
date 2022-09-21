@@ -4,7 +4,7 @@
     @include('frontend.ez_gold.header')
 
     <section class="page-section pad-100">
-        <div class="container relative ez-gold" >
+        <div class="container relative ez-gold">
 
             <div class="row">
 
@@ -19,11 +19,11 @@
                         </p>
 
                         <div class="mt-40 apps">
-                            <a href="#" target="_blank">
+                            <a href="https://qrco.de/bcakU6" target="_blank">
                                 <img src="{{ asset('frontend/images/app-store.png') }}" class="mr-0"
                                     style="width:150px;margin-right:30px" alt="logo">
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="https://qrco.de/bcakU6" target="_blank">
                                 <img src="{{ asset('frontend/images/play-store.png') }}" class="mr-0" style="width:150px"
                                     alt="logo">
                             </a>
@@ -150,18 +150,17 @@
                                 </h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
-                                <img src="{{ asset('frontend/images/whatsapp-scan.png') }}"
-                                    class="app-scan" alt="" />
+                                <img src="{{ asset('frontend/images/whatsapp-scan.png') }}" class="app-scan"
+                                    alt="" />
                                 <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_11') }} </h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
-                                <img src="{{ asset('frontend/images/wechat-scan.png') }}"
-                                class="app-scan" alt="" />
+                                <img src="{{ asset('frontend/images/wechat-scan.png') }}" class="app-scan"
+                                    alt="" />
                                 <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_12') }}</h3>
                             </div>
                             <div class="col-md-4 col-12 text-center mt-3">
-                                <img src="{{ asset('frontend/images/line-scan.png') }}"
-                                class="app-scan" alt="" />
+                                <img src="{{ asset('frontend/images/line-scan.png') }}" class="app-scan" alt="" />
                                 <h3 class="playfare gold" style="font-size:16px;">{{ __('ez_gold.h1_13') }}</h3>
                             </div>
                         </div>
