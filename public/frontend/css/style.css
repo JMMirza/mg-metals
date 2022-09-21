@@ -3014,7 +3014,7 @@ hr:not([size]){
 .section-text p{
     font-size: 17px;
     line-height: 1.88em;
-    color: #6E6D6D;
+    color: #000;
     font-family: 'Montserrat', sans-serif !important;
 }
 .section-text blockquote {
