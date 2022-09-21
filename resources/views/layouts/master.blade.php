@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <title>MG Metals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="apple-itunes-app" content="app-argument=https://qrco.de/bcakU6">
     @include('layouts.header_scripts')
     @stack('header_scripts')
 
