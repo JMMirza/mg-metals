@@ -70,7 +70,8 @@ class ShopCartController extends Controller
                 $input = $request->all();
                 $input['total_price'] = $request->quantity * $request->spot_price;
                 ShopCart::create($input);
-                return ['success' => 'Item Added to Cart Successfully'];
+
+                return ['success' => 'Item Added to Cart Successfully', 'cart_count' => \Auth::user()->cart_count];
             }
             return ['error' => 'Product is not in stock'];
         }

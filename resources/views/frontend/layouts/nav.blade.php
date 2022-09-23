@@ -73,7 +73,7 @@
                     </li>
                     <li>
                         <a href="{{ route('shop-cart.index') }}"><i class="fa fa-shopping-cart"></i>
-                            Cart({{ \Auth::user()->cart_count }})</a>
+                            Cart (<span id="shop_cart_count">{{ \Auth::user()->cart_count }}</span>) </a>
                     </li>
                 @else
                     <li>

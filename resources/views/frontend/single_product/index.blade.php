@@ -184,8 +184,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="modal_close" class="btn btn-mod btn-gray btn-round"
-                        data-dismiss="modal">Continue shopping</button>
+                    <a href="{{ route('shop') }}" type="button" class="btn btn-mod btn-gray btn-round">Continue
+                        shopping</a>
                     <a href="{{ route('shop-cart.index') }}" type="button" class="btn btn-mod btn-round">Checkout</a>
                 </div>
             </div>
@@ -234,6 +234,7 @@
                             $('#succ_span').text(response.success);
                             $("#shor_cart_form")[0].reset();
                             $('#exampleModalCenter').modal('show')
+                            $('#shop_cart_count').html(response.cart_count)
                             // window.location.reload();
                         }
                         if (response.error) {
