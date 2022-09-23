@@ -7,18 +7,18 @@
         <div class="container relative">
             <div class="card mt-30 mb-30">
                 <div class="card-header">
-                    <h5 class="card-title flex-grow-1 mb-0">My Orders</h5>
+                    <h5 class="card-title flex-grow-1 mb-0">{{ __('my_order.my_orders') }}</h5>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
+                                <th>{{ __('my_order.order_id') }}</th>
                                 {{-- <th>Product Title</th> --}}
-                                <th>Payment Status</th>
-                                <th>Delivery Status</th>
-                                <th>Sales Amount</th>
-                                <th>Action</th>
+                                <th>{{ __('my_order.payment_status') }}</th>
+                                <th>{{ __('my_order.delivery_status') }}</th>
+                                <th>{{ __('my_order.sales_amount') }}</th>
+                                <th>{{ __('my_order.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>

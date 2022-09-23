@@ -7,17 +7,17 @@
         <div class="container relative">
             <div class="card mt-30 mb-30">
                 <div class="card-header">
-                    <h5 class="card-title flex-grow-1 mb-0">My Referrals</h5>
+                    <h5 class="card-title flex-grow-1 mb-0">{{ __('my_referrals.my_referrals') }}</h5>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Customer ID</th>
-                                <th>Customer Name</th>
-                                <th>Customer Email</th>
-                                <th>Customer Gender</th>
-                                <th>Customer Occupation</th>
+                                <th>{{ __('my_referrals.customer_id') }}</th>
+                                <th>{{ __('my_referrals.customer_name') }}</th>
+                                <th>{{ __('my_referrals.customer_email') }}</th>
+                                <th>{{ __('my_referrals.customer_gender') }}</th>
+                                <th>{{ __('my_referrals.customer_occupation') }}</th>
                                 {{-- <th>Agent Code</th> --}}
                             </tr>
                         </thead>

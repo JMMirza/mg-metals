@@ -7,19 +7,19 @@
         <div class="container relative">
             <div class="card mt-30 mb-30">
                 <div class="card-header">
-                    <h5 class="card-title flex-grow-1 mb-0">My Commissions</h5>
+                    <h5 class="card-title flex-grow-1 mb-0">{{ __('my_commissions.my_commissions') }}</h5>
                 </div>
                 <div class="card-body">
                     <table class="table  table-striped align-middle table-nowrap mb-0 mb-4" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Tier Type</th>
-                                <th>Product Name</th>
-                                <th>Product Price</th>
+                                <th>{{ __('my_commissions.tier_type') }}</th>
+                                <th>{{ __('my_commissions.product_name') }}</th>
+                                <th>{{ __('my_commissions.product_price') }}</th>
                                 {{-- <th>Product Mark Up</th> --}}
-                                <th>Product Tier Commission</th>
-                                <th>Tier Commission</th>
-                                <th>Created At</th>
+                                <th>{{ __('my_commissions.product_tier_comm') }}</th>
+                                <th>{{ __('my_commissions.tier_commission') }}</th>
+                                <th>{{ __('my_commissions.created_at') }}</th>
                             </tr>
                         </thead>
                         <tbody>
