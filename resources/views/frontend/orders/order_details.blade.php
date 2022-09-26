@@ -8,11 +8,11 @@
             <div class="card mt-30 mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Order #{{ $order->id }}</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">{{ __('my_order.order') }} #{{ $order->id }}</h5>
                         <div class="flex-shrink-0">
-                            <span class=""> Total Price: USD
+                            <span class=""> {{ __('my_order.total_price') }}: USD
                                 {{ number_format($total_price, 2) }} </span>
-                            <span class="badge bg-info p-2" style="font-size: 15px">Order Status:
+                            <span class="badge bg-info p-2" style="font-size: 15px">{{ __('my_order.order_status') }}:
                                 {{ $order->order_status }}</span>
 
                         </div>
@@ -23,10 +23,10 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col">Product Details</th>
-                                    <th scope="col" class="text-center">Total Price</th>
-                                    <th scope="col" class="text-center">Quantity</th>
-                                    <th scope="col" class="text-center">Total Amount</th>
+                                    <th scope="col">{{ __('my_order.product_details') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.total_price') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.quantity') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.total_amount') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,12 +43,12 @@
                                                     <h5 class="fs-15"><a
                                                             class="link-primary">{{ $product->product->name }}</a>
                                                     </h5>
-                                                    <p class="text-muted mb-0">SKU: <span
+                                                    <p class="text-muted mb-0">{{ __('my_order.sku') }}: <span
                                                             class="fw-medium">{{ $product->product->sku }}</span></p>
-                                                    <p class="text-muted mb-0">Category: <span
+                                                    <p class="text-muted mb-0">{{ __('my_order.category') }}: <span
                                                             class="fw-medium">{{ $product->product->category->name }}</span>
                                                     </p>
-                                                    <p class="text-muted mb-0">Manufacturer: <span
+                                                    <p class="text-muted mb-0">{{ __('my_order.manufacturer') }}: <span
                                                             class="fw-medium">{{ $product->product->manufacturer->name }}</span>
                                                     </p>
                                                 </div>
@@ -73,14 +73,14 @@
             <div class="card mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">{{ __('my_order.payment_invoice') }}</h5>
                         <div class="flex-shrink-0">
-                            <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
+                            <span class="badge bg-info p-2" style="font-size: 15px">{{ __('my_order.payment_status') }}:
                                 {{ $order->payment_status }}</span>
                             @if ($order->payment_status == 'PAID')
                                 <span class="badge bg-success p-2" style="font-size: 15px">Received</span>
                             @else
-                                <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
+                                <span class="badge bg-warning p-2" style="font-size: 15px">{{ __('my_order.due_date') }}:
                                     {{ $order->payment_due_date }}</span>
                             @endif
                         </div>
@@ -91,10 +91,10 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col" class="text-center">Payment Amount</th>
-                                    <th scope="col" class="text-center">Payment Method</th>
-                                    <th scope="col" class="text-center">Payment Status</th>
-                                    <th scope="col" class="text-center">Payment Due Date</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.payment_amount') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.payment_method') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.payment_status') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.payment_due_date') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,7 +109,14 @@
                                 </tr>
                                 @if (strtolower($order->payment_method->payment_method) != 'credit card')
                                     <tr>
-                                        {!! $order->payment_method->description !!}
+                                        @if (Config::get('app.locale') == 'en')
+                                            {!! $order->payment_method->description !!}
+                                        @elseif (Config::get('app.locale') == 'ch')
+                                            {!! $order->payment_method->description_ch !!}
+                                        @else
+                                            {!! $order->payment_method->description_s_ch !!}
+                                        @endif
+
                                     </tr>
                                 @endif
                             </tbody>
@@ -121,11 +128,11 @@
             <div class="card mb-30">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Delivery Information</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">{{ __('my_order.delivery_information') }}</h5>
                         <div class="flex-shrink-0">
-                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
+                            <span class="badge bg-info p-2" style="font-size: 15px">{{ __('my_order.delivery_status') }}:
                                 {{ $order->delivery_status }}</span>
-                            <span class="badge bg-warning p-2" style="font-size: 15px">Due Date:
+                            <span class="badge bg-warning p-2" style="font-size: 15px">{{ __('my_order.due_date') }}:
                                 {{ $order->delivery_due_date }}</span>
                         </div>
                     </div>
@@ -135,10 +142,10 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col" class="text-center">Delivery Method</th>
-                                    <th scope="col" class="text-center">Delivery Status</th>
-                                    <th scope="col" class="text-center">Delivery Address</th>
-                                    <th scope="col" class="text-center">Delivery Due Date</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.delivery_method') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.delivery_status') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.delivery_address') }}</th>
+                                    <th scope="col" class="text-center">{{ __('my_order.delivery_due_date') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
