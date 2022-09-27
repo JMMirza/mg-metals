@@ -20,13 +20,13 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col">Product Details</th>
-                                    <th scope="col" class="text-center">Spot Price</th>
-                                    <th scope="col" class="text-center">Markup</th>
-                                    <th scope="col" class="text-center">Total Markup</th>
-                                    <th scope="col" class="text-center">Total Price</th>
-                                    <th scope="col" class="text-center">Quantity</th>
-                                    <th scope="col" class="text-center">Total Amount</th>
+                                    <th scope="col">Product Details /產品詳情 / 产品详情</th>
+                                    <th scope="col" class="text-center">Spot Price / 現貨價格 / 现货价格</th>
+                                    <th scope="col" class="text-center">Markup / 加價金額 / 加价金额</th>
+                                    <th scope="col" class="text-center">Total Markup / 總加價金額 / 总加价金额</th>
+                                    <th scope="col" class="text-center">Total Price / 總價 / 总价</th>
+                                    <th scope="col" class="text-center">Quantity / 數量 / 数量</th>
+                                    <th scope="col" class="text-center">Total Amount / 總金額 / 总金额</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -128,7 +128,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Order Commission</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">Order Commission / 訂單佣金 / 订单佣金</h5>
                     </div>
                 </div>
                 <div class="card-body">
@@ -137,11 +137,11 @@
                             <thead class="table-light text-muted">
                                 <tr>
                                     {{-- <th scope="col" class="text-center">Tier ID</th> --}}
-                                    <th scope="col" class="text-center">Tier Type</th>
-                                    <th scope="col" class="text-center">Tier Name</th>
-                                    <th scope="col" class="text-center">Product Name</th>
-                                    <th scope="col" class="text-center">Product Tier Commission</th>
-                                    <th scope="col" class="text-center">Tier Commission</th>
+                                    <th scope="col" class="text-center">Tier Type / 層類型 / 层类型</th>
+                                    <th scope="col" class="text-center">Tier Name / 層名稱 / 层名称</th>
+                                    <th scope="col" class="text-center">Product Name / 產品名稱 / 产品名称</th>
+                                    <th scope="col" class="text-center">Product Tier Commission / 產品層級佣金 / 产品层级佣金</th>
+                                    <th scope="col" class="text-center">Tier Commission / 層級佣金 / 層級佣金</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -181,13 +181,13 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">Payment & Invoice Information / 付款和發票信息 / 付款和发票信息</h5>
                         <div class="flex-shrink-0">
                             @if ($order->payment_status == 'UNPAID')
                                 <button id="change_payment_status" data-value="{{ $order->id }}"
                                     class="btn btn-warning btn-sm">UN-PAID</button>
                             @endif
-                            <span class="badge bg-info p-2" style="font-size: 15px">Payment Status:
+                            <span class="badge bg-info p-2" style="font-size: 15px">Payment Status / 支付狀態 / 支付状态:
                                 {{ $order->payment_status }}</span>
                         </div>
                     </div>
@@ -197,12 +197,12 @@
                         <table class="table table-nowrap align-middle table-borderless mb-0">
                             <thead class="table-light text-muted">
                                 <tr>
-                                    <th scope="col" class="text-center">Payment Amount</th>
-                                    <th scope="col" class="text-center">Payment Method</th>
-                                    <th scope="col" class="text-center">Payment Status</th>
-                                    <th scope="col" class="text-center">Payment Due Date</th>
-                                    <th scope="col" class="text-center">Remarks</th>
-                                    <th scope="col" class="text-center">Status Updated By</th>
+                                    <th scope="col" class="text-center">Payment Amount / 支付金額 / 支付金额</th>
+                                    <th scope="col" class="text-center">Payment Method / 付款方式 / 付款方式</th>
+                                    <th scope="col" class="text-center">Payment Status / 支付狀態 / 支付状态</th>
+                                    <th scope="col" class="text-center">Payment Due Date / 付款截止日期 / 付款截止日期</th>
+                                    <th scope="col" class="text-center">Remarks / 評論 / 评论</th>
+                                    <th scope="col" class="text-center">Status Updated By / 狀態更新者 / 状态更新者</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -231,14 +231,14 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title flex-grow-1 mb-0"><i
-                                class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery
-                            Information</h5>
+                                class="ri-map-pin-line align-middle me-1 text-muted"></i> Delivery Information / 配送信息 /
+                            配送信息 </h5>
                         <div class="flex-shrink-0">
                             @if ($order->delivery_status == 'PENDING')
                                 <button id="change_delivery_status" data-value="{{ $order->id }}"
                                     class="btn btn-warning btn-sm">PENDING</button>
                             @endif
-                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status:
+                            <span class="badge bg-info p-2" style="font-size: 15px">Delivery Status / 送達狀態 / 送达状态:
                                 {{ $order->delivery_status }}</span>
                         </div>
                     </div>
@@ -246,52 +246,52 @@
                 <div class="card-body">
                     <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Method - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Method / 運輸方式 / 运输方式 - <span
                                     class="fw-normal">{{ ucwords($order->delivery_method->delivery_method) }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Address - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Delivery Address / 郵寄地址 / 邮寄地址 - <span
                                     class="fw-medium fs-14">{{ $order->shipping_address }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Name - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Name / 顧客姓名 / 顾客姓名 - <span
                                     class="fw-normal">{{ $order->full_name }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Mobile Number - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Mobile Number / 客戶手機號碼 / 客户手机号码 - <span
                                     class="fw-normal">{{ $order->phone_number }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Email - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Customer Email /客戶電子郵件 / 客户电子邮件 - <span
                                     class="fw-normal">{{ $order->email }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> City - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> City / 城市 / 城市 - <span
                                     class="fw-normal">{{ $order->city }}-{{ $order->zip_code }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Country - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Country / 國家 / 国家 - <span
                                     class="fw-normal">{{ $order->country }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Due Date - <span
+                            <h6 class="fs-15 mb-0 fw-semibold">Delivery Due Date / 交貨截止日期 / 交货截止日期 - <span
                                     class="fw-normal">{{ Carbon\Carbon::parse($order->delivery_due_date)->format('D, M d, Y - h:m A') }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Remarks - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Remarks / 評論 / 评论 - <span
                                     class="fw-normal">{{ $order->delivery_remarks == null ? 'N/A' : ucwords($order->delivery_remarks) }}</span>
                             </h6>
                         </li>
                         <li>
-                            <h6 class="fs-15 mb-0 fw-semibold"> Updated By - <span
+                            <h6 class="fs-15 mb-0 fw-semibold"> Status Updated By / 狀態更新者 / 状态更新者 - <span
                                     class="fw-normal">{{ $order->delivery_status_updated_by == null ? 'N/A' : $order->delivery_status_updated_by_relation->name }}</span>
                             </h6>
                         </li>
@@ -302,7 +302,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-sm-flex align-items-center">
-                        <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
+                        <h5 class="card-title flex-grow-1 mb-0">Order Status /訂單狀態 / 订单状态 </h5>
                         {{-- <div class="flex-shrink-0 mt-2 mt-sm-0">
                             <a href="javasccript:void(0;)" class="btn btn-soft-danger btn-sm mt-2 mt-sm-0"><i
                                     class="mdi mdi-archive-remove-outline align-middle me-1"></i> Cancel Order</a>

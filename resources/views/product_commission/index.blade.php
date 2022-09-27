@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Products Commission</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Products Commission / 產品委員會 / 产品委员会</h4>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-12 mb-3">
                                     <div class="form-group">
-                                        <label>Users</label>
+                                        <label>Users / 用戶 / 用户</label>
                                         <select class="form-control filter" id="user_id" name="user_id">
                                             <option value="" selected disabled>Please Select</option>
                                             @foreach ($users as $user)
