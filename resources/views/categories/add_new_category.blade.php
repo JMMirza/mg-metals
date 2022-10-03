@@ -10,7 +10,7 @@
                     @csrf
                     <div class="col-md-4 col-sm-12 mb-3">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Category Name / 分類名稱 / 分类名称</label>
+                            <label for="name" class="form-label">Category Name / 分類名稱</label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
                                 name="name" placeholder="Category name" value="{{ old('name') }}" required>
@@ -26,7 +26,7 @@
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Category Name / 分類名稱 / 分类名称 (Simplified
+                            <label for="name" class="form-label">Category Name / 分類名稱 (Simplified
                                 Chinese)</label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif" id="name_s_ch"
@@ -44,7 +44,7 @@
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Category Name / 分類名稱 / 分类名称 (Traditional
+                            <label for="name" class="form-label">Category Name / 分類名稱 (Traditional
                                 Chinese)</label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif" id="name_t_ch"
@@ -62,7 +62,7 @@
 
                     <div class="col-md-6 col-sm-12 mb-3">
                         <div class="form-label-group in-border">
-                            <label for="abbreviation" class="form-label">Abbreviation / 縮寫 / 缩写</label>
+                            <label for="abbreviation" class="form-label">Abbreviation / 縮寫 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
                                 id="abbreviation" name="abbreviation" placeholder="Abbreviation"
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <div class="form-label-group in-border">
-                            <label for="user_id" class="form-label">Categories / 類別 / 类别</label>
+                            <label for="user_id" class="form-label">Categories / 類別 </label>
                             <select class="form-select form-control mb-3" name="parent_id">
                                 <option value='' @if (old('parent_id') == '') {{ 'selected' }} @endif
                                     selected>
@@ -94,7 +94,7 @@
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
                             <label for="surcharge_at_category" class="form-label">Mark up at Category
-                                Level / 在不同級別加價 / 在不同级别加价</label>
+                                Level / 在不同級別加價 </label>
                             <select id="surcharge_at_category" class="form-select form-control mb-3"
                                 name="surcharge_at_category" required>
                                 <option value="" @if (old('surcharge_at_category') == '') {{ 'selected' }} @endif
@@ -146,7 +146,7 @@
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="mark_up" class="form-label">Mark Up Amount / 加價金額 / 加价金额</label>
+                            <label for="mark_up" class="form-label">Mark Up Amount / 加價金額 </label>
                             <input type=number step=any
                                 class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
                                 id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"

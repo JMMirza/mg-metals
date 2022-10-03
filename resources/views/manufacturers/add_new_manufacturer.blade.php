@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Add Manufacturer / 添加製造商 / 添加制造商</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Add Manufacturer / 添加製造商 </h4>
             </div>
 
             <div class="card-body">
@@ -10,7 +10,7 @@
                     @csrf
                     <div class="col-md-3 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 / 生产商名称</label>
+                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
                                 name="name" placeholder="Manufacturer name" value="{{ old('name') }}" required>
@@ -26,7 +26,7 @@
 
                     <div class="col-md-3 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 / 生产商名称 </label>
+                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif" id="name_s_ch"
                                 name="name_s_ch" placeholder="Manufacturer name (Simplified Chinese)"
@@ -43,7 +43,7 @@
 
                     <div class="col-md-3 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 / 生产商名称 </label>
+                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif" id="name_t_ch"
                                 name="name_t_ch" placeholder="Manufacturer name (Traditional Chinese)"
@@ -60,7 +60,7 @@
 
                     <div class="col-md-3 col-sm-12 mb-3">
                         <div class="form-label-group in-border">
-                            <label for="abbreviation" class="form-label">Abbreviation / 縮寫 / 缩写</label>
+                            <label for="abbreviation" class="form-label">Abbreviation / 縮寫 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('abbreviation')) is-invalid @endif"
                                 id="abbreviation" name="abbreviation" placeholder="Abbreviation"

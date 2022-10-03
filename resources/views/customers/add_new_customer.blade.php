@@ -24,7 +24,7 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
                                         aria-controls="accor_borderedExamplecollapse1">
-                                        Sec#1 APPLICANT INFORMATION (INDIVIDUAL)/ 第 1 項申請人信息（個人）/ 第1项申请人信息（个人）
+                                        Sec#1 APPLICANT INFORMATION (INDIVIDUAL)/ 第 1 項申請人信息（個人）
                                     </button>
                                 </h2>
                                 <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
@@ -274,7 +274,7 @@
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#accor_borderedExamplecollapse2" aria-expanded="false"
                                         aria-controls="accor_borderedExamplecollapse2">
-                                        Sec#2A APPLICANT INFORMATION (CORPORATE) /第2A項申請人資料 (公司客戶) / 第2A项申请人资料（公司客户）
+                                        Sec#2A APPLICANT INFORMATION (CORPORATE) /第2A項申請人資料 (公司客戶)
                                     </button>
                                 </h2>
                                 <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse"

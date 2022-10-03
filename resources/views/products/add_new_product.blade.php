@@ -38,7 +38,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="catergory_id" class="form-label">Categories (物品類別)</label>
+                                <label for="catergory_id" class="form-label">Categories (類別)</label>
                                 <select class="form-select form-control mb-3" name="catergory_id" required>
                                     <option value="" @if (old('catergory_id') == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -63,7 +63,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="manufacturer_id" class="form-label">Manufacturer</label>
+                                <label for="manufacturer_id" class="form-label">Manufacturers (製造商)</label>
                                 <select class="form-select form-control mb-3" name="manufacturer_id" required>
                                     <option value="" @if (old('manufacturer_id') == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -115,7 +115,7 @@
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12  mb-3">
                                         <div class="form-label-group in-border">
-                                            <label for="name" class="form-label">Product Name (物品名稱)</label>
+                                            <label for="name" class="form-label">Product Name (產品名稱)</label>
                                             <input type="text"
                                                 class="form-control @if ($errors->has('name')) is-invalid @endif"
                                                 id="name" name="name" placeholder="Product Name"
@@ -142,7 +142,7 @@
                                     <div class="col-md-12 col-sm-12  mb-3">
                                         <div class="form-label-group in-border">
                                             <label for="name" class="form-label">Product Name (Simplified
-                                                Chinese)</label>
+                                                Chinese) (產品名稱)</label>
                                             <input type="text"
                                                 class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif"
                                                 id="name_s_ch" name="name_s_ch"
@@ -173,7 +173,7 @@
                                     <div class="col-md-12 col-sm-12  mb-3">
                                         <div class="form-label-group in-border">
                                             <label for="name" class="form-label">Product Name (Traditional
-                                                Chinese)</label>
+                                                Chinese)(產品名稱)</label>
                                             <input type="text"
                                                 class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif"
                                                 id="name_t_ch" name="name_t_ch"
@@ -373,7 +373,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Mark Up Amount</label>
+                                <label for="mark_up" class="form-label">Mark Up Amount(加價金額)</label>
                                 <input type=number step=any
                                     class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
                                     id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"

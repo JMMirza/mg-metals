@@ -12,7 +12,7 @@
                     @method('PUT')
                     <div class="col-md-3 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 / 生产商名称</label>
+                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
                                 name="name" placeholder="Manufacturer name" value="{{ $manufacturer->name }}"
@@ -29,7 +29,7 @@
 
                     <div class="col-md-3 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 / 生产商名称 </label>
+                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_s_ch')) is-invalid @endif" id="name_s_ch"
                                 name="name_s_ch" placeholder="Manufacturer name (Simplified Chinese)"
@@ -46,7 +46,7 @@
 
                     <div class="col-md-3 col-sm-12">
                         <div class="form-label-group in-border">
-                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 / 生产商名称 </label>
+                            <label for="name" class="form-label">Manufacturer Name / 生產商名稱 </label>
                             <input type="text"
                                 class="form-control @if ($errors->has('name_t_ch')) is-invalid @endif" id="name_t_ch"
                                 name="name_t_ch" placeholder="Manufacturer name (Traditional Chinese)"
