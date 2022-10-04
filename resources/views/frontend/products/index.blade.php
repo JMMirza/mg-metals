@@ -12,18 +12,23 @@
 
                     <div class="clearfix mb-40">
 
-                        <!-- <div class="left section-text mt-10">
-                                        Showing 1–{{ $products->count() }} of {{ $products->total() }} results
-                                    </div> -->
+
 
                         <div class="right">
-                            <form method="post" action="#" class="form">
+                            @if (Request::get('sort') == 'asc')
+                                <a href="{{ route('shop', ['sort' => 'desc']) }}">Sort By Price <span><i
+                                            class="fa fa-solid fa-sort"></i></span></a>
+                            @else
+                                <a href="{{ route('shop', ['sort' => 'asc']) }}">Sort By Price <span><i
+                                            class="fa fa-solid fa-sort"></i></span></a>
+                            @endif
+                            {{-- <form method="post" action="#" class="form">
                                 <select class="input-md round">
                                     <option>{{ __('home_page.sorting') }}</option>
                                     <option>{{ __('home_page.sorting_low_high') }}</option>
                                     <option>{{ __('home_page.sorting_high_low') }}</option>
                                 </select>
-                            </form>
+                            </form> --}}
                         </div>
 
                     </div>
@@ -39,7 +44,7 @@
                     </div>
 
                     <!-- Pagination -->
-                    {{ $products->links() }}
+                    {{-- {{ $products->links() }} --}}
                     <!-- End Pagination -->
 
                 </div>

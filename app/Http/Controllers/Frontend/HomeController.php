@@ -56,10 +56,23 @@ class HomeController extends Controller
             $_products = $_products->where(['catergory_id' => $request->category]);
         }
 
+        // dd($_products->orderBy('product_price', $request->sort)->get()->toArray());
+        if ($request->get('sort') == 'desc') {
+            $_products = $_products->get()->sortByDesc(function ($product) {
+                return $product->product_price;
+            });
+        } elseif ($request->get('sort') == 'asc') {
+            $_products = $_products->get()->sortBy(function ($product) {
+                return $product->product_price;
+            });
+        } else {
+            $_products = $_products->paginate(12);
+        }
+
         // dd($_products->get());
 
 
-        $products = $_products->paginate(12);
+        $products = $_products;
         $categories = Catergory::whereNull('parent_id')->with(['children'])->get();
         $manufacturers = Manufacturer::all();
 
