@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Edit Role Assignment</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Edit Role Assignment / 編輯身份分配</h4>
                     <div class="flex-shrink-0">
                         <a href="{{ route('roles-permission-assignment-list') }}" class="btn btn-success btn-label btn-sm">
                             <i class="ri-arrow-left-fill label-icon align-middle fs-16 me-2"></i> Back
@@ -20,7 +20,7 @@
                         @csrf
                         <div class="col-md-12 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">User name</label>
+                                <label for="name" class="form-label">User name (用戶名)</label>
                                 <input type="text" class="form-control" value="{{ $user->name }}" disabled>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card mb-3">
-                                    <div class="card-header">Roles</div>
+                                    <div class="card-header">Roles (身份列表)</div>
                                     <div class="card-body">
                                         <div class="row justify-content-left">
                                             @foreach ($roles as $role)

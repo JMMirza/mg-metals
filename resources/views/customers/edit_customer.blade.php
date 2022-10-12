@@ -185,7 +185,7 @@
                                                             <option value=""
                                                                 @if ($customer->nationality == '') {{ 'selected' }} @endif
                                                                 disabled>
-                                                                {{ __('individual.Nationality') }}
+                                                                Nationality
                                                             </option>
                                                             @foreach ($nationalities as $nationality)
                                                                 <option value="{{ $nationality->name }}"
@@ -227,7 +227,7 @@
                                                     <div class="form-group">
                                                         <label for="">Address</label>
                                                         <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
-                                                            placeholder="{{ __('individual.ADDRESS') }}">{{ $customer->address }}</textarea>
+                                                            placeholder="ADDRESS">{{ $customer->address }}</textarea>
 
                                                     </div>
                                                 </div>
@@ -949,7 +949,7 @@
                                         <select class="form-select" name="nationality" required>
                                             <option value=""
                                                 @if ($customer->nationality == '') {{ 'selected' }} @endif disabled>
-                                                {{ __('individual.Nationality') }}
+                                                Nationality
                                             </option>
                                             @foreach ($nationalities as $nationality)
                                                 <option value="{{ $nationality->name }}"
@@ -991,7 +991,7 @@
                                     <div class="form-group">
                                         <label for="">Address</label>
                                         <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
-                                            placeholder="{{ __('individual.ADDRESS') }}">{{ $customer->address }}</textarea>
+                                            placeholder="ADDRESS">{{ $customer->address }}</textarea>
 
                                     </div>
                                 </div>

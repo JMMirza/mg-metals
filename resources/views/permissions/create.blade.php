@@ -19,7 +19,7 @@
                         @csrf
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Permission name</label>
+                                <label for="name" class="form-label">Permission name / 權限名稱</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('name')) is-invalid @endif" id="name"
                                     name="name" placeholder="Permission Name" value="" readonly required>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="display_name" class="form-label">Permission display name</label>
+                                <label for="display_name" class="form-label">Permission display name / 權限顯示名稱</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('display_name')) is-invalid @endif"
                                     id="display_name" name="display_name" placeholder="Permission Display Name"
@@ -51,7 +51,7 @@
 
                         <div class="col-md-12 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="description" class="form-label">Permission display name</label>
+                                <label for="description" class="form-label">Permission display name / 權限顯示名稱</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('description')) is-invalid @endif"
                                     id="description" name="description" placeholder="Description" value="" required>

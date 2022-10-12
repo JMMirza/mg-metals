@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Add Setup</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Add Setup / 添加設置</h4>
             </div>
 
             <div class="card-body">
@@ -73,7 +73,7 @@
 
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Due Date</label>
+                                <label for="name" class="form-label">Due Date / 截止日期</label>
                                 <input type="number"
                                     class="form-control @if ($errors->has('due_date')) is-invalid @endif" id="due_date"
                                     name="due_date" placeholder="Due Date" value="{{ old('due_date') }}">
@@ -89,7 +89,7 @@
 
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Due Date Type</label>
+                                <label for="name" class="form-label">Due Date Type / 到期日類型</label>
                                 <select
                                     class="form-select form-control mb-3 @if ($errors->has('due_date_type')) is-invalid @endif"
                                     name="due_date_type">

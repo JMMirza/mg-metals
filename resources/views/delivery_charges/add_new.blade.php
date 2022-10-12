@@ -2,7 +2,7 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Add Delivery Charge</h4>
+            <h4 class="card-title mb-0 flex-grow-1">Add Delivery Charge / 加入送達費用</h4>
         </div>
 
         <div class="card-body">
@@ -10,7 +10,7 @@
                 @csrf
                 <div class="col-md-4 col-sm-12">
                     <div class="form-label-group in-border">
-                        <label for="delivery_method" class="form-label">Delivery Method</label>
+                        <label for="delivery_method" class="form-label">Delivery Method (送達方式)</label>
                         <select class="form-select form-control @if ($errors->has('delivery_method')) is-invalid @endif"
                             name="delivery_method" required>
                             <option value="" selected disabled
@@ -35,7 +35,7 @@
 
                 <div class="col-md-4">
                     <div class="form-label-group in-border">
-                        <label for="user_id" class="form-label">Categories</label>
+                        <label for="user_id" class="form-label">Categories (類別)</label>
                         <select class="form-select form-control mb-3" name="category_id">
                             <option value='' @if (old('category_id') == '') {{ 'selected' }} @endif
                                 selected>
@@ -54,7 +54,7 @@
 
                 <div class="col-md-4 col-sm-12">
                     <div class="form-label-group in-border">
-                        <label for="amount" class="form-label">Amount</label>
+                        <label for="amount" class="form-label">Amount (金額)</label>
                         <input type="number" class="form-control @if ($errors->has('amount')) is-invalid @endif"
                             id="amount" name="amount" placeholder="Amount" value="{{ old('amount') }}">
                         <div class="invalid-tooltip">
@@ -65,7 +65,7 @@
 
                 <div class="col-md-4">
                     <div class="form-label-group in-border">
-                        <label for="time_duration" class="form-label">Time Duration</label>
+                        <label for="time_duration" class="form-label">Time Duration (時長)</label>
                         <select class="form-select form-control mb-3" name="time_duration" required>
                             <option value="" @if (old('time_duration') == '') {{ 'selected' }} @endif
                                 selected disabled>
@@ -90,7 +90,7 @@
 
                 <div class="col-md-4 col-sm-12">
                     <div class="form-label-group in-border">
-                        <label for="grace_period" class="form-label">Grace Period</label>
+                        <label for="grace_period" class="form-label">Grace Period (寬限期)</label>
                         <input type="text" class="form-control @if ($errors->has('grace_period')) is-invalid @endif"
                             id="grace_period" name="grace_period" placeholder="Grace Period"
                             value="{{ old('grace_period') }}">
@@ -102,7 +102,7 @@
 
                 <div class="col-md-4 col-sm-12">
                     <div class="form-label-group in-border">
-                        <label for="charge_at_beginning" class="form-label">Charge At Beginning</label>
+                        <label for="charge_at_beginning" class="form-label">Charge At Beginning (在最初付費)</label>
                         <input type="number" class="form-control @if ($errors->has('charge_at_beginning')) is-invalid @endif"
                             id="charge_at_beginning" name="charge_at_beginning" placeholder="Charge At Beginning"
                             value="{{ old('charge_at_beginning') }}">

@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Add Payment Method Setup</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Update Payment Method Setup</h4>
             </div>
 
             <div class="card-body">
@@ -21,10 +21,10 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-12  mb-3">
                             <div class="form-label-group in-border">
-                                <label for="payment_method" class="form-label">Delivery Method</label>
+                                <label for="payment_method" class="form-label">Payment Method</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('payment_method')) is-invalid @endif"
-                                    id="payment_method" name="payment_method" placeholder="Enter Delivery Method"
+                                    id="payment_method" name="payment_method" placeholder="Enter Payment Method"
                                     value="{{ $paymentMethod->payment_method }}" required>
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('payment_method'))
@@ -74,7 +74,7 @@
 
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Due Date</label>
+                                <label for="name" class="form-label">Due Date (截止日期)</label>
                                 <input type="number"
                                     class="form-control @if ($errors->has('due_date')) is-invalid @endif" id="due_date"
                                     name="due_date" placeholder="Due Date" value="{{ $paymentMethod->due_date }}">
@@ -90,7 +90,7 @@
 
                         <div class="col-md-6 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="name" class="form-label">Due Date Type</label>
+                                <label for="name" class="form-label">Due Date Type (到期日類型)</label>
                                 <select
                                     class="form-select form-control mb-3 @if ($errors->has('due_date_type')) is-invalid @endif"
                                     name="due_date_type">

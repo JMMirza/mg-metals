@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-label-group in-border">
-                                            <label for="description" class="form-label">Description (物品描述)</label>
+                                            <label for="description" class="form-label">Description (描述) (物品描述)</label>
                                             <textarea class="form-control mb-3" name="description" id="description" placeholder="Enter product description here...">{{ $product->description }}</textarea>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
 
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-label-group in-border">
-                                            <label for="description" class="form-label">Description (Simplified
+                                            <label for="description" class="form-label">Description (描述) (Simplified
                                                 Chinese)</label>
                                             <textarea class="form-control mb-3" name="description_s_ch" id="description"
                                                 placeholder="Enter product description here...">{{ $product->description_s_ch }}</textarea>
@@ -180,7 +180,7 @@
 
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-label-group in-border">
-                                            <label for="description" class="form-label">Description (Traditional
+                                            <label for="description" class="form-label">Description (描述) (Traditional
                                                 Chinese)</label>
                                             <textarea class="form-control mb-3" name="description_t_ch" id="description"
                                                 placeholder="Enter product description here...">{{ $product->description_t_ch }}</textarea>
@@ -247,7 +247,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="weight_unit" class="form-label">Weight Unit
+                                <label for="weight_unit" class="form-label">Weight Unit (重量)
                                 </label>
                                 <select id="weight_unit" class="form-select form-control mb-3" name="weight_unit"
                                     required>
@@ -312,7 +312,8 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="surcharge_at_product" class="form-label">Mark up at Product Level</label>
+                                <label for="surcharge_at_product" class="form-label">Mark up at Product Level
+                                    (根據產品級別加價)</label>
                                 <select id="surcharge_at_product" class="form-select form-control mb-3"
                                     name="surcharge_at_product" required>
                                     <option value="" @if ($product->surcharge_at_product == '') {{ 'selected' }} @endif
@@ -365,7 +366,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="mark_up" class="form-label">Mark Up Amount</label>
+                                <label for="mark_up" class="form-label">Mark Up Amount (加價金額)</label>
                                 <input type=number step=any
                                     class="form-control @if ($errors->has('mark_up')) is-invalid @endif"
                                     id="mark_up" name="mark_up" placeholder="Please Enter Mark Up Amount"
@@ -384,7 +385,7 @@
 
                         <div class="col-md-8 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="product_picture" class="form-label">Product Picture</label>
+                                <label for="product_picture" class="form-label">Product Picture (產品圖片)</label>
                                 <input type="file"
                                     class="form-control @if ($errors->has('product_picture')) is-invalid @endif"
                                     id="product_picture" name="product_picture" placeholder="Please Enter Account Name"
@@ -405,7 +406,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="session_duration" class="form-label">Session Duration</label>
+                                <label for="session_duration" class="form-label">Session Duration (本欄持續時間)</label>
                                 <div class="input-group">
 
                                     <input type="decimal" step="0.001"
@@ -429,7 +430,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="status" class="form-label">Status</label>
+                                <label for="status" class="form-label">Status (狀態)</label>
                                 <select id="" class="form-select form-control mb-3" name="status">
                                     <option value="" @if ($product->status == '') {{ 'selected' }} @endif
                                         selected disabled>
@@ -455,7 +456,7 @@
 
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="form-label-group in-border">
-                                <label for="on_hold" class="form-label">Minimum in Stock</label>
+                                <label for="on_hold" class="form-label">Minimum in Stock (低庫存)</label>
                                 <input type="text"
                                     class="form-control @if ($errors->has('on_hold')) is-invalid @endif"
                                     id="on_hold" name="on_hold" placeholder="Enter Minimum in Stock"
@@ -472,7 +473,7 @@
 
                         <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="status" class="form-label">Valid Till</label>
+                                <label for="status" class="form-label">Valid Till (有效期至)</label>
                                 <input type="date" name="valid_till" value="{{ $product->valid_till }}"
                                     class="form-control mb-3 @if ($errors->has('valid_till')) is-invalid @endif">
                                 <div class="invalid-tooltip">

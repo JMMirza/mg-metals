@@ -33,11 +33,11 @@
                                         <div class="row">
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <label for="">Complete Name</label>
+                                                    <label for="">Complete Name/全名</label>
                                                     <input id="name" type="text"
                                                         class="form-control @error('name') is-invalid @enderror"
                                                         name="name" value="{{ old('name') }}" autocomplete="name"
-                                                        autofocus placeholder="{{ __('Complete Name') }}" required>
+                                                        autofocus placeholder="Complete Name" required>
                                                     @error('name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -48,9 +48,8 @@
 
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <label for="">Email</label>
-                                                    <input id="email" type="email"
-                                                        placeholder="{{ __('Email Address') }}"
+                                                    <label for="">Email/郵箱</label>
+                                                    <input id="email" type="email" placeholder="EMAIL"
                                                         class="form-control @error('email') is-invalid @enderror"
                                                         name="email" value="{{ old('email') }}" required
                                                         autocomplete="email">
@@ -92,7 +91,7 @@
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-label-group in-border">
                                                     <label for="occupation" class="form-label">Occupation and business
-                                                        background</label>
+                                                        background/職業背景</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('occupation')) is-invalid @endif"
                                                         id="occupation" name="occupation"
@@ -111,7 +110,7 @@
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-label-group in-border">
                                                     <label for="passport_no" class="form-label">HKID NO. / Passport
-                                                        No.</label>
+                                                        No./香港身份證號/護照號</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('passport_no')) is-invalid @endif"
                                                         id="passport_no" name="passport_no"
@@ -129,7 +128,7 @@
 
                                             <div class="col-md-6 col-sm-12 mt-3">
                                                 <div class="form-label-group in-border">
-                                                    <label for="phone_number" class="form-label">Phone No.</label>
+                                                    <label for="phone_number" class="form-label">Phone No./電話號碼</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
                                                         id="phone_number" name="phone_number" placeholder="Phone No."
@@ -145,13 +144,13 @@
                                             </div>
 
                                             <div class="col-12 col-md-6 mt-3">
-                                                <label for="">Nationality</label>
+                                                <label for="">Nationality/國籍</label>
                                                 <div class="form-group">
                                                     <select class="form-select form-control " name="nationality" required>
                                                         <option value=""
                                                             @if (old('nationality') == '') {{ 'selected' }} @endif
                                                             disabled>
-                                                            {{ __('individual.Nationality') }}
+                                                            NATIONALITY
                                                         </option>
                                                         @foreach ($nationalities as $nationality)
                                                             <option value="{{ $nationality->name }}"
@@ -170,7 +169,7 @@
                                                     <input id="password" type="password"
                                                         class="form-control @error('password') is-invalid @enderror"
                                                         name="password" required autocomplete="new-password"
-                                                        placeholder="{{ __('Password') }}">
+                                                        placeholder="Password">
 
                                                     @error('password')
                                                         <span class="invalid-feedback" role="alert">
@@ -184,61 +183,61 @@
                                                 <div class="form-group mt-2">
                                                     <label for="">Confirm Password</label>
                                                     <input id="password-confirm" type="password" class="form-control"
-                                                        placeholder="{{ __('Confirm Password') }}"
-                                                        name="password_confirmation" required autocomplete="new-password">
+                                                        placeholder="Confirm Password" name="password_confirmation"
+                                                        required autocomplete="new-password">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-12 mt-3">
                                                 <div class="form-group">
-                                                    <label for="">Address</label>
+                                                    <label for="">Address/地址</label>
                                                     <textarea id="address" name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif"
-                                                        placeholder="{{ __('individual.ADDRESS') }}">{{ old('address') }}</textarea>
+                                                        placeholder="ADDRESS">{{ old('address') }}</textarea>
 
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-12 mt-3">
-                                                <label for="">Customer Type</label>
+                                                <label for="">Customer Type/顧客類型</label>
                                                 <div class="form-group">
                                                     <label class="radio-inline mr-3">
                                                         <input type="radio" name="customer_type" value="individual"
                                                             @if (old('customer_type') == 'individual') checked @endif>
-                                                        <span></span>{{ __('login.individual') }}
+                                                        <span></span>Individual
                                                     </label>
                                                     <label class="radio-inline mr-3">
                                                         <input type="radio" name="customer_type" value="corporate"
                                                             @if (old('customer_type') == 'corporate') checked @endif>
-                                                        <span></span>{{ __('login.corporate') }}
+                                                        <span></span>Corporate
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-12 col-md-12">
-                                                <label class="form-label">{{ __('other_info.hear_about_mg') }}
+                                                <label class="form-label">HOW DID YOU HEAR ABOUT MG?/您從何處得悉MG?
                                                 </label>
                                                 <div class="form-group">
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="hear_about_mg" value="REFERRAL"
                                                             @if (old('hear_about_mg') == 'REFERRAL') checked @endif>
-                                                        <span></span> {{ __('other_info.referral') }}
+                                                        <span></span> REFERRAL / 轉介
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="hear_about_mg"
                                                             value="SALES REPRESENTATIVE"
                                                             @if (old('hear_about_mg') == 'SALES REPRESENTATIVE') checked @endif>
-                                                        <span></span>{{ __('other_info.sale_rep') }}
+                                                        <span></span>SALES REPRESENTATIVE / 營業代表
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="hear_about_mg" value="INTERNET"
                                                             @if (old('hear_about_mg') == 'INTERNET') checked @endif>
-                                                        <span></span> {{ __('other_info.internet') }}
+                                                        <span></span> INTERNET / 互聯網
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="hear_about_mg" value="ADVERTISEMENT"
                                                             @if (old('hear_about_mg') == 'ADVERTISEMENT') checked @endif>
-                                                        <span></span>{{ __('other_info.add') }}
+                                                        <span></span>ADVERTISEMENT / 廣告
                                                     </label>
 
                                                 </div>
@@ -248,21 +247,21 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="full_name" class="form-label">Sales Representative
-                                                        Name</label>
+                                                        Name / 營業代表名稱</label>
                                                     <input type="text" name="sales_rep_name"
                                                         value="{{ old('sales_rep_name') }}"
                                                         class="form-control @if ($errors->has('sales_rep_name')) is-invalid @endif"
-                                                        placeholder="{{ __('other_info.name_of_sale_rep') }}">
+                                                        placeholder="NAME OF SALES REPRESENTATIVE">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="full_name" class="form-label">Sales Representative
-                                                        Number</label>
+                                                        Number / 營業代表編號</label>
                                                     <input type="text" name="sales_rep_number"
                                                         value="{{ old('sales_rep_number') }}"
                                                         class="form-control @if ($errors->has('sales_rep_number')) is-invalid @endif"
-                                                        placeholder="{{ __('other_info.code') }}">
+                                                        placeholder="SALES REPRESENTATIVE CODE">
                                                 </div>
                                             </div>
                                         </div>
@@ -284,48 +283,46 @@
                                         <div class="row mt-3">
                                             <div class="col-12 col-md-12">
                                                 <div class="form-group">
-                                                    <label
-                                                        for="">{{ __('corporate.FULL LEGAL NAME OF BUSINESS') }}</label>
+                                                    <label for="">FULL LEGAL NAME OF BUSINESS / 企業法定名稱</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('business_name')) is-invalid @endif"
                                                         id="business_name" name="business_name"
-                                                        placeholder="{{ __('corporate.FULL LEGAL NAME OF BUSINESS') }}"
+                                                        placeholder="FULL LEGAL NAME OF BUSINESS"
                                                         value="{{ old('business_name') }}">
 
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-12 mt-3">
-                                                <label
-                                                    class="form-label">{{ __('corporate.TYPE OR ORGANIZATION') }}</label>
+                                                <label class="form-label">TYPE OR ORGANIZATION / 組織類型</label>
                                                 <div class="form-group ">
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_organization"
                                                             value="Corporation"
                                                             @if (old('type_of_organization') == 'Corporation') checked @endif>
-                                                        <span></span>{{ __('corporate.CORPORATION') }}
+                                                        <span></span>CORPORATION / 企業
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_organization"
                                                             value="Partnership"
                                                             @if (old('type_of_organization') == 'Partnership') checked @endif>
-                                                        <span></span>{{ __('corporate.PARTNERSHIP') }}
+                                                        <span></span>PARTNERSHIP / 合夥
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_organization"
                                                             value="Limited Company"
                                                             @if (old('type_of_organization') == 'Limited Company') checked @endif>
-                                                        <span></span> {{ __('corporate.Limited Company') }}
+                                                        <span></span> Limited Company / 有限公司
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_organization"
                                                             value="Sole Proprietor"
                                                             @if (old('type_of_organization') == 'Sole Proprietor') checked @endif>
-                                                        <span></span>{{ __('corporate.SOLE PROPRIETOR') }}
+                                                        <span></span>SOLE PROPRIETOR / 獨資經營
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_organization" value="other"
                                                             @if (old('type_of_organization') == 'other') checked @endif>
-                                                        <span></span>{{ __('corporate.Other') }}:
+                                                        <span></span>Other / 其他:
                                                     </label>
                                                 </div>
                                             </div>
@@ -335,11 +332,11 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Business Phone
-                                                        Number</label>
+                                                        Number / 業務電話</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('business_phone_num')) is-invalid @endif"
                                                         id="business_phone_num" name="business_phone_num"
-                                                        placeholder="{{ __('corporate.BUSINESS PHONE') }}"
+                                                        placeholder="BUSINESS PHONE"
                                                         value="{{ old('business_phone_num') }}">
 
                                                 </div>
@@ -347,22 +344,21 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Business Fax
-                                                        Number</label>
+                                                        Number / 業務傳真</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('business_fax')) is-invalid @endif"
                                                         id="business_fax" name="business_fax"
-                                                        value="{{ old('business_fax') }}"
-                                                        placeholder="{{ __('corporate.BUSINESS FAX') }}">
+                                                        value="{{ old('business_fax') }}" placeholder="BUSINESS FAX">
 
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Business Email</label>
+                                                    <label for="passport_no" class="form-label">Business Email /
+                                                        業務電郵</label>
                                                     <input type="email" id="business_email" name="business_email"
                                                         class="form-control @if ($errors->has('business_email')) is-invalid @endif"
-                                                        value="{{ old('business_email') }}"
-                                                        placeholder="{{ __('corporate.BUSINESS EMAIL') }}">
+                                                        value="{{ old('business_email') }}" placeholder="BUSINESS EMAIL">
 
                                                 </div>
                                             </div>
@@ -371,9 +367,9 @@
                                             <div class="col-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Business
-                                                        Address</label>
+                                                        Address / 營業地址</label>
                                                     <textarea type="text" class="form-control @if ($errors->has('business_address')) is-invalid @endif"
-                                                        id="business_address" name="business_address" placeholder="{{ __('corporate.BUSINESS ADDRESS') }}">{{ old('business_address') }}</textarea>
+                                                        id="business_address" name="business_address" placeholder="BUSINESS ADDRESS">{{ old('business_address') }}</textarea>
 
                                                 </div>
                                             </div>
@@ -382,73 +378,72 @@
 
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <label for="passport_no" class="form-label">City</label>
+                                                    <label for="passport_no" class="form-label">City / 城市</label>
                                                     <input type="text" id="city" name="city"
                                                         class="form-control @if ($errors->has('city')) is-invalid @endif"
-                                                        value="{{ old('city') }}"
-                                                        placeholder="{{ __('corporate.CITY') }}">
+                                                        value="{{ old('city') }}" placeholder="CITY">
 
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Country</label>
+                                                    <label for="passport_no" class="form-label">Country / 所在國家</label>
                                                     <input type="text" id="country" name="country"
                                                         value="{{ old('country') }}"
                                                         class="form-control orm-control @if ($errors->has('country')) is-invalid @endif"
-                                                        placeholder="{{ __('corporate.COUNTRY') }}">
+                                                        placeholder="COUNTRY">
 
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <label for="passport_no" class="form-label">Zip Code</label>
+                                                    <label for="passport_no" class="form-label">Zip Code / 郵政編碼</label>
                                                     <input id="zip_code" name="zip_code" type="text"
                                                         value="{{ old('zip_code') }}"
                                                         class="form-control @if ($errors->has('zip_code')) is-invalid @endif"
-                                                        placeholder="{{ __('corporate.ZIP CODE') }}">
+                                                        placeholder="ZIP CODE">
 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-12 col-md-12">
-                                                <label class="form-label">{{ __('corporate.TYPE OF BUSINESS') }}</label>
+                                                <label class="form-label">TYPE OF BUSINESS / 業務類別</label>
                                                 <div class="form-group">
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_business" value="Coin Dealer"
                                                             @if (old('type_of_business') == 'Coin Dealer') checked @endif>
-                                                        <span></span> {{ __('corporate.COIN DEALER') }}
+                                                        <span></span> COIN DEALER / 錢幣商
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_business"
                                                             value="Jewellery Repair"
                                                             @if (old('type_of_business') == 'Jewellery Repair') checked @endif>
-                                                        <span></span>{{ __('corporate.JEWELLERY REPAIR') }}
+                                                        <span></span>JEWELLERY REPAIR / 珠寶修理
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="type_of_business"
                                                             value="Jewellery Manufacturer"
                                                             @if (old('type_of_business') == 'Jewellery Manufacturer') checked @endif>
-                                                        <span></span>{{ __('corporate.JEWELLERY MANUFACTURER') }}
+                                                        <span></span>JEWELLERY MANUFACTURER / 珠寶製造商
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-12 col-md-12">
-                                                <label class="form-label">{{ __('corporate.JEWELLERY RETAIL') }}</label>
+                                                <label class="form-label">JEWELLERY RETAIL / 珠寶零售</label>
                                                 <div class="form-group ">
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="retails"
                                                             value="Goldy/Precious Metal Trading"
                                                             @if (old('retails') == 'Goldy/Precious Metal Trading') checked @endif>
-                                                        <span></span>{{ __('corporate.GOLD/PRECIOUS METAL TRADING') }}
+                                                        <span></span>GOLD/PRECIOUS METAL TRADING / 黃金/貴金屬貿易
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="retails" value="Others"
                                                             @if (old('retails') == 'Others') checked @endif>
-                                                        <span></span>{{ __('corporate.OTHER') }} :
+                                                        <span></span>OTHER / 其他
                                                     </label>
                                                 </div>
                                             </div>
@@ -458,11 +453,12 @@
                                             <div class="col-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Business Registration
-                                                        Number</label>
+                                                        Number / 商業登記證書號碼
+                                                    </label>
                                                     <input type="text" id="business_reg_num" name="business_reg_num"
                                                         value="{{ old('business_reg_num') }}"
                                                         class="form-control @if ($errors->has('business_reg_num')) is-invalid @endif"
-                                                        placeholder="{{ __('corporate.COMPANY INCORPORATION NUMBER / BUSINESS REGISTRATION CERTIFICATE NUMBER') }}">
+                                                        placeholder="COMPANY INCORPORATION NUMBER / BUSINESS REGISTRATION CERTIFICATE NUMBER">
 
                                                 </div>
                                             </div>
@@ -472,23 +468,23 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Country of
-                                                        Incorporation</label>
+                                                        Incorporation / 註冊國家</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('country_of_incorporation')) is-invalid @endif"
                                                         id="country_of_incorporation" name="country_of_incorporation"
                                                         value="{{ old('country_of_incorporation') }}"
-                                                        placeholder="{{ __('corporate.COUNTRY OF INCORPORATION') }}">
+                                                        placeholder="COUNTRY OF INCORPORATION">
 
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="passport_no" class="form-label">Years In
-                                                        Business</label>
+                                                        Business / 經營年期</label>
                                                     <input type="text" value="{{ old('years_in_business') }}"
                                                         class="form-control @if ($errors->has('years_in_business')) is-invalid @endif"
                                                         name="years_in_business" id="years_in_business"
-                                                        placeholder="{{ __('corporate.YEARS IN BUSINESS') }}">
+                                                        placeholder="YEARS IN BUSINESS">
 
                                                 </div>
                                             </div>
@@ -496,19 +492,19 @@
                                         <div class="row mt-3">
 
                                             <div class="col-12 col-md-4">
-                                                <label
-                                                    class="form-label">{{ __('corporate.DO YOU IMPORT / EXPORT PRECIOUS METAL?') }}
+                                                <label class="form-label">DO YOU IMPORT / EXPORT PRECIOUS METAL? /
+                                                    貴公司有否進口或出口貴重金屬
                                                 </label>
                                                 <div class="form-group ">
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="import" value="Yes"
                                                             @if (old('import') == 'Yes') checked @endif>
-                                                        <span></span>{{ __('corporate.YES') }}
+                                                        <span></span>YES
                                                     </label>
                                                     <label class="radio-inline ">
                                                         <input type="radio" name="import" value="No"
                                                             @if (old('import') == 'No') checked @endif>
-                                                        <span></span> {{ __('corporate.NO') }}
+                                                        <span></span> NO
                                                     </label>
                                                 </div>
                                             </div>
@@ -517,13 +513,13 @@
 
                                             <div class="col-12 col-md-12">
                                                 <div class="form-group">
-                                                    <label for="passport_no"
-                                                        class="form-label">{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}</label>
+                                                    <label for="passport_no" class="form-label">IF YES, WHAT ARE THE
+                                                        COUNTRIES YOU ARE TRADING WITH? / 倘若有，是哪些地方?</label>
                                                     <input type="text"
                                                         class="form-control @if ($errors->has('countries_of_import')) is-invalid @endif"
                                                         id="countries_of_import" name="countries_of_import"
                                                         value="{{ old('countries_of_import') }}"
-                                                        placeholder="{{ __('corporate.IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?') }}">
+                                                        placeholder="IF YES, WHAT ARE THE COUNTRIES YOU ARE TRADING WITH?">
                                                 </div>
                                             </div>
                                         </div>
@@ -545,21 +541,21 @@
                                         <div class="row mt-3">
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
-                                                    <label for="full_name" class="form-label">Bank Name</label>
+                                                    <label for="full_name" class="form-label">Bank Name / 銀行名稱</label>
                                                     <input type="text" name="bank_name"
                                                         value="{{ old('bank_name') }}"
                                                         class="form-control @if ($errors->has('bank_name')) is-invalid @endif"
-                                                        placeholder="{{ __('bank_info.bank_name') }}">
+                                                        placeholder="BANK NAME">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="full_name" class="form-label">Bank Country
-                                                        Name</label>
+                                                        Name / 銀行所在國家</label>
                                                     <input type="text" name="bank_country_name"
                                                         value="{{ old('bank_country_name') }}"
                                                         class="form-control @if ($errors->has('bank_country_name')) is-invalid @endif"
-                                                        placeholder="{{ __('bank_info.country') }}">
+                                                        placeholder="COUNTRY IN WHICH BANK IS LOCATED">
 
                                                 </div>
                                             </div>
@@ -568,22 +564,22 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="full_name" class="form-label">Bank Account
-                                                        Name</label>
+                                                        Name / 戶口名稱</label>
                                                     <input type="text" name="bank_account_name"
                                                         value="{{ old('bank_account_name') }}"
                                                         class="form-control @if ($errors->has('bank_account_name')) is-invalid @endif"
-                                                        placeholder="{{ __('bank_info.account_num') }}">
+                                                        placeholder="ACCOUNT NAME">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="full_name" class="form-label">Bank Branch
-                                                        Number</label>
+                                                        Number / 分行號碼</label>
                                                     <input type="text" name="bank_branch_number"
                                                         value="{{ old('bank_branch_number') }}"
                                                         class="form-control @if ($errors->has('bank_branch_number')) is-invalid @endif"
-                                                        placeholder="{{ __('bank_info.branch_num') }}">
+                                                        placeholder="BRANCH NUMBER">
                                                 </div>
                                             </div>
                                         </div>
@@ -591,20 +587,21 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="full_name" class="form-label">Bank Account
-                                                        Number</label>
+                                                        Number / 戶口號碼</label>
                                                     <input type="text" name="bank_account_number"
                                                         value="{{ old('bank_account_number') }}"
                                                         class="form-control @if ($errors->has('bank_account_number')) is-invalid @endif"
-                                                        placeholder="{{ __('bank_info.account_num') }}">
+                                                        placeholder="ACCOUNT NUMBER">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
-                                                    <label for="full_name" class="form-label">Bank Swift Code</label>
+                                                    <label for="full_name" class="form-label">Bank Swift Code /
+                                                        跨國匯款國際銀行代碼</label>
                                                     <input type="text" name="bank_swift_code"
                                                         value="{{ old('bank_swift_code') }}"
                                                         class="form-control @if ($errors->has('bank_swift_code')) is-invalid @endif"
-                                                        placeholder="{{ __('bank_info.swift_code') }}">
+                                                        placeholder="SWIFT CODE">
                                                 </div>
                                             </div>
                                         </div>
