@@ -130,12 +130,31 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarMultilevel" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarMultilevel">
+                    <a class="nav-link menu-link @if (Request::is('setup') ||
+                        Request::is('setup/*') ||
+                        Request::is('payment-methods/*') ||
+                        Request::is('payment-methods') ||
+                        Request::is('nationalities') ||
+                        Request::is('nationalities/*')) active @endif"
+                        href="#sidebarMultilevel" data-bs-toggle="collapse" role="button"
+                        aria-expanded="@if (Request::is('setup') ||
+                            Request::is('setup/*') ||
+                            Request::is('payment-methods/*') ||
+                            Request::is('payment-methods') ||
+                            Request::is('nationalities') ||
+                            Request::is('nationalities/*')) true @else false @endif"
+                        aria-controls="sidebarMultilevel">
                         <i class="ri-settings-2-fill"></i>
                         <span data-key="t-multi-level">Setup</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarMultilevel">
+
+                    <div class="collapse menu-dropdown @if (Request::is('setup') ||
+                        Request::is('setup/*') ||
+                        Request::is('payment-methods/*') ||
+                        Request::is('payment-methods') ||
+                        Request::is('nationalities') ||
+                        Request::is('nationalities/*')) show @endif"
+                        id="sidebarMultilevel">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('setup') || Request::is('setup/*') ? 'active' : '' }}"
@@ -159,28 +178,56 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarRolePermission" data-bs-toggle="collapse"
-                        role="button" aria-expanded="false" aria-controls="sidebarRolePermission">
+                    <a class="nav-link menu-link @if (Request::is('staffs') ||
+                        Request::is('staffs/*') ||
+                        Request::is('roles-permission-assignment-list') ||
+                        Request::is('permissions') ||
+                        Request::is('permissions/*') ||
+                        Request::is('roles') ||
+                        Request::is('roles/*')) active @endif"
+                        href="#sidebarRolePermission" data-bs-toggle="collapse" role="button"
+                        aria-expanded="@if (Request::is('staffs') ||
+                            Request::is('staffs/*') ||
+                            Request::is('roles-permission-assignment-list') ||
+                            Request::is('permissions') ||
+                            Request::is('permissions/*') ||
+                            Request::is('roles') ||
+                            Request::is('roles/*')) true @else false @endif"
+                        aria-controls="sidebarRolePermission">
                         <i class="ri-dashboard-2-line"></i>
                         <span data-key="t-dashboards">Roles & Permissions</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarRolePermission">
+                    <div class="collapse menu-dropdown @if (Request::is('staffs') ||
+                        Request::is('staffs/*') ||
+                        Request::is('roles-permission-assignment-list') ||
+                        Request::is('permissions') ||
+                        Request::is('permissions/*') ||
+                        Request::is('roles') ||
+                        Request::is('roles/*')) show @endif"
+                        id="sidebarRolePermission">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('staffs.index') }}" class="nav-link" data-key="t-analytics">
+                                <a href="{{ route('staffs.index') }}"
+                                    class="nav-link {{ Request::is('staffs') || Request::is('staffs/*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
                                     Staffs
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('roles-permission-assignment-list') }}" class="nav-link"
+                                <a href="{{ route('roles-permission-assignment-list') }}"
+                                    class="nav-link {{ Request::is('roles-permission-assignment-list') || Request::is('roles-permission-assignment-list/*') ? 'active' : '' }}"
                                     data-key="t-analytics"> Roles Assignment </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('roles.index') }}" class="nav-link" data-key="t-analytics"> Roles
+                                <a href="{{ route('roles.index') }}"
+                                    class="nav-link {{ Request::is('roles') || Request::is('roles/*') ? 'active' : '' }}"
+                                    data-key="t-analytics"> Roles
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('permissions.index') }}" class="nav-link" data-key="t-analytics">
+                                <a href="{{ route('permissions.index') }}"
+                                    class="nav-link {{ Request::is('permissions') || Request::is('permissions/*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
                                     Permissions </a>
                             </li>
                         </ul>

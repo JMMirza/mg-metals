@@ -134,8 +134,8 @@
                             <a href="{{ route('customer_login') }}" class=" mt-20 btn btn-mod btn-large btn-round">Buy
                                 Now</a>
                         @endif
-
                     </div>
+                    <a href="{{ route('shop') }}" class="">Continue Shopping</a>
 
 
                 </div>

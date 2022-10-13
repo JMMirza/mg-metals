@@ -12,10 +12,10 @@ $(document).ready(function () {
         },
         ajax: route,
         columns: [
-            {
-                data: "id",
-                name: "id",
-            },
+            // {
+            //     data: "id",
+            //     name: "id",
+            // },
             {
                 data: "from_currency",
                 name: "from_currency",

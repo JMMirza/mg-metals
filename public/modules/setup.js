@@ -13,11 +13,11 @@ $(document).ready(function () {
         },
         ajax: route,
         columns: [
-            {
-                data: "id",
-                name: "id",
-                width: "5%",
-            },
+            // {
+            //     data: "id",
+            //     name: "id",
+            //     width: "5%",
+            // },
             {
                 data: "delivery_method",
                 name: "delivery_method",

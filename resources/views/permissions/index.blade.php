@@ -26,15 +26,6 @@
                         </thead>
                         <tbody>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Display Name</th>
-                                <th>Description</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
                     </table>
 
 

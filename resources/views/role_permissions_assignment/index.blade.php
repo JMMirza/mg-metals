@@ -27,16 +27,7 @@
                         </thead>
                         <tbody>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Roles</th>
-                                <th>Permissions</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
+
                     </table>
 
 

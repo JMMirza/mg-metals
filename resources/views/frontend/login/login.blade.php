@@ -190,6 +190,7 @@
                         </div>
 
                     </div>
+                    <a href="{{ route('shop') }}" class="">Go to Shopping</a>
                 </div>
 
 

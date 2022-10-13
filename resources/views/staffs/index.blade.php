@@ -42,19 +42,15 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-            $.extend($.fn.dataTableExt.oStdClasses, {
-                "sFilterInput": "form-control",
-                "sLengthSelect": "form-control"
-            });
+            // $.extend($.fn.dataTableExt.oStdClasses, {
+            //     "sFilterInput": "form-control",
+            //     "sLengthSelect": "form-control"
+            // });
 
             $('#employee-table').dataTable({
-                searching: true,
                 processing: true,
                 serverSide: true,
                 responsive: true,
-                bLengthChange: false,
-                ordering: true,
-                pageLength: 10,
                 scrollX: true,
                 language: {
                     search: "",

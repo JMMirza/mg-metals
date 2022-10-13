@@ -20,7 +20,7 @@
                         class="table table-bordered table-striped align-middle table-nowrap mb-0" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>From Currency</th>
                                 <th>To Currency</th>
                                 <th>Effective Date</th>
