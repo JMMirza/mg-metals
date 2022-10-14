@@ -48,14 +48,16 @@
             // });
 
             $('#employee-table').dataTable({
+                retrieve: true,
                 processing: true,
-                serverSide: true,
-                responsive: true,
-                scrollX: true,
                 language: {
                     search: "",
                     searchPlaceholder: "Search..."
                 },
+                responsive: true,
+                bLengthChange: false,
+                pageLength: 10,
+                scrollX: true,
                 ajax: {
                     url: "{{ route('staffs.index') }}",
                 },
