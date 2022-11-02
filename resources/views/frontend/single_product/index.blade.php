@@ -17,7 +17,7 @@
     <section class="page-section pt-5">
         <div class="container relative mt-2">
 
-            <div class="row mb-60 mb-xs-30">
+            <div class="row mb-60 mb-xs-30 product-card-main">
 
                 <div class="col-md-4 mb-md-30">
                     <div class="post-prev-img">

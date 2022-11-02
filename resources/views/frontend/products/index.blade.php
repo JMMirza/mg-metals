@@ -5,12 +5,21 @@
     @include('layouts.flash_message')
 
     <section class="page-section pt-5">
+        
         <div class="container relative shop-page">
+            <div class="section-text shop-heading">
+                <h1 class="hs-line-11 font-alt mb-0 mb-xs-0 playfare dark"> Our Retail Shop</h1>
+                <p>We carft every product with passion and dedication tounleashing the intrinsic artistic value of the precious metal. whatever your collection intentions, as you explore our wide range of products, you will find that you are not only buying a commodity with monetary valye, but also a piece of art with collectible worth.</p>
+            </div>
+            <div class="filters">
+                <select><option>Filter By</option></select>
+                <select><option>Sort By</option></select>
+            </div>
             <div class="row data">
                 @include('frontend.products.sidebar')
                 <div class="col">
 
-                    <div class="clearfix mb-40">
+                    <!-- <div class="clearfix mb-40">
 
 
 
@@ -31,7 +40,7 @@
                             </form> --}}
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <div class="row multi-columns-row">
 

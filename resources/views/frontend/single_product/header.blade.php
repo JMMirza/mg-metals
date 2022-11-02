@@ -1,9 +1,9 @@
 
 
-<section class="small-section bg-dark-alfa-brown-3 page-header-global" data-background="{{ asset('frontend/images/shop-bg.png') }}">
+<section class="small-section bg-dark-alfa-brown-3 page-header-global h-200" data-background="{{ asset('frontend/images/shop-bg.png') }}">
     <div class="relative container align-left">
 
-        <div class="row">
+        <!-- <div class="row">
 
             <div class="col-md-12 text-center">
                 @if (Config::get('app.locale') == 'en')
@@ -16,7 +16,7 @@
             </div>
 
             
-        </div>
+        </div> -->
 
     </div>
 </section>

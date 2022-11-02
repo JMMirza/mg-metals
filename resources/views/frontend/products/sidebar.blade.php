@@ -1,4 +1,4 @@
-<div class="col sidebar">
+<div class="col sidebar" style="display:none;">
 
 
     <!-- Widget -->
