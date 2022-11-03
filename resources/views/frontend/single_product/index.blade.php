@@ -108,7 +108,7 @@
                     </div>
 
 
-                    <div class="mb-30">
+                    <div class="mb-30 mt-20">
 
                         @if (\Auth::user())
                             <hr class="mt-0 mb-30" />
@@ -133,10 +133,11 @@
                                 Now</button> --}}
                         @else
                             <a href="{{ route('customer_login') }}"
-                                class=" mt-20 btn btn-mod btn-large btn-round">{{ __('home_page.buy_now') }}</a>
+                                class="  btn btn-mod btn-large btn-round">{{ __('home_page.buy_now') }}</a>
                         @endif
+                        <a href="{{ route('shop') }}"  class=" btn btn-mod btn-large btn-round" style="background:rgb(234 163 0) !important;color:#333 !important;margin-left:10px;">{{ __('home_page.cont_shop') }}</a>
                     </div>
-                    <a href="{{ route('shop') }}" class="">{{ __('home_page.cont_shop') }}</a>
+                    
 
 
                 </div>

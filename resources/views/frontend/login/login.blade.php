@@ -19,11 +19,11 @@
 
             <div class="container center-aligned vert-center">
 
-                <div class="row">
+                <div class="">
 
-                    <div class="col-md-12">
+                    <div class="">
 
-                        <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0 " role="tablist">
+                        <ul class="nav nav-tabs tpl-tabs animate login-tabs mb-0 w-450" role="tablist">
 
                             <li class="nav-item">
                                 <a href="#item-1" aria-controls="item-1" class="nav-link active" data-bs-toggle="tab"
@@ -37,7 +37,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="tab-content tpl-tabs-cont section-text login-tab-content pt-0">
+                        <div class="tab-content tpl-tabs-cont section-text login-tab-content pt-0 w-450">
 
                             <div class="tab-pane fade active show" role="tabpanel" id="item-1" role="tabpanel">
                                 <div class="card card-default form-card">
@@ -191,7 +191,7 @@
                         </div>
 
                     </div>
-                    <a href="{{ route('shop') }}" class="">{{ __('login.got_to_shop') }}</a>
+                    <a href="{{ route('shop') }}" class="btn btn-mod btn-large btn-round w-100">{{ __('login.got_to_shop') }}</a>
                 </div>
 
 
