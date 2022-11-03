@@ -146,10 +146,6 @@
                                     <div id="snow-editor-des" style="height: 300px;">{!! $paymentMethod->description !!}</div>
                                     <input type="hidden" name="description" id="description"
                                         value="{{ $paymentMethod->description }}">
-                                    {{-- <div class="form-label-group in-border">
-                                    <label for="description" class="form-label">Description (物品描述)</label>
-                                    <textarea class="form-control mb-3" name="description" id="description" placeholder="Enter product description here...">{{ $paymentMethod->description') }}</textarea>
-                                </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -159,12 +155,6 @@
                                     <div id="snow-editor-des-s-ch" style="height: 300px;">{!! $paymentMethod->description_s_ch !!}</div>
                                     <input type="hidden" name="description_s_ch" id="description_s_ch"
                                         value="{{ $paymentMethod->description_s_ch }}">
-                                    {{-- <div class="form-label-group in-border">
-                                    <label for="description" class="form-label">Description (Simplified
-                                        Chinese)</label>
-                                    <textarea class="form-control mb-3" name="description_s_ch" id="description"
-                                        placeholder="Enter product description here...">{{ $paymentMethod->description_s_ch') }}</textarea>
-                                </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -174,12 +164,6 @@
                                     <div id="snow-editor-des-ch" style="height: 300px;">{!! $paymentMethod->description_ch !!}</div>
                                     <input type="hidden" name="description_ch" id="description_ch"
                                         value="{{ $paymentMethod->description_ch }}">
-                                    {{-- <div class="form-label-group in-border">
-                                    <label for="description" class="form-label">Description (Traditional
-                                        Chinese)</label>
-                                    <textarea class="form-control mb-3" name="description_t_ch" id="description"
-                                        placeholder="Enter product description here...">{{ $paymentMethod->description_t_ch') }}</textarea>
-                                </div> --}}
                                 </div>
                             </div>
                         </div>

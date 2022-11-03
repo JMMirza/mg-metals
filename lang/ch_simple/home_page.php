@@ -10,7 +10,11 @@ return [
     'logout' => '退出系统',
     'register' => '注册',
     'profile' => '账户名称',
-
+    'Manufacturer' => '製造商',
+    'Category' => '類別',
+    'ad_to_cart' => 'ADD TO CART',
+    'buy_now' => 'BUY NOW',
+    'cont_shop' => 'Continue Shopping',
     'since_2001' => '顾客评价',
     'mg_metals' => 'MG METALS',
     'purchase' => '购买',
@@ -138,5 +142,8 @@ return [
     'sorting' => '综合排序',
     'sorting_low_high' => '价格从低到高',
     'sorting_high_low' => '价格从高到低',
-    'no_record_found' => '没有找到记录'
+    'no_record_found' => '没有找到记录',
+    'OUR_RETAIL_SHOP' => '我们的零售店',
+    'sort_by_price' => 'Sort By Price',
+    'product_para' => ' 我们以热情和奉献精神打造每一件产品，以释放贵金属的内在艺术价值。 无论您的收藏意图是什么，当您探索我们种类繁多的产品时，您会发现您购买的不仅是具有货币价值的商品，而且是一件具有收藏价值的艺术品。'
 ];

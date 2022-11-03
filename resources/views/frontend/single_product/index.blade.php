@@ -23,22 +23,22 @@
                     <div class="post-prev-img">
                         <a href="{{ $product->product_picture_url }}" class="lightbox-gallery-3 mfp-image"><img
                                 src="{{ $product->product_picture_url }}" alt="" /></a>
-                       
+
                     </div>
                 </div>
 
                 <div class="col-sm-12 col-md-8 mb-xs-20">
                     @if (Config::get('app.locale') == 'en')
-                        <h3 class="mt-0">{{ $product->name }}  @if ($product->productsQuantity() != null)
-                            <div class="intro-label">
-                                <span class="badge badge-primary bg-green">In Stock</span>
-                            </div>
-                        @else
-                            <div class="intro-label">
-                                <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
-                            </div>
-                        @endif
-                        {{-- <div class="intro-label">
+                        <h3 class="mt-0">{{ $product->name }} @if ($product->productsQuantity() != null)
+                                <div class="intro-label">
+                                    <span class="badge badge-primary bg-green">In Stock</span>
+                                </div>
+                            @else
+                                <div class="intro-label">
+                                    <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
+                                </div>
+                            @endif
+                            {{-- <div class="intro-label">
                             <span class="badge badge-danger bg-red">Sale</span>
                         </div> --}}</h3>
                     @elseif (Config::get('app.locale') == 'ch')
@@ -82,7 +82,7 @@
 
                     <div class="section-text small">
                         <div>SKU: {{ $product->sku }}</div>
-                        <div>Category:
+                        <div>{{ __('home_page.Category') }}:
                             @if (Config::get('app.locale') == 'en')
                                 <a href="{{ route('shop', ['category' => $product->category->id]) }}">
                                     {{ $product->category->name }}</a>
@@ -96,7 +96,7 @@
 
                         </div>
                         <div>
-                            Manufacturer:
+                            {{ __('home_page.Manufacturer') }}:
                             @if (Config::get('app.locale') == 'en')
                                 {{ $product->manufacturer->name }}
                             @elseif (Config::get('app.locale') == 'ch')
@@ -125,17 +125,18 @@
                                     value="{{ $product->getProductPrice($type = 'number') }}" name="spot_price" hidden>
                                 <input type="text" id="referral_code" value="{{ \Auth::user()->referred_by }}"
                                     name="referral_code" hidden>
-                                <button type="submit" class="btn btn-mod btn-large btn-round">ADD TO CART</button>
+                                <button type="submit"
+                                    class="btn btn-mod btn-large btn-round">{{ __('home_page.ad_to_cart') }}</button>
                             </form>
                             {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
                                 class="btn btn-mod btn-large btn-round">Buy
                                 Now</button> --}}
                         @else
-                            <a href="{{ route('customer_login') }}" class=" mt-20 btn btn-mod btn-large btn-round">Buy
-                                Now</a>
+                            <a href="{{ route('customer_login') }}"
+                                class=" mt-20 btn btn-mod btn-large btn-round">{{ __('home_page.buy_now') }}</a>
                         @endif
                     </div>
-                    <a href="{{ route('shop') }}" class="">Continue Shopping</a>
+                    <a href="{{ route('shop') }}" class="">{{ __('home_page.cont_shop') }}</a>
 
 
                 </div>
@@ -169,7 +170,7 @@
                                     </p>
                                     <p class="text-muted mb-0">SKU: <span class="fw-medium">{{ $product->sku }}</span>
                                     </p>
-                                    <p class="text-muted mb-0">Category: <span
+                                    <p class="text-muted mb-0">{{ __('home_page.Category') }}: <span
                                             class="fw-medium">{{ $product->category->name }}</span>
                                     </p>
                                     <p class="text-muted mb-0">Manufacturer: <span

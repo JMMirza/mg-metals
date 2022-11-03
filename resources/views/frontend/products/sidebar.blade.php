@@ -1,4 +1,4 @@
-<div class="col sidebar" style="display:none;">
+<div class="col sidebar">
 
 
     <!-- Widget -->
@@ -51,9 +51,6 @@
             @empty
                 <div class="alert alert-dark" role="alert"> No Category Found!</div>
                 @endforelse
-
-
-
             </ul>
         </div>
 

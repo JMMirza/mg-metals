@@ -27,13 +27,13 @@
 
                             <li class="nav-item">
                                 <a href="#item-1" aria-controls="item-1" class="nav-link active" data-bs-toggle="tab"
-                                    role="tab" aria-selected="true">Login
+                                    role="tab" aria-selected="true">{{ __('login.login') }}
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#item-2" aria-controls="item-2" class="nav-link" data-bs-toggle="tab"
-                                    role="tab" aria-selected="false">Register
+                                    role="tab" aria-selected="false">{{ __('login.register') }}
                                 </a>
                             </li>
                         </ul>
@@ -95,7 +95,8 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group mb-2 justify-content-end">
-                                                        <a href="{{ route('password.request') }}" class="ml-auto">Forgot
+                                                        <a href="{{ route('password.request') }}"
+                                                            class="ml-auto">Forgot
                                                             password?</a>
                                                     </div>
                                                 </div>
@@ -114,7 +115,7 @@
                                 <div class="card card-default form-card">
 
                                     <div class="card-body">
-                                        <h3 class="dark playfare mb-20">Create your account</h3>
+                                        <h3 class="dark playfare mb-20">{{ __('login.create_your_account') }}</h3>
                                         <form method="POST" action="{{ route('customer-register-account') }}">
                                             @csrf
                                             <div class="row">
@@ -190,7 +191,7 @@
                         </div>
 
                     </div>
-                    <a href="{{ route('shop') }}" class="">Go to Shopping</a>
+                    <a href="{{ route('shop') }}" class="">{{ __('login.got_to_shop') }}</a>
                 </div>
 
 

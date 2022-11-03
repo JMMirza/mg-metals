@@ -10,7 +10,11 @@ return [
     'logout' => '退出系統',
     'register' => '註冊',
     'profile' => '帳戶',
-
+    'Manufacturer' => '製造商',
+    'Category' => '類別',
+    'ad_to_cart' => 'ADD TO CART',
+    'buy_now' => 'BUY NOW',
+    'cont_shop' => 'Continue Shopping',
     'since_2001' => '成立於2001',
     'mg_metals' => '萬兆豐',
     'purchase' => '購買',
@@ -138,5 +142,8 @@ return [
     'sorting' => '綜合示例',
     'sorting_low_high' => '價格從低到高',
     'sorting_high_low' => '價格從到高到低',
-    'no_record_found' => '沒有找到記錄'
+    'no_record_found' => '沒有找到記錄',
+    'OUR_RETAIL_SHOP' => '我們的零售店',
+    'sort_by_price' => 'Sort By Price',
+    'product_para' => ' 我們以熱情和奉獻精神打造每一件產品，以釋放貴金屬的內在藝術價值。 無論您的收藏意圖是什麼，當您探索我們種類繁多的產品時，您會發現您購買的不僅是具有貨幣價值的商品，而且是一件具有收藏價值的藝術品。'
 ];

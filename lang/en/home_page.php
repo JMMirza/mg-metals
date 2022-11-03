@@ -10,7 +10,11 @@ return [
     'logout' => 'Logout',
     'register' => 'Register',
     'profile' => 'Profile',
-
+    'Manufacturer' => 'Manufacturer',
+    'Category' => 'Category',
+    'ad_to_cart' => 'ADD TO CART',
+    'buy_now' => 'BUY NOW',
+    'cont_shop' => 'Continue Shopping',
     'since_2001' => 'SINCE 2001',
     'mg_metals' => 'MG METALS',
     'purchase' => 'Purchase',
@@ -138,5 +142,8 @@ return [
     'sorting' => 'Sorting',
     'sorting_low_high' => 'Sort by price: low to high',
     'sorting_high_low' => 'Sort by price: high to low',
-    'no_record_found' => 'No Record Found!'
+    'no_record_found' => 'No Record Found!',
+    'sort_by_price' => 'Sort By Price',
+    'OUR_RETAIL_SHOP' => 'OUR RETAIL SHOP',
+    'product_para' => 'We craft every product with passion and dedication to unleashing the intrinsic artistic value of the precious metal. whatever your collection intentions, as you explore our wide range of products, you will find that you are not only buying a commodity with monetary value, but also a piece of art with collectible worth.'
 ];
