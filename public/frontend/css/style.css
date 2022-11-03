@@ -4115,7 +4115,7 @@ hr:not([size]){
     object-fit: contain;
 }
 .post-prev-img a:hover img{
-    transform: scale(1.2);
+
 }
 .post-prev-img .quick-view{
     position: absolute;
@@ -8344,7 +8344,7 @@ footer.bg-gray-lighter{
 }
 .product-card-main{
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.025);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
     padding:30px 20px;
     background-color: #fff;
     margin-top: 30px;
