@@ -4115,7 +4115,7 @@ hr:not([size]){
     object-fit: contain;
 }
 .post-prev-img a:hover img{
-    transform: scale(1.2);
+    
 }
 .post-prev-img .quick-view{
     position: absolute;
