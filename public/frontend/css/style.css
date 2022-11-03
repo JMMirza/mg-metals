@@ -213,11 +213,15 @@ Section Text:       15px/1.7 "Open Sans", arial, sans-serif;
     margin: 0px 8%;
 }
 @media (min-width: 768px) {
+    .product-card-container{
+        max-width: 100% !important;
+    }
     .container {
         width: 750px;
     }
 }
 @media (min-width: 992px) {
+
     .container {
         width: 970px;
     }
@@ -4081,7 +4085,7 @@ hr:not([size]){
     margin-bottom: 10px;
     position: relative;
 
-    background-color: #f9f9f9;
+    background-color: transparent;
     overflow: hidden;
 }
 .post-prev-img.boxed{
@@ -4116,15 +4120,16 @@ hr:not([size]){
 .post-prev-img .quick-view{
     position: absolute;
     bottom: 0px;
-    background: rgba(255,255,255,.5);
+    background: transparent;
     z-index: 999;
     left: 0;
     right: 0;
-    color: #333;
+    color: #000;
     text-align: center;
     padding: 10px;
     text-decoration: none;
     font-size: 14px;
+    font-weight: bold;
     transform: translateY(70px);
 }
 .post-prev-img:hover .quick-view{
@@ -5945,12 +5950,11 @@ section:hover .small-item-carousel .owl-next {
     width: 100%;
 }
 .intro-label {
-    position: absolute;
-    top: -3px;
-    left: 0px;
     font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    display: inline-block;
+    margin-left: 10px;
 }
 .intro-label .badge{
     background-color: rgb(18, 48, 51)  !important;
@@ -7666,7 +7670,11 @@ footer.bg-gray-lighter{
     height: 150px !important;
 }
 .page-header-global.retail-shop{
-    height: 450px  !important;
+    height: 550px  !important;
+    background: transparent !important;
+}
+.page-header-global.retail-shop .bg-video{
+    width:100%;
 }
 .page-header-global h1{
     font-size:26px !important;
@@ -7675,6 +7683,9 @@ footer.bg-gray-lighter{
 }
 .page-header-global .hs-line-4{
     font-size:16px !important;
+}
+.product-card-container{
+    max-width: 60% !important;
 }
 .shop-heading{
     text-align: center;
@@ -7855,8 +7866,10 @@ footer.bg-gray-lighter{
     .mb-sm-40 {
         margin-bottom: 20px !important;
     }
+   
 }
 @media only screen and (max-width: 600px) {
+    
     .container {
 
         padding: 0px 15px  !important;

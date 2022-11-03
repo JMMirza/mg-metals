@@ -15,7 +15,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <section class="page-section pt-5">
-        <div class="container relative mt-2">
+        <div class="container relative mt-2 product-card-container">
 
             <div class="row mb-60 mb-xs-30 product-card-main">
 
@@ -23,7 +23,13 @@
                     <div class="post-prev-img">
                         <a href="{{ $product->product_picture_url }}" class="lightbox-gallery-3 mfp-image"><img
                                 src="{{ $product->product_picture_url }}" alt="" /></a>
-                        @if ($product->productsQuantity() != null)
+                       
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-8 mb-xs-20">
+                    @if (Config::get('app.locale') == 'en')
+                        <h3 class="mt-0">{{ $product->name }}  @if ($product->productsQuantity() != null)
                             <div class="intro-label">
                                 <span class="badge badge-primary bg-green">In Stock</span>
                             </div>
@@ -34,13 +40,7 @@
                         @endif
                         {{-- <div class="intro-label">
                             <span class="badge badge-danger bg-red">Sale</span>
-                        </div> --}}
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-8 mb-xs-20">
-                    @if (Config::get('app.locale') == 'en')
-                        <h3 class="mt-0">{{ $product->name }}</h3>
+                        </div> --}}</h3>
                     @elseif (Config::get('app.locale') == 'ch')
                         <h3 class="mt-0">{{ $product->name_t_ch }}</h3>
                     @else
