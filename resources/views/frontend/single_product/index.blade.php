@@ -108,7 +108,7 @@
                     </div>
 
 
-                    <div class="mb-30 mt-20">
+                    <div class="mb-30 mt-20 btns">
 
                         @if (\Auth::user())
                             <hr class="mt-0 mb-30" />
