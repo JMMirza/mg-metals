@@ -2,17 +2,18 @@
 
 return [
 
-    'Email' => 'Email',
-    'Password' => 'Password',
-    'Complete Name' => 'Complete Name',
-    'Confirm Password' => 'Confirm Password',
-    'individual' => 'Individual',
-    'corporate' => 'Corporate',
-    'got_to_shop' => 'Go to Shopping',
-    'login' => 'Login',
-    'register' => 'Register',
-    'welcome_back' => 'Welcome back to Login',
-    'forgot_password' => 'Forgot Password',
-    'signin' => 'Sign In',
-    'create_your_account' => 'Create your account'
+    'Email' => '账号名/邮箱',
+    'Password' => '登陆密码',
+    'Complete Name' => '请输入姓名',
+    'Confirm Password' => '再次输入以确认密码',
+    'individual' => '个人账户',
+    'corporate' => '商业账户',
+    'got_to_shop' => '返回购物区',
+    'login' => '登录',
+    'register' => '免费注册',
+    'welcome_back' => '密码登录',
+    'forgot_password' => '忘记密码',
+    'signin' => '登录',
+    'create_your_account' => '注册账户',
+    'referred_by' => '推荐人账号'
 ];

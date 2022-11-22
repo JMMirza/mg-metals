@@ -45,7 +45,7 @@
 
 
                                     <div class="card-body">
-                                        <h3 class="dark playfare mb-20">Welcome back to Login</h3>
+                                        <h3 class="dark playfare mb-20">{{ __('login.welcome_back') }}</h3>
                                         <form method="POST" action="{{ route('login-customer') }}"
                                             class="needs-validation" novalidate>
                                             @csrf
@@ -96,15 +96,15 @@
                                                 <div class="col-6">
                                                     <div class="form-group mb-2 justify-content-end">
                                                         <a href="{{ route('password.request') }}"
-                                                            class="ml-auto">Forgot
-                                                            password?</a>
+                                                            class="ml-auto">{{ __('login.forgot_password') }}?</a>
                                                     </div>
                                                 </div>
                                             </div>
 
 
                                             <div class="footer mt-3">
-                                                <button class="= btn btn-custom w-100" type="submit">Sign In</button>
+                                                <button class="= btn btn-custom w-100"
+                                                    type="submit">{{ __('login.signin') }}</button>
                                             </div>
                                         </form>
                                     </div>
@@ -181,7 +181,8 @@
                                                 </div>
                                             </div>
                                             <div class="footer">
-                                                <button class="btn btn-custom w-100" type="submit">Register</button>
+                                                <button class="btn btn-custom w-100"
+                                                    type="submit">{{ __('login.register') }}</button>
                                             </div>
                                         </form>
                                     </div>
@@ -191,7 +192,8 @@
                         </div>
 
                     </div>
-                    <a href="{{ route('shop') }}" class="btn btn-mod btn-large btn-round w-100">{{ __('login.got_to_shop') }}</a>
+                    <a href="{{ route('shop') }}"
+                        class="btn btn-mod btn-large btn-round w-100">{{ __('login.got_to_shop') }}</a>
                 </div>
 
 
