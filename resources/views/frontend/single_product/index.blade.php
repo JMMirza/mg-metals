@@ -110,7 +110,7 @@
 
                     <div class="mb-30 mt-20 btns">
 
-                        @if (\Auth::user())
+                        @if (\Auth::user()->is_email_verified == 1)
                             <hr class="mt-0 mb-30" />
                             <form method="post" action="{{ route('shop-cart.store') }}" class="form"
                                 id="shor_cart_form">
@@ -135,9 +135,10 @@
                             <a href="{{ route('customer_login') }}"
                                 class="  btn btn-mod btn-large btn-round">{{ __('home_page.buy_now') }}</a>
                         @endif
-                        <a href="{{ route('shop') }}"  class=" btn btn-mod btn-large btn-round" style="background:rgb(234 163 0) !important;color:#333 !important;margin-left:10px;">{{ __('home_page.cont_shop') }}</a>
+                        <a href="{{ route('shop') }}" class=" btn btn-mod btn-large btn-round"
+                            style="background:rgb(234 163 0) !important;color:#333 !important;margin-left:10px;">{{ __('home_page.cont_shop') }}</a>
                     </div>
-                    
+
 
 
                 </div>
