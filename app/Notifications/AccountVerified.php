@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AccountVerified extends Notification
+class AccountVerified extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -41,9 +41,9 @@ class AccountVerified extends Notification
      */
     public function toMail($notifiable)
     {
-        $user = User::where('email', $notifiable->routes['mail'])->first();
+        // dd($notifiable->toArray());
         return (new MailMessage)
-            ->greeting(__('Dear ' . $user->name . ','))
+            ->greeting(__('Dear ' . $notifiable->name . ','))
             ->line('Thank you for registering with MG Metals, Hongkong')
             ->line('Your Account has been created and our team will be verifying it. You will receive an activation mail shortly.')
             ->line(__('Feel free to contact us for any inquiries,'))

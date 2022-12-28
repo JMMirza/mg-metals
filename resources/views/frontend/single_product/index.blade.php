@@ -110,7 +110,7 @@
 
                     <div class="mb-30 mt-20 btns">
 
-                        @if (\Auth::user()->is_email_verified == 1)
+                        @if (\Auth::user() && \Auth::user()->is_email_verified == 1)
                             <hr class="mt-0 mb-30" />
                             <form method="post" action="{{ route('shop-cart.store') }}" class="form"
                                 id="shor_cart_form">
