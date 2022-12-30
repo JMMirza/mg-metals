@@ -13,8 +13,8 @@
                     <a href="{{ route('contact_us') }}"
                         class="btn btn-mod btn-medium btn-round d-none d-sm-inline-block">{{ __('home_page.contact_us') }}</a>
                     <span class="d-none d-sm-inline-block">&nbsp;</span>
-                    <a href="{{ route('shop') }}"
-                        class="btn btn-mod btn-medium btn-round">{{ __('home_page.purchase') }}</a>
+                    {{-- <a href="{{ route('shop') }}"
+                        class="btn btn-mod btn-medium btn-round">{{ __('home_page.purchase') }}</a> --}}
                 </div>
 
             </div>
