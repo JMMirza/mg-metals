@@ -40,7 +40,7 @@
         </div>
     @endif
 
-    @if (\Auth::user() && \Auth::user()->is_email_verified == 1)
+    @if (\Auth::user() && \Auth::user()->is_verified == 1)
         <div class="post-prev-text align-center">
             <strong>{{ $product->getProductPrice() }}</strong>
         </div>
