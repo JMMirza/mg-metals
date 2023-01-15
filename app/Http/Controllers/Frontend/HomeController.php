@@ -148,7 +148,7 @@ class HomeController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'customer_type' => ['required']
+            // 'customer_type' => ['required']
         ]);
 
 
@@ -156,7 +156,7 @@ class HomeController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'customer_type' => $request->customer_type,
+            'customer_type' => 'individual',
         ];
 
         $referral_code = strtoupper(Str::random(6));
@@ -174,6 +174,17 @@ class HomeController extends Controller
         }
 
         $user = User::create($input);
+        Customer::create([
+            'user_id' => $user->id,
+            'full_name' => $user->name,
+            'gender' => '',
+            'occupation' => '',
+            'passport_no' => '',
+            'country_code' => $request->country_code,
+            'phone_number' => $request->phone_number,
+            'nationality' => '',
+            'address' => $request->address,
+        ]);
         VerificationCode::send($user->email);
         auth()->login($user);
         return redirect(route('verify-code-view'));

@@ -125,8 +125,13 @@
                                     value="{{ $product->getProductPrice($type = 'number') }}" name="spot_price" hidden>
                                 <input type="text" id="referral_code" value="{{ \Auth::user()->referred_by }}"
                                     name="referral_code" hidden>
-                                <button type="submit"
-                                    class="btn btn-mod btn-large btn-round">{{ __('home_page.ad_to_cart') }}</button>
+                                @if ($product->pricing_type == 'use_feed')
+                                    <button
+                                        class="btn btn-mod btn-large btn-round use_feed_btn">{{ __('home_page.ad_to_cart') }}</button>
+                                @else
+                                    <button type="submit"
+                                        class="btn btn-mod btn-large btn-round">{{ __('home_page.ad_to_cart') }}</button>
+                                @endif
                             </form>
                             {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
                                 class="btn btn-mod btn-large btn-round">Buy
@@ -202,6 +207,20 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
+            $('.use_feed_btn').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: "Alert",
+                    timer: 5000,
+                    text: "This product is for VIP members, Please contact MG Admin at account@mgmetals.com.hk",
+                    icon: "warning",
+                    confirmButtonClass: 'btn btn-primary w-xs me-2 mb-1',
+                    confirmButtonText: "Okay",
+                    buttonsStyling: false,
+                }).then(function(response) {
+                    // window.location = resp.url;
+                })
+            })
             $('#shor_cart_form').on('submit', function(e) {
                 e.preventDefault();
                 var now = moment().toString();

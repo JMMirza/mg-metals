@@ -16,6 +16,7 @@ class Customer extends Model
         'user_id',
         'occupation',
         'address',
+        'country_code',
         'phone_number',
         'business_name',
         'type_of_organization',

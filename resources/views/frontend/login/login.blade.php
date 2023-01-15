@@ -138,6 +138,37 @@
                                                         <strong>{{ $errors->first('email') }}</strong>
                                                     </div>
                                                 </div>
+                                                <div class="col-3 mb-3">
+                                                    <input id="country_code" type="text" placeholder="+86"
+                                                        maxlength="3"
+                                                        class="form-control @if ($errors->has('country_code')) is-invalid @endif"
+                                                        name="country_code" value="{{ old('country_code') }}"
+                                                        autocomplete="country_code">
+                                                    <div class="invalid-feedback">
+                                                        <strong>{{ $errors->first('country_code') }}</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-9 mb-3">
+                                                    <input id="phone_number" type="text"
+                                                        placeholder="{{ __('individual.PHONE NUMBER') }}"
+                                                        maxlength="10"
+                                                        class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
+                                                        name="phone_number" value="{{ old('phone_number') }}"
+                                                        autocomplete="phone_number">
+                                                    <div class="invalid-feedback">
+                                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <input id="address" type="text"
+                                                        placeholder="{{ __('individual.ADDRESS') }}"
+                                                        class="form-control @if ($errors->has('address')) is-invalid @endif"
+                                                        name="address" value="{{ old('address') }}"
+                                                        autocomplete="address">
+                                                    <div class="invalid-feedback">
+                                                        <strong>{{ $errors->first('address') }}</strong>
+                                                    </div>
+                                                </div>
                                                 <div class="col-12 mb-3">
                                                     <input id="password" type="password"
                                                         class="form-control @if ($errors->has('password')) is-invalid @endif"
@@ -167,7 +198,7 @@
                                                         <strong>{{ $errors->first('referred_by') }}</strong>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 mb-3">
+                                                {{-- <div class="col-12 mb-3">
                                                     <label class="radio-inline mr-3">
                                                         <input type="radio" name="customer_type" value="individual"
                                                             @if (old('customer_type') == 'individual') checked @endif checked>
@@ -178,7 +209,7 @@
                                                             @if (old('customer_type') == 'corporate') checked @endif>
                                                         <span></span>{{ __('login.corporate') }}
                                                     </label>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <div class="footer">
                                                 <button class="btn btn-custom w-100"

@@ -80,7 +80,19 @@
                 </div>
                 {{-- </div> --}}
             </div>
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-2 col-md-2 mb-3">
+                <label class="form-label">Country Code *</label>
+                {{-- <div class="form-group"> --}}
+                <input type="text" id="country_code" name="country_code"
+                    value="@if ($customer->country_code) {{ $customer->country_code }}@else{{ old('country_code') }} @endif"
+                    class="form-control @if ($errors->has('country_code')) is-invalid @endif" placeholder="+86"
+                    required>
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('country_code') }}</strong>
+                </div>
+                {{-- </div> --}}
+            </div>
+            <div class="col-10 col-md-4 mb-3">
                 <label class="form-label">{{ __('individual.PHONE NUMBER') }} *</label>
                 {{-- <div class="form-group"> --}}
                 <input type="text" id="phone_number" name="phone_number"
