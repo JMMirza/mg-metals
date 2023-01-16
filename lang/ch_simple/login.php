@@ -11,6 +11,8 @@ return [
     'got_to_shop' => '返回购物区',
     'login' => '登录',
     'register' => '免费注册',
+    'PHONE NUMBER' => '電話',
+    'ADDRESS' => '地址',
     'welcome_back' => '密码登录',
     'forgot_password' => '忘记密码',
     'signin' => '登录',

@@ -14,6 +14,8 @@ return [
     'welcome_back' => '密碼登錄',
     'forgot_password' => '忘記密碼',
     'signin' => '登錄',
+    'PHONE NUMBER' => '電話',
+    'ADDRESS' => '地址',
     'create_your_account' => '註冊賬戶',
     'referred_by' => '推薦人賬號'
 ];

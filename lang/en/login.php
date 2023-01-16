@@ -15,5 +15,7 @@ return [
     'welcome_back' => 'Welcome back to Login',
     'forgot_password' => 'Forgot Password',
     'signin' => 'Sign In',
-    'create_your_account' => 'Create your account'
+    'create_your_account' => 'Create your account',
+    'PHONE NUMBER' => 'Phone Number',
+    'ADDRESS' => 'Address',
 ];

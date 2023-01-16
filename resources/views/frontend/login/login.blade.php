@@ -150,8 +150,7 @@
                                                 </div>
                                                 <div class="col-9 mb-3">
                                                     <input id="phone_number" type="text"
-                                                        placeholder="{{ __('individual.PHONE NUMBER') }}"
-                                                        maxlength="10"
+                                                        placeholder="{{ __('login.PHONE NUMBER') }}" maxlength="10"
                                                         class="form-control @if ($errors->has('phone_number')) is-invalid @endif"
                                                         name="phone_number" value="{{ old('phone_number') }}"
                                                         autocomplete="phone_number">
@@ -161,7 +160,7 @@
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <input id="address" type="text"
-                                                        placeholder="{{ __('individual.ADDRESS') }}"
+                                                        placeholder="{{ __('login.ADDRESS') }}"
                                                         class="form-control @if ($errors->has('address')) is-invalid @endif"
                                                         name="address" value="{{ old('address') }}"
                                                         autocomplete="address">
