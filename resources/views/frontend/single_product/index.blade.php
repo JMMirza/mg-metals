@@ -141,7 +141,7 @@
                                 class="  btn btn-mod btn-large btn-round">{{ __('home_page.buy_now') }}</a>
                         @endif
                         <a href="{{ route('shop') }}" class=" btn btn-mod btn-large btn-round"
-                            style="background:rgb(234 163 0) !important;color:#333 !important;margin-left:10px;">{{ __('home_page.cont_shop') }}</a>
+                            style="background:rgb(234 163 0) !important;color:#333 !important;margin-left:15px; margin-top:10px">{{ __('home_page.cont_shop') }}</a>
                     </div>
 
 

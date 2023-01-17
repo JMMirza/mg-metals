@@ -33,9 +33,11 @@
     <!-- <video class="bg-video" autoplay loop preload="metadata" >
     <source type="video/mp4" src="{{ asset('frontend/images/banners/bg-video.mp4') }}">
     </video> -->
-    <video class="bg-video" role="presentation" crossorigin="anonymous" playsinline="" preload="auto" muted=""
+    {{-- <video class="bg-video" role="presentation" crossorigin="anonymous" playsinline="" preload="auto" muted=""
         loop="" tabindex="-1" width="100%" height="100%" autoplay=""
-        src="{{ asset('frontend/images/banners/bg-video.mp4') }}" style=""></video>
+        src="{{ asset('frontend/images/banners/bg-video.mp4') }}" style=""></video> --}}
+    <img class="bg-video" src="{{ asset('frontend/images/banners/main_banner.jpg') }}" alt="">
+    <div class="bg-back-layer"></div>
 </section>
 
 
