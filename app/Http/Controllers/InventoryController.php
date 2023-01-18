@@ -136,7 +136,7 @@ class InventoryController extends Controller
         $product = Product::find($product_id);
         $total_units = Inventory::where('product_id', $product_id)->sum('units');
         $inventories = Inventory::with(['product', 'order.customer'])->where('product_id', $product_id)->latest()->get();
-        dd($inventories->toArray());
+        // dd($inventories->toArray());
         return view('inventory.single_product_log', ['inventories' => $inventories, 'product' => $product, 'total_units' => $total_units]);
     }
 
