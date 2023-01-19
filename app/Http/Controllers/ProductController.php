@@ -26,7 +26,7 @@ class ProductController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('status_prd', function ($row) {
-                    if (($row->status == 'inactive' || $row->status == null) && $row->valid_till <= Carbon::now()->format('Y-m-d')) {
+                    if (($row->status == 'inactive' || $row->status == null) || $row->valid_till <= Carbon::now()->format('Y-m-d')) {
                         return '<span class="badge bg-danger">In Active</span>';
                     } else {
                         return '<span class="badge bg-info">Active</span>';
