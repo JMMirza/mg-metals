@@ -10,15 +10,15 @@ use Illuminate\Notifications\Notification;
 class OrderCreated extends Notification
 {
     use Queueable;
-
+    protected $payment_method;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($payment_method)
     {
-        //
+        $this->payment_method = $payment_method;
     }
 
     /**
@@ -42,6 +42,7 @@ class OrderCreated extends Notification
     {
         return (new MailMessage)
             ->line('Order is created')
+            ->line($this->payment_method)
             ->line('Thank you for using our application!');
     }
 

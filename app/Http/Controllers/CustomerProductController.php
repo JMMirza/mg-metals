@@ -122,7 +122,7 @@ class CustomerProductController extends Controller
                 $order->save();
             }
             // dd($payment_due_date);
-            Notification::send($user, new OrderCreated);
+            Notification::send($user, new OrderCreated($payment_method->email_instructions));
             foreach ($request->cart_ids as $key => $cart) {
                 $user_cart = ShopCart::find($cart);
 

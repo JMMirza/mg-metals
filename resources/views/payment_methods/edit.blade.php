@@ -114,7 +114,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12 col-sm-12 mb-3">
+                            <label for="description" class="form-label">Email Intructions</label>
+                            <div id="snow-editor-email" style="height: 300px;">{!! $paymentMethod->email_instructions !!}</div>
+                            <input type="hidden" name="email_instructions" id="email_instructions"
+                                value="{{ $paymentMethod->email_instructions }}">
+                            {{-- <div class="form-label-group in-border">
 
+                                    <textarea class="form-control mb-3" name="description_s_ch" id="description"
+                                        placeholder="Enter product description here...">{{ old('description_s_ch') }}</textarea>
+                                </div> --}}
+                        </div>
                         <div class="col-12">
                             <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                 <li class="nav-item">

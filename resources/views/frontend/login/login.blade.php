@@ -64,13 +64,18 @@
                                                         <strong>{{ $errors->first('login_email') }}</strong>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 mb-3">
-                                                    <div class="position-relative auth-pass-inputgroup w-100">
+                                                    <div
+                                                        class="input-group position-relative auth-pass-inputgroup w-100">
                                                         <input type="password"
                                                             class="form-control @if ($errors->has('login_password')) is-invalid @endif"
                                                             placeholder="{{ __('login.Password') }}" id="password-input"
                                                             value="{{ old('login_password') }}" name="login_password"
                                                             required>
+                                                        <button class="btn btn-icon btn-primary show_paswd"
+                                                            type="button">
+                                                            Show</button>
                                                         <div class="invalid-feedback">
                                                             <strong>{{ $errors->first('login_password') }}</strong>
                                                         </div>

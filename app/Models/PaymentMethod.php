@@ -18,6 +18,7 @@ class PaymentMethod extends Model
         'description',
         'description_s_ch',
         'description_ch',
+        'email_instructions'
     ];
 
     protected $dates = [

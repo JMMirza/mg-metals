@@ -84,7 +84,13 @@
         setCurrent(current);
     }
 
-
+    $(document).on('click', '.show_paswd', function(e) {
+        if ($('#password-input').attr('type') == 'text') {
+            $('#password-input').attr('type', 'password');
+        } else {
+            $('#password-input').attr('type', 'text');
+        }
+    });
 
     document.body.onkeydown = function(e) {
         switch (e.which) {
