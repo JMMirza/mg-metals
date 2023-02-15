@@ -76,6 +76,7 @@ class ProductController extends Controller
         ]);
         $input = $request->all();
 
+        $input['status'] = 'active';
         $file_name = time() . '.' . $request->product_picture->extension();
         $path = 'uploads/products';
         File::ensureDirectoryExists($path);

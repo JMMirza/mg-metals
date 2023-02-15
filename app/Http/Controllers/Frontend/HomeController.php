@@ -30,9 +30,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $_products = Product::with('category')->where('status', 'active')->where(function ($query) {
-            $query->whereNull('valid_till')->orWhereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'));
-        });
+        $_products = Product::with('category');
         $products = $_products->limit(3)->latest()->get();
 
         return view('frontend.home.index', [
@@ -42,10 +40,7 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-        $_products = Product::with('category')->where('status', 'active')->where(function ($query) {
-
-            $query->whereNull('valid_till')->orWhereDate('valid_till', '>=', Carbon::now()->format('Y-m-d'));
-        });
+        $_products = Product::with('category');
 
         if ($request->has('category')) {
 

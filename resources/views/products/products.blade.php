@@ -23,7 +23,7 @@
                                 <th>SKU</th>
                                 <th>Name</th>
                                 <th>Product Type</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
