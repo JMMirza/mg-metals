@@ -428,7 +428,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
                                 <label for="status" class="form-label">Status (狀態)</label>
                                 <select id="" class="form-select form-control mb-3" name="status">
@@ -452,7 +452,7 @@
                                     @endif
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
 
                         <div class="col-md-4 col-sm-12 mb-3">
                             <div class="form-label-group in-border">
@@ -471,10 +471,25 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-label-group in-border">
-                                <label for="status" class="form-label">Valid Till (有效期至)</label>
-                                <input type="date" name="valid_till" value="{{ old('valid_till') }}"
+                                <label for="valid_from" class="form-label">Valid From (有效期自)</label>
+                                <input type="date" name="valid_from" id="valid_from" value="{{ old('valid_from') }}"
+                                    class="form-control mb-3 @if ($errors->has('valid_from')) is-invalid @endif">
+                                <div class="invalid-tooltip">
+                                    @if ($errors->has('valid_from'))
+                                        {{ $errors->first('valid_from') }}
+                                    @else
+                                        Valid till is required!
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-label-group in-border">
+                                <label for="valid_till" class="form-label">Valid Till (有效期至)</label>
+                                <input type="date" name="valid_till" id="valid_till" value="{{ old('valid_till') }}"
                                     class="form-control mb-3 @if ($errors->has('valid_till')) is-invalid @endif">
                                 <div class="invalid-tooltip">
                                     @if ($errors->has('valid_till'))
@@ -484,7 +499,7 @@
                                     @endif
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
 
                         <div class="col-md-12 mb-3">
                             <div id="invalid-tooltip-tiers" style="font-size:15px ;text-align:center;color: red">

@@ -29,22 +29,22 @@
 
                 <div class="col-sm-12 col-md-8 mb-xs-20">
                     @if (Config::get('app.locale') == 'en')
-                        <h3 class="mt-0">{{ $product->name }} @if ($product->productsQuantity() != null)
-                                <div class="intro-label">
-                                    <span class="badge badge-primary bg-green">In Stock</span>
-                                </div>
-                            @else
-                                <div class="intro-label">
-                                    <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
-                                </div>
-                            @endif
-                            {{-- <div class="intro-label">
-                            <span class="badge badge-danger bg-red">Sale</span>
-                        </div> --}}</h3>
+                        <h3 class="mt-0">{{ $product->name }} </h3>
                     @elseif (Config::get('app.locale') == 'ch')
                         <h3 class="mt-0">{{ $product->name_t_ch }}</h3>
                     @else
                         <h3 class="mt-0">{{ $product->name_s_ch }}</h3>
+                    @endif
+
+
+                    @if ($product->productsQuantity() != null)
+                        <div class="intro-label">
+                            <span class="badge badge-primary bg-green">In Stock</span>
+                        </div>
+                    @else
+                        <div class="intro-label">
+                            <span class="badge badge-danger bg-red">NOT AVAILABLE</span>
+                        </div>
                     @endif
 
                     <p class="mt-0">
@@ -69,7 +69,7 @@
                     @endif
 
 
-                    <div class="section-text mb-30">
+                    <!-- <div class="section-text mb-30">
                         @if (Config::get('app.locale') == 'en')
                             {{ $product->description }}
                         @elseif (Config::get('app.locale') == 'ch')
@@ -78,7 +78,7 @@
                             {{ $product->description_s_ch }}
                         @endif
 
-                    </div>
+                    </div> -->
 
                     <div class="section-text small">
                         <div>SKU: {{ $product->sku }}</div>
@@ -132,16 +132,19 @@
                                     <button type="submit"
                                         class="btn btn-mod btn-large btn-round">{{ __('home_page.ad_to_cart') }}</button>
                                 @endif
-                            </form>
-                            {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
-                                class="btn btn-mod btn-large btn-round">Buy
-                                Now</button> --}}
-                        @else
+
+                                @else
                             <a href="{{ route('customer_login') }}"
                                 class="  btn btn-mod btn-large btn-round">{{ __('home_page.buy_now') }}</a>
                         @endif
                         <a href="{{ route('shop') }}" class=" btn btn-mod btn-large btn-round"
                             style="background:rgb(234 163 0) !important;color:#333 !important;margin-left:15px; margin-top:10px">{{ __('home_page.cont_shop') }}</a>
+                            </form>
+
+                            {{-- <button type="button" data-toggle="modal" data-target="#exampleModalCenter"
+                                class="btn btn-mod btn-large btn-round">Buy
+                                Now</button> --}}
+                        
                     </div>
 
 

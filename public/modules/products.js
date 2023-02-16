@@ -26,14 +26,19 @@ $(document).ready(function () {
                 name: "category.name",
                 defaultContent: '<span>N/A</span>'
             },
-            // {
-            //     data: "status_prd",
-            //     name: "status_prd",
-            //     defaultContent: '<span>N/A</span>'
-            // },
             {
-                data: "created_at",
-                name: "created_at",
+                data: "status_prd",
+                name: "status_prd",
+                defaultContent: '<span>N/A</span>'
+            },
+            {
+                data: "validity",
+                name: "validity",
+                defaultContent: '<span>N/A</span>'
+            },
+            {
+                data: "updated_at",
+                name: "updated_at",
                 defaultContent: '<span>N/A</span>'
             },
             {

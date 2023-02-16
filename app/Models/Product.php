@@ -34,6 +34,7 @@ class Product extends Model
         'weight_in_grams',
         'weight_unit',
         'mark_up',
+        'valid_from',
         'valid_till',
         'status',
         'session_duration',
@@ -50,10 +51,15 @@ class Product extends Model
 
         'created_at',
         'updated_at',
+        'valid_from',
+        'valid_till',
     ];
 
     protected $casts = [
         'created_at' => 'date:d M, Y H:i',
+        'updated_at' => 'date:d M, Y H:i',
+        'valid_from' => 'date:d M, Y H:i',
+        'valid_till' => 'date:d M, Y H:i',
     ];
 
     protected $appends = [

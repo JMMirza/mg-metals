@@ -28,7 +28,22 @@
 
 <script type="text/javascript">
     $(function() {
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".flatpickr-range").flatpickr({
+            mode: "range",
+            minDate: "today",
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+        });
+
+        $(".flatpickr").flatpickr({
+            // minDate: "today",
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+        });
+
     })
 
     $('#myselect').select2({

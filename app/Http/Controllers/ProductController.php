@@ -26,11 +26,35 @@ class ProductController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('status_prd', function ($row) {
-                    if (($row->status == 'inactive' || $row->status == null) || $row->valid_till <= Carbon::now()->format('Y-m-d')) {
+
+                    $today = Carbon::now()->format('Y-m-d');
+
+                    if($row->status == 'active'){
+
+                        if($row->valid_from == null || $row->valid_till == null){
+                            return '<span class="badge bg-info">Active</span>';
+                        }else{
+
+                            if ($row->valid_from <=  $today && $row->valid_till >= $today) {
+                                return '<span class="badge bg-info">Active</span>';
+                            }else{
+                                return '<span class="badge bg-danger">Expired</span>';
+                            }
+                        }
+
+                    }else{
                         return '<span class="badge bg-danger">In Active</span>';
-                    } else {
-                        return '<span class="badge bg-info">Active</span>';
                     }
+
+                })
+                ->addColumn('validity', function ($row) {
+
+                    if($row->valid_from != null && $row->valid_till != null){
+                        return $row->valid_from->format('d M, Y') .' to '. $row->valid_till->format('d M, Y');
+                    }
+
+                    return 'N/A';
+                    
                 })
                 ->addColumn('action', function ($row) {
                     return view('products.actions', ['row' => $row]);
@@ -74,9 +98,28 @@ class ProductController extends Controller
             'weight' => 'required',
             'description' => 'required'
         ]);
-        $input = $request->all();
 
-        $input['status'] = 'active';
+        $input = $request->all();
+        // $valid_from = null;
+        // $valid_to = null;
+
+        // $validity = $request->input('validity', '');
+
+        // if($validity !== ''){
+
+        //     $validity = explode('to', $validity);
+
+        //     if(count($validity) == 2){
+        //         $valid_from = trim($validity[0]);
+        //         $valid_to = trim($validity[1]);
+        //     }else{
+        //         $valid_from = trim($validity[0]);
+        //         $valid_to = trim($validity[0]);
+        //     }
+        // }
+
+        // $input['status'] = 'active';
+
         $file_name = time() . '.' . $request->product_picture->extension();
         $path = 'uploads/products';
         File::ensureDirectoryExists($path);

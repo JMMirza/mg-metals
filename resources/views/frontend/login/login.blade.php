@@ -73,7 +73,7 @@
                                                             placeholder="{{ __('login.Password') }}" id="password-input"
                                                             value="{{ old('login_password') }}" name="login_password"
                                                             required>
-                                                        <button class="btn btn-icon btn-primary show_paswd"
+                                                        <button class="btn btn-icon btn-mod show_paswd"
                                                             type="button">
                                                             Show</button>
                                                         <div class="invalid-feedback">

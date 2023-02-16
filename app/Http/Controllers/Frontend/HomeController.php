@@ -40,18 +40,12 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-        $_products = Product::with('category');
+        $_products = Product::with('category')->where(['status' => 'active']);
 
         if ($request->has('category')) {
-
-            $category = Catergory::where('id', $request->category)->with(['children']);
-
-            // dd($category);
-
-            $_products = $_products->where(['catergory_id' => $request->category]);
+            $_products = $_products->where(['catergory_id' => $request->category, 'status' => 'active']);
         }
 
-        // dd($_products->orderBy('product_price', $request->sort)->get()->toArray());
         if ($request->get('sort') == 'desc') {
             $_products = $_products->get()->sortByDesc(function ($product) {
                 return $product->product_price;
@@ -68,6 +62,7 @@ class HomeController extends Controller
 
 
         $products = $_products;
+
         $categories = Catergory::whereNull('parent_id')->with(['children'])->get();
         $manufacturers = Manufacturer::all();
 
